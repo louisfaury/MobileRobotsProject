@@ -1,6 +1,7 @@
 #include "odometry_gr4.h"
 #include "useful_gr4.h"
 #include "init_pos_gr4.h"
+#include "config_file_gr4.h"
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -36,11 +37,11 @@ void update_odometry(CtrlStruct *cvs)
 	}
 
 	// ----- odometry computation start ----- //
-    incRight = r_sp * dt * WHEEL_RADIUS;
-    incLeft = l_sp * dt * WHEEL_RADIUS;
+    incRight = r_sp * dt * RobotGeometry::WHEEL_RADIUS;
+    incLeft = l_sp * dt * RobotGeometry::WHEEL_RADIUS;
 
     dS = 0.5*(incRight+incLeft);
-    dTheta = (incRight-incLeft)/0.1125; //TODO : define in config file
+    dTheta = (incRight-incLeft)/RobotGeometry::WHEEL_BASE;
 
 
 	// ----- odometry computation end ----- //

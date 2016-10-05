@@ -14,7 +14,6 @@ NAMESPACE_INIT(ctrlGr4);
 
 void update_odometry(CtrlStruct *cvs);
 
-static constexpr double WHEEL_RADIUS = 0.03; //m
 NAMESPACE_CLOSE();
 
 #endif
