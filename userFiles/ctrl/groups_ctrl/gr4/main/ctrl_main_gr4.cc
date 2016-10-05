@@ -86,27 +86,6 @@ void controller_loop(CtrlStruct *cvs)
 	// tower control
     outputs->tower_command = 15.;
 
-
-    /*double r_target_speed = PI;
-    double l_target_speed = PI;
-    if (t < -10)
-    {
-        speed_regulation(cvs,r_target_speed,l_target_speed);
-    }
-    else if (t < 0.)
-    {
-        r_target_speed = PI;
-        l_target_speed = 2*PI;
-        speed_regulation(cvs,r_target_speed,l_target_speed);
-    }
-
-
-    //plotting output wheels speed
-    set_plot(r_target_speed, "Right output wheel speed (rad/s)");
-    set_plot(l_target_speed, "Left output wheel speed (rad/s)");
-
-    return;*/
-
 	switch (cvs->main_state)
 	{
 		// calibration

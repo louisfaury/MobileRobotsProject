@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \author Nicolas Van der Noot
  * \file config_file.h
  * \brief This file is used to configure the project environment without parsing the 'config_file.txt' file

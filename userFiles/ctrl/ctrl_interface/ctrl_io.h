@@ -12,9 +12,6 @@
 // number of stored rising/falling edges
 #define NB_STORE_EDGE 10
 
-// PI
-#define PI 3.14159265
-
 // ID of the right and left sides
 enum{R_ID, L_ID};
 

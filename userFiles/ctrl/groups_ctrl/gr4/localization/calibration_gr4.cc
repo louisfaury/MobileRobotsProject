@@ -97,8 +97,7 @@ void calibration(CtrlStruct *cvs)
     case CALIB_STATE_D: // rotating of PI/2 angle
     {
         //computing turning time
-        double wB = 0.1125;
-        double tEnd = wB/0.03;
+        double tEnd = RobotGeometry::WHEEL_BASE/0.03;
         speed_regulation(cvs, -PI/2, PI/2);
 
         // go to final state after 2 seconds

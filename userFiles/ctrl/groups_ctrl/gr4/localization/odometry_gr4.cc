@@ -14,7 +14,8 @@ void update_odometry(CtrlStruct *cvs)
 	// variables declaration
 	double r_sp, l_sp;
 	double dt;
-
+    double incRight, incLeft;
+    double dS, dTheta;
 	RobotPosition *rob_pos;
 	CtrlIn *inputs;
 
@@ -35,9 +36,21 @@ void update_odometry(CtrlStruct *cvs)
 	}
 
 	// ----- odometry computation start ----- //
+    incRight = r_sp * dt * WHEEL_RADIUS;
+    incLeft = l_sp * dt * WHEEL_RADIUS;
+
+    dS = 0.5*(incRight+incLeft);
+    dTheta = (incRight-incLeft)/0.1125; //TODO : define in config file
 
 
 	// ----- odometry computation end ----- //
+    rob_pos->x += dS * cos(rob_pos->theta + 0.5*dTheta);
+    rob_pos->y += dS * sin(rob_pos->theta + 0.5*dTheta);
+    rob_pos->theta += dTheta;
+
+    set_plot(rob_pos->x, "Ideal blue x <[m]");
+    set_plot(rob_pos->y, "Ideal blue y <[m]");
+    set_plot(rob_pos->theta, "Ideal blue theta <[m]");
 
 	// last update time
 	rob_pos->last_t = inputs->t;

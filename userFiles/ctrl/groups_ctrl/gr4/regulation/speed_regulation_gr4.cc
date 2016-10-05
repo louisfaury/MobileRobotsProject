@@ -41,11 +41,15 @@ void speed_regulation(CtrlStruct *cvs, double r_sp_ref, double l_sp_ref)
     r_error = r_sp_ref - r_sp;
     l_error = l_sp_ref - l_sp;
 
+    // saturating the integral error to stay away from non linear behavior
     *r_int_error = limit_range(*r_int_error + dt*r_error, SpeedRegulation::PI_MIN_INT_ERR, SpeedRegulation::PI_MAX_INT_ERR);
     *l_int_error = limit_range(*l_int_error + dt*l_error, SpeedRegulation::PI_MIN_INT_ERR, SpeedRegulation::PI_MAX_INT_ERR);
 
 
     // wheel commands, after saturating output for actuators constraints
+    // PI controller using the following convention
+    //    u = K_P * ( err + (1/T_I)*int_error
+
     r_command = limit_range(r_error + (1./SpeedRegulation::PI_INT_CHAR_TIME)*(*r_int_error),-SpeedRegulation::PI_OUTPUT_EXTREMUM, SpeedRegulation::PI_OUTPUT_EXTREMUM);
     l_command = limit_range(l_error + (1./SpeedRegulation::PI_INT_CHAR_TIME)*(*l_int_error),-SpeedRegulation::PI_OUTPUT_EXTREMUM, SpeedRegulation::PI_OUTPUT_EXTREMUM);
     r_command *= SpeedRegulation::PI_PROP_GAIN;

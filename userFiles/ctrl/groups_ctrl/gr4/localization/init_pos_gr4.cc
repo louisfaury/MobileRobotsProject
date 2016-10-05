@@ -1,5 +1,6 @@
 #include "init_pos_gr4.h"
 #include <math.h>
+#include "config_file_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -17,7 +18,7 @@ void set_init_position(int robot_id, RobotPosition *rob_pos)
         case ROBOT_B: // blue robot
             rob_pos->x = 0.67;
             rob_pos->y = 1.15;
-            rob_pos->theta = -90.;
+            rob_pos->theta = -DEG2RAD(90.0);
             break;
 
 		case ROBOT_R: // red robot

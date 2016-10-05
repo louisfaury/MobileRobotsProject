@@ -729,6 +729,8 @@ init_pos_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
 math.h
 -
+config_file_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/config_file_gr4.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
 namespace_ctrl.h
@@ -919,6 +921,8 @@ namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
 CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CtrlStruct_gr4.h
+config_file_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/config_file_gr4.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.cc
 strategy_gr4.h
@@ -2256,6 +2260,10 @@ mbsysc_utilities_export.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file.h
 
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
+namespace_ctrl.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/namespace_ctrl.h
+
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/Controller.hh
 ctrl_io.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
@@ -2675,6 +2683,8 @@ namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
 CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation/CtrlStruct_gr4.h
+config_file_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation/config_file_gr4.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.h
 CtrlStruct_gr4.h
