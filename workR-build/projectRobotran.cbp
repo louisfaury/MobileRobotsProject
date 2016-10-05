@@ -120,6 +120,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -216,6 +217,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -897,6 +899,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -1008,6 +1011,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -1104,6 +1108,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -1162,6 +1167,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -1258,6 +1264,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR/../userFiles/ctrl/groups_ctrl/gr4/path" />
@@ -1316,6 +1323,7 @@
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr2" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr20" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
             <Add directory="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />

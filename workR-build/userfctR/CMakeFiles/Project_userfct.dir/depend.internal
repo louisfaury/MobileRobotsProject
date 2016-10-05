@@ -689,9 +689,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
@@ -753,9 +753,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h
@@ -946,9 +946,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
  /usr/include/SDL2/SDL.h
@@ -1012,6 +1012,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
  /usr/include/SDL2/SDL.h
@@ -1135,9 +1136,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/calibration_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/odometry_gr4.h
@@ -1204,9 +1205,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/calibration_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/odometry_gr4.h
@@ -1337,9 +1338,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
  /usr/include/SDL2/SDL.h
@@ -1400,9 +1401,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main/CtrlStruct_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
  /usr/include/SDL2/SDL.h
@@ -1463,9 +1464,9 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_struct/project_userfct_export.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output/set_output.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../mbsysCopy/mbs_common/mbs_utilities/mbsysc_utilities_export.h
- /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/namespace_ctrl.h
+ /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/odometry_gr4.h
  /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/opp_pos_gr4.h

@@ -39,7 +39,7 @@
 #
 blue_ctrl   : Gr4Ctrl
 red_ctrl    : NoCtrl
-yellow_ctrl : NoCtrl
+yellow_ctrl : RestingCtrl
 white_ctrl  : NoCtrl
 
 
@@ -58,8 +58,8 @@ red_T1 : 0.82
 red_T2 : 1.4
 red_R3 : -90.0
 
-yellow_T1 : 0.67
-yellow_T2 : -1.15
+yellow_T1 : 0.57
+yellow_T2 : 0.8
 yellow_R3 : 90.0
 
 white_T1 : 0.82

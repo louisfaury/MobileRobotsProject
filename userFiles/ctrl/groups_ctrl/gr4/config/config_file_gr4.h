@@ -1,0 +1,53 @@
+/*!
+ *  @file : config_file_gr4.h
+ *  @brief : register macros and robots geometry variables
+ */
+
+#ifndef CONFIG_FILE_GR4_H
+#define CONFIG_FILE_GR4_H
+
+#include "namespace_ctrl.h"
+
+NAMESPACE_INIT(ctrlGr4);
+
+// PI
+#define PI 3.14159265
+
+// macros
+#define RAD2DEG(X) (180*X/PI)
+#define DEG2RAD(X) (PI*X/180)
+
+//geometry
+namespace RobotGeometry
+{
+    static constexpr double WHEEL_BASE    = 0.225; //m
+    static constexpr double WHEEL_RADIUS  = 0.03;  //m
+    static constexpr double BEACON_RADIUS = 0.04;  //m
+    static constexpr double TOWER_X       = 0.083; //m
+    static constexpr double TOWER_Y       = 0.;    //m
+    static constexpr double TOWER_THETA   = 0.;    //rad
+
+    /*!
+     * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)
+     * \param xRef
+     * \param yRef
+     * \param thetaRef
+     * \param x
+     * \param y
+     * \param theta
+     */
+    static void moveToRef(double xRef, double yRef, double thetaRef, double& x, double& y)
+    {
+        double xTemp(x);
+        double yTemp(y);
+        x = xRef + xTemp*cos(thetaRef) - yTemp*sin(thetaRef);
+        y = yRef + xTemp*sin(thetaRef) + yTemp*cos(thetaRef);
+    }
+}
+
+
+NAMESPACE_CLOSE();
+
+
+#endif // CONFIG_FILE_GR4_H
+

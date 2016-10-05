@@ -40,6 +40,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation"
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/main"
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization"
+  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config"
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/strategy"
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful"
   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/path"

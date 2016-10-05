@@ -795,6 +795,8 @@ init_pos_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/useful_gr4.h
+config_file_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/localization/config_file_gr4.h
 math.h
 -
 
@@ -2262,10 +2264,6 @@ mbsysc_utilities_export.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/config_file_gr4.h
-namespace_ctrl.h
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/config/namespace_ctrl.h
-
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/Controller.hh
 ctrl_io.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/ctrl_interface/ctrl_io.h
@@ -2617,6 +2615,10 @@ namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr3/namespace_ctrl.h
 stdlib.h
 -
+
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/config_file_gr4.h
+namespace_ctrl.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/config/namespace_ctrl.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/calibration_gr4.h
 namespace_ctrl.h

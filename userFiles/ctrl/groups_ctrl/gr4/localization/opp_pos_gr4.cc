@@ -1,6 +1,7 @@
 #include "opp_pos_gr4.h"
 #include "init_pos_gr4.h"
 #include "useful_gr4.h"
+#include "config_file_gr4.h"
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -65,12 +66,12 @@ void opponents_tower(CtrlStruct *cvs)
 	}
 
 	// ----- opponents position computation start ----- //
+    single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, opp_pos->x, opp_pos->y);
 
-	opp_pos->x[0] = 0.0;
-	opp_pos->y[0] = 0.0;
-
-	opp_pos->x[1] = 0.0;
-	opp_pos->y[1] = 0.0;
+    if (nb_opp == 2)
+    {
+        single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, opp_pos->x+1, opp_pos->y+1);
+    }
 
 	// ----- opponents position computation end ----- //
 }
@@ -88,9 +89,33 @@ void opponents_tower(CtrlStruct *cvs)
  */
 int single_opp_tower(double last_rise, double last_fall, double rob_x, double rob_y, double rob_theta, double *new_x_opp, double *new_y_opp)
 {
-	*new_x_opp = 0.0;
-	*new_y_opp = 0.0;
+    if ( last_fall > last_rise )
+    {
+        double d = RobotGeometry::BEACON_RADIUS * ( 1. / tan(0.5*(last_fall - last_rise)) );
+        double theta = 0.5 * (last_fall + last_rise);
 
+        //In the frame attached to the base of the tower (TOWER_X,TOWER_Y,TOWER_THETA)
+        double x = d * cos(theta);
+        double y = d * sin(theta);
+
+        //Moving to the frame attached to the center of the robot
+        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, x, y);
+
+        //Moving to the main frame
+        RobotGeometry::moveToRef(rob_x, rob_y, rob_theta, x, y);
+
+        //Copying
+        *new_x_opp = x;
+        *new_y_opp = y;
+
+        set_plot(x, "Real x ");
+        set_plot(y, "Real y ");
+        set_plot(0.57, "Ideal x");
+        set_plot(0.8, "Ideal y");
+
+
+
+    }
 	return 1;
 }
 

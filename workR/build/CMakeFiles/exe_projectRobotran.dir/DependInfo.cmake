@@ -40,6 +40,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../../userFiles/ctrl/groups_ctrl/gr4/regulation"
   "../../userFiles/ctrl/groups_ctrl/gr4/main"
   "../../userFiles/ctrl/groups_ctrl/gr4/localization"
+  "../../userFiles/ctrl/groups_ctrl/gr4/config"
   "../../userFiles/ctrl/groups_ctrl/gr4/strategy"
   "../../userFiles/ctrl/groups_ctrl/gr4/useful"
   "../../userFiles/ctrl/groups_ctrl/gr4/path"
