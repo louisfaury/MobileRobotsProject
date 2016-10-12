@@ -40,7 +40,7 @@
 blue_ctrl   : Gr4Ctrl
 red_ctrl    : NoCtrl
 yellow_ctrl : RestingCtrl
-white_ctrl  : NoCtrl
+white_ctrl  : NoCtrl 
 
 
 # -- ROBOT INITIAL POSITIONS -- #
@@ -62,7 +62,7 @@ yellow_T1 : 0.57
 yellow_T2 : 0.8
 yellow_R3 : 90.0
 
-white_T1 : 0.82
+white_T1 : 1
 white_T2 : -1.4
 white_R3 : 90.0
 

@@ -66,12 +66,44 @@ void opponents_tower(CtrlStruct *cvs)
 	}
 
 	// ----- opponents position computation start ----- //
-    single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, opp_pos->x, opp_pos->y);
+
+    // keeping old values in memory for low pass filter
+    double oldX = opp_pos->x[0];
+    double oldY = opp_pos->y[0];
+
+    // performing opponent tower detection and positioning
+    if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
+    {
+        // low-pass filter for opponent position
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
+    }
+
+    set_plot(*opp_pos->x, "Rx1 ");
+    set_plot(*opp_pos->y, "Ry1 ");
+    set_plot(0.57, "Ix1");
+    set_plot(0.8, "Iy1");
 
     if (nb_opp == 2)
     {
-        single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, opp_pos->x+1, opp_pos->y+1);
+        oldX = opp_pos->x[1];
+        oldY = opp_pos->y[1];
+
+        if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
+        {
+            opp_pos->x[1] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
+            opp_pos->y[1] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
+        }
     }
+
+    check_opp_front(cvs);
+
+   // printf("%f, %f, %f, %f\n", rise_1, fall_1, rise_2, fall_2);
+
+  /*  set_plot(opp_pos->x[1], "Rx2 ");
+    set_plot(opp_pos->y[1], "Ry2 ");
+    set_plot(0.82, "Ix2");
+    set_plot(0.7, "Iy2");*/
 
 	// ----- opponents position computation end ----- //
 }
@@ -89,6 +121,7 @@ void opponents_tower(CtrlStruct *cvs)
  */
 int single_opp_tower(double last_rise, double last_fall, double rob_x, double rob_y, double rob_theta, double *new_x_opp, double *new_y_opp)
 {
+    double res = 0;
     if ( last_fall > last_rise )
     {
         double d = RobotGeometry::BEACON_RADIUS * ( 1. / tan(0.5*(last_fall - last_rise)) );
@@ -108,15 +141,10 @@ int single_opp_tower(double last_rise, double last_fall, double rob_x, double ro
         *new_x_opp = x;
         *new_y_opp = y;
 
-        set_plot(x, "Real x ");
-        set_plot(y, "Real y ");
-        set_plot(0.57, "Ideal x");
-        set_plot(0.8, "Ideal y");
-
-
+        res = 1;
 
     }
-	return 1;
+    return res;
 }
 
 /*! \brief check if there is an opponent in front of the robot
@@ -128,6 +156,12 @@ int check_opp_front(CtrlStruct *cvs)
 {
 	// variables declaration
 	int i, nb_opp;
+    int res = 0;
+
+    double distToOppSquare(0); // no sqrt for reducing computation time
+    double angToOpp(0);
+    bool inFront(false);
+    bool tooClose(false);
 
 	OpponentsPosition *opp_pos;
 	RobotPosition *rob_pos;
@@ -137,12 +171,6 @@ int check_opp_front(CtrlStruct *cvs)
 	opp_pos = cvs->opp_pos;
 	nb_opp = opp_pos->nb_opp;
 
-	// no opponent
-	if (!nb_opp)
-	{
-		return 0;
-	}
-
 	// safety
 	if (nb_opp < 0 || nb_opp > 2)
 	{
@@ -150,14 +178,25 @@ int check_opp_front(CtrlStruct *cvs)
 		exit(EXIT_FAILURE);
 	}
 
-	for(i=0; i<nb_opp; i++)
-	{
-		// ----- opponents check computation start ----- //
+    if (nb_opp > 0)
+    {
+        for(i=0; i<nb_opp; i++)
+        {
+            distToOppSquare = (opp_pos->x[i]-rob_pos->x)*(opp_pos->x[i]-rob_pos->x) + (opp_pos->y[i]-rob_pos->y)*(opp_pos->y[i]-rob_pos->y);
+            angToOpp        = atan2(opp_pos->y[i]-rob_pos->y, opp_pos->x[i]-rob_pos->x);
 
-		// ----- opponents check computation end ----- //
-	}
+            inFront  = ( fabs( angToOpp - rob_pos->theta) < ConstraintConstant::ANG_FRONT_WIDTH );
+            tooClose = ( distToOppSquare < ConstraintConstant::MIN_OPP_DIST*ConstraintConstant::MIN_OPP_DIST );
 
-	return 0;
+            if ( inFront && tooClose )
+            {
+                res = 1;
+                break;
+            }
+
+        }
+    }
+    return res;
 }
 
 NAMESPACE_CLOSE();

@@ -45,7 +45,11 @@ namespace RobotGeometry
     }
 }
 
-
+namespace ConstraintConstant
+{
+    static constexpr double MIN_OPP_DIST    = 0.4;
+    static constexpr double ANG_FRONT_WIDTH = DEG2RAD(20);
+}
 NAMESPACE_CLOSE();
 
 
