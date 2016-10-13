@@ -79,10 +79,10 @@ void opponents_tower(CtrlStruct *cvs)
         opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
     }
 
-    set_plot(*opp_pos->x, "Rx1 ");
+   /* set_plot(*opp_pos->x, "Rx1 ");
     set_plot(*opp_pos->y, "Ry1 ");
     set_plot(0.57, "Ix1");
-    set_plot(0.8, "Iy1");
+    set_plot(0.8, "Iy1");*/
 
     if (nb_opp == 2)
     {

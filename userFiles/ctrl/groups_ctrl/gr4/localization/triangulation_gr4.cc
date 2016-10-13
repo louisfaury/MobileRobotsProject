@@ -2,6 +2,7 @@
 #include "useful_gr4.h"
 #include "init_pos_gr4.h"
 #include <math.h>
+#include "config_file_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -22,26 +23,26 @@ void fixed_beacon_positions(int team_id, double *x_beac_1, double *y_beac_1,
 {
 	switch (team_id)
 	{
-		case TEAM_A:
-			*x_beac_1 = 0.0;
-			*y_beac_1 = 0.0;
+        case TEAM_A:
+            *x_beac_1 = 1.062;
+            *y_beac_1 = 1.562;
 
-			*x_beac_2 = 0.0;
-			*y_beac_2 = 0.0;
+            *x_beac_3 = -1.062;
+            *y_beac_3 = 1.562;
 
-			*x_beac_3 = 0.0;
-			*y_beac_3 = 0.0;
+            *x_beac_2 = 0.0;
+            *y_beac_2 = -1.562;
 			break;
 
-		case TEAM_B:
-			*x_beac_1 = 0.0;
-			*y_beac_1 = 0.0;
+        case TEAM_B:
+            *x_beac_2 = 0.;
+            *y_beac_2 = 1.562;
 
-			*x_beac_2 = 0.0;
-			*y_beac_2 = 0.0;
+            *x_beac_1 = -1.062;
+            *y_beac_1 = -1.562;
 
-			*x_beac_3 = 0.0;
-			*y_beac_3 = 0.0;
+            *x_beac_3 = 1.062;
+            *y_beac_3 = -1.562;
 			break;
 	
 		default:
@@ -65,7 +66,6 @@ int index_predicted(double alpha_predicted, double alpha_a, double alpha_b, doub
 	pred_err_a = fabs(limit_angle(alpha_a - alpha_predicted));
 	pred_err_b = fabs(limit_angle(alpha_b - alpha_predicted));
 	pred_err_c = fabs(limit_angle(alpha_c - alpha_predicted));
-
 	return (pred_err_a < pred_err_b) ? ((pred_err_a < pred_err_c) ? 0 : 2) : ((pred_err_b < pred_err_c) ? 1 : 2);
 }
 
@@ -114,16 +114,18 @@ void triangulation(CtrlStruct *cvs)
 	fall_index_3 = (fall_index_2 - 1 < 0) ? NB_STORE_EDGE-1 : fall_index_2 - 1;
 
 	// beacons angles measured with the laser (to compute)
-	alpha_a = 0.0;
-	alpha_b = 0.0;
-	alpha_c = 0.0;
+    alpha_a = 0.5 * (inputs->last_falling_fixed[fall_index_1] + inputs->last_rising_fixed[rise_index_1]);
+    alpha_b = 0.5 * (inputs->last_falling_fixed[fall_index_2] + inputs->last_rising_fixed[rise_index_2]);
+    alpha_c = 0.5 * (inputs->last_falling_fixed[fall_index_3] + inputs->last_rising_fixed[rise_index_3]);
 
 	// beacons angles predicted thanks to odometry measurements (to compute)
-	alpha_1_predicted = 0.0;
-	alpha_2_predicted = 0.0;
-	alpha_3_predicted = 0.0;
+    alpha_1_predicted = atan2(rob_pos->y-y_beac_1,rob_pos->x-x_beac_1) - rob_pos->theta;
+    alpha_2_predicted = atan2(rob_pos->y-y_beac_2,rob_pos->x-x_beac_2) - rob_pos->theta;
+    alpha_3_predicted = atan2(rob_pos->y-y_beac_3,rob_pos->x-x_beac_3) - rob_pos->theta;
 
-	// indexes of each beacon
+    printf("%f,%f,%f,%f,%f,%f\n", RAD2DEG(alpha_a), RAD2DEG(alpha_b), RAD2DEG(alpha_c), RAD2DEG(alpha_1_predicted), RAD2DEG(alpha_2_predicted), RAD2DEG(alpha_3_predicted) );
+    printf("theta : %f\n", rob_pos->theta);
+    // indexes of each beacon
 	alpha_1_index = index_predicted(alpha_1_predicted, alpha_a, alpha_b, alpha_c);
 	alpha_2_index = index_predicted(alpha_2_predicted, alpha_a, alpha_b, alpha_c);
 	alpha_3_index = index_predicted(alpha_3_predicted, alpha_a, alpha_b, alpha_c);
@@ -173,12 +175,37 @@ void triangulation(CtrlStruct *cvs)
 
 	// ----- triangulation computation start ----- //
 
-	// robot position
-	pos_tri->x = 0.0;
-	pos_tri->y = 0.0;
+    double xP1 = x_beac_1 - x_beac_2;
+    double yP1 = y_beac_1 - y_beac_2;
+    double xP3 = x_beac_3 - x_beac_2;
+    double yP3 = y_beac_3 - y_beac_2;
 
-	// robot orientation
-	pos_tri->theta = 0.0;
+    double T12 = 1/tan(alpha_2 - alpha_1);
+    double T23 = 1/tan(alpha_3 - alpha_2);
+    double T31 = (1-T12*T23) / (T12 + T23);
+
+    double xP12 = xP1 + T12*yP1;
+    double yP12 = yP1 - T12*xP1;
+    double xP23 = xP3 - T23*yP3;
+    double yP23 = yP3 + T23*xP3;
+    double xP31 = xP3 + xP1 + T31*(yP3 - yP1);
+    double yP31 = yP3 + yP1 - T31*(xP3 - xP1);
+
+    double kP31 = xP1 * xP3 + yP1 * yP3 + T31*(xP1*yP3 - xP3*yP1);
+    double D    = (xP12 - xP23)*(yP23 - yP31) - (yP12 - yP23)*(xP23 - xP31);
+
+    if ( true || fabs(D)  > EPSILON )  //dealing with floating point value imprecision
+    {
+        pos_tri->x = x_beac_2 + (kP31/D) * (yP12 - yP23);
+        pos_tri->y = y_beac_2 + (kP31/D) * (xP23 - xP12);
+        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, pos_tri->x, pos_tri->y );
+        pos_tri->theta = alpha_1_predicted - atan2(rob_pos->y-y_beac_1,rob_pos->x-x_beac_1);
+        set_plot(pos_tri->x, "TrianX");
+        set_plot(pos_tri->y, "TrianY");
+    }
+    else
+        return;
+
 
 	// ----- triangulation computation end ----- //
 }

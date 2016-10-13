@@ -17,6 +17,8 @@ NAMESPACE_INIT(ctrlGr4);
 #define RAD2DEG(X) (180*X/PI)
 #define DEG2RAD(X) (PI*X/180)
 
+#define EPSILON  0.000001  //dealing with float imprecision
+
 //geometry
 namespace RobotGeometry
 {

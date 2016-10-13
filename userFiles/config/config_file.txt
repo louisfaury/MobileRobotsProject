@@ -52,7 +52,7 @@ white_ctrl  : NoCtrl
 #
 blue_T1 : 0.67
 blue_T2 : 1.15
-blue_R3 : -90.0
+blue_R3 : 0.0
 
 red_T1 : 0.82
 red_T2 : 1.4

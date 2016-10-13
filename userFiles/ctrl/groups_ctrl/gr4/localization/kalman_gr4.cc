@@ -12,7 +12,7 @@ NAMESPACE_INIT(ctrlGr4);
 void kalman(CtrlStruct *cvs)
 {
 	// variable declaration
-	RobotPosition *rob_pos;
+    RobotPosition *rob_pos;
 	RobotPosition *triang_pos;
 
 	// variables initialization
