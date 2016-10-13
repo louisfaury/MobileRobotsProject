@@ -75,8 +75,8 @@ void opponents_tower(CtrlStruct *cvs)
     if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
     {
         // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
     }
 
    /* set_plot(*opp_pos->x, "Rx1 ");
@@ -91,8 +91,8 @@ void opponents_tower(CtrlStruct *cvs)
 
         if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
         {
-            opp_pos->x[1] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
-            opp_pos->y[1] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t);
+            opp_pos->x[1] = first_order_filter(oldY, opp_pos->x[1], 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
+            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
         }
     }
 

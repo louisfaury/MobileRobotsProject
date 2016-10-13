@@ -2,6 +2,7 @@
 #include "useful_gr4.h"
 #include "init_pos_gr4.h"
 #include <math.h>
+#include "config_file.h"
 #include "config_file_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
@@ -24,25 +25,25 @@ void fixed_beacon_positions(int team_id, double *x_beac_1, double *y_beac_1,
 	switch (team_id)
 	{
         case TEAM_A:
-            *x_beac_1 = 1.062;
-            *y_beac_1 = 1.562;
+            *x_beac_1 = TEAM_A_BEACON_1_X;
+            *y_beac_1 = TEAM_A_BEACON_1_Y;
 
-            *x_beac_3 = -1.062;
-            *y_beac_3 = 1.562;
+            *x_beac_2 = TEAM_A_BEACON_2_X;
+            *y_beac_2 = TEAM_A_BEACON_2_Y;
 
-            *x_beac_2 = 0.0;
-            *y_beac_2 = -1.562;
+            *x_beac_3 = TEAM_A_BEACON_3_X;
+            *y_beac_3 = TEAM_A_BEACON_3_Y;
 			break;
 
         case TEAM_B:
-            *x_beac_2 = 0.;
-            *y_beac_2 = 1.562;
+            *x_beac_1 = TEAM_B_BEACON_1_X;
+            *y_beac_1 = TEAM_B_BEACON_1_Y;
 
-            *x_beac_1 = -1.062;
-            *y_beac_1 = -1.562;
+            *x_beac_2 = TEAM_B_BEACON_2_X;
+            *y_beac_2 = TEAM_B_BEACON_2_Y;
 
-            *x_beac_3 = 1.062;
-            *y_beac_3 = -1.562;
+            *x_beac_3 = TEAM_B_BEACON_3_X;
+            *y_beac_3 = TEAM_B_BEACON_3_Y;
 			break;
 	
 		default:
@@ -88,12 +89,24 @@ void triangulation(CtrlStruct *cvs)
 	double alpha_a, alpha_b, alpha_c;
 	double alpha_1, alpha_2, alpha_3;
 	double alpha_1_predicted, alpha_2_predicted, alpha_3_predicted;
-	double x_beac_1, y_beac_1, x_beac_2, y_beac_2, x_beac_3, y_beac_3;
+    double x_beac_1, y_beac_1, x_beac_2, y_beac_2, x_beac_3, y_beac_3;
+    double xRes, yRes, thetaRes;
+    double posPeakThreshold;
+    double angPeakThreshold;
+    double tau;
+    double dt;
+
+    static bool init(false); //used to be able to fix an +infty threshold when filtering first position
 
 	// variables initialization
 	pos_tri = cvs->triang_pos;
 	rob_pos = cvs->rob_pos;
 	inputs  = cvs->inputs;
+
+    // for low pass filter increment
+    dt = inputs->t - pos_tri->last_t;
+    pos_tri->last_t = inputs->t;
+
 
 	// safety
 	if ((inputs->rising_index_fixed < 0) || (inputs->falling_index_fixed < 0))
@@ -119,12 +132,10 @@ void triangulation(CtrlStruct *cvs)
     alpha_c = 0.5 * (inputs->last_falling_fixed[fall_index_3] + inputs->last_rising_fixed[rise_index_3]);
 
 	// beacons angles predicted thanks to odometry measurements (to compute)
-    alpha_1_predicted = atan2(rob_pos->y-y_beac_1,rob_pos->x-x_beac_1) - rob_pos->theta;
-    alpha_2_predicted = atan2(rob_pos->y-y_beac_2,rob_pos->x-x_beac_2) - rob_pos->theta;
-    alpha_3_predicted = atan2(rob_pos->y-y_beac_3,rob_pos->x-x_beac_3) - rob_pos->theta;
+    alpha_1_predicted = atan2(y_beac_1-rob_pos->y,x_beac_1-rob_pos->x) - rob_pos->theta;
+    alpha_2_predicted = atan2(y_beac_2-rob_pos->y,x_beac_2-rob_pos->x) - rob_pos->theta;
+    alpha_3_predicted = atan2(y_beac_3-rob_pos->y,x_beac_3-rob_pos->x) - rob_pos->theta;
 
-    printf("%f,%f,%f,%f,%f,%f\n", RAD2DEG(alpha_a), RAD2DEG(alpha_b), RAD2DEG(alpha_c), RAD2DEG(alpha_1_predicted), RAD2DEG(alpha_2_predicted), RAD2DEG(alpha_3_predicted) );
-    printf("theta : %f\n", rob_pos->theta);
     // indexes of each beacon
 	alpha_1_index = index_predicted(alpha_1_predicted, alpha_a, alpha_b, alpha_c);
 	alpha_2_index = index_predicted(alpha_2_predicted, alpha_a, alpha_b, alpha_c);
@@ -196,12 +207,27 @@ void triangulation(CtrlStruct *cvs)
 
     if ( true || fabs(D)  > EPSILON )  //dealing with floating point value imprecision
     {
-        pos_tri->x = x_beac_2 + (kP31/D) * (yP12 - yP23);
-        pos_tri->y = y_beac_2 + (kP31/D) * (xP23 - xP12);
-        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, pos_tri->x, pos_tri->y );
-        pos_tri->theta = alpha_1_predicted - atan2(rob_pos->y-y_beac_1,rob_pos->x-x_beac_1);
+        xRes = x_beac_2 + (kP31/D) * (yP12 - yP23);
+        yRes = y_beac_2 + (kP31/D) * (xP23 - xP12);
+        thetaRes = (1./3) * ( alpha_1_predicted - atan2(y_beac_1-rob_pos->y,x_beac_1-rob_pos->x) )
+                   + (1./3) * ( alpha_2_predicted - atan2(y_beac_2-rob_pos->y,x_beac_2-rob_pos->x) )
+                   + (1./3) * ( alpha_3_predicted - atan2(y_beac_3-rob_pos->y,x_beac_3-rob_pos->x) );
+        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, xRes, yRes ); //Robot Frame
+
+        // some computation to enable x & y to jump at initialization
+        tau = (init) ? 10*dt : EPSILON;
+        angPeakThreshold = (init) ? ConstraintConstant::ANG_UPDATE_THRESHOLD : UINT64_MAX;
+        posPeakThreshold = (init) ? ConstraintConstant::POS_UPDATE_THRESHOLD : UINT64_MAX;
+        pos_tri->x = first_order_filter(pos_tri->x, xRes, tau, dt, posPeakThreshold);
+        pos_tri->y = first_order_filter(pos_tri->y, yRes, tau, dt, posPeakThreshold);
+        pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, 10*dt, dt, angPeakThreshold);
+
         set_plot(pos_tri->x, "TrianX");
         set_plot(pos_tri->y, "TrianY");
+
+        if (!init)
+            init = true;
+
     }
     else
         return;

@@ -51,6 +51,8 @@ namespace ConstraintConstant
 {
     static constexpr double MIN_OPP_DIST    = 0.4;
     static constexpr double ANG_FRONT_WIDTH = DEG2RAD(20);
+    static constexpr double POS_UPDATE_THRESHOLD = 0.5; //no jumps > 50cm
+    static constexpr double ANG_UPDATE_THRESHOLD = DEG2RAD(20); //no jums >20deg
 }
 NAMESPACE_CLOSE();
 

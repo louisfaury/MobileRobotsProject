@@ -15,7 +15,7 @@ double rnd();
 double norm_dist(double dx, double dy);
 double limit_range(double x, double min, double max);
 double limit_angle(double x);
-double first_order_filter(double last_val, double new_val, double tau, double delta_t);
+double first_order_filter(double last_val, double new_val, double tau, double delta_t, double threshold);
 
 NAMESPACE_CLOSE();
 

@@ -63,13 +63,16 @@ double limit_angle(double x)
  * \param[in] delta_t time increment since last call [s]
  * \return output of the low-pass filter
  */
-double first_order_filter(double last_val, double new_val, double tau, double delta_t) // TODO : double threshold value
+double first_order_filter(double last_val, double new_val, double tau, double delta_t, double threshold)
 {
-	double f = delta_t / tau;
-	double frac = 1.0 / (1.0 + f);
-
-    //TODO : add threshold detection
-	return f * frac * new_val + frac * last_val;
+    double res = last_val;
+    if ( fabs(last_val-new_val)<threshold )
+    {
+        double f = delta_t / tau;
+        double frac = 1.0 / (1.0 + f);
+        res = f * frac * new_val + frac * last_val;
+    }
+    return res;
 }
 
 NAMESPACE_CLOSE();

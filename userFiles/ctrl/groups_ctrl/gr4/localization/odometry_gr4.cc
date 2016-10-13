@@ -49,9 +49,8 @@ void update_odometry(CtrlStruct *cvs)
     rob_pos->y += dS * sin(rob_pos->theta + 0.5*dTheta);
     rob_pos->theta += dTheta;
 
-    set_plot(rob_pos->x, "Ideal blue x <[m]");
-    set_plot(rob_pos->y, "Ideal blue y <[m]");
-   // set_plot(rob_pos->theta, "Ideal blue theta <[m]");
+    set_plot(rob_pos->x, "Odo x [m]");
+    set_plot(rob_pos->y, "Odo y [m]");
 
 
 	// last update time
