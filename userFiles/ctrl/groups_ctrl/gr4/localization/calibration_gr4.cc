@@ -42,6 +42,7 @@ void calibration(CtrlStruct *cvs)
     {
     case CALIB_START: // start calibration
         set_init_position(cvs->robot_id, cvs->rob_pos);
+        set_triang_init_position(cvs->robot_id, cvs->triang_pos);
         speed_regulation(cvs, 0.0, 0.0);
 
         calib->flag = CALIB_STATE_A; // directly go to state A

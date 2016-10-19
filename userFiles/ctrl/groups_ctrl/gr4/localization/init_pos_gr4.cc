@@ -46,4 +46,38 @@ void set_init_position(int robot_id, RobotPosition *rob_pos)
 	}		
 }
 
+void set_triang_init_position(int robot_id, RobotPosition* triang_pos)
+{
+    switch (robot_id)
+    {
+        case ROBOT_B: // blue robot
+            triang_pos->x = BLUE_T1;
+            triang_pos->y = BLUE_T2;
+            triang_pos->theta = DEG2RAD(BLUE_R3);
+            break;
+
+        case ROBOT_R: // red robot
+            triang_pos->x = RED_T1;
+            triang_pos->y = RED_T2;
+            triang_pos->theta = DEG2RAD(RED_R3);
+            break;
+
+        case ROBOT_Y: // yellow robot
+            triang_pos->x = YELLOW_T1;
+            triang_pos->y = YELLOW_T2;
+            triang_pos->theta = DEG2RAD(YELLOW_R3);
+            break;
+
+        case ROBOT_W: //  white robot
+            triang_pos->x = WHITE_T1;
+            triang_pos->y = WHITE_T2;
+            triang_pos->theta = DEG2RAD(WHITE_R3) ;
+            break;
+
+        default:
+            printf("Error: unknown robot ID: %d !\n", robot_id);
+            exit(EXIT_FAILURE);
+    }
+}
+
 NAMESPACE_CLOSE();

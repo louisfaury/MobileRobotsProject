@@ -99,7 +99,7 @@ void triangulation(CtrlStruct *cvs)
     static bool init(false); //used to be able to fix an +infty threshold when filtering first position
 
 	// variables initialization
-	pos_tri = cvs->triang_pos;
+    pos_tri = cvs->triang_pos;
 	rob_pos = cvs->rob_pos;
 	inputs  = cvs->inputs;
 
@@ -209,9 +209,9 @@ void triangulation(CtrlStruct *cvs)
     {
         xRes = x_beac_2 + (kP31/D) * (yP12 - yP23);
         yRes = y_beac_2 + (kP31/D) * (xP23 - xP12);
-        thetaRes = (1./3) * ( alpha_1_predicted - atan2(y_beac_1-rob_pos->y,x_beac_1-rob_pos->x) )
-                   + (1./3) * ( alpha_2_predicted - atan2(y_beac_2-rob_pos->y,x_beac_2-rob_pos->x) )
-                   + (1./3) * ( alpha_3_predicted - atan2(y_beac_3-rob_pos->y,x_beac_3-rob_pos->x) );
+        thetaRes = (1./3)*( -alpha_1_predicted + atan2(y_beac_1-rob_pos->y,x_beac_1-rob_pos->x) )
+                   + (1./3) * ( -alpha_2_predicted + atan2(y_beac_2-rob_pos->y,x_beac_2-rob_pos->x) )
+                   + (1./3) * ( -alpha_3_predicted + atan2(y_beac_3-rob_pos->y,x_beac_3-rob_pos->x) );
         RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, xRes, yRes ); //Robot Frame
 
         // some computation to enable x & y to jump at initialization
@@ -220,13 +220,14 @@ void triangulation(CtrlStruct *cvs)
         posPeakThreshold = (init) ? ConstraintConstant::POS_UPDATE_THRESHOLD : UINT64_MAX;
         pos_tri->x = first_order_filter(pos_tri->x, xRes, tau, dt, posPeakThreshold);
         pos_tri->y = first_order_filter(pos_tri->y, yRes, tau, dt, posPeakThreshold);
-        pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, 10*dt, dt, angPeakThreshold);
+        pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, tau, dt, angPeakThreshold);
 
         set_plot(pos_tri->x, "TrianX");
         set_plot(pos_tri->y, "TrianY");
+        set_plot(pos_tri->theta, "TrianTheta");
 
-        if (!init)
-            init = true;
+        if (!init && norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 3*ConstraintConstant::POS_UPDATE_THRESHOLD)
+            init = true; // init set to true only when pos_tri and rob_pos are coherent
 
     }
     else

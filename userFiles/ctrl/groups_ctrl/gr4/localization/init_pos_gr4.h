@@ -24,6 +24,8 @@ typedef struct RobotPosition
 } RobotPosition;
 
 void set_init_position(int robot_id, RobotPosition *rob_pos);
+void set_triang_init_position(int robot_id, RobotPosition* triang_pos);
+
 
 NAMESPACE_CLOSE();
 
