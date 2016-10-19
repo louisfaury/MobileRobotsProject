@@ -13,31 +13,31 @@ NAMESPACE_INIT(ctrlGr4);
 enum {CALIB_START, CALIB_STATE_A, CALIB_STATE_B, CALIB_STATE_C, CALIB_ERROR_STATE, CALIB_FINISH, CALIB_STATE_D, CALIB_STATE_E};
 
 /*! \brief calibration of the robot to calibrate its position
- * 
+ *
  * \param[in,out] cvs controller main structure
- * 
+ *
  * This FSM can be adapted, depending on the map and on the robots initial position.
  */
 void calibration(CtrlStruct *cvs)
 {
-	// variables declaration
-	int team_id;
-	double t;
+    // variables declaration
+    int team_id;
+    double t;
 
-	CtrlIn *inputs;
-	RobotCalibration *calib;
-	RobotPosition *rob_pos;
+    CtrlIn *inputs;
+    RobotCalibration *calib;
+    RobotPosition *rob_pos;
 
-	// variables initialization
-	inputs = cvs->inputs;
-	calib  = cvs->calib;
+    // variables initialization
+    inputs = cvs->inputs;
+    calib  = cvs->calib;
 
-	rob_pos = cvs->rob_pos;
-	
-	t = inputs->t;
-	team_id = cvs->team_id;
+    rob_pos = cvs->rob_pos;
 
-	// finite state machine (FSM)
+    t = inputs->t;
+    team_id = cvs->team_id;
+
+    // finite state machine (FSM)
     switch (calib->flag)
     {
     case CALIB_START: // start calibration
@@ -75,11 +75,35 @@ void calibration(CtrlStruct *cvs)
         speed_regulation(cvs, -PI/2, -PI/2);
 
         // go to state C after 2 seconds
+        // Before, we calibrate the odometry module
         if (t - calib->t_flag > 2.0)
         {
-            calib->flag = CALIB_STATE_C;
+            //Stopping to be sure that we won't slide anymore
+            speed_regulation(cvs, 0, 0);
 
+
+            switch(team_id)
+            {
+            case TEAM_A:
+                //Telling odometry that we are sure that y = 1.5 and theta = -90
+                rob_pos->y=1.5-RobotGeometry::BACK_TO_CENTER;
+                rob_pos->theta=-PI/2;
+                break;
+            case TEAM_B:
+                //Telling odometry that we are sure that y = -1.5 and theta = 90
+                rob_pos->y=-1.5+RobotGeometry::BACK_TO_CENTER;
+                rob_pos->theta=PI/2;
+                break;
+            default:
+                printf("Error: unknown team, calibration impossible : %d !\n", calib->flag);
+                exit(EXIT_FAILURE);
+
+            }
+
+            calib->flag = CALIB_STATE_C;
             calib->t_flag = t;
+
+
         }
         break;
 
@@ -117,7 +141,7 @@ void calibration(CtrlStruct *cvs)
         bool r_activatedSwitch =  (cvs->inputs->u_switch[R_ID] > 0);
         bool l_activatedSwitch =  (cvs->inputs->u_switch[L_ID] > 0);
 
-        // go to state B after 5 seconds
+        // go to state Finish state after 5 seconds
         if ( r_activatedSwitch && l_activatedSwitch )
         {
             calib->flag = CALIB_FINISH;
@@ -135,7 +159,41 @@ void calibration(CtrlStruct *cvs)
         //TODO
         calib->flag = CALIB_FINISH;
         break;
-    case CALIB_FINISH: // wait before the match is starting
+
+    case CALIB_FINISH:
+
+        // keep on going backward for a little while (make sure that we are perfectly aligned)
+                speed_regulation(cvs, -PI/2, -PI/2);
+
+                // waiting for the match to start
+                if (t - calib->t_flag > 2.0)
+                {
+                    //Stopping to be sure that we won't slide anymore
+                    speed_regulation(cvs, 0, 0);
+
+                    switch(team_id)
+                    {
+                    case TEAM_A:
+                        //Telling odometry that we are sure that x = 1.+0.06 and theta = 180
+                        rob_pos->x = 1. - RobotGeometry::BACK_TO_CENTER;
+                        rob_pos->theta = -PI;
+                        break;
+                    case TEAM_B:
+                        //Telling odometry that we are sure that x = 0.5+0.06 and theta = 0
+                        //The robot is back against the interior wall
+                        rob_pos->x=0.5+RobotGeometry::BACK_TO_CENTER;
+                        rob_pos->theta=0;
+                        break;
+                    default:
+                        printf("Error: unknown team, calibration impossible : %d !\n", calib->flag);
+                        exit(EXIT_FAILURE);
+
+                    }
+
+
+
+                }
+        //Just to make sure we stop and wait for the match to begin
         speed_regulation(cvs, 0.0, 0.0);
         break;
 

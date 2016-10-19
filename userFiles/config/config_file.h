@@ -12,13 +12,13 @@
 #define HARDCODED_CONFIG ///< uncomment this field to use the hardcoded values instead of the ones of 'config_file.txt'
 
 // ROBOT CONTROLLERS
-#define BLUE_CTRL    "Gr4Ctrl"
+#define BLUE_CTRL    "NoCtrl"
 #define RED_CTRL     "NoCtrl"
-#define YELLLOW_CTRL "NoCtrl"
-#define WHITE_CTRL   "KeyboardCtrl"
+#define YELLLOW_CTRL "Gr4Ctrl"
+#define WHITE_CTRL   "NoCtrl"
 
 // ROBOT INITIAL POSITIONS
-#define BLUE_T1 0.
+#define BLUE_T1 0.67
 #define BLUE_T2 1.15
 #define BLUE_R3 -90.0
 

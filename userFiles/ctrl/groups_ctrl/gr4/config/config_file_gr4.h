@@ -22,12 +22,13 @@ NAMESPACE_INIT(ctrlGr4);
 //geometry
 namespace RobotGeometry
 {
-    static constexpr double WHEEL_BASE    = 0.225; //m
-    static constexpr double WHEEL_RADIUS  = 0.03;  //m
-    static constexpr double BEACON_RADIUS = 0.04;  //m
-    static constexpr double TOWER_X       = 0.083; //m
-    static constexpr double TOWER_Y       = 0.;    //m
-    static constexpr double TOWER_THETA   = 0.;    //rad
+    static constexpr double WHEEL_BASE     = 0.225; //m
+    static constexpr double WHEEL_RADIUS   = 0.03;  //m
+    static constexpr double BEACON_RADIUS  = 0.04;  //m
+    static constexpr double TOWER_X        = 0.083; //m
+    static constexpr double TOWER_Y        = 0.;    //m
+    static constexpr double TOWER_THETA    = 0.;    //rad
+    static constexpr double BACK_TO_CENTER = 0.06;  //m
 
     /*!
      * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)

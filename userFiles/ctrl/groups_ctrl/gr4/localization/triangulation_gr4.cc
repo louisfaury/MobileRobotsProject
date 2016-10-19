@@ -226,7 +226,7 @@ void triangulation(CtrlStruct *cvs)
         set_plot(pos_tri->y, "TrianY");
         set_plot(pos_tri->theta, "TrianTheta");
 
-        if (!init && norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 3*ConstraintConstant::POS_UPDATE_THRESHOLD)
+        if (!init && norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 5*ConstraintConstant::POS_UPDATE_THRESHOLD)
             init = true; // init set to true only when pos_tri and rob_pos are coherent
 
     }
