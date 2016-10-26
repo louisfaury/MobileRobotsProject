@@ -86,7 +86,37 @@ void controller_loop(CtrlStruct *cvs)
 	// tower control
     outputs->tower_command = 15.;
 
-	switch (cvs->main_state)
+    /*
+     * Test loop for milestone A
+    static bool init = false;
+    static double t0;
+    if (t <= -13)
+    {
+        speed_regulation(cvs, PI, PI);
+    }
+    else if (t>-13 && t<=-11)
+    {
+        speed_regulation(cvs, PI*(1-0.8), PI*(1+0.8));
+    }
+    else if (t>-11 && t<-9)
+    {
+        speed_regulation(cvs, PI,PI);
+    }
+    else
+    {
+        if (!init)
+        {
+            t0 = t;
+            init = true;
+        }
+        if (PI*(1-(t-t0)/2)>0)
+            speed_regulation(cvs,PI*(1-(t-t0)/2),PI*(1-(t-t0)/2));
+        else
+            speed_regulation(cvs,0,0);
+    }
+    */
+
+    switch (cvs->main_state)
 	{
 		// calibration
 		case CALIB_STATE:
@@ -129,7 +159,7 @@ void controller_loop(CtrlStruct *cvs)
 		default:
 			printf("Error:unknown state : %d !\n", cvs->main_state);
 			exit(EXIT_FAILURE);
-	}
+    }
 }
 
 /*! \brief last controller operations (called once)

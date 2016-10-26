@@ -58,7 +58,15 @@ void speed_regulation(CtrlStruct *cvs, double r_sp_ref, double l_sp_ref)
     outputs->wheel_commands[R_ID] = r_command;
     outputs->wheel_commands[L_ID] = l_command;
 
+    /*
+    set_plot(r_sp, "Right output");
+    set_plot(l_sp, "Left output");
+    set_plot(r_sp_ref, "Right reference");
+    set_plot(l_sp_ref, "Left reference");
+    */
+
     //TODO ; anti-reset windup
+
 
 	// ----- Wheels regulation computation end ----- //
 

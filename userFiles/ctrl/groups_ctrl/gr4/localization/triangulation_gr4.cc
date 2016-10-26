@@ -222,9 +222,9 @@ void triangulation(CtrlStruct *cvs)
         pos_tri->y = first_order_filter(pos_tri->y, yRes, tau, dt, posPeakThreshold);
         pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, tau, dt, angPeakThreshold);
 
-        set_plot(pos_tri->x, "TrianX");
-        set_plot(pos_tri->y, "TrianY");
-        set_plot(pos_tri->theta, "TrianTheta");
+        //set_plot(pos_tri->x, "TrianX");
+        //set_plot(pos_tri->y, "TrianY");
+        //set_plot(pos_tri->theta, "TrianTheta");
 
         if (!init && norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 5*ConstraintConstant::POS_UPDATE_THRESHOLD)
             init = true; // init set to true only when pos_tri and rob_pos are coherent
