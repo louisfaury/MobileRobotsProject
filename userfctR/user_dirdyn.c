@@ -1,14 +1,14 @@
 /** ---------------------------
  * Robotran - MBsysC
- * 
+ *
  * Template file for direct dynamics module
- * 
+ *
  * This files enable the user to call custom at
  * specific places in the time simulation. It is a template
  * file that can be edited by the user.
- * 
+ *
  * (c) Universite catholique de Louvain
- *     
+ *
  */
 #include "math.h"
 #include "MBSdef.h"
@@ -26,7 +26,7 @@
 
 
 /*! \brief user own initialization functions
- * 
+ *
  * \param[in,out] mbs_data data structure of the model
  * \param[in,out] mbs_dd general structure of the direct dynamic module (for advance users)
  *
@@ -35,11 +35,11 @@
  */
 void user_dirdyn_init(MbsData *mbs_data, MbsDirdyn *mbs_dd)
 {
-	simu_init(mbs_data);
+    simu_init(mbs_data);
 }
 
 /*! \brief user own loop functions
- * 
+ *
  * \param[in,out] mbs_data data structure of the model
  * \param[in,out] mbs_dd general structure of the direct dynamic module (for advance users)
  *
@@ -48,14 +48,14 @@ void user_dirdyn_init(MbsData *mbs_data, MbsDirdyn *mbs_dd)
  */
 void user_dirdyn_loop(MbsData *mbs_data, MbsDirdyn *mbs_dd)
 {
-    //simu_loop(mbs_data);
+    simu_loop(mbs_data);
     //set_plot(mbs_data->q[FJ_T1_robot_B_id], "Real blue x <[m]");
     //set_plot(mbs_data->q[FJ_T2_robot_B_id], "Real blue y <[m]");
     //set_plot(mbs_data->q[FJ_R3_robot_B_id], "Real theta <[m]");
 }
 
 /*! \brief user own finishing functions
- * 
+ *
  * \param[in,out] mbs_data data structure of the model
  * \param[in,out] mbs_dd general structure of the direct dynamic module (for advance users)
  *
@@ -64,5 +64,5 @@ void user_dirdyn_loop(MbsData *mbs_data, MbsDirdyn *mbs_dd)
  */
 void user_dirdyn_finish(MbsData *mbs_data, MbsDirdyn *mbs_dd)
 {
-	simu_finish(mbs_data);
+    simu_finish(mbs_data);
 }

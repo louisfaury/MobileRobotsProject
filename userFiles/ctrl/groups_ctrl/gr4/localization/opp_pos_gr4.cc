@@ -63,6 +63,18 @@ void opponents_tower(CtrlStruct *cvs)
 
 		rise_2 = inputs->last_rising[rise_index_2];
 		fall_2 = inputs->last_falling[fall_index_2];
+
+        if (fall_2>fall_1)
+        { //dealing with index shifting
+            double fall_2_m  = fall_2;
+            double rise_2_m = rise_2;
+
+            rise_2 = rise_1;
+            fall_2 = fall_1;
+
+            rise_1 = rise_2_m;
+            fall_1 = fall_2_m;
+        }
 	}
 
 	// ----- opponents position computation start ----- //
@@ -75,14 +87,16 @@ void opponents_tower(CtrlStruct *cvs)
     if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
     {
         // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, UINT64_MAX);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, UINT64_MAX);
     }
 
-   /* set_plot(*opp_pos->x, "Rx1 ");
-    set_plot(*opp_pos->y, "Ry1 ");
-    set_plot(0.57, "Ix1");
-    set_plot(0.8, "Iy1");*/
+    /*
+    set_plot(opp_pos->x[0], "Rx1 ");
+    set_plot(opp_pos->y[0], "Ry1 ");
+    set_plot(0.67, "Ix1");
+    set_plot(0., "Iy1");
+    */
 
     if (nb_opp == 2)
     {
@@ -91,19 +105,18 @@ void opponents_tower(CtrlStruct *cvs)
 
         if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
         {
-            opp_pos->x[1] = first_order_filter(oldY, opp_pos->x[1], 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
-            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 10*delta_t, delta_t, ConstraintConstant::POS_UPDATE_THRESHOLD);
+            opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 10*delta_t, delta_t, UINT64_MAX);
+            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 10*delta_t, delta_t, UINT64_MAX);
         }
+       /*
+        set_plot(opp_pos->x[1], "Rx2 ");
+        set_plot(opp_pos->y[1], "Ry2 ");
+        set_plot(0., "Ix2");
+        set_plot(0.8, "Iy2");
+        */
     }
 
     check_opp_front(cvs);
-
-   // printf("%f, %f, %f, %f\n", rise_1, fall_1, rise_2, fall_2);
-
-  /*  set_plot(opp_pos->x[1], "Rx2 ");
-    set_plot(opp_pos->y[1], "Ry2 ");
-    set_plot(0.82, "Ix2");
-    set_plot(0.7, "Iy2");*/
 
 	// ----- opponents position computation end ----- //
 }
