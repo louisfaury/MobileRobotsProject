@@ -9,13 +9,37 @@
 
 #include "CtrlStruct_gr4.h"
 #include "init_pos_gr4.h"
+#include "useful_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
 /// Kalman main structure
-struct KalmanStruc
+struct KalmanStruct
 {
-	int dummy_variable; ///< put your own variable, this is just an example without purpose
+    KalmanStruct();
+    //functions
+    void initEst(CtrlStruct *csv);
+
+    // robot pose estimation
+    double xEst;
+    double yEst;
+    double thetaEst;
+
+    // state error's covariance matrix
+    covMatrix3D pEst;
+
+    // bool for init and triang. data flag
+    bool init;
+    bool triang_flag;
+
+    // odometry measurement
+    struct OdometryMeasurementStruct
+    {
+        double dS;
+        double dTheta;
+        bool odoFlag; // raised when new data is available
+    } *odo_meas;
+
 };
 
 void kalman(CtrlStruct *cvs);

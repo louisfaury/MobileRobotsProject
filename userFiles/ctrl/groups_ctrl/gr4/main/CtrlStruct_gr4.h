@@ -32,6 +32,7 @@ typedef struct RobotCalibration RobotCalibration;
 typedef struct OpponentsPosition OpponentsPosition;
 typedef struct PathPlanning PathPlanning;
 typedef struct Strategy Strategy;
+typedef struct KalmanStruct KalmanStruct;
 
 /// Main controller structure
 typedef struct CtrlStruct
@@ -46,6 +47,7 @@ typedef struct CtrlStruct
 	RobotCalibration *calib;    ///< calibration
 	PathPlanning *path;         ///< path-planning
 	Strategy *strat;            ///< strategy
+    KalmanStruct *kalman;       ///< kalman
 
 	int main_state; ///< main state
 	int robot_id;   ///< ID of the robot

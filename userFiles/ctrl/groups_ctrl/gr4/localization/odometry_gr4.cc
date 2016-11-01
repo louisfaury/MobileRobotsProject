@@ -2,6 +2,7 @@
 #include "useful_gr4.h"
 #include "init_pos_gr4.h"
 #include "config_file_gr4.h"
+#include "kalman_gr4.h"
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -18,11 +19,13 @@ void update_odometry(CtrlStruct *cvs)
     double incRight, incLeft;
     double dS, dTheta;
 	RobotPosition *rob_pos;
+    KalmanStruct *kalman_pos;
 	CtrlIn *inputs;
 
 	// variables initialization
 	inputs  = cvs->inputs;
 	rob_pos = cvs->rob_pos;
+    kalman_pos = cvs->kalman;
 
 	r_sp = inputs->r_wheel_speed; // right wheel speed
 	l_sp = inputs->l_wheel_speed; // left wheel speed
@@ -48,6 +51,9 @@ void update_odometry(CtrlStruct *cvs)
     rob_pos->x += dS * cos(rob_pos->theta + 0.5*dTheta);
     rob_pos->y += dS * sin(rob_pos->theta + 0.5*dTheta);
     rob_pos->theta += dTheta;
+    // Kalman, remove preceeding
+    kalman_pos->odo_meas->dS = dS;
+    kalman_pos->odo_meas->dTheta = dTheta;
 
     set_plot(rob_pos->x, "Odo x [m]");
     set_plot(rob_pos->y, "Odo y [m]");

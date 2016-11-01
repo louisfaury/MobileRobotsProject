@@ -29,6 +29,9 @@ namespace RobotGeometry
     static constexpr double TOWER_Y        = 0.;    //m
     static constexpr double TOWER_THETA    = 0.;    //rad
     static constexpr double BACK_TO_CENTER = 0.06;  //m
+    static constexpr double ENC_RES        = 0.000001; //encoder resolution, rad
+    static constexpr double KS             = 0.01; //1% linear slip
+    static constexpr double KTHETA         = 0.01; //%1% angular slip
 
     /*!
      * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)

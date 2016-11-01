@@ -17,6 +17,16 @@ double limit_range(double x, double min, double max);
 double limit_angle(double x);
 double first_order_filter(double last_val, double new_val, double tau, double delta_t, double threshold);
 
+struct covMatrix3D
+{
+    double xx = {0};
+    double xy = {0};
+    double xtheta = {0};
+    double yy = {0};
+    double ytheta = {0};
+    double thetatheta = {0};
+};
+
 NAMESPACE_CLOSE();
 
 #endif
