@@ -38,7 +38,7 @@ struct KalmanStruct
         double dS;
         double dTheta;
         bool odoFlag; // raised when new data is available
-    } *odo_meas;
+    } odo_meas;
 
 };
 

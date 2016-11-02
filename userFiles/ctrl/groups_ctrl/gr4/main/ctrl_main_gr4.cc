@@ -13,6 +13,7 @@
 #include "calibration_gr4.h"
 #include "triangulation_gr4.h"
 #include "strategy_gr4.h"
+#include "kalman_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -85,6 +86,9 @@ void controller_loop(CtrlStruct *cvs)
 
 	// tower control
     outputs->tower_command = 15.;
+
+    // kalman
+    kalman(cvs);
 
     /*
      * Test loop for milestone A

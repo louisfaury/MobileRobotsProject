@@ -24,6 +24,7 @@ void kalman(CtrlStruct *cvs)
     kalman_pos = cvs->kalman;
 
     // init loop
+    printf("%d\n",kalman_pos->init);
     if (!kalman_pos->init)
     {
         kalman_pos->initEst(cvs);
@@ -31,7 +32,7 @@ void kalman(CtrlStruct *cvs)
     }
 
     // prediction step if odometry is available
-    if (kalman_pos->odo_meas->odoFlag)
+    if (kalman_pos->odo_meas.odoFlag)
     {
         // buffers
         double pxx = kalman_pos->pEst.xx;
@@ -42,14 +43,14 @@ void kalman(CtrlStruct *cvs)
         double pthetatheta = kalman_pos->pEst.thetatheta;
 
         // for readability
-        double deltaS = kalman_pos->odo_meas->dS;
-        double deltaTheta = kalman_pos->odo_meas->dTheta;
+        double deltaS = kalman_pos->odo_meas.dS;
+        double deltaTheta = kalman_pos->odo_meas.dTheta;
         double theta = rob_pos->theta;
 
         // mean update
-        kalman_pos->xEst += kalman_pos->odo_meas->dS * cos(theta + 0.5*kalman_pos->odo_meas->dTheta);
-        kalman_pos->yEst += kalman_pos->odo_meas->dS * sin(theta + 0.5*kalman_pos->odo_meas->dTheta);
-        kalman_pos->thetaEst += kalman_pos->odo_meas->dTheta;
+        kalman_pos->xEst += kalman_pos->odo_meas.dS * cos(theta + 0.5*kalman_pos->odo_meas.dTheta);
+        kalman_pos->yEst += kalman_pos->odo_meas.dS * sin(theta + 0.5*kalman_pos->odo_meas.dTheta);
+        kalman_pos->thetaEst += kalman_pos->odo_meas.dTheta;
 
         // updating cov matrix expression taken from wxmaxima file
         kalman_pos->pEst.xx = (pow(deltaS,2)*pow(sin(deltaTheta/2+theta),2)*pow(RobotGeometry::ENC_RES,2)*pow(RobotGeometry::WHEEL_RADIUS,2)*pow(RobotGeometry::WHEEL_BASE,-2))/24+(pow(cos(deltaTheta/2+theta),2)*pow(RobotGeometry::ENC_RES,2)*pow(RobotGeometry::WHEEL_RADIUS,2))/24+2*RobotGeometry::KS*pxx*abs(cos(theta))*abs(deltaS)+pxx;
@@ -59,16 +60,30 @@ void kalman(CtrlStruct *cvs)
         kalman_pos->pEst.ytheta = pytheta-(deltaS*cos(deltaTheta/2+theta)*pow(RobotGeometry::ENC_RES,2)*pow(RobotGeometry::WHEEL_RADIUS,2)*pow(RobotGeometry::WHEEL_BASE,-2))/12;
         kalman_pos->pEst.thetatheta = (pow(RobotGeometry::ENC_RES,2)*pow(RobotGeometry::WHEEL_RADIUS,2)*pow(RobotGeometry::WHEEL_BASE,-2))/6+2*RobotGeometry::KTHETA*pthetatheta*abs(deltaTheta)+pthetatheta;
 
-        kalman_pos->odo_meas->odoFlag = false;
+        kalman_pos->odo_meas.odoFlag = false;
+
+        //plots
+        set_plot(kalman_pos->xEst, "Kalman x [m]");
+        set_plot(kalman_pos->yEst, "Kalman y [m]");
     }
 
     // update step using triangularisation
     if (kalman_pos->triang_flag = true)
     {
-        //TODO
+        // buffers
+        double pxx = kalman_pos->pEst.xx;
+        double pxy = kalman_pos->pEst.xy;
+        double pxtheta = kalman_pos->pEst.xtheta;
+        double pyy = kalman_pos->pEst.yy;
+        double pytheta = kalman_pos->pEst.ytheta;
+        double pthetatheta = kalman_pos->pEst.thetatheta;
 
+        // operations
         kalman_pos->triang_flag = false;
+
+
     }
+
 }
 
 KalmanStruct::KalmanStruct() : init(false), xEst(0), yEst(0), thetaEst(0), triang_flag(false)

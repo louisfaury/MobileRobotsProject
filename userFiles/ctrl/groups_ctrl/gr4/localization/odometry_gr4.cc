@@ -51,9 +51,10 @@ void update_odometry(CtrlStruct *cvs)
     rob_pos->x += dS * cos(rob_pos->theta + 0.5*dTheta);
     rob_pos->y += dS * sin(rob_pos->theta + 0.5*dTheta);
     rob_pos->theta += dTheta;
-    // Kalman, remove preceeding
-    kalman_pos->odo_meas->dS = dS;
-    kalman_pos->odo_meas->dTheta = dTheta;
+    // Kalman, remove preceeding // TODO : add routine to do this
+    kalman_pos->odo_meas.dS = dS;
+    kalman_pos->odo_meas.dTheta = dTheta;
+    kalman_pos->odo_meas.odoFlag = true;
 
     set_plot(rob_pos->x, "Odo x [m]");
     set_plot(rob_pos->y, "Odo y [m]");
