@@ -18,7 +18,11 @@ public:
 
     void addCell(Cell* cell);
 
+    static constexpr double CELL_SIZE = 0.1;
+
 private:
+    virtual void _createMap(); // called on constructor for dynamic memory allocation
+
     std::map<int,Cell*> m_cellMap; //dynamic graph, easier to handle this way than to store ids in Cells
 
     int m_cellCtr;

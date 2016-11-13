@@ -2019,6 +2019,12 @@
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.h">
          <Option target="Project_userfct"/>
       </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.h">
+         <Option target="Project_userfct"/>
+      </Unit>
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp">
          <Option target="Project_userfct"/>
       </Unit>

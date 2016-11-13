@@ -11,6 +11,12 @@ NAMESPACE_INIT(ctrlGr4);
 class Cell
 {
 public:
+    enum class OccupancyStatus_t
+    {
+        free = 0,
+        occupied
+    };
+
     using LinkIt = std::vector<Link*>::iterator;
 
     Cell();
@@ -25,6 +31,8 @@ private:
     double m_x;
     double m_y;
     double m_size; // cm, assuming square cells
+
+    OccupancyStatus_t m_status; // is cell occupied or free
 
     std::vector<Link*> m_linkVector;
 };

@@ -5,7 +5,7 @@ NAMESPACE_INIT(ctrlGr4);
 
 Cell::Cell()
 {
-    m_linkVector.reserve(4); //at most 4 links !
+    m_linkVector.reserve(8); //at most 4 links !
 }
 
 Cell::~Cell()
@@ -18,7 +18,7 @@ Cell::~Cell()
 
 Cell::Cell(double x, double y, double size) : m_x(x), m_y(y), m_size(size)
 {
-    m_linkVector.reserve(4); //at most 4 links !
+    m_linkVector.reserve(8); //at most 4 links !
 
 }
 NAMESPACE_CLOSE();

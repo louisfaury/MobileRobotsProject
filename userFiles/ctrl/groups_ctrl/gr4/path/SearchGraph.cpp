@@ -5,7 +5,6 @@ NAMESPACE_INIT(ctrlGr4);
 
 SearchGraph::SearchGraph()
 {
-
 }
 
 SearchGraph::~SearchGraph()
