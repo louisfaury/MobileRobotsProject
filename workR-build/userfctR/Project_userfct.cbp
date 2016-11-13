@@ -684,6 +684,18 @@
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.h">
          <Option target="Project_userfct"/>
       </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.h">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.h">
+         <Option target="Project_userfct"/>
+      </Unit>
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.cc">
          <Option target="Project_userfct"/>
       </Unit>
