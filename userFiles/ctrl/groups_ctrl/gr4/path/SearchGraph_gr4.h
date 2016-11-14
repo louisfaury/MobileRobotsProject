@@ -3,7 +3,7 @@
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
-#include "Cell.h"
+#include "Cell_gr4.h"
 #include <map>
 
 NAMESPACE_INIT(ctrlGr4);

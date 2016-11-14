@@ -1,4 +1,4 @@
-#include "Link.h"
+#include "Link_gr4.h"
 
 
 NAMESPACE_INIT(ctrlGr4);

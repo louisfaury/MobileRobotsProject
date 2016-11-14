@@ -4,3 +4,6 @@
 **/*.cmake
 **/*.marks
 **/*.cbp
+*.make
+*.cbp
+*.cmake

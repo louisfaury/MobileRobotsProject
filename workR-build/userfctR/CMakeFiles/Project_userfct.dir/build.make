@@ -3705,76 +3705,124 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_Mobi
 userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/config/config_file.cc.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/config/config_file.cc.o
 
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.i"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.i
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.s"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.s
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.requires:
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.requires:
 
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.requires
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.requires
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.provides
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.provides
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o
-
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.i"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.i
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.s"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.s
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.requires:
-
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.requires
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.provides
-
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
 
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.i"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.i
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.s"
-	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.s
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.requires:
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.requires:
 
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.requires
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.requires
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.provides
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.provides
 
-userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
+
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.requires:
+
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.requires
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.provides
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
+
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.requires:
+
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.requires
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.provides
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
+
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp > CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s"
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.requires:
+
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.requires
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.provides
+
+userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o
 
 
 # Object files for target Project_userfct
@@ -3931,9 +3979,11 @@ Project_userfct_OBJECTS = \
 "CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr5Ctrl.cc.o" \
 "CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr10Ctrl.cc.o" \
 "CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/config/config_file.cc.o" \
-"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o" \
-"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o" \
-"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o"
+"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o"
 
 # External object files for target Project_userfct
 Project_userfct_EXTERNAL_OBJECTS =
@@ -4090,12 +4140,14 @@ userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/loui
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr5Ctrl.cc.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr10Ctrl.cc.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/config/config_file.cc.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/build.make
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Linking CXX static library libProject_userfct.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Linking CXX static library libProject_userfct.a"
 	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && $(CMAKE_COMMAND) -P CMakeFiles/Project_userfct.dir/cmake_clean_target.cmake
 	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR-build/userfctR && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_userfct.dir/link.txt --verbose=$(VERBOSE)
 
@@ -4256,9 +4308,11 @@ userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_us
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr5Ctrl.cc.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/ctrl_interface/specific/Gr10Ctrl.cc.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/config/config_file.cc.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link.cpp.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph.cpp.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o.requires
 
 .PHONY : userfctR/CMakeFiles/Project_userfct.dir/requires
 

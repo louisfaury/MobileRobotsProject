@@ -3,7 +3,7 @@
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
-#include "Link.h"
+#include "Link_gr4.h"
 #include <vector>
 
 NAMESPACE_INIT(ctrlGr4);
