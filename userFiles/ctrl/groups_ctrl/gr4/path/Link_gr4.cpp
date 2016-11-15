@@ -7,7 +7,7 @@ Link::Link()
 {
 }
 
-Link::Link(int id1, int id2, double length) : m_firstNodeId(id1), m_secondNodeId(id2), m_length(length), m_heuristicalScore(0.)
+Link::Link(int id, double length) : m_goalNodeId(id), m_length(length), m_heuristicalScore(0.)
 {
 }
 

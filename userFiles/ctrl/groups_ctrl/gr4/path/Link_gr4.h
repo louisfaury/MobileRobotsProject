@@ -11,15 +11,14 @@ class Link
 {
 public:
     Link();
-    Link(int id1, int id2, double length);
+    Link(int id, double length);
 
     void setHrstScore(double score){ m_heuristicalScore = score; }
 
     double getHrstScore(){ return m_heuristicalScore; }
 
 private:
-    int m_firstNodeId;
-    int m_secondNodeId;
+    int m_goalNodeId;
 
     double m_length;
     double m_heuristicalScore;

@@ -933,6 +933,8 @@ vector
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp
 MapHandler_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h
+SearchGraph_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h
 namespace_ctrl.h
@@ -941,12 +943,16 @@ CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/CtrlStruct_gr4.h
 geometric_objects_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/geometric_objects_gr4.h
+Cell_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
 vector
 -
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
 SearchGraph_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
+math.h
+-
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
 namespace_ctrl.h
@@ -955,6 +961,8 @@ CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/CtrlStruct_gr4.h
 Cell_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
+MapHandler_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h
 map
 -
 
@@ -1037,6 +1045,8 @@ CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/CtrlStruct_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
+string
+-
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.cc
 useful_gr4.h
@@ -2799,6 +2809,8 @@ CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/CtrlStruct_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
+string
+-
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h
 namespace_ctrl.h

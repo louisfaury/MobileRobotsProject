@@ -4,6 +4,7 @@
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
 #include "geometric_objects_gr4.h"
+#include "Cell_gr4.h"
 #include <vector>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -11,16 +12,19 @@ NAMESPACE_INIT(ctrlGr4);
 class MapHandler
 {
 public:
-    using GeoObjIt = std::vector<GeometricObject*>::iterator;
+    using GeoObjList   = std::vector<GeometricObject*>;
+    using GeoObjListIt = GeoObjList::iterator;
 
     MapHandler();
     ~MapHandler();
 
-private:
-    std::vector<GeometricObject*> m_geoObjectList;
+    bool isOnObstacle(Cell* cell);
 
-    double m_width;
-    double m_length;
+    static constexpr double MAP_LENGTH = 2.0;
+    static constexpr double MAP_WIDTH = 3.0;
+
+private:
+    GeoObjList m_geoObjectList;
 };
 
 NAMESPACE_CLOSE();

@@ -3,13 +3,18 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
+GeometricObject::GeometricObject() : m_tag("GeoObj")
+{
+}
+
 Point::Point() : GeometricObject(), m_x(0.), m_y(0.)
 {
+    m_tag = "Pt";
 }
 
 Point::Point(double x, double y) : GeometricObject(), m_x(x), m_y(y)
 {
-
+    m_tag = "Pt";
 }
 
 void Point::getDescription(char *descriptor)
@@ -25,6 +30,7 @@ double Point::computeDistance(Point p)
 
 Segment::Segment()
 {
+    m_tag = "Sgt";
 }
 
 void Segment::getDescription(char *descriptor)
@@ -34,6 +40,7 @@ void Segment::getDescription(char *descriptor)
 
 Segment::Segment(Point p1, Point p2) : GeometricObject(), m_p1(p1), m_p2(p2)
 {
+    m_tag = "Sgt";
 }
 
 bool Segment::computeIntersection(Point p)
@@ -87,8 +94,20 @@ bool Segment::computeIntersection(Segment s)
     return res;
 }
 
+bool Segment::computeIntersection(GeometricObject* obj)
+{
+    bool res = false;
+    if ( obj->tag()=="Pt" )
+        res = computeIntersection(*((Point*)obj));
+    else if ( obj->tag()=="Sgt" )
+        res = computeIntersection(*(Segment*)obj);
+    return res;
+}
+
 Rectangle::Rectangle(Point center, double length, double width) : GeometricObject(), m_center(center), m_length(length), m_width(width)
 {
+    m_tag = "Rct";
+
     Point x1, x2;
     for (int i=0; i<4; i++)
     {
@@ -191,5 +210,17 @@ bool Rectangle::computeIntersection(Segment seg)
     return res;
 }
 
+bool Rectangle::computeIntersection(GeometricObject *obj)
+{
+    bool res = false;
+    if ( obj->tag()=="Pt" )
+        res = computeIntersection(*((Point*)obj));
+    else if ( obj->tag()=="Sgt" )
+        res = computeIntersection(*(Segment*)obj);
+    else if ( obj->tag()=="Rct" )
+        res = computeIntersection(*(Rectangle*)obj);
+    return res;
+}
 
 NAMESPACE_CLOSE();
+

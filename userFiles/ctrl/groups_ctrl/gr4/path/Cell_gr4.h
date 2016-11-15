@@ -8,6 +8,9 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
+using LinkList = std::vector<Link*>;
+using LinkListIt = LinkList::iterator;
+
 class Cell
 {
 public:
@@ -17,23 +20,23 @@ public:
         occupied
     };
 
-    using LinkIt = std::vector<Link*>::iterator;
-
     Cell();
     ~Cell();
     Cell(double x, double y, double size);
 
-    double getX(){ return m_x; }
-    double getY(){ return m_y; }
-    double getS(){ return m_size; }
+    double              x(){ return m_x; }
+    double              y();
+    double              size(){ return m_size; }
+    OccupancyStatus_t   status(){ return m_status; }
+    void                setFree(){ m_status = OccupancyStatus_t::free; }
+    void                setOccupied(){ m_status = OccupancyStatus_t::occupied; }
+    void                addLink(Link* link);
 
 private:
     double m_x;
     double m_y;
     double m_size; // cm, assuming square cells
-
     OccupancyStatus_t m_status; // is cell occupied or free
-
     std::vector<Link*> m_linkVector;
 };
 

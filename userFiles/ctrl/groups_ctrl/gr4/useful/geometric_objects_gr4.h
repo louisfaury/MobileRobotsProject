@@ -4,6 +4,7 @@
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
 #include "useful_gr4.h"
+#include <string>
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -12,10 +13,14 @@ class GeometricObject
 public:
     GeometricObject();
 
-    virtual void getDescription(char*) = 0; // fills a char array with descriptor
+    virtual bool computeIntersection(GeometricObject* obj) = 0;
+    virtual void getDescription(char*) = 0; // fills a char array with descriptor, not use till now, will maybe be used for printing nice things on matlab
+                                            // for milestone presentation
+    virtual std::string tag(){ return m_tag; }
 
     static constexpr int DESCRIPTOR_SIZE = 1024; // descriptor size
 protected:
+    std::string m_tag;
 };
 
 class Point : public GeometricObject
@@ -27,6 +32,7 @@ public:
     double x(){ return m_x; }
     double y(){ return m_y; }
     double computeDistance(Point p);
+    virtual bool computeIntersection(GeometricObject *obj){ return false; }
     virtual void getDescription(char* descriptor);
 
 protected:
@@ -44,6 +50,7 @@ public:
     Point p2(){ return m_p2;}
     bool computeIntersection(Point p);
     bool computeIntersection(Segment s);
+    virtual bool computeIntersection(GeometricObject* obj);
     virtual void getDescription(char* descriptor);
 
 protected:
@@ -65,6 +72,7 @@ public:
     Segment* edges(){ return m_edges; }
     double length(){ return m_length; }
     double width(){ return m_width; }
+    virtual bool computeIntersection(GeometricObject* obj);
     virtual void getDescription(char* descriptor);
 
 protected:
