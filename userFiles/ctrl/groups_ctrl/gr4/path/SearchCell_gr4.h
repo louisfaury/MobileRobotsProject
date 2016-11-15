@@ -1,0 +1,4 @@
+#ifndef SEARCHCELL_GR4_H
+#define SEARCHCELL_GR4_H
+
+#endif // SEARCHCELL_GR4_H
