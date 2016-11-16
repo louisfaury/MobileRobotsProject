@@ -17,8 +17,11 @@ PathPlanning* init_path_planning()
 	// memory allocation
 	path = (PathPlanning*) malloc(sizeof(PathPlanning));
 
-	// ----- path-planning initialization start ----- //
+    PathPlanning pathTest;
+    // ----- path-planning initialization start ----- //
 
+    // TODO : init graph
+    // all in one function
 
 	// ----- path-planning initialization end ----- //
 

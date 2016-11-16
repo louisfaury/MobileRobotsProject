@@ -1762,6 +1762,114 @@ home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/gro
 	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.cc.s
 .PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.cc.s
 
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.o
+
+# target to build an object file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.i: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.i
+
+# target to preprocess a source file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.i
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.s: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.s
+
+# target to generate assembly for a file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.s
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.o
+
+# target to build an object file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.i: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.i
+
+# target to preprocess a source file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.i
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.s: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.s
+
+# target to generate assembly for a file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.s
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.o
+
+# target to build an object file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.i: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.i
+
+# target to preprocess a source file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.i
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.s: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.s
+
+# target to generate assembly for a file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.s
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.o
+
+# target to build an object file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.i: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.i
+
+# target to preprocess a source file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.i
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.s: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.s
+
+# target to generate assembly for a file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.s
+
 home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.cc.o
 
 .PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.o
@@ -1869,6 +1977,33 @@ home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/gro
 home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.cc.s:
 	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.cc.s
 .PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.cc.s
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.o
+
+# target to build an object file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.i: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.i
+
+# target to preprocess a source file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.i
+
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.s: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s
+
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.s
+
+# target to generate assembly for a file
+home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s:
+	cd /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s
+.PHONY : home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.s
 
 home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.o: home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.cc.o
 
@@ -4463,6 +4598,18 @@ help:
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.o"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.i"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/main/ctrl_main_gr4.s"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.o"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.i"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.s"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.o"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.i"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.s"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.o"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.i"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.s"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.o"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.i"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.s"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.o"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.i"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.s"
@@ -4475,6 +4622,9 @@ help:
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.o"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.i"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.s"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.o"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.i"
+	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.s"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.o"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.i"
 	@echo "... home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.s"

@@ -714,6 +714,24 @@
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.h">
          <Option target="Project_userfct"/>
       </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.h">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.h">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.h">
+         <Option target="Project_userfct"/>
+      </Unit>
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.cc">
          <Option target="Project_userfct"/>
       </Unit>

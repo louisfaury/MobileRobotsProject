@@ -15,15 +15,15 @@ MapHandler::MapHandler()
     Segment* topBorder    = new Segment( Point(1.0,1.5), Point(-1.0,1.5) );
 
     // box boundaries
-    Rectangle* bottomLeftBox  = new Rectangle( Point(-1.0,-0.84), 0.5, 0.02 );
-    Rectangle* bottomRightBox = new Rectangle( Point(-0.49,-1.5), 0.02, 0.5 );
-    Rectangle* topLeftBox     = new Rectangle( Point(-1.0,0.84), 0.5, 0.02 );
-    Rectangle* topRightBox    = new Rectangle( Point(0.49,1.5), 0.02, 0.5 );
+    Rectangle* bottomLeftBox  = new Rectangle( Point(-0.75,-0.84), 0.4, 0.02 );
+    Rectangle* bottomRightBox = new Rectangle( Point(0.49,-1.25), 0.02, 0.5 );
+    Rectangle* topLeftBox     = new Rectangle( Point(-0.75,0.84), 0.5, 0.02 );
+    Rectangle* topRightBox    = new Rectangle( Point(0.49,1.25), 0.02, 0.5 );
 
     // center obstacle
     Rectangle* bottomRect = new Rectangle( Point(0.,-0.35), 0.4, 0.1);
     Rectangle* topRect    = new Rectangle( Point(0.,0.35), 0.4, 0.1 );
-    Rectangle* midVert    = new Rectangle( Point(-0.15,0.), 0.1, 0.5);
+    Rectangle* midVert    = new Rectangle( Point(-0.15,0.), 0.1, 0.6);
     Rectangle* leftHoz    = new Rectangle( Point(-0.35,0.), 0.3, 0.2);
 
     // TODO : add safety constant to each width and length !
@@ -54,11 +54,15 @@ MapHandler::~MapHandler()
 
 bool MapHandler::isOnObstacle(Cell *cell)
 {
-    bool res = true;
+    bool res = false;
+    int i = 0;
     Rectangle cellRect( Point(cell->x(),cell->y()), SearchGraph::CELL_SIZE, SearchGraph::CELL_SIZE);
     for ( GeoObjListIt it = m_geoObjectList.begin(); it != m_geoObjectList.end(); it++)
     {
+        i++;
         res = cellRect.computeIntersection(*it);
+        if ( res == true )
+            break;
     }
     return res;
 }

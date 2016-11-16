@@ -18,10 +18,11 @@ public:
     SearchGraph();
     ~SearchGraph();
 
-    static constexpr double CELL_SIZE = 0.1;
+    static constexpr double CELL_SIZE = 0.2;
 
 protected:
     virtual void _graphInit();
+    virtual void _describe();
     virtual void _addCell(Cell* cell);
 
     MapHandler m_mapHandler;

@@ -146,7 +146,7 @@ bool Rectangle::isInside(Point p)
 {
     bool res = false;
 
-    if ( ( std::fabs( m_center.x() - p.x()) < m_length + EPSILON ) && ( std::fabs( m_center.y() - p.y()) < m_width + EPSILON ) )
+    if ( ( std::fabs( m_center.x() - p.x()) < m_length/2 + EPSILON ) && ( std::fabs( m_center.y() - p.y()) < m_width/2 + EPSILON ) )
         res = true;
 
     return res;
@@ -162,28 +162,31 @@ bool Rectangle::isInside(Segment s)
 
 bool Rectangle::computeIntersection(Rectangle rect)
 {
-    bool res;
+    bool res = false;
 
     // is he inside ?
     if ( isInside(rect.center()) )
         res = true;
     // am I inside ?
-    if ( rect.isInside(m_center) )
+    else if ( rect.isInside(m_center) )
         res = true;
     // test every segment :
-    Segment* rectEdges = rect.edges();
-    for (int i=0; i<4; i++)
+    else
     {
-        for (int j=0; j<4; j++)
+        Segment* rectEdges = rect.edges();
+        for (int i=0; i<4; i++)
         {
-            if ( m_edges[i].computeIntersection(rectEdges[j]) )
+            for (int j=0; j<4; j++)
             {
-                res = true;
-                break;
+                if ( m_edges[i].computeIntersection(rectEdges[j]) )
+                {
+                    res = true;
+                    break;
+                }
             }
+            if (res == true)
+                break;
         }
-        if (res = true)
-            break;
     }
 
     return res;
@@ -214,7 +217,7 @@ bool Rectangle::computeIntersection(GeometricObject *obj)
 {
     bool res = false;
     if ( obj->tag()=="Pt" )
-        res = computeIntersection(*((Point*)obj));
+        res = isInside(*((Point*)obj));
     else if ( obj->tag()=="Sgt" )
         res = computeIntersection(*(Segment*)obj);
     else if ( obj->tag()=="Rct" )
