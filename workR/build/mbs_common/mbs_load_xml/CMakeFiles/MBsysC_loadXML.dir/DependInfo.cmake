@@ -1,16 +1,16 @@
 # The set of languages for which implicit dependencies are needed:
-set(CMAKE_DEPENDS_LANGUAGES
+SET(CMAKE_DEPENDS_LANGUAGES
   "C"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_C
-  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_load_xml/mbs_load_xml.c" "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_load_xml/CMakeFiles/MBsysC_loadXML.dir/mbs_load_xml.c.o"
-  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_load_xml/mbs_xml_reader.c" "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_load_xml/CMakeFiles/MBsysC_loadXML.dir/mbs_xml_reader.c.o"
+SET(CMAKE_DEPENDS_CHECK_C
+  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/mbs_load_xml.c" "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_load_xml/CMakeFiles/MBsysC_loadXML.dir/mbs_load_xml.c.o"
+  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/mbs_xml_reader.c" "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_load_xml/CMakeFiles/MBsysC_loadXML.dir/mbs_xml_reader.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+SET(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_C
+SET(CMAKE_TARGET_DEFINITIONS
   "DIRDYNARED"
   "JAVA"
   "PROJECT_USERFCT_STATIC_DEFINE"
@@ -20,17 +20,17 @@ set(CMAKE_TARGET_DEFINITIONS_C
   "XML"
   )
 
-# The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/include/libxml2"
-  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_load_xml/."
-  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_load_xml/../mbs_utilities"
-  "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_load_xml/../mbs_struct"
-  )
-
 # Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+SET(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
-# Fortran module output directory.
-set(CMAKE_Fortran_TARGET_MODULE_DIR "")
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/usr/include/libxml2"
+  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/."
+  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_utilities"
+  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_struct"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
