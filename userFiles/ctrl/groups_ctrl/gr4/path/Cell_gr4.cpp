@@ -21,4 +21,11 @@ Cell::Cell(double x, double y, double size) : m_x(x), m_y(y), m_size(size)
     m_linkVector.reserve(8); //at most 4 links !
 
 }
+
+
+void Cell::addLink(Link *link)
+{
+    m_linkVector.push_back(link);
+}
+
 NAMESPACE_CLOSE();

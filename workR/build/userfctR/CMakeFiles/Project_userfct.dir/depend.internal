@@ -1224,6 +1224,10 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/odometry_gr4.h
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/opp_pos_gr4.h
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/localization/triangulation_gr4.h
+ /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
+ /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.h
+ /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h
+ /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/strategy/strategy_gr4.h
  /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/useful/useful_gr4.h

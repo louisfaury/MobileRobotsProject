@@ -17,6 +17,9 @@ public:
 
     double getHrstScore(){ return m_heuristicalScore; }
 
+    int getFirstId(){return m_firstNodeId;}
+    int getSecondId(){return m_secondNodeId;}
+
 private:
     int m_firstNodeId;
     int m_secondNodeId;

@@ -15,7 +15,7 @@ NAMESPACE_INIT(ctrlGr4);
 /// path-planning main structure
 struct PathPlanning
 {
-	int dummy_variable; ///< put your own variable, this is just an example without purpose
+    int dummy_variable; ///< put your own variable, this is just an example without purpose
 };
 
 PathPlanning* init_path_planning();

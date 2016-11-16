@@ -15,6 +15,14 @@
 #include "strategy_gr4.h"
 #include "kalman_gr4.h"
 
+
+//TODO : delete includes when search path tested
+#include "SearchGraph_gr4.h"
+#include "Cell_gr4.h"
+#include "Link_gr4.h"
+#include "SearchCell_gr4.h"
+
+
 NAMESPACE_INIT(ctrlGr4);
 
 /*! \brief initialize controller operations (called once)
@@ -63,28 +71,73 @@ void controller_init(CtrlStruct *cvs)
  */
 void controller_loop(CtrlStruct *cvs)
 {
-	// variables declaration
-	double t;
-	CtrlIn *inputs;
-	CtrlOut *outputs;
 
-	// variables initialization
-	inputs  = cvs->inputs;
-	outputs = cvs->outputs;
+    //TODO : delete when searchpath tested
+//    SearchGraph *searchmap = new SearchGraph();
 
-	// time
-	t = inputs->t;
+//    SearchCell* c1 = new SearchCell(0,0,1);
+//    SearchCell* c2 = new SearchCell(1,0,1);
+//    SearchCell* c3 = new SearchCell(0,1,1);
+//    SearchCell* c4 = new SearchCell(1,1,1);
 
-	// update the robot odometry
-	update_odometry(cvs);
+//    searchmap->addCell(c1);
+//    searchmap->addCell(c2);
+//    searchmap->addCell(c3);
+//    searchmap->addCell(c4);
 
-	// triangulation
-	triangulation(cvs);
 
-	// opponents position
-	opponents_tower(cvs);
+//    Link* l1 = new Link(1,2,1);
+//    Link* l2 = new Link(1,4,1.3);
+//    Link* l3 = new Link(1,3,1);
 
-	// tower control
+//    Link* l4 = new Link(2,4,1);
+//    Link* l5 = new Link(2,3,1.3);
+//    Link* l6 = new Link(3,4,1);
+
+//    c1->addLink(l1);
+//    c1->addLink(l2);
+//    c1->addLink(l3);
+
+//    c2->addLink(l1);
+//    c2->addLink(l4);
+//    c2->addLink(l5);
+
+//    c3->addLink(l3);
+//    c3->addLink(l5);
+//    c3->addLink(l6);
+
+//    c4->addLink(l2);
+//    c4->addLink(l4);
+//    c4->addLink(l6);
+
+
+//    std::vector<int> path = searchmap->computePath(1,4);
+//    for (std::vector<int>::const_iterator i = path.begin(); i != path.end(); ++i){
+//        printf("%d\t", *i);
+//    }
+
+    // variables declaration
+    double t;
+    CtrlIn *inputs;
+    CtrlOut *outputs;
+
+    // variables initialization
+    inputs  = cvs->inputs;
+    outputs = cvs->outputs;
+
+    // time
+    t = inputs->t;
+
+    // update the robot odometry
+    update_odometry(cvs);
+
+    // triangulation
+    triangulation(cvs);
+
+    // opponents position
+    opponents_tower(cvs);
+
+    // tower control
     outputs->tower_command = 15.;
 
     // kalman
@@ -121,48 +174,48 @@ void controller_loop(CtrlStruct *cvs)
     */
 
     switch (cvs->main_state)
-	{
-		// calibration
-		case CALIB_STATE:
-			calibration(cvs);
-			break;
+    {
+        // calibration
+        case CALIB_STATE:
+            calibration(cvs);
+            break;
 
-		// wait before match beginning
-		case WAIT_INIT_STATE:
-			speed_regulation(cvs, 0.0, 0.0);
+        // wait before match beginning
+        case WAIT_INIT_STATE:
+            speed_regulation(cvs, 0.0, 0.0);
 
-			if (t > 0.0)
-			{
-				cvs->main_state = RUN_STATE;
-				cvs->strat->main_state = GAME_STATE_A;
-			}
-			break;
+            if (t > 0.0)
+            {
+                cvs->main_state = RUN_STATE;
+                cvs->strat->main_state = GAME_STATE_A;
+            }
+            break;
 
-		// during game
-		case RUN_STATE:
-			main_strategy(cvs);
+        // during game
+        case RUN_STATE:
+            main_strategy(cvs);
 
-			if (t > 89.0) // 1 second safety
-			{
-				cvs->main_state = STOP_END_STATE;
-			}
-			break;
+            if (t > 89.0) // 1 second safety
+            {
+                cvs->main_state = STOP_END_STATE;
+            }
+            break;
 
-		// stop at the end of the game
-		case STOP_END_STATE:
-			speed_regulation(cvs, 0.0, 0.0);
+        // stop at the end of the game
+        case STOP_END_STATE:
+            speed_regulation(cvs, 0.0, 0.0);
 
-			outputs->flag_release = 1;
-			break;
+            outputs->flag_release = 1;
+            break;
 
-		case NB_MAIN_STATES:
-			printf("Error: state NB_MAIN_STATES should not be reached !\n");
-			exit(EXIT_FAILURE);
-			break;
+        case NB_MAIN_STATES:
+            printf("Error: state NB_MAIN_STATES should not be reached !\n");
+            exit(EXIT_FAILURE);
+            break;
 	
-		default:
-			printf("Error:unknown state : %d !\n", cvs->main_state);
-			exit(EXIT_FAILURE);
+        default:
+            printf("Error:unknown state : %d !\n", cvs->main_state);
+            exit(EXIT_FAILURE);
     }
 }
 

@@ -23,11 +23,14 @@ public:
     ~Cell();
     Cell(double x, double y, double size);
 
-    double getX(){ return m_x; }
-    double getY(){ return m_y; }
-    double getS(){ return m_size; }
+    virtual double getX(){ return m_x; }
+    virtual double getY(){ return m_y; }
+    virtual double getS(){ return m_size; }
+    virtual int isOccupied(){return (int)m_status;}
+    virtual void addLink(Link* link);
+    virtual std::vector<Link*> getLinks(){return m_linkVector;}
 
-private:
+protected:
     double m_x;
     double m_y;
     double m_size; // cm, assuming square cells
