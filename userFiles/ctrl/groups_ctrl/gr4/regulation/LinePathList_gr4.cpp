@@ -10,13 +10,17 @@ NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
-    m_lineList.reserve(20);
+    m_pathVec.reserve(20);
 }
 
-
-void LinePathList::addLine(LinePath line)
+LinePathList::~LinePathList()
 {
-    m_lineList.push_back(line);
+    clear();
+}
+
+void LinePathList::addPath(Path* path)
+{
+    m_pathVec.push_back(path);
 }
 
 bool LinePathList::nextStep(double s, double dt, CtrlStruct *cvs)
@@ -27,10 +31,10 @@ bool LinePathList::nextStep(double s, double dt, CtrlStruct *cvs)
     double resS(0.);
 
     // finding the current pathLine
-    LineListIt it = m_lineList.begin();
-    for (; it != m_lineList.end(); it++)
+    PathVectIt it = m_pathVec.begin();
+    for (; it != m_pathVec.end(); it++)
     {
-        locLength = it->length();
+        locLength = (*it)->length();
         if ( s < locS + locLength && s > locS + EPSILON )
         {
             if ( !nextStep(locS, dt, cvs) )
@@ -49,11 +53,18 @@ double LinePathList::length()
 {
     double res(0.);
 
-    for (LineListIt it = m_lineList.begin(); it != m_lineList.end(); it++)
+    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
     {
-        res += it->length();
+        res += (*it)->length();
     }
     return res;
 }
 
+void LinePathList::clear()
+{
+    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
+        delete(*it);
+}
+
 NAMESPACE_CLOSE();
+

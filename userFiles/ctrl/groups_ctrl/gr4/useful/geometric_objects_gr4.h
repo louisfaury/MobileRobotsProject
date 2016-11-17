@@ -1,3 +1,9 @@
+/*!
+ * @file geometrics_object_gr4.h
+ * @author Louis Faury
+ * @date 14/11
+ */
+
 #ifndef GEOMETRIC_OBJECTS_GR4_H
 #define GEOMETRIC_OBJECTS_GR4_H
 
@@ -32,7 +38,7 @@ public:
     double x(){ return m_x; }
     double y(){ return m_y; }
     double computeDistance(Point p);
-    virtual bool computeIntersection(GeometricObject *obj){ return false; }
+    virtual bool computeIntersection(GeometricObject *obj){ return false; }// general inherited function
     virtual void getDescription(char* descriptor);
 
 protected:
@@ -50,7 +56,7 @@ public:
     Point p2(){ return m_p2;}
     bool computeIntersection(Point p);
     bool computeIntersection(Segment s);
-    virtual bool computeIntersection(GeometricObject* obj);
+    virtual bool computeIntersection(GeometricObject* obj); // general inherited function
     virtual void getDescription(char* descriptor);
 
 protected:
@@ -72,7 +78,7 @@ public:
     Segment* edges(){ return m_edges; }
     double length(){ return m_length; }
     double width(){ return m_width; }
-    virtual bool computeIntersection(GeometricObject* obj);
+    virtual bool computeIntersection(GeometricObject* obj);// general inherited function
     virtual void getDescription(char* descriptor);
 
 protected:

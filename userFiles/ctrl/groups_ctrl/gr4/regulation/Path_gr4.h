@@ -18,6 +18,9 @@ public:
     Path();
     Path(double length);
 
+    virtual double  length(){ return m_length; }
+    virtual bool    nextStep(double&, double, CtrlStruct*) = 0;
+
 protected:
     double m_length;
 };

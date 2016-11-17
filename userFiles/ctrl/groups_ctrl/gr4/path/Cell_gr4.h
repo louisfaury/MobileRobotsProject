@@ -34,7 +34,7 @@ public:
     virtual void                setOccupied(){ m_status = OccupancyStatus_t::occupied; }
     virtual void                addLink(Link* link);
     virtual bool                isNeighbor(int id);
-    virtual std::vector<Link*> getLinks(){return m_linkVector;}
+    virtual std::vector<Link*>  getLinks(){return m_linkVector;}
 
 
 private:

@@ -11,12 +11,12 @@ class SearchCell : public Cell
 
 public:
 
-    SearchCell(); //Constructor
-    ~SearchCell(); //Destructor
+    SearchCell();
+    ~SearchCell();
+    SearchCell(double x, double y, double size);
+    SearchCell(Cell *cell, int id);
 
-    SearchCell(double x, double y, double size); //Constructor
-    SearchCell(Cell *cell, int id); //constructor
-
+    // setters and getters
     int getWeight(){ return m_weight; }
     bool isOpen(){ return m_status; }
     int getId(){return m_id;}
@@ -28,15 +28,10 @@ public:
 
 private:
 
-    //Id in searchMap
-    int m_id;
-    //Weight of this cell in the graph search
-    int m_weight;
-    //Has this cell already been visited during search (1 = OPEN, 0 = CLOSED)
-    bool m_status;
-    //Pointer to the SearchCell that this cells is reached from giving it its minimum weight
-    SearchCell* m_previousCell;
-
+    int m_id; //Id in searchMap
+    int m_weight;//Weight of this cell in the graph search
+    bool m_status;//Has this cell already been visited during search (1 = OPEN, 0 = CLOSED)
+    SearchCell* m_previousCell;//Pointer to the SearchCell that this cells is reached from giving it its minimum weight
 };
 
 

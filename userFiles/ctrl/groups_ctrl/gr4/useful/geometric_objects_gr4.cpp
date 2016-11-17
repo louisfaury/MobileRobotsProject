@@ -1,3 +1,9 @@
+/*!
+ * @file geometrics_object_gr4.h
+ * @author Louis Faury
+ * @date 14/11
+ */
+
 #include "geometric_objects_gr4.h"
 #include "algorithm"
 

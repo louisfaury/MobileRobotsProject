@@ -10,7 +10,7 @@ NAMESPACE_INIT(ctrlGr4);
  */
 void follow_path(CtrlStruct *cvs)
 {
-
+    // TODO : receive pathList from path planning and follows it
 }
 
 NAMESPACE_CLOSE();

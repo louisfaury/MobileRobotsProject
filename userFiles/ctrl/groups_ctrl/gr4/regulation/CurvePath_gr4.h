@@ -11,10 +11,11 @@
 #include "CtrlStruct_gr4.h"
 #include "geometric_objects_gr4.h"
 #include "useful_gr4.h"
+#include "Path_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
-class CurvePath
+class CurvePath : public Path
 {
 public:
     CurvePath();
@@ -25,12 +26,11 @@ public:
      * @brief compute the speed regulation rules for the robot on the next dt time step
      * @returns bool if path is completed
      */
-    bool nextStep(double alpha, double dt, CtrlStruct* cvs);
+    virtual bool nextStep(double& alpha, double dt, CtrlStruct* cvs);
 
     static constexpr double ANG_SPEED = PI/2;
 
 protected:
-    double m_angle;
     bool m_sign; // true if in trigonometric direction
 };
 

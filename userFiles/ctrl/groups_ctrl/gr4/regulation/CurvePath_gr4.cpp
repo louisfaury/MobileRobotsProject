@@ -14,7 +14,7 @@ CurvePath::CurvePath()
 {
 }
 
-bool CurvePath::nextStep(double alpha, double dt, CtrlStruct *cvs)
+bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
 {
     bool end = false;
 
@@ -22,13 +22,14 @@ bool CurvePath::nextStep(double alpha, double dt, CtrlStruct *cvs)
     double correctCoeff(1.);
     double angSpeed, deltaWheelSpeed;
 
-    if ( m_angle > EPSILON )
+    // here m_length = angle !
+    if ( m_length > EPSILON )
     {
         nAngle = alpha + ANG_SPEED*dt; // next angle with ANG_SPEED
 
-        if ( nAngle > m_angle + EPSILON )
+        if ( nAngle > m_length + EPSILON )
         {
-            correctCoeff = 1. - (nAngle-m_angle)/m_angle; // correcting if going too far on next time step
+            correctCoeff = 1. - (nAngle-m_length)/m_length; // correcting if going too far on next time step
             end = true;
         }
 
@@ -42,7 +43,7 @@ bool CurvePath::nextStep(double alpha, double dt, CtrlStruct *cvs)
     return end;
 }
 
-CurvePath::CurvePath(double angle, bool sign) : m_angle(angle), m_sign(sign)
+CurvePath::CurvePath(double angle, bool sign) : Path(angle), m_sign(sign)
 {
 }
 

@@ -4,30 +4,32 @@
  * @date 15/11
  */
 
-#ifndef LINEPATHLIST_H
-#define LINEPATHLIST_H
+#ifndef PATHLIST_H
+#define PATHLIST_H
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
 #include "LinePath_gr4.h"
+#include "Path_gr4.h"
 #include <vector>
 
 NAMESPACE_INIT(ctrlGr4);
 
-using LineList = std::vector<LinePath>;
-using LineListIt = LineList::iterator;
+using PathVectIt = std::vector<Path*>::iterator;
 
 class LinePathList
 {
 public:
     LinePathList();
+    ~LinePathList();
 
-    void    addLine(LinePath line);
+    void    addPath(Path* path);
     bool    nextStep(double s, double dt, CtrlStruct* cvs);
     double  length();
+    void    clear();
 
 private:
-    LineList m_lineList;
+    std::vector<Path*> m_pathVec;
 };
 
 NAMESPACE_CLOSE();

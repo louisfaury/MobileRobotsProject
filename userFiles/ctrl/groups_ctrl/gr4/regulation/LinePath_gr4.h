@@ -21,14 +21,13 @@ public:
     LinePath(Point start, double length, double angle);
 
     Point   start(){ return m_start; }
-    double  length(){ return m_length; }
     double  angle(){ return m_angle; }
     /*!
      * @function nextStep(double,double,CtrlStruct) : bool
      * @brief compute the speed regulation rules for the robot on the next dt time step
      * @returns bool if path is completed
      */
-    bool    nextStep(double& s, double dt, CtrlStruct* cvs);
+    virtual bool    nextStep(double& s, double dt, CtrlStruct* cvs);
 
     static constexpr double MAX_ACC   = 1.0;
     static constexpr double MAX_DESAC = 1.0;

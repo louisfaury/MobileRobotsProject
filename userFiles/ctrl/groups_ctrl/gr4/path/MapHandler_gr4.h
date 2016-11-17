@@ -1,3 +1,9 @@
+/*!
+ * @file MapHandler.h
+ * @author Louis Faury
+ * @date 14/11
+ */
+
 #ifndef MAPHANDLER_H
 #define MAPHANDLER_H
 
@@ -18,6 +24,10 @@ public:
     MapHandler();
     ~MapHandler();
 
+    /*!
+     * @function isOnObstacle(cell : Cell) : bool
+     * @brief Returns true if the rectangle spawned by the cell is in collision with an obstacle
+     */
     bool isOnObstacle(Cell* cell);
 
     static constexpr double MAP_LENGTH = 2.0;

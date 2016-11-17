@@ -79,7 +79,7 @@ void SearchGraph::_graphInit()
             }
 
             if ( i<rowCellNumber-1 )
-            {
+            {// add right horizontal link
                 SearchCell* nCell = m_cellMap[cellId+columnCellNumber];
                 double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
                 Link* link = new Link(cellId+columnCellNumber, length);
@@ -103,7 +103,7 @@ void SearchGraph::_graphInit()
             }
 
             if ( j>0 )
-            {
+            {// add down link
                 SearchCell* nCell = m_cellMap[cellId-1];
                 double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
                 Link* link = new Link(cellId-1, length);
@@ -111,7 +111,7 @@ void SearchGraph::_graphInit()
             }
 
             if ( j<columnCellNumber-1)
-            {
+            {// add upper link
                 SearchCell* nCell = m_cellMap[cellId+1];
                 double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
                 Link* link = new Link(cellId+1, length);
@@ -134,7 +134,7 @@ void SearchGraph::_describe()
     {
         for (int j=0; j<columnCellNumber; j++)
         {
-            int cellId = i*columnCellNumber+j;
+            int cellId = i*columnCellNumber+j; // current cell Id
             SearchCell* cell = m_cellMap[cellId];
             Cell::OccupancyStatus_t status = cell->status();
             printf("%d,",(int)status);
@@ -168,7 +168,7 @@ void SearchGraph::_addCell(SearchCell *cell)
 }
 
 
-bool SearchGraph::computeAStarCost(SearchCell *sourceCell, SearchCell *reachedCell, SearchCell *targetCell)
+bool SearchGraph::_computeAStarCost(SearchCell *sourceCell, SearchCell *reachedCell, SearchCell *targetCell)
 {
     bool res = 0;
 
@@ -190,7 +190,7 @@ bool SearchGraph::computeAStarCost(SearchCell *sourceCell, SearchCell *reachedCe
 }
 
 
-std::vector<int> SearchGraph::retrieveBestPath(int sourceId, int targetId){
+std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     int id = targetId;
     std::vector<int> res;
     res.push_back(id);
@@ -250,7 +250,7 @@ std::vector<int> SearchGraph::retrieveBestPath(int sourceId, int targetId){
             if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->isOpen())
             {
 
-                bestPath = computeAStarCost(sCell, neighborSCell, targetSCell);
+                bestPath = _computeAStarCost(sCell, neighborSCell, targetSCell);
 
                 //Adding neighbor in priorityqueue
                 if (bestPath)
@@ -294,7 +294,7 @@ std::vector<int> SearchGraph::retrieveBestPath(int sourceId, int targetId){
 
     //Attention : we want a result in IDs and not Cell* since the SearchCells will all be deleted
     //right after this line of code
-    res = retrieveBestPath(sourceId, targetId);
+    res = _retrieveBestPath(sourceId, targetId);
 
 
    return res;

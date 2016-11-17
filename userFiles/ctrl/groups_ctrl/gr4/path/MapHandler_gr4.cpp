@@ -1,3 +1,9 @@
+/*!
+ * @file MapHandler.cpp
+ * @author Louis Faury
+ * @date 14/11
+ */
+
 #include "MapHandler_gr4.h"
 #include "SearchGraph_gr4.h"
 
@@ -62,7 +68,7 @@ bool MapHandler::isOnObstacle(Cell *cell)
         i++;
         res = cellRect.computeIntersection(*it);
         if ( res == true )
-            break;
+            break; // once there is a collision no need to go further in the exploration
     }
     return res;
 }

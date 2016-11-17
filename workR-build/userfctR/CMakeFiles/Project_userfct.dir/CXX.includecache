@@ -948,6 +948,18 @@ Cell_gr4.h
 vector
 -
 
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp
+SearchCell_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h
+limits
+-
+
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h
+Cell_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
+utility
+-
+
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
 SearchGraph_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
@@ -986,15 +998,15 @@ CtrlStruct_gr4.h
 SearchGraph_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp
-CurvePath.h
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp
+CurvePath_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.h
 speed_regulation_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
 config_file_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/config_file_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.h
 namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
 CtrlStruct_gr4.h
@@ -1003,34 +1015,50 @@ geometric_objects_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/geometric_objects_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/useful_gr4.h
+Path_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp
-LinePath.h
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp
+LinePathList_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.h
+
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.h
+namespace_ctrl.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
+CtrlStruct_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CtrlStruct_gr4.h
+LinePath_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.h
+Path_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.h
+vector
+-
+
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp
+LinePath_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.h
 speed_regulation_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.h
 namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
 CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CtrlStruct_gr4.h
 geometric_objects_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/geometric_objects_gr4.h
+Path_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp
-LinePathList.h
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp
+Path_gr4.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.h
 
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.h
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.h
 namespace_ctrl.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/namespace_ctrl.h
 CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/CtrlStruct_gr4.h
-LinePath.h
-/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.h
-vector
--
 
 /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.cc
 path_regulation_gr4.h
