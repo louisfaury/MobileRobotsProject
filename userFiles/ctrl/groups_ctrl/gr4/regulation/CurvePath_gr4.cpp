@@ -1,4 +1,10 @@
-#include "CurvePath.h"
+/*!
+ * @file CurvePath.cpp
+ * @author Louis Faury
+ * @date 15/11
+ */
+
+#include "CurvePath_gr4.h"
 #include "speed_regulation_gr4.h"
 #include "config_file_gr4.h"
 
@@ -18,16 +24,16 @@ bool CurvePath::nextStep(double alpha, double dt, CtrlStruct *cvs)
 
     if ( m_angle > EPSILON )
     {
-        nAngle = alpha + ANG_SPEED*dt;
+        nAngle = alpha + ANG_SPEED*dt; // next angle with ANG_SPEED
 
         if ( nAngle > m_angle + EPSILON )
         {
-            correctCoeff = 1. - (nAngle-m_angle)/m_angle;
+            correctCoeff = 1. - (nAngle-m_angle)/m_angle; // correcting if going too far on next time step
             end = true;
         }
 
         angSpeed = ANG_SPEED * correctCoeff;
-        deltaWheelSpeed = ANG_SPEED * RobotGeometry::WHEEL_BASE;
+        deltaWheelSpeed = ANG_SPEED * RobotGeometry::WHEEL_BASE; // computing wheels speed
 
         speed_regulation(cvs, 0.5*m_sign*deltaWheelSpeed, -0.5*m_sign*deltaWheelSpeed);
     }

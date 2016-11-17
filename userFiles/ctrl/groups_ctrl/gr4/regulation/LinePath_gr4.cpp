@@ -1,4 +1,10 @@
-#include "LinePath.h"
+/*!
+ * @file LinePath.cpp
+ * @author Louis Faury
+ * @date 15/11
+ */
+
+#include "LinePath_gr4.h"
 #include "speed_regulation_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
@@ -8,7 +14,7 @@ LinePath::LinePath()
 }
 
 
-LinePath::LinePath(Point start, double length, double angle) : m_start(start), m_length(length), m_angle(angle)
+LinePath::LinePath(Point start, double length, double angle) : Path(length), m_start(start), m_angle(angle)
 {
 }
 

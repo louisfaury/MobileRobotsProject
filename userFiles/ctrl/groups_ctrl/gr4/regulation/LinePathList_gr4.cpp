@@ -1,4 +1,10 @@
-#include "LinePathList.h"
+/*!
+ * @file LinePathlist.cpp
+ * @author Louis Faury
+ * @date 15/11
+ */
+
+#include "LinePathList_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 

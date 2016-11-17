@@ -1,9 +1,15 @@
+/*!
+ * @file LinePathlist.h
+ * @author Louis Faury
+ * @date 15/11
+ */
+
 #ifndef LINEPATHLIST_H
 #define LINEPATHLIST_H
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
-#include "LinePath.h"
+#include "LinePath_gr4.h"
 #include <vector>
 
 NAMESPACE_INIT(ctrlGr4);
