@@ -702,6 +702,12 @@
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h">
          <Option target="Project_userfct"/>
       </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp">
+         <Option target="Project_userfct"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h">
+         <Option target="Project_userfct"/>
+      </Unit>
       <Unit filename="/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp">
          <Option target="Project_userfct"/>
       </Unit>

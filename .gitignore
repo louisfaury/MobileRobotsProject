@@ -1,11 +1,6 @@
-**/*.o
-**/*.a
-**/*.make
-**/*.cmake
-**/*.marks
-**/*.cbp
-*.make
-*.cbp
-*.cmake
-*.*.make
+*
 
+!*.cpp
+!*.h
+!**/*.cpp
+!**/*.h
