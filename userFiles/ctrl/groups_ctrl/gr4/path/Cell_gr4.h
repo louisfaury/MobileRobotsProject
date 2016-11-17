@@ -20,18 +20,22 @@ public:
         occupied
     };
 
+    using LinkIt = std::vector<Link*>::iterator;
+
     Cell();
     ~Cell();
     Cell(double x, double y, double size);
 
-    double              x(){ return m_x; }
-    double              y(){ return m_y; }
-    double              size(){ return m_size; }
-    OccupancyStatus_t   status(){ return m_status; }
-    void                setFree(){ m_status = OccupancyStatus_t::free; }
-    void                setOccupied(){ m_status = OccupancyStatus_t::occupied; }
-    void                addLink(Link* link);
-    bool                isNeighbor(int id);
+    virtual double              x(){ return m_x; }
+    virtual double              y(){ return m_y; }
+    virtual double              size(){ return m_size; }
+    virtual OccupancyStatus_t   status(){ return m_status; }
+    virtual void                setFree(){ m_status = OccupancyStatus_t::free; }
+    virtual void                setOccupied(){ m_status = OccupancyStatus_t::occupied; }
+    virtual void                addLink(Link* link);
+    virtual bool                isNeighbor(int id);
+    virtual std::vector<Link*> getLinks(){return m_linkVector;}
+
 
 private:
     double m_x;

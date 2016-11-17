@@ -7,5 +7,5 @@
  * A header file called 'cmake_java_config.h' is then automatically generated in the build directory
  */
 
-#define JAR_PATH "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/mbs_realtime/../../mbsyspad/MBsysPad.jar"
+#define JAR_PATH "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/mbs_realtime/../../mbsyspad/MBsysPad.jar"
 #define J3D_PATH "/usr/lib/jni"
