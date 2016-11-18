@@ -13,15 +13,11 @@ public:
     Link();
     Link(int id, double length);
 
-    void    setHrstScore(double score){ m_heuristicalScore = score; }
-    double  getHrstScore(){ return m_heuristicalScore; }
     int     goalId(){ return m_goalNodeId; }
 
 private:
     int m_goalNodeId;
-
     double m_length;
-    double m_heuristicalScore;
 };
 
 NAMESPACE_CLOSE();

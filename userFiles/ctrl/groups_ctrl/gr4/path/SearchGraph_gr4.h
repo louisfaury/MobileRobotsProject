@@ -27,9 +27,10 @@ public:
     /*!
      * @function computePath(int,int) : std::vector<int>
      * @brief computes A* computed path to reach target identified by targetId, cell identified by sourceId
-     * @return a vector containing list of successive IDs representing the path including sourceId and cellID
+     *        fills path vector with ids of cells constituing the path (including sourcecell and targetcell)
+     * @return a boolean (true if a path has been found, false otherwise)
      */
-    std::vector<int> computePath(int sourceId, int targetId); //A star algortihm to compute optimal path
+    bool computePath(std::vector<int>* path, int sourceId, int targetId, int verbose); //A star algortihm to compute optimal path
 
 protected:
     /*!
@@ -43,12 +44,19 @@ protected:
      */
     virtual void _describe();
     /*!
-     * @function _computeAStarCost(..) : bool
-     * @brief computes A* cost of reachedCell coming from sourceCell and heading to targetCell
-     *        updates reachedCell priority attribute
+     * @function _computeBestDistance(..) : bool
+     * @brief computes distance travelled from sourceCell and to reach reachedCell
+     *        updates reachedCell weight attribute
      * @return 1 if the examined path is the best path to reach the reachedCell until now, 0 otherwise
     */
-    virtual bool _computeAStarCost(SearchCell *sourceCell, SearchCell *reachedCell, SearchCell *targetCell);
+    virtual bool _computeBestDistance(SearchCell *sourceCell, SearchCell *reachedCell);
+    /*!
+     * @function _computeHeuristicalScore(..) :void
+     * @brief computes a* heuristical score of cell
+     *        updates cell heuristicalScore attribute
+     * @return 1 if the examined path is the best path to reach the reachedCell until now, 0 otherwise
+    */
+    virtual void _computeHeuristicalScore(SearchCell *cell, SearchCell *targetCell);
 
     /*!
      * @function _retriveBestPath(..) : std::vector<int>

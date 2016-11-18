@@ -73,8 +73,9 @@ void controller_loop(CtrlStruct *cvs)
 {
 
 
-    //TODO : delete when searchpath tested
+//    //TODO : delete when searchpath tested
 //    SearchGraph *searchmap = new SearchGraph();
+//    std::vector<int> path;
 
 //    SearchCell* c1 = new SearchCell(0,0,1);
 //    SearchCell* c2 = new SearchCell(1,0,1);
@@ -120,7 +121,7 @@ void controller_loop(CtrlStruct *cvs)
 //    c4->addLink(l43);
 
 
-//   std::vector<int> path = searchmap->computePath(120,35);
+//   searchmap->computePath(&path, 120,35,1);
 //   for (std::vector<int>::const_iterator i = path.begin(); i != path.end(); ++i){
 //       printf("%d\t", *i);
 //    }

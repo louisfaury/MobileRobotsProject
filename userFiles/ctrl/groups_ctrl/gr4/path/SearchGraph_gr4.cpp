@@ -168,7 +168,7 @@ void SearchGraph::_addCell(SearchCell *cell)
 }
 
 
-bool SearchGraph::_computeAStarCost(SearchCell *sourceCell, SearchCell *reachedCell, SearchCell *targetCell)
+bool SearchGraph::_computeBestDistance(SearchCell *sourceCell, SearchCell *reachedCell)
 {
     bool res = 0;
 
@@ -190,6 +190,17 @@ bool SearchGraph::_computeAStarCost(SearchCell *sourceCell, SearchCell *reachedC
 }
 
 
+void SearchGraph::_computeHeuristicalScore(SearchCell *cell, SearchCell *targetCell){
+    double X = cell->x();
+    double Y = cell->y();
+    double targetX = targetCell->x();
+    double targetY = targetCell->y();
+
+    int score = (int)(std::sqrt((X-targetX)*(X-targetX)+(Y-targetY)*(Y-targetY))*100);
+    cell->setHeuristicalScore(score);
+
+}
+
 std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     int id = targetId;
     std::vector<int> res;
@@ -202,8 +213,15 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     return res;
 }
 
- std::vector<int> SearchGraph::computePath(int sourceId, int targetId)
+ bool SearchGraph::computePath(std::vector<int> *path, int sourceId, int targetId, int verbose)
  {
+
+     FILE *searchFile, *pathFile;
+      if(verbose){
+          searchFile = fopen("../OutputFiles/searchfile.txt","w");
+          pathFile = fopen("../OutputFiles/pathfile.txt","w");
+      }
+
     //initializing priority queue
     std::priority_queue<SearchCell*, std::vector<SearchCell*>, CompareSearchCells> priorityQueue;
 
@@ -212,7 +230,7 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     int id, id1, id2, neighborId;
     SearchCell *sCell, *neighborSCell, *targetSCell;
     std::vector<Link*> neighborLinks;
-    std::vector<int> res;
+
     bool bestPath = 0;
 
     //We begin by exploring the sourceCell and by putting its weight to 0
@@ -226,7 +244,12 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     {
         //Retrieve current cell id
         id = sCell->getId();
-        getchar();
+        if(verbose)
+        {
+            fprintf(searchFile, "%d\n", id);
+        }
+
+
         //We mark this cell as already visited so that we will never come back to it
         sCell->setStatus(false);
 
@@ -247,10 +270,14 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
 
             neighborSCell = m_cellMap[neighborId];
             //If there is an obstacle or if it has already been visited we avoid it
-            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->isOpen())
+            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->notVisited())
             {
+                //If is has not been seen before, we compute its heuristical score
+                if(neighborSCell->getHeuristicalScore()<0){
+                        _computeHeuristicalScore(neighborSCell, targetSCell);
+                }
 
-                bestPath = _computeAStarCost(sCell, neighborSCell, targetSCell);
+                bestPath = _computeBestDistance(sCell, neighborSCell);
 
                 //Adding neighbor in priorityqueue
                 if (bestPath)
@@ -269,14 +296,14 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
             //Removing it from the priorityQueue
             priorityQueue.pop();
             //while the popped cells have already been visited coming from a shorter path, we ignore them
-            while(!sCell->isOpen() && !priorityQueue.empty())
+            while(!sCell->notVisited() && !priorityQueue.empty())
             {
                 //Getting first priority element
                 sCell =  priorityQueue.top();
                 //Removing it from the priorityQueue
                 priorityQueue.pop();
             }
-            if(!sCell->isOpen()){
+            if(!sCell->notVisited()){
                 //TODO : handle system error in calling function
                 printf("Error : not able to reach target\n");
             }
@@ -294,10 +321,19 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
 
     //Attention : we want a result in IDs and not Cell* since the SearchCells will all be deleted
     //right after this line of code
-    res = _retrieveBestPath(sourceId, targetId);
+    *path = _retrieveBestPath(sourceId, targetId);
+
+    if(verbose){
+        for (std::vector<int>::const_iterator i = path->begin(); i != path->end(); ++i)
+        {
+            fprintf(pathFile, "%d\n", *i);
+        }
+        fclose(pathFile);
+        fclose(searchFile);
+    }
 
 
-   return res;
+   return path;
 
  }
 

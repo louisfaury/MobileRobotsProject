@@ -1713,77 +1713,101 @@ home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_c
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.cc.s
 .PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.cc.s
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.o
 
 # target to build an object file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.i
 
 # target to preprocess a source file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.s
 
 # target to generate assembly for a file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.o
 
 # target to build an object file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.i
 
 # target to preprocess a source file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.s
 
 # target to generate assembly for a file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.o
 
 # target to build an object file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.i
 
 # target to preprocess a source file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i
 
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.s
 
 # target to generate assembly for a file
-home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s:
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s
-.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s
+
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.o
+
+# target to build an object file
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o
+
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.i: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.i
+
+# target to preprocess a source file
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i
+
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.s: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.s
+
+# target to generate assembly for a file
+home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s:
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build && $(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s
+.PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s
 
 home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.o: home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.cc.o
 .PHONY : home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.o
@@ -4225,15 +4249,18 @@ help:
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.o"
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.i"
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.s"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.o"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.i"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.s"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.o"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.i"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.s"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.o"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.i"
-	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.s"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.o"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.i"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.s"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.o"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.i"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.s"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.o"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.i"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.s"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.o"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.i"
+	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.s"
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.o"
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.i"
 	@echo "... home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.s"

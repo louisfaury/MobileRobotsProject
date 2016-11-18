@@ -3568,78 +3568,101 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_154)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.i
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.i
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.s
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.s
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.requires:
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.requires:
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.requires
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.provides
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.provides
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_155)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.i
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.i
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.s
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.s
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.requires:
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.requires:
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.requires
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.provides
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.provides
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_156)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.i
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.i
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s"
-	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.s
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.s
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.requires:
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.requires:
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.requires
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.requires
-	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.provides.build
-.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.provides
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.provides
 
-userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_157)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp > CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.i
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s"
+	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.s
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.requires:
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.requires
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.provides: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.requires
+	$(MAKE) -f userfctR/CMakeFiles/Project_userfct.dir/build.make userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.provides.build
+.PHONY : userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.provides
+
+userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.provides.build: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_157)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_158)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o"
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp
 
@@ -3662,7 +3685,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_158)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_159)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o"
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp
 
@@ -3685,7 +3708,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_159)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_160)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o"
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp
 
@@ -3708,7 +3731,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_160)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_161)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp.o"
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.cpp
 
@@ -3731,7 +3754,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/Mob
 
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o: userfctR/CMakeFiles/Project_userfct.dir/flags.make
 userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_161)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/CMakeFiles $(CMAKE_PROGRESS_162)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o"
 	cd /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp.o -c /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.cpp
 
@@ -3907,9 +3930,10 @@ Project_userfct_OBJECTS = \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/ctrl_interface/Controller.cc.o" \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/config/config_file.cc.o" \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o" \
-"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o" \
-"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o" \
-"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o" \
+"CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o" \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o" \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o" \
 "CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o" \
@@ -4072,9 +4096,10 @@ userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/greg
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/ctrl_interface/Controller.cc.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/config/config_file.cc.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o
-userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o
+userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o
 userfctR/libProject_userfct.a: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o
@@ -4243,9 +4268,10 @@ userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_us
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/ctrl_interface/Controller.cc.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/config/config_file.cc.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList.cpp.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath.cpp.o.requires
-userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/Path_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/CurvePath_gr4.cpp.o.requires
+userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePath_gr4.cpp.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Link_gr4.cpp.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.cpp.o.requires
 userfctR/CMakeFiles/Project_userfct.dir/requires: userfctR/CMakeFiles/Project_userfct.dir/home/gregoire/Documents/MobileRobots/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.cpp.o.requires
