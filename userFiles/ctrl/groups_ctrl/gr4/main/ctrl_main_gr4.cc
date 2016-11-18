@@ -73,7 +73,7 @@ void controller_loop(CtrlStruct *cvs)
 {
 
 
-//    //TODO : delete when searchpath tested
+    //TODO : delete when searchpath tested
 //    SearchGraph *searchmap = new SearchGraph();
 //    std::vector<int> path;
 

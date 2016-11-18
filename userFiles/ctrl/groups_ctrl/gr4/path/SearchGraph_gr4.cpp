@@ -304,12 +304,13 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
                 priorityQueue.pop();
             }
             if(!sCell->notVisited()){
-                //TODO : handle system error in calling function
                 printf("Error : not able to reach target\n");
+                return 0;
             }
         }else{
-            //TODO : handle system error is calling function
+
             printf("Error : not able to reach target\n");
+            return 0;
 
         }
 
@@ -333,7 +334,7 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     }
 
 
-   return path;
+   return 1;
 
  }
 
