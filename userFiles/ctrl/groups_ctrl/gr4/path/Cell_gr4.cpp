@@ -42,4 +42,20 @@ bool Cell::isNeighbor(int id)
     return res;
 }
 
+
+Link *Cell::getLink(int endNodeId)
+{
+    Link* res;
+    for (LinkListIt it = m_linkVector.begin(); it != m_linkVector.end(); it++)
+    {
+        if ( (*it)->goalId()==endNodeId )
+        {
+            res = (*it);
+            break;
+        }
+    }
+
+    return res;
+}
+
 NAMESPACE_CLOSE();

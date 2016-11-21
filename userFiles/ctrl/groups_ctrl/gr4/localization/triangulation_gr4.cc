@@ -222,8 +222,9 @@ void triangulation(CtrlStruct *cvs)
         pos_tri->x = first_order_filter(pos_tri->x, xRes, tau, dt, posPeakThreshold);
         pos_tri->y = first_order_filter(pos_tri->y, yRes, tau, dt, posPeakThreshold);
         pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, tau, dt, angPeakThreshold);
-        set_plot(pos_tri->x, "TrianX");
-        set_plot(pos_tri->y, "TrianY");
+
+        //set_plot(pos_tri->x, "TrianX");
+        //set_plot(pos_tri->y, "TrianY");
         //set_plot(pos_tri->theta, "TrianTheta");
 
         // kalman flag rise

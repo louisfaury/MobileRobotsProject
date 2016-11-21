@@ -10,41 +10,54 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
-CurvePath::CurvePath()
+CurvePath::CurvePath() : m_sign(1)
 {
 }
 
 bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
 {
+
     bool end = false;
 
-    double nAngle;
-    double correctCoeff(1.);
-    double angSpeed, deltaWheelSpeed;
+    double cRightSpeed = cvs->sp_reg->r_sp_ref;
+    double cLeftSpeed = cvs->sp_reg->l_sp_ref;
 
-    // here m_length = angle !
-    if ( m_length > EPSILON )
+    double maxDeltaAcc = MAX_ANGULAR_ACC*RobotGeometry::WHEEL_BASE;
+    double deltaSpeed = m_sign * 2 * PI * RobotGeometry::WHEEL_RADIUS * (cRightSpeed - cLeftSpeed); //curent deltaSpeed of the robot
+
+    double deltaAcc;
+
+    // speed profile, obtain to reach curve that arrive at objective with 0 angular speed at max angular desacc.
+    deltaAcc = 1/(2*dt)*(-maxDeltaAcc*dt -2*deltaSpeed + sqrt( std::max(0.,maxDeltaAcc*maxDeltaAcc*dt*dt + 8*maxDeltaAcc*RobotGeometry::WHEEL_BASE*(m_length-alpha)
+                                                                        -4*deltaSpeed*maxDeltaAcc*dt)) );
+
+    // complying with kinematics constraints
+    deltaAcc = std::min( deltaAcc, maxDeltaAcc);
+    deltaAcc = std::max( deltaAcc, -maxDeltaAcc);
+    deltaAcc = std::min( deltaAcc, (2*WHEEL_MAX_SPEED-deltaSpeed)/dt);
+    deltaAcc = std::max( deltaAcc, -deltaSpeed/dt);
+
+    printf("deltaAcc:%f, s : %f\n",deltaAcc, RAD2DEG(alpha));
+
+    // update
+    alpha += (deltaSpeed*dt+deltaAcc*dt*dt)/(RobotGeometry::WHEEL_BASE);
+
+    double nLeftSpeed = cLeftSpeed - m_sign * 0.5 * deltaAcc *dt / (2*PI*RobotGeometry::WHEEL_RADIUS);
+    double nRightSpeed = cRightSpeed + m_sign* 0.5 *deltaAcc * dt / (2*PI*RobotGeometry::WHEEL_RADIUS);
+
+    // applying to speed regulation
+    speed_regulation(cvs, nRightSpeed, nLeftSpeed);
+
+    if ( alpha > m_length -EPSILON )
     {
-        nAngle = alpha + ANG_SPEED*dt; // next angle with ANG_SPEED
-
-        if ( nAngle > m_length + EPSILON )
-        {
-            correctCoeff = 1. - (nAngle-m_length)/m_length; // correcting if going too far on next time step
-            end = true;
-        }
-
-        angSpeed = ANG_SPEED * correctCoeff;
-        deltaWheelSpeed = ANG_SPEED * RobotGeometry::WHEEL_BASE; // computing wheels speed
-
-        speed_regulation(cvs, 0.5*m_sign*deltaWheelSpeed, -0.5*m_sign*deltaWheelSpeed);
-    }
-    else
+        alpha = m_length;
         end = true;
-    return end;
+    }
 }
 
-CurvePath::CurvePath(double angle, bool sign) : Path(angle), m_sign(sign)
+CurvePath::CurvePath(double angle, int sign) : Path(angle), m_sign(sign)
 {
+    m_id = "Curve";
 }
 
 NAMESPACE_CLOSE();

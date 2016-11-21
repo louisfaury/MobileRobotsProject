@@ -5,16 +5,21 @@
  */
 
 #include "LinePathList_gr4.h"
+#include "CurvePath_gr4.h"
+#include <algorithm>
+#include "speed_regulation_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
-    m_pathVec.reserve(20);
+    m_pathVec.reserve(40);
 }
 
 LinePathList::~LinePathList()
 {
+    for ( PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
+        delete(*it);
     clear();
 }
 
@@ -23,29 +28,37 @@ void LinePathList::addPath(Path* path)
     m_pathVec.push_back(path);
 }
 
-bool LinePathList::nextStep(double s, double dt, CtrlStruct *cvs)
+bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
 {
     bool end(false);
     double locLength;
     double locS(0.);
     double resS(0.);
 
-    // finding the current pathLine
-    PathVectIt it = m_pathVec.begin();
-    for (; it != m_pathVec.end(); it++)
+    if ( s > length()-EPSILON )
     {
-        locLength = (*it)->length();
-        if ( s < locS + locLength && s > locS + EPSILON )
-        {
-            if ( !nextStep(locS, dt, cvs) )
-                break;
-        }
-        else
-            locS += locLength;
+        end = true;
+        speed_regulation(cvs,0.,0.);
     }
-    resS = s - locLength;
+    else
+    {
+        // finding the current pathLine
+        PathVectIt it = m_pathVec.begin();
+        for (; it != m_pathVec.end(); it++)
+        {
+            locLength = (*it)->length();
+            if ( s < locS + locLength )
+            {
+                resS = s - locS;
+                (*it)->nextStep(resS, dt, cvs);
+                break;
+            }
+            else
+                locS += locLength;
+        }
+        s = locS + resS;
+    }
 
-    end = ( fabs( length() - s)<EPSILON );
     return end;
 }
 
@@ -66,5 +79,47 @@ void LinePathList::clear()
         delete(*it);
 }
 
-NAMESPACE_CLOSE();
+void LinePathList::reverse()
+{
+    std::reverse(m_pathVec.begin(),m_pathVec.end());
+}
 
+
+void LinePathList::smooth()
+{
+    PathVectIt it1 = m_pathVec.begin();
+    PathVectIt it2 = it1 + 1;
+    LinePath *curLine, *nextLine;
+    double deltaAngle;
+    int sign;
+
+    for (; it2 != m_pathVec.end(); it2++)
+    {
+        curLine = (LinePath*)(*it1);
+        nextLine = (LinePath*)(*it2);
+
+        deltaAngle = nextLine->angle() -curLine->angle();
+
+        if ( fabs(deltaAngle)>EPSILON )
+        {
+            sign = deltaAngle/fabs(deltaAngle);
+
+            CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
+                                                                                // TODO : create a pool of curvePath to avoid dynamic allocation
+
+            m_pathVec.insert(it2,curvePath);
+            it2++;
+        }
+        else
+        {
+            (*it1)->setEndSpeed(LinePath::MAX_SPEED);
+        }
+        it1 = it2;
+    }
+
+    for ( PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
+        (*it)->describe();
+}
+
+
+NAMESPACE_CLOSE();

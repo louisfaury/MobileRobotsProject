@@ -1255,3 +1255,68 @@ make[1]: quittant le répertoire « /home/gregoire/Documents/MobileRobots/Mobile
 Source file was:
 __attribute__((__deprecated__)) int somefunc() { return 0; }
     int main() { return somefunc();}
+Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_VISIBILITY succeeded with the following output:
+Change Dir: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1609a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1609a.dir/build.make CMakeFiles/cmTC_1609a.dir/build
+make[1]: Entering directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1609a.dir/src.cxx.o
+/usr/bin/c++     -DCOMPILER_HAS_HIDDEN_VISIBILITY   -fvisibility=hidden -o CMakeFiles/cmTC_1609a.dir/src.cxx.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_1609a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1609a.dir/link.txt --verbose=1
+/usr/bin/c++    -DCOMPILER_HAS_HIDDEN_VISIBILITY    CMakeFiles/cmTC_1609a.dir/src.cxx.o  -o cmTC_1609a -rdynamic 
+make[1]: Leaving directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY succeeded with the following output:
+Change Dir: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_af9eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_af9eb.dir/build.make CMakeFiles/cmTC_af9eb.dir/build
+make[1]: Entering directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_af9eb.dir/src.cxx.o
+/usr/bin/c++     -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY   -fvisibility-inlines-hidden -o CMakeFiles/cmTC_af9eb.dir/src.cxx.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_af9eb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af9eb.dir/link.txt --verbose=1
+/usr/bin/c++    -DCOMPILER_HAS_HIDDEN_INLINE_VISIBILITY    CMakeFiles/cmTC_af9eb.dir/src.cxx.o  -o cmTC_af9eb -rdynamic 
+make[1]: Leaving directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR succeeded with the following output:
+Change Dir: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a93e2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a93e2.dir/build.make CMakeFiles/cmTC_a93e2.dir/build
+make[1]: Entering directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a93e2.dir/src.cxx.o
+/usr/bin/c++     -DCOMPILER_HAS_DEPRECATED_ATTR   -o CMakeFiles/cmTC_a93e2.dir/src.cxx.o -c /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:2:25: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
+     int main() { return somefunc();}
+                         ^
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
+ __attribute__((__deprecated__)) int somefunc() { return 0; }
+                                     ^
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:2:25: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
+     int main() { return somefunc();}
+                         ^
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
+ __attribute__((__deprecated__)) int somefunc() { return 0; }
+                                     ^
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:2:34: warning: ‘int somefunc()’ is deprecated [-Wdeprecated-declarations]
+     int main() { return somefunc();}
+                                  ^
+/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp/src.cxx:1:37: note: declared here
+ __attribute__((__deprecated__)) int somefunc() { return 0; }
+                                     ^
+Linking CXX executable cmTC_a93e2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a93e2.dir/link.txt --verbose=1
+/usr/bin/c++    -DCOMPILER_HAS_DEPRECATED_ATTR    CMakeFiles/cmTC_a93e2.dir/src.cxx.o  -o cmTC_a93e2 -rdynamic 
+make[1]: Leaving directory '/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}

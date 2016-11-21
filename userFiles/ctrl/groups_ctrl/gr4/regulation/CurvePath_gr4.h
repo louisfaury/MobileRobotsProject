@@ -19,7 +19,7 @@ class CurvePath : public Path
 {
 public:
     CurvePath();
-    CurvePath(double angle, bool sign);
+    CurvePath(double angle, int sign);
 
     /*!
      * @function nextStep(double,double,CtrlStruct) : bool
@@ -27,11 +27,14 @@ public:
      * @returns bool if path is completed
      */
     virtual bool nextStep(double& alpha, double dt, CtrlStruct* cvs);
+    virtual void setEndSpeed(double){}
+    virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
 
-    static constexpr double ANG_SPEED = PI/2;
+    static constexpr double MAX_ANGULAR_ACC = 5*PI;
+    static constexpr double WHEEL_MAX_SPEED = 2*PI;
 
 protected:
-    bool m_sign; // true if in trigonometric direction
+    int m_sign; // true if in trigonometric direction
 };
 
 NAMESPACE_CLOSE();

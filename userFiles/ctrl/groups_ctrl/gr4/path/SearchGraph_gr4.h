@@ -6,6 +6,7 @@
 #include "Cell_gr4.h"
 #include "SearchCell_gr4.h"
 #include "MapHandler_gr4.h"
+#include "LinePathList_gr4.h"
 #include <map>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -21,8 +22,7 @@ public:
     SearchGraph();
     ~SearchGraph();
 
-    static constexpr double CELL_SIZE = 0.2;
-    virtual void _addCell(SearchCell* cell); // TODO : go private
+    static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
 
     /*!
      * @function computePath(int,int) : std::vector<int>
@@ -30,7 +30,8 @@ public:
      *        fills path vector with ids of cells constituing the path (including sourcecell and targetcell)
      * @return a boolean (true if a path has been found, false otherwise)
      */
-    bool computePath(std::vector<int>* path, int sourceId, int targetId, int verbose); //A star algortihm to compute optimal path
+    virtual bool computePath(LinePathList* path, int sourceId, int targetId, int verbose=false); //A star algortihm to compute optimal path
+    virtual bool findCell(Point loc, int& id);
 
 protected:
     /*!
@@ -62,11 +63,18 @@ protected:
      * @function _retriveBestPath(..) : std::vector<int>
      * @brief once target has been reached by A* algorithm, recompute the list of cell Ids that optimally leads to the targetCell
     */
-    virtual std::vector<int> _retrieveBestPath( int sourceId, int targetId);
+    virtual void _retrieveBestPath( int sourceId, int targetId, LinePathList* path);
+
+    /*!
+     * @brief add cell to graph
+     */
+    virtual void _addCell(SearchCell* cell);
 
     MapHandler m_mapHandler;
     std::map<int,SearchCell*> m_cellMap; //dynamic graph, easier to handle this way than to store ids in Cells
     int m_cellCtr;
+
+
 
 };
 

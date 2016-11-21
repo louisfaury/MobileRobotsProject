@@ -8,10 +8,24 @@
 #define _PATH_REGULATION_GR4_H_
 
 #include "CtrlStruct_gr4.h"
+#include "LinePathList_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
+struct PathRegulation
+{
+    LinePathList* refPath;
+    bool reached;
+    double s;
+
+    struct timespec endr;
+    struct timespec start;
+};
+
+PathRegulation* init_path_regulation();
 void follow_path(CtrlStruct *cvs);
+void free_path_regulation(PathRegulation*);
+void reset(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 

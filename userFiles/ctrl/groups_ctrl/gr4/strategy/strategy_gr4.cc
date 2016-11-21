@@ -31,7 +31,7 @@ void free_strategy(Strategy *strat)
 	free(strat);
 }
 
-/*! \brief startegy during the game
+/*! \brief strategy during the game
  * 
  * \param[in,out] cvs controller main structure
  */
@@ -40,15 +40,26 @@ void main_strategy(CtrlStruct *cvs)
 	// variables declaration
 	Strategy *strat;
 	CtrlIn *inputs;
-
+    PathPlanning* pathPlanner = cvs->path;
 	// variables initialization
 	strat  = cvs->strat;
 	inputs = cvs->inputs;
 
+    //TODO : refine
+    strat->target = Point(0.,0.);
+
 	switch (strat->main_state)
 	{
 		case GAME_STATE_A:
-			speed_regulation(cvs, 0.0, 0.0);
+            static bool init = false;
+            static bool found = false;
+            if (!init)
+            {
+                found = pathPlanning(cvs);
+                init = true;
+            }
+            if (found)
+                follow_path(cvs);
 			break;
 
 		case GAME_STATE_B:

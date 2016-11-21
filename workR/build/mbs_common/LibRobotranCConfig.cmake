@@ -15,30 +15,30 @@
 
 # MBSYSC_MODULES
 FIND_LIBRARY(LIB_MBSYSC_MODULES MBsysC_module
-    PATHS /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_module
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_module//Debug
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_module//Release
+    PATHS /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_module
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_module//Debug
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_module//Release
 )
 
 # MBSYSC_LOAD
 FIND_LIBRARY(LIB_MBSYSC_LOAD MBsysC_loadXML
-    PATHS /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_load_xml
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_load_xml//Debug
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_load_xml//Release
+    PATHS /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_load_xml
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_load_xml//Debug
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_load_xml//Release
 )
 
 # MBSYSC_UTILITIES
 FIND_LIBRARY(LIB_MBSYSC_UTILITIES MBsysC_utilities
-    PATHS /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_utilities
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_utilities//Debug
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_utilities//Release
+    PATHS /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_utilities
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_utilities//Debug
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_utilities//Release
 )
 
 # MBSYSC_REALTIME
 FIND_LIBRARY(LIB_MBSYSC_REALTIME MBsysC_realtime
-    PATHS /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_realtime
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_realtime//Debug
-          /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/mbs_realtime//Release
+    PATHS /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_realtime
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_realtime//Debug
+          /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/mbs_realtime//Release
 )
 
 
@@ -47,7 +47,7 @@ FIND_LIBRARY(LIB_MBSYSC_REALTIME MBsysC_realtime
 #############
 
 # Path to Robotran common files
-SET(ROBOTRAN_SOURCE_DIR /home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../)
+SET(ROBOTRAN_SOURCE_DIR /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/../)
 
 # Call project funstion (symbolic and user) via function pointers
 SET(FLAG_PRJ_FCT_PTR OFF)
@@ -64,7 +64,7 @@ SET(FLAG_SHARED_LIB OFF)
 # INCLUDE DIRECTORIES
 #############
 
-SET(LIB_MBSYSC_INCLUDE_DIRS /home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_struct;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_load_xml;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_module;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_utilities;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_utilities/auto_output;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/realtime;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/sdl;/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/sdl/auto_plot )
+SET(LIB_MBSYSC_INCLUDE_DIRS /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_struct;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_load_xml;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_module;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_utilities;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_utilities/auto_output;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/realtime;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/sdl;/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/mbsysCopy/mbs_common/..//mbs_common/mbs_realtime/sdl/auto_plot )
 
 #############
 # DEFINITIONS

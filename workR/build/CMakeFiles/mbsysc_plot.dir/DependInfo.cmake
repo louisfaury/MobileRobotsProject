@@ -1,93 +1,11 @@
 # The set of languages for which implicit dependencies are needed:
-SET(CMAKE_DEPENDS_LANGUAGES
+set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 
-# Preprocessor definitions for this target.
-SET(CMAKE_TARGET_DEFINITIONS
-  "DIRDYNARED"
-  "JAVA"
-  "REAL_TIME"
-  "SDL"
-  "UNIX"
-  )
-
 # Targets to which this target links.
-SET(CMAKE_TARGET_LINKED_INFO_FILES
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
-# The include file search paths:
-SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "conf"
-  "/usr/include/SDL2"
-  "../../userfctR"
-  "../../userFiles/simu/cpp_interface"
-  "../../userFiles/ctrl/groups_ctrl/gr12"
-  "../../userFiles/ctrl/groups_ctrl/gr2"
-  "../../userFiles/ctrl/groups_ctrl/gr18"
-  "../../userFiles/ctrl/groups_ctrl/gr10"
-  "../../userFiles/ctrl/groups_ctrl/gr15"
-  "../../userFiles/ctrl/groups_ctrl/gr1"
-  "../../userFiles/ctrl/groups_ctrl/gr8"
-  "../../userFiles/ctrl/groups_ctrl/gr20"
-  "../../userFiles/ctrl/groups_ctrl/gr17"
-  "../../userFiles/ctrl/groups_ctrl/gr19"
-  "../../userFiles/ctrl/groups_ctrl/gr7"
-  "../../userFiles/ctrl/groups_ctrl/gr4/localization"
-  "../../userFiles/ctrl/groups_ctrl/gr4/main"
-  "../../userFiles/ctrl/groups_ctrl/gr4/useful"
-  "../../userFiles/ctrl/groups_ctrl/gr4/strategy"
-  "../../userFiles/ctrl/groups_ctrl/gr4/regulation"
-  "../../userFiles/ctrl/groups_ctrl/gr4/path"
-  "../../userFiles/ctrl/groups_ctrl/gr4/config"
-  "../../userFiles/ctrl/groups_ctrl/gr11"
-  "../../userFiles/ctrl/groups_ctrl/gr16"
-  "../../userFiles/ctrl/groups_ctrl/gr5"
-  "../../userFiles/ctrl/groups_ctrl/gr14"
-  "../../userFiles/ctrl/groups_ctrl/gr6"
-  "../../userFiles/ctrl/groups_ctrl/gr9"
-  "../../userFiles/ctrl/groups_ctrl/gr3"
-  "../../userFiles/ctrl/groups_ctrl/gr13"
-  "../../userFiles/ctrl/ctrl_interface"
-  "../../userFiles/config"
-  "../../userFiles/simu/actuators"
-  "../../userFiles/simu/geometry"
-  "../../userFiles/simu/rolling"
-  "../../userFiles/simu/useful"
-  "../../userFiles/simu/elements"
-  "../../userFiles/simu/gestion"
-  "../../userFiles/simu/sensors/specific_sensor"
-  "../../userFiles/simu/sensors"
-  "../../userFiles/simu/lists"
-  "../../userFiles/simu/force_pos"
-  "../../userFiles/ctrl/no_ctrl"
-  "../../userFiles/ctrl/resting_ctrl"
-  "../../userFiles/ctrl/player_ctrl"
-  "../../userFiles/ctrl/ctrl_interface/specific"
-  "../../symbolicR"
-  "../../mbsysCopy/mbs_common/mbs_utilities"
-  "../../mbsysCopy/mbs_common/mbs_utilities/auto_output"
-  "../../mbsysCopy/mbs_common/mbs_numerics"
-  "../../mbsysCopy/mbs_common/mbs_module"
-  "../../mbsysCopy/mbs_common/mbs_struct"
-  "../../mbsysCopy/mbs_common/mbs_load_xml"
-  "../../mbsysCopy/mbs_common/mbs_add_on/wheelRail"
-  "../../mbsysCopy/mbs_common/mbs_add_on/mbs_lmgc"
-  "../../mbsysCopy/mbs_common/mbs_realtime"
-  "../../mbsysCopy/mbs_common/mbs_realtime/realtime"
-  "../../mbsysCopy/mbs_common/mbs_realtime/sdl"
-  "../../mbsysCopy/mbs_common/mbs_realtime/sdl/auto_plot"
-  "../../mbsysCopy/mbs_common/mbs_realtime/java"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_struct"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_load_xml"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_module"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities/auto_output"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/realtime"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl"
-  "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl/auto_plot"
-  )
-SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
-SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

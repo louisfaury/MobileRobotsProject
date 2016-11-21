@@ -52,10 +52,10 @@ void update_odometry(CtrlStruct *cvs)
     kalman_pos->odo_meas.dTheta = dTheta;
     kalman_pos->odo_meas.odoFlag = true;
 
-    set_plot(rob_pos->x, "Odo x [m]");
+   /* set_plot(rob_pos->x, "Odo x [m]");
     set_plot(rob_pos->y, "Odo y [m]");
     set_plot(rob_pos->theta, "Odo theta [rad]");
-
+*/
 
 	// last update time
 	rob_pos->last_t = inputs->t;

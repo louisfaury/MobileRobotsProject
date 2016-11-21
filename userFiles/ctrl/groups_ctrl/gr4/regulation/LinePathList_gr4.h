@@ -24,9 +24,11 @@ public:
     ~LinePathList();
 
     void    addPath(Path* path);
-    bool    nextStep(double s, double dt, CtrlStruct* cvs);
+    bool    nextStep(double& s, double dt, CtrlStruct* cvs);
     double  length();
     void    clear();
+    void    reverse();
+    void    smooth();
 
 private:
     std::vector<Path*> m_pathVec;

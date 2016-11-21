@@ -14,7 +14,8 @@
 #include "triangulation_gr4.h"
 #include "strategy_gr4.h"
 #include "kalman_gr4.h"
-
+#include "path_regulation_gr4.h"
+#include "unistd.h"
 
 //TODO : delete includes when search path tested
 #include "SearchGraph_gr4.h"
@@ -72,61 +73,24 @@ void controller_init(CtrlStruct *cvs)
 void controller_loop(CtrlStruct *cvs)
 {
 
-
     //TODO : delete when searchpath tested
-//    SearchGraph *searchmap = new SearchGraph();
-//    std::vector<int> path;
+    /*
+    SearchGraph *searchmap = new SearchGraph();
+    std::vector<int> path;
 
-//    SearchCell* c1 = new SearchCell(0,0,1);
-//    SearchCell* c2 = new SearchCell(1,0,1);
-//    SearchCell* c3 = new SearchCell(0,1,1);
-//    SearchCell* c4 = new SearchCell(1,1,1);
+    searchmap->computePath(&path, 120,35,0);
 
-//    searchmap->_addCell(c1);
-//    searchmap->_addCell(c2);
-//    searchmap->_addCell(c3);
-//    searchmap->_addCell(c4);
+    for (std::vector<int>::const_iterator i = path.begin(); i != path.end(); ++i){
+        printf("%d\t", *i);
+    }
+    getchar();
+    */
 
+    // init clocks
+    static struct timespec start;
+    static struct timespec endr;
 
-//    Link* l11 = new Link(1,1);
-//    Link* l12 = new Link(3,1.3);
-//    Link* l13 = new Link(2,1);
-
-//    Link* l21 = new Link(0,1);
-//    Link* l22 = new Link(2,1.3);
-//    Link* l23 = new Link(3,1);
-
-//    Link* l31 = new Link(0,1);
-//    Link* l32 = new Link(1,1.3);
-//    Link* l33 = new Link(3,1);
-
-//    Link* l41 = new Link(1,1);
-//    Link* l42 = new Link(0,1.3);
-//    Link* l43 = new Link(2,1);
-
-//    c1->addLink(l11);
-//    c1->addLink(l12);
-//    c1->addLink(l13);
-
-//    c2->addLink(l21);
-//    c2->addLink(l22);
-//    c2->addLink(l23);
-
-//    c3->addLink(l31);
-//    c3->addLink(l32);
-//    c3->addLink(l33);
-
-//    c4->addLink(l41);
-//    c4->addLink(l42);
-//    c4->addLink(l43);
-
-
-//   searchmap->computePath(&path, 120,35,1);
-//   for (std::vector<int>::const_iterator i = path.begin(); i != path.end(); ++i){
-//       printf("%d\t", *i);
-//    }
-//    getchar();
-
+    clock_gettime(CLOCK_MONOTONIC,&start);
 
 
     // variables declaration
@@ -140,7 +104,7 @@ void controller_loop(CtrlStruct *cvs)
 
     // time
     t = inputs->t;
-
+    //printf("inputt : %f\n",t);
     // update the robot odometry
     update_odometry(cvs);
 
@@ -156,41 +120,33 @@ void controller_loop(CtrlStruct *cvs)
     // kalman
     kalman(cvs);
 
-    /*
-     * Test loop for milestone A
-    static bool init = false;
-    static double t0;
-    if (t <= -13)
-    {
-        speed_regulation(cvs, PI, PI);
-    }
-    else if (t>-13 && t<=-11)
-    {
-        speed_regulation(cvs, PI*(1-0.8), PI*(1+0.8));
-    }
-    else if (t>-11 && t<-9)
-    {
-        speed_regulation(cvs, PI,PI);
-    }
-    else
-    {
-        if (!init)
-        {
-            t0 = t;
-            init = true;
-        }
-        if (PI*(1-(t-t0)/2)>0)
-            speed_regulation(cvs,PI*(1-(t-t0)/2),PI*(1-(t-t0)/2));
-        else
-            speed_regulation(cvs,0,0);
-    }
-    */
 
+    PathRegulation* path_reg = cvs->path_reg;
+    static bool init = false;
+    if (!init)
+    {
+        LinePath* ref_path_1 = new LinePath(Point(0.,0.),0.2,0);
+        LinePath* ref_path_2 = new LinePath(Point(0.,0.),0.2,0);
+        LinePath* ref_path_3 = new LinePath(Point(0.,0.),0.2,-PI/2);
+
+        path_reg->refPath->addPath(ref_path_1);
+        path_reg->refPath->addPath(ref_path_2);
+        path_reg->refPath->addPath(ref_path_3);
+
+        path_reg->refPath->smooth();
+        init = true;
+    }
+
+    if ( t>-10)
+        follow_path(cvs);
+
+    /*
     switch (cvs->main_state)
     {
         // calibration
         case CALIB_STATE:
-            calibration(cvs);
+           // calibration(cvs);
+        cvs->main_state = WAIT_INIT_STATE;
             break;
 
         // wait before match beginning
@@ -206,10 +162,6 @@ void controller_loop(CtrlStruct *cvs)
 
         // during game
         case RUN_STATE:
-
-            // TODO : path planning call !
-
-            // TODO : path regulation call !
 
             main_strategy(cvs);
 
@@ -234,7 +186,7 @@ void controller_loop(CtrlStruct *cvs)
         default:
             printf("Error:unknown state : %d !\n", cvs->main_state);
             exit(EXIT_FAILURE);
-    }
+    }*/
 }
 
 /*! \brief last controller operations (called once)

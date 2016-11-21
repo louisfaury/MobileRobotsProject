@@ -8,6 +8,7 @@
 #include "path_planning_gr4.h"
 #include "strategy_gr4.h"
 #include "kalman_gr4.h"
+#include "path_regulation_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -91,6 +92,9 @@ CtrlStruct* init_CtrlStruct(CtrlIn *inputs, CtrlOut *outputs)
     cvs->kalman->triang_flag = false;
     cvs->kalman->odo_meas.odoFlag = false;
 
+    // path regulation
+    cvs->path_reg = init_path_regulation();
+
 	return cvs;
 }
 
@@ -108,6 +112,7 @@ void free_CtrlStruct(CtrlStruct *cvs)
 	free(cvs->rob_pos);
 	free(cvs->triang_pos);
     free(cvs->kalman);
+    free(cvs->path_reg);
 
 	free(cvs);
 }

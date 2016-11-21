@@ -22,6 +22,7 @@ SearchGraph::~SearchGraph()
     }
 }
 
+
 void SearchGraph::_graphInit()
 {
     double rowCellNumber    = 1 + ceil( MapHandler::MAP_LENGTH / CELL_SIZE );
@@ -57,23 +58,29 @@ void SearchGraph::_graphInit()
             if ( i>0 )
             { // add left horizontal link
                 SearchCell* nCell = m_cellMap[cellId-columnCellNumber];
-                double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                Link* link = new Link(cellId-columnCellNumber, length);
+                Point cLoc(cCell->x(),cCell->y());
+                double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                Link* link = new Link(cellId-columnCellNumber, length, angle, cLoc);
                 cCell->addLink(link);
 
                 if ( j>0 )
                 {// add left down diagonal link
                     nCell = m_cellMap[cellId-columnCellNumber-1];
-                    double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                    Link* link1 = new Link(cellId-columnCellNumber-1, length);
+                    Point cLoc(cCell->x(),cCell->y());
+                    double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                    double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                    Link* link1 = new Link(cellId-columnCellNumber-1,  length, angle, cLoc);
                     cCell->addLink(link1);
                 }
 
                 if ( j<columnCellNumber-1 )
                 {// add left up diagonal link
                     nCell = m_cellMap[cellId-columnCellNumber+1];
-                    double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                    Link* link2 = new Link(cellId-columnCellNumber+1, length);
+                    Point cLoc(cCell->x(),cCell->y());
+                    double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                    double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                    Link* link2 = new Link(cellId-columnCellNumber+1,  length, angle, cLoc);
                     cCell->addLink(link2);
                 }
             }
@@ -81,22 +88,28 @@ void SearchGraph::_graphInit()
             if ( i<rowCellNumber-1 )
             {// add right horizontal link
                 SearchCell* nCell = m_cellMap[cellId+columnCellNumber];
-                double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                Link* link = new Link(cellId+columnCellNumber, length);
+                Point cLoc(cCell->x(),cCell->y());
+                double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                Link* link = new Link(cellId+columnCellNumber,  length, angle, cLoc);
                 cCell->addLink(link);
 
                 if ( j>0 )
                 {// add right down diagonal link
                     nCell = m_cellMap[cellId+columnCellNumber-1];
-                    double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                    Link* link1 = new Link(cellId+columnCellNumber-1, length);
+                    Point cLoc(cCell->x(),cCell->y());
+                    double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                    double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                    Link* link1 = new Link(cellId+columnCellNumber-1,  length, angle, cLoc);
                     cCell->addLink(link1);
                 }
                 if ( j<columnCellNumber-1 )
                 {// add right down diagonal link
                     nCell = m_cellMap[cellId+columnCellNumber+1];
-                    double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                    Link* link1 = new Link(cellId+columnCellNumber+1, length);
+                    Point cLoc(cCell->x(),cCell->y());
+                    double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                    double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                    Link* link1 = new Link(cellId+columnCellNumber+1, length, angle, cLoc);
                     cCell->addLink(link1);
                 }
 
@@ -105,16 +118,20 @@ void SearchGraph::_graphInit()
             if ( j>0 )
             {// add down link
                 SearchCell* nCell = m_cellMap[cellId-1];
-                double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                Link* link = new Link(cellId-1, length);
+                Point cLoc(cCell->x(),cCell->y());
+                double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                Link* link = new Link(cellId-1,  length, angle, cLoc);
                 cCell->addLink(link);
             }
 
             if ( j<columnCellNumber-1)
             {// add upper link
                 SearchCell* nCell = m_cellMap[cellId+1];
-                double length( Point(cCell->x(),cCell->y()).computeDistance(Point(nCell->x(),nCell->y())) );
-                Link* link = new Link(cellId+1, length);
+                Point cLoc(cCell->x(),cCell->y());
+                double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
+                double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
+                Link* link = new Link(cellId+1,  length, angle, cLoc);
                 cCell->addLink(link);
             }
         }
@@ -172,7 +189,6 @@ bool SearchGraph::_computeBestDistance(SearchCell *sourceCell, SearchCell *reach
 {
     bool res = 0;
 
-    //TODO : Implement heuristic : for now it is a Djikstra algorithm with weight = distance(cm)
     double sourceX = sourceCell->x();
     double sourceY = sourceCell->y();
     double reachedX = reachedCell->x();
@@ -201,33 +217,39 @@ void SearchGraph::_computeHeuristicalScore(SearchCell *cell, SearchCell *targetC
 
 }
 
-std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
-    int id = targetId;
-    std::vector<int> res;
-    res.push_back(id);
-    while(id != sourceId){
-        id = m_cellMap[id]->getPreviousCell()->getId();
-        res.push_back(id);
+void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *path)
+{
+    int id(targetId);
+    path->clear(); // to be cautious
+    while(id != sourceId)
+    {
+        SearchCell* cCell = m_cellMap[id]->getPreviousCell();
+        Link* link = cCell->getLink(id);
+        if ( link != nullptr)
+            path->addPath(link->line());
+        id = cCell->getId(); // TODO : From cell position retrieve id
     }
-    std::reverse(res.begin(), res.end());
-    return res;
+
+    path->reverse();
 }
 
- bool SearchGraph::computePath(std::vector<int> *path, int sourceId, int targetId, int verbose)
- {
+bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, int verbose)
+{
+    bool success(true);
 
-     FILE *searchFile, *pathFile;
-      if(verbose){
-          searchFile = fopen("../OutputFiles/searchfile.txt","w");
-          pathFile = fopen("../OutputFiles/pathfile.txt","w");
-      }
+    FILE *searchFile, *pathFile;
+    if(verbose)
+    {
+        searchFile = fopen("../OutputFiles/searchfile.txt","w");
+        pathFile = fopen("../OutputFiles/pathfile.txt","w");
+    }
 
     //initializing priority queue
     std::priority_queue<SearchCell*, std::vector<SearchCell*>, CompareSearchCells> priorityQueue;
 
     //Initializing local variables
     //Cell *cell;
-    int id, id1, id2, neighborId;
+    int id, neighborId;
     SearchCell *sCell, *neighborSCell, *targetSCell;
     std::vector<Link*> neighborLinks;
 
@@ -243,7 +265,8 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
     while(true)
     {
         //Retrieve current cell id
-        id = sCell->getId();
+        id = sCell->getId(); // TODO : compute from exact position
+
         if(verbose)
         {
             fprintf(searchFile, "%d\n", id);
@@ -274,7 +297,7 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
             {
                 //If is has not been seen before, we compute its heuristical score
                 if(neighborSCell->getHeuristicalScore()<0){
-                        _computeHeuristicalScore(neighborSCell, targetSCell);
+                    _computeHeuristicalScore(neighborSCell, targetSCell);
                 }
 
                 bestPath = _computeBestDistance(sCell, neighborSCell);
@@ -304,14 +327,16 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
                 priorityQueue.pop();
             }
             if(!sCell->notVisited()){
-                printf("Error : not able to reach target\n");
-                return 0;
+                printf("Error : not able to reach target1\n");
+                success = false;
+                break;
             }
-        }else{
-
-            printf("Error : not able to reach target\n");
-            return 0;
-
+        }
+        else
+        {
+            printf("Error : not able to reach target2\n");
+            success = false;
+            break;
         }
 
     }
@@ -322,20 +347,43 @@ std::vector<int> SearchGraph::_retrieveBestPath(int sourceId, int targetId){
 
     //Attention : we want a result in IDs and not Cell* since the SearchCells will all be deleted
     //right after this line of code
-    *path = _retrieveBestPath(sourceId, targetId);
+    if (success)
+        _retrieveBestPath(sourceId, targetId, path);
 
-    if(verbose){
-        for (std::vector<int>::const_iterator i = path->begin(); i != path->end(); ++i)
+
+    /*
+     if(verbose)
+    {
+        for (LinkIt i = path->begin(); i != path->end(); ++i)
         {
-            fprintf(pathFile, "%d\n", *i);
+            fprintf(pathFile, "%d\n", (*i)->goalId());
         }
         fclose(pathFile);
         fclose(searchFile);
     }
+    */
 
-
-   return 1;
-
+    return success;
  }
 
-NAMESPACE_CLOSE();
+ bool SearchGraph::findCell(Point loc, int &id)
+ {
+     //TODO ; compute exact id
+     bool found = false;
+     for (SCellIt it = m_cellMap.begin(); it != m_cellMap.end(); it++)
+     {
+         Cell* cCell = it->second;
+         if ( loc.computeDistance(Point(cCell->x(),cCell->y())) < sqrt(2)*CELL_SIZE/2 + EPSILON )
+         {
+             id = it->first;
+             found = true;
+             break;
+         }
+     }
+
+     return found;
+ }
+
+ NAMESPACE_CLOSE();
+
+

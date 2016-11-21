@@ -3,6 +3,8 @@
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
+#include "geometric_objects_gr4.h"
+#include "LinePath_gr4.h"
 #include <vector>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -11,13 +13,14 @@ class Link
 {
 public:
     Link();
-    Link(int id, double length);
+    Link(int id, double length, double angle, Point start);
 
-    int     goalId(){ return m_goalNodeId; }
+    LinePath* line(){ return &m_line; }
+    int goalId(){ return m_goalNodeId; }
 
 private:
     int m_goalNodeId;
-    double m_length;
+    LinePath m_line;
 };
 
 NAMESPACE_CLOSE();

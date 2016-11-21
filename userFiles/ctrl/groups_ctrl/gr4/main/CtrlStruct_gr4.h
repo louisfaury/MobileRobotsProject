@@ -33,6 +33,7 @@ typedef struct OpponentsPosition OpponentsPosition;
 typedef struct PathPlanning PathPlanning;
 typedef struct Strategy Strategy;
 typedef struct KalmanStruct KalmanStruct;
+typedef struct PathRegulation PathRegulation;
 
 /// Main controller structure
 typedef struct CtrlStruct
@@ -48,6 +49,7 @@ typedef struct CtrlStruct
 	PathPlanning *path;         ///< path-planning
 	Strategy *strat;            ///< strategy
     KalmanStruct *kalman;       ///< kalman
+    PathRegulation* path_reg;   ///< path following module
 
 	int main_state; ///< main state
 	int robot_id;   ///< ID of the robot

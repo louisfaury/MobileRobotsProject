@@ -8,6 +8,7 @@
 #define _STRATEGY_GR4_H_
 
 #include "CtrlStruct_gr4.h"
+#include "geometric_objects_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -15,7 +16,7 @@ NAMESPACE_INIT(ctrlGr4);
 typedef struct Strategy
 {
 	int main_state; ///< main state of the strategy
-	
+    Point target;
 } Strategy;
 
 /// 'main_state' states (adapt with your own states)

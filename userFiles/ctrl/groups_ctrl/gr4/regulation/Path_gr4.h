@@ -9,6 +9,7 @@
 
 #include "namespace_ctrl.h"
 #include "CtrlStruct_gr4.h"
+#include <string>
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -20,9 +21,12 @@ public:
 
     virtual double  length(){ return m_length; }
     virtual bool    nextStep(double&, double, CtrlStruct*) = 0;
+    virtual void    describe(){ printf("%f,%s\n",m_length, m_id.c_str()); }
+    virtual void    setEndSpeed(double endSpeed) = 0;
 
 protected:
     double m_length;
+    std::string m_id;
 };
 
 NAMESPACE_CLOSE();

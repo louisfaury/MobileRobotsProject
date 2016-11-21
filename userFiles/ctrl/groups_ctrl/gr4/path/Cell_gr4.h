@@ -35,6 +35,7 @@ public:
     virtual void                addLink(Link* link);
     virtual bool                isNeighbor(int id);
     virtual std::vector<Link*>  getLinks(){return m_linkVector;}
+    virtual Link*               getLink(int endNodeId);
 
 
 private:

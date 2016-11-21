@@ -16,11 +16,13 @@ NAMESPACE_INIT(ctrlGr4);
 /// path-planning main structure
 struct PathPlanning
 {
-    SearchGraph searchGraph;
+    SearchGraph* searchGraph;
 };
 
 PathPlanning* init_path_planning();
 void free_path_planning(PathPlanning *path);
+bool pathPlanning(CtrlStruct* cvs);
+void smoothPath(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 
