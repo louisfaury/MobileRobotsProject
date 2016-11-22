@@ -13,7 +13,7 @@ NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
-    m_pathVec.reserve(100000);
+    m_pathVec.reserve(1000000);
     m_change = false;
 }
 
@@ -81,8 +81,9 @@ double LinePathList::length()
 
 void LinePathList::clear()
 {
-    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
-        delete(*it);
+    std::vector<Path*>().swap(m_pathVec);
+//    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
+//        delete(*it);
 }
 
 void LinePathList::reverse()
@@ -91,7 +92,7 @@ void LinePathList::reverse()
 }
 
 
-void LinePathList::smooth()
+void LinePathList::smooth(double theta)
 {
     PathVectIt it1 = m_pathVec.begin();
     PathVectIt it2 = it1 + 1;
@@ -99,13 +100,26 @@ void LinePathList::smooth()
     double deltaAngle;
     int sign;
 
+    //First we begin by aligning the robot with the first path line
+    curLine = (LinePath*)(*it1);
+    deltaAngle = MODULOPI(curLine->angle()-theta);
+    if ( fabs(deltaAngle)>EPSILON )
+    {
+        sign = deltaAngle/fabs(deltaAngle);
+        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign);
+        m_pathVec.insert(it1,curvePath);
+        it1++;
+        it2++;
+    }
+
+    //Then we do the same for all pathLines
     for (; it2 != m_pathVec.end(); it2++)
     {
         curLine = (LinePath*)(*it1);
         nextLine = (LinePath*)(*it2);
 
         deltaAngle = MODULOPI(nextLine->angle() -curLine->angle());
-
+        //printf("%f, %f\n", deltaAngle, nextLine->angle() -curLine->angle());
         if ( fabs(deltaAngle)>EPSILON )
         {
             sign = deltaAngle/fabs(deltaAngle);
@@ -118,7 +132,7 @@ void LinePathList::smooth()
         }
         else
         {
-            //(*it1)->setEndSpeed(LinePath::MAX_SPEED);
+            (*it1)->setEndSpeed(LinePath::MAX_SPEED);
         }
         it1 = it2;
     }

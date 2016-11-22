@@ -32,7 +32,7 @@ public:
 
     static constexpr double MAP_LENGTH = 2.0;
     static constexpr double MAP_WIDTH = 3.0;
-    static constexpr double MAP_SAFETY = 0.1;
+    static constexpr double MAP_SAFETY = 0.20;
 
 private:
     GeoObjList m_geoObjectList;

@@ -18,7 +18,25 @@ Strategy* init_strategy()
     Strategy *strat;
 
     strat = (Strategy*) malloc(sizeof(Strategy));
-    strat->target = new Point();
+    strat->targets[0] = (new Point(0.7, 0.6));
+    strat->targets[1] = (new Point(0.1, 0));
+    strat->targets[2] = (new Point(0.7, -0.6));
+    strat->targets[3] = (new Point(0.25, -0.125));
+    strat->targets[4] = (new Point(-0.4, -0.6));
+    strat->targets[5] = (new Point(-0.8, 0));
+    strat->targets[6] = (new Point(-0.4, 0.6));
+    strat->targets[7] = (new Point(0.25, 0.125));
+
+
+    for(int i = 0; i< Strategy::TARGET_NUMBER;i++)
+    {
+        strat->found[i]=false;
+    }
+
+    //TODO: refine with strategy
+    strat->target = strat->targets[0];
+    strat->found[0]= true;
+
     return strat;
 }
 
@@ -29,8 +47,25 @@ Strategy* init_strategy()
 void free_strategy(Strategy *strat)
 {
     delete(strat->target);
+    for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
+    {
+        delete(strat->targets[i]);
+    }
 	free(strat);
 }
+
+//TODO : refine
+void next_target(Strategy *strat)
+{
+    for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
+    {
+        if(!strat->found[i])
+            strat->target = strat->targets[i];
+        //TODO: change
+            strat->found[i]=true;
+    }
+}
+
 
 /*! \brief strategy during the game
  * 
@@ -43,19 +78,28 @@ void main_strategy(CtrlStruct *cvs)
     CtrlIn *inputs;
     Point *target;
     PathPlanning* pathPlanner = cvs->path;
+    PathRegulation* pathReg = cvs->path_reg;
+
+    static bool init = false;
+    static bool found = false;
+
     // variables initialization
     strat  = cvs->strat;
     inputs = cvs->inputs;
     target = strat->target;
 
-    //TODO : refine
-    target->setCoord(0.3,-0.6);
+    if(pathReg->reached){
+        next_target(strat);
+        reset(cvs);
+        init=false;
+    }
+
+
 
 	switch (strat->main_state)
 	{
 		case GAME_STATE_A:
-            static bool init = false;
-            static bool found = false;
+
             if (!init)
             {
                 found = pathPlanning(cvs);

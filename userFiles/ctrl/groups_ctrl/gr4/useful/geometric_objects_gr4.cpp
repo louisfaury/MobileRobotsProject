@@ -26,7 +26,7 @@ Point::Point(double x, double y) : GeometricObject(), m_x(x), m_y(y)
 void Point::setCoord(double x, double y)
 {
     m_x=x;
-    m_y=x;
+    m_y=y;
 }
 
 void Point::getDescription(char *descriptor)

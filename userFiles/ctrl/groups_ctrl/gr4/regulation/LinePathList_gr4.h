@@ -29,7 +29,8 @@ public:
     double  length();
     void    clear();
     void    reverse();
-    void    smooth();
+    bool    isEmpty(){return m_pathVec.empty();};
+    void    smooth(double);
 
 private:
     std::vector<Path*> m_pathVec;

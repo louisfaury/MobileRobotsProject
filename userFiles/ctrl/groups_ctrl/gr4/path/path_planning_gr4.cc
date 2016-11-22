@@ -44,15 +44,15 @@ bool pathPlanning(CtrlStruct *cvs)
 
     Point endLoc(strat->target->x(), strat->target->y());
     Point startLoc(cvs->rob_pos->x,cvs->rob_pos->y);
-    printf("%f, %f\n", strat->target->x(), strat->target->y());
+    //printf("%f, %f, %f, %f\n", endLoc.x(), endLoc.y(), cvs->rob_pos->x, cvs->rob_pos->y);
+
     int startId(0), endId(0);
     // find current cell given pos
     if ( path->searchGraph->findCell(startLoc,startId) )
         if ( path->searchGraph->findCell(endLoc,endId) )
         {
-            printf("%d,%d\n",startId,endId);
             res = path->searchGraph->computePath(path_reg->refPath, startId, endId);
-            if (res)
+            if (res && !path_reg->refPath->isEmpty())
                     smoothPath(cvs);
         }
 
@@ -63,7 +63,8 @@ void smoothPath(CtrlStruct *cvs)
 {
     PathRegulation* path_reg = cvs->path_reg;
     LinePathList* refPath = path_reg->refPath;
-    refPath->smooth();
+    RobotPosition* robPos = cvs->rob_pos;
+    refPath->smooth(robPos->theta);
 }
 
 NAMESPACE_CLOSE();
