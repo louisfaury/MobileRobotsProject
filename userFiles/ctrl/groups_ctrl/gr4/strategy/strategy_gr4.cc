@@ -49,7 +49,7 @@ void main_strategy(CtrlStruct *cvs)
     target = strat->target;
 
     //TODO : refine
-    target->setCoord(0.,0.);
+    target->setCoord(0.3,-0.6);
 
 	switch (strat->main_state)
 	{

@@ -29,6 +29,7 @@ public:
     virtual bool nextStep(double& alpha, double dt, CtrlStruct* cvs);
     virtual void setEndSpeed(double){}
     virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
+    virtual double smoothFromEnd(double /*endSpeed*/){ return 0; }
 
     static constexpr double MAX_ANGULAR_ACC = PI;
     static constexpr double WHEEL_MAX_SPEED = PI/4;

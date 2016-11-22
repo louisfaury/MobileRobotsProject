@@ -28,12 +28,14 @@ void follow_path(CtrlStruct *cvs)
     double t = cvs->inputs->t;
 
     double dt = t-path_reg->last_t;
-    if (dt<0.1)
+    if (dt<0.1 && dt > EPSILON)
     {
         if ( !path_reg->reached )
         {
             path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);
         }
+        else
+            speed_regulation(cvs,0.,0.);
     }
     path_reg->last_t=t;
 

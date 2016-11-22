@@ -60,10 +60,10 @@ void speed_regulation(CtrlStruct *cvs, double r_sp_ref, double l_sp_ref)
     outputs->wheel_commands[L_ID] = l_command;
 
 
-    set_plot(r_sp, "Right output");
-    set_plot(l_sp, "Left output");
-    set_plot(r_sp_ref, "Right reference");
-    set_plot(l_sp_ref, "Left reference");
+    set_plot(RobotGeometry::WHEEL_RADIUS*r_sp, "Right output");
+    set_plot(RobotGeometry::WHEEL_RADIUS*l_sp, "Left output");
+    set_plot(RobotGeometry::WHEEL_RADIUS*r_sp_ref, "Right reference");
+    set_plot(RobotGeometry::WHEEL_RADIUS*l_sp_ref, "Left reference");
 
     cvs->sp_reg->l_sp_ref = l_sp_ref;
     cvs->sp_reg->r_sp_ref = r_sp_ref;

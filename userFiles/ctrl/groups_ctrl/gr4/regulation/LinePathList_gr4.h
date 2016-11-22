@@ -16,6 +16,7 @@
 NAMESPACE_INIT(ctrlGr4);
 
 using PathVectIt = std::vector<Path*>::iterator;
+using PathVectRit = std::vector<Path*>::reverse_iterator;
 
 class LinePathList
 {

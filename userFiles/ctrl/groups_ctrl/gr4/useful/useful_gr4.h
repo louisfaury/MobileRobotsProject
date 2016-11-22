@@ -8,6 +8,7 @@
 #define _USEFUL_GR4_H_
 
 #include "namespace_ctrl.h"
+#include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -17,6 +18,8 @@ NAMESPACE_INIT(ctrlGr4);
 // macros
 #define RAD2DEG(X) (180*X/PI)
 #define DEG2RAD(X) (PI*X/180)
+
+#define MODULOPI(X) (X>PI) ? fmod(X,2*PI)-2*PI : ( (X<-PI) ? fmod(X,2*PI)+2*PI : fmod(X,2*PI) )
 
 #define EPSILON  0.00000001  //dealing with float imprecision
 

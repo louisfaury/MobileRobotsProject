@@ -120,25 +120,26 @@ void controller_loop(CtrlStruct *cvs)
     // kalman
     kalman(cvs);
 
+    /*
+    PathRegulation* path_reg = cvs->path_reg;
+    static bool init = false;
+    if (!init)
+    {
+        LinePath* ref_path_2 = new LinePath(Point(0.,0.),0.2,0);
+        LinePath* ref_path_1 = new LinePath(Point(0.,0.),0.2,0);
+        LinePath* ref_path_3 = new LinePath(Point(0.,0.),0.2,-PI/2);
 
-//    PathRegulation* path_reg = cvs->path_reg;
-//    static bool init = false;
-//    if (!init)
-//    {
-//        LinePath* ref_path_1 = new LinePath(Point(0.,0.),0.2,0);
-//        LinePath* ref_path_2 = new LinePath(Point(0.,0.),0.2,0);
-//        LinePath* ref_path_3 = new LinePath(Point(0.,0.),0.2,-PI/2);
+        path_reg->refPath->addPath(ref_path_1);
+        path_reg->refPath->addPath(ref_path_2);
+        path_reg->refPath->addPath(ref_path_3);
 
-//        path_reg->refPath->addPath(ref_path_1);
-//        path_reg->refPath->addPath(ref_path_2);
-//        path_reg->refPath->addPath(ref_path_3);
+        path_reg->refPath->smooth();
+        init = true;
+    }
 
-//        path_reg->refPath->smooth();
-//        init = true;
-//    }
-
-//    if ( t>-10)
-//        follow_path(cvs);
+    if ( t>-10)
+        follow_path(cvs);
+    */
 
 
     switch (cvs->main_state)

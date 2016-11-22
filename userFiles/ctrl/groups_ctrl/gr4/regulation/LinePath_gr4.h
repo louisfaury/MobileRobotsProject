@@ -33,10 +33,11 @@ public:
     virtual bool    nextStep(double& s, double dt, CtrlStruct* cvs);
     void            setEndSpeed(double endSpeed){ m_endSpeed = endSpeed; }
     virtual void    describe(){ printf("%f,%s,%f\n",m_length, m_id.c_str(), m_endSpeed); }
+    double          smoothFromEnd(double endSpeed);
 
-    static constexpr double MAX_ACC   = 10;
-    static constexpr double MAX_DESAC = 10;
-    static constexpr double MAX_SPEED = 0.5;
+    static constexpr double MAX_ACC   = 2;
+    static constexpr double MAX_DESAC = 2;
+    static constexpr double MAX_SPEED = 2;
 
 protected:
     Point m_start;

@@ -5,6 +5,7 @@
  */
 
 #include "LinePath_gr4.h"
+#include <math.h>
 #include "speed_regulation_gr4.h"
 #include <time.h>
 
@@ -27,7 +28,7 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
     double cRightSpeed = cvs->sp_reg->r_sp_ref;
     double cLeftSpeed = cvs->sp_reg->l_sp_ref;
 
-    double linearSpeed = PI * RobotGeometry::WHEEL_RADIUS * (cRightSpeed + cLeftSpeed); //curent speed of the robot
+    double linearSpeed = 0.5 * RobotGeometry::WHEEL_RADIUS * (cRightSpeed + cLeftSpeed); //curent speed of the robot
 
     double tSpeed;
     double acc;
@@ -42,14 +43,13 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
     acc = std::min( acc, (MAX_SPEED-linearSpeed)/dt);
     acc = std::max( acc, -linearSpeed/dt);
 
-    //printf("acc : %f\n", acc);
     // update
     tSpeed = linearSpeed + acc*dt;
     s += linearSpeed*dt+0.5*acc*dt*dt;
 
     //printf("%f\n",linearSpeed);
     // applying to speed regulation
-    speed_regulation(cvs, 1./(RobotGeometry::WHEEL_RADIUS)*tSpeed, 1./(RobotGeometry::WHEEL_RADIUS)*tSpeed);
+    speed_regulation(cvs, tSpeed/(RobotGeometry::WHEEL_RADIUS), tSpeed/(RobotGeometry::WHEEL_RADIUS));
 
     if ( s > m_length -EPSILON )
     {
@@ -60,4 +60,15 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
     return end;
 }
 
+double LinePath::smoothFromEnd(double endSpeed)
+{
+    double startSpeed;
+    startSpeed = sqrt( endSpeed*endSpeed + 2*MAX_DESAC*m_length);
+    startSpeed = std::min( MAX_SPEED,startSpeed);
+    return startSpeed;
+}
+
 NAMESPACE_CLOSE();
+
+
+

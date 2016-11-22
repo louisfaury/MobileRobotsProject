@@ -104,7 +104,7 @@ void LinePathList::smooth()
         curLine = (LinePath*)(*it1);
         nextLine = (LinePath*)(*it2);
 
-        deltaAngle = nextLine->angle() -curLine->angle();
+        deltaAngle = MODULOPI(nextLine->angle() -curLine->angle());
 
         if ( fabs(deltaAngle)>EPSILON )
         {
@@ -118,9 +118,19 @@ void LinePathList::smooth()
         }
         else
         {
-            (*it1)->setEndSpeed(LinePath::MAX_SPEED);
+            //(*it1)->setEndSpeed(LinePath::MAX_SPEED);
         }
         it1 = it2;
+    }
+
+
+    // speed smoothing
+    double endSpeed = 0.;
+    for (PathVectRit rit = m_pathVec.rbegin(); rit != m_pathVec.rend(); rit++)
+    {
+        (*rit)->setEndSpeed(endSpeed);
+        double startSpeed = (*rit)->smoothFromEnd(endSpeed);
+        endSpeed = startSpeed;
     }
 
     for ( PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)

@@ -19,7 +19,7 @@
 
 // ROBOT INITIAL POSITIONS
 #define BLUE_T1 0.67
-#define BLUE_T2 1.15
+#define BLUE_T2 0.6 //1.15
 #define BLUE_R3 -90.0
 
 #define RED_T1 0.82
@@ -35,8 +35,8 @@
 #define WHITE_R3 90.0
 
 // ROBOTS INITIAL UNCERTAINTY
-#define T1_UNCERT 0.02
-#define T2_UNCERT 0.02
+#define T1_UNCERT 0//.02
+#define T2_UNCERT 0//.02
 #define R3_UNCERT 0 //10.0
 
 // MOTORS
