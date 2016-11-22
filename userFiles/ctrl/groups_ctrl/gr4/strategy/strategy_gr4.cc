@@ -18,6 +18,7 @@ Strategy* init_strategy()
     Strategy *strat;
 
     strat = (Strategy*) malloc(sizeof(Strategy));
+    printf("%d\n", (int)sizeof(Strategy));
     strat->targets[0] = (new Point(0.7, 0.6));
     strat->targets[1] = (new Point(0.1, 0));
     strat->targets[2] = (new Point(0.7, -0.6));
@@ -60,9 +61,11 @@ void next_target(Strategy *strat)
     for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
     {
         if(!strat->found[i])
+        {
             strat->target = strat->targets[i];
-        //TODO: change
             strat->found[i]=true;
+            break;
+        }
     }
 }
 

@@ -262,6 +262,8 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
     //We identify the target cell
     targetSCell =m_cellMap[targetId];
 
+    printf("Looking for : %f, %f\n", targetSCell->x(), targetSCell->y());
+
     //A-star algorithm until we reach destination
     while(true)
     {
