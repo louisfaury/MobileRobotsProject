@@ -31,7 +31,7 @@ struct KalmanStruct
     // bool for init and triang. data flag
     bool init;
     bool triang_flag;
-
+    int iter;
     // odometry measurement
     struct OdometryMeasurementStruct
     {

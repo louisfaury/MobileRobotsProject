@@ -64,76 +64,86 @@ void kalman(CtrlStruct *cvs)
     }
 
     // update step using triangularisation
-    if (kalman_pos->triang_flag = true)
-    {
-        // buffers
-        double pxx = kalman_pos->pEst.xx;
-        double pxy = kalman_pos->pEst.xy;
-        double pxtheta = kalman_pos->pEst.xtheta;
-        double pyy = kalman_pos->pEst.yy;
-        double pytheta = kalman_pos->pEst.ytheta;
-        double pthetatheta = kalman_pos->pEst.thetatheta;
-        double xEstBuf = kalman_pos->xEst;
-        double yEstBuf = kalman_pos->yEst;
-        double thetaEstBuf = kalman_pos->thetaEst;
-        double xTriang = triang_pos->x;
-        double yTriang = triang_pos->y;
-        double thetaTriang = triang_pos->theta;
+    if ( kalman_pos->iter ==0 )
+        // the iter condition is to reduce the innovation frequency, which is too high (cov. matrix is already small - in terms of eigenvalues norms.)
 
-        double det = (pxx+RobotGeometry::OBS_VAR_X)*((RobotGeometry::OBS_VAR_THETA+pthetatheta)*(RobotGeometry::OBS_VAR_Y+pyy)-pytheta*pytheta)+pxtheta*(pxy*pytheta-pxtheta*(pyy+RobotGeometry::OBS_VAR_Y))+pxy*(pxtheta*pytheta-pxy*(pthetatheta+RobotGeometry::OBS_VAR_THETA));
-        double kxx(0);
-        double kxy(0);
-        double kxtheta(0);
-        double kyx(0);
-        double kyy(0);
-        double kytheta(0);
-        double kthetax(0);
-        double kthetay(0);
-        double kthetatheta(0);
+        if (kalman_pos->triang_flag = true && cvs->inputs->t > -10 )
+        {// the t condition is so that we are sure triangulation readings are ok
+            // buffers
+            double pxx = kalman_pos->pEst.xx;
+            double pxy = kalman_pos->pEst.xy;
+            double pxtheta = kalman_pos->pEst.xtheta;
+            double pyy = kalman_pos->pEst.yy;
+            double pytheta = kalman_pos->pEst.ytheta;
+            double pthetatheta = kalman_pos->pEst.thetatheta;
+            double xEstBuf = kalman_pos->xEst;
+            double yEstBuf = kalman_pos->yEst;
+            double thetaEstBuf = kalman_pos->thetaEst;
+            double xTriang = triang_pos->x;
+            double yTriang = triang_pos->y;
+            double thetaTriang = triang_pos->theta;
 
-        // computing Kalman gain
-        if (det>0)
-        { // innovation matrix is invertible and really likely to be definite positive
-          // obtained via wxmaxima - formal calculation software.
+            double det = (pxx+RobotGeometry::OBS_VAR_X)*((RobotGeometry::OBS_VAR_THETA+pthetatheta)*(RobotGeometry::OBS_VAR_Y+pyy)-pytheta*pytheta)+pxtheta*(pxy*pytheta-pxtheta*(pyy+RobotGeometry::OBS_VAR_Y))+pxy*(pxtheta*pytheta-pxy*(pthetatheta+RobotGeometry::OBS_VAR_THETA));
+            double kxx(0);
+            double kxy(0);
+            double kxtheta(0);
+            double kyx(0);
+            double kyy(0);
+            double kytheta(0);
+            double kthetax(0);
+            double kthetay(0);
+            double kthetatheta(0);
 
-            kxx         = (1./det)*(-pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pxx*RobotGeometry::OBS_VAR_THETA+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
-            kxy         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_X );
-            kxtheta     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_X+pxtheta*RobotGeometry::OBS_VAR_X*RobotGeometry::OBS_VAR_Y );
-            kyx         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_Y );
-            kyy         = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pyy*RobotGeometry::OBS_VAR_THETA+pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X );
-            kytheta     = (1./det)*( (-pxtheta*pxy+pxx*pytheta+pytheta*RobotGeometry::OBS_VAR_X)*RobotGeometry::OBS_VAR_Y );
-            kthetax     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_THETA+pxtheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_Y );
-            kthetay     = (1./det)*( (pxx*pytheta-pxtheta*pxy)*RobotGeometry::OBS_VAR_THETA+pytheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_X );
-            kthetatheta = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X+(pthetatheta*RobotGeometry::OBS_VAR_X+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
+            // computing Kalman gain
+            if (det>0)
+            { // innovation matrix is invertible and really likely to be definite positive
+                // obtained via wxmaxima - formal calculation software.
+
+                kxx         = (1./det)*(-pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pxx*RobotGeometry::OBS_VAR_THETA+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
+                kxy         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_X );
+                kxtheta     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_X+pxtheta*RobotGeometry::OBS_VAR_X*RobotGeometry::OBS_VAR_Y );
+                kyx         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_Y );
+                kyy         = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pyy*RobotGeometry::OBS_VAR_THETA+pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X );
+                kytheta     = (1./det)*( (-pxtheta*pxy+pxx*pytheta+pytheta*RobotGeometry::OBS_VAR_X)*RobotGeometry::OBS_VAR_Y );
+                kthetax     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_THETA+pxtheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_Y );
+                kthetay     = (1./det)*( (pxx*pytheta-pxtheta*pxy)*RobotGeometry::OBS_VAR_THETA+pytheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_X );
+                kthetatheta = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X+(pthetatheta*RobotGeometry::OBS_VAR_X+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
+            }
+            else
+            {
+                printf("WARNING : State cov. matrix not definite positive\n");
+                cvs->kalman->initEst(cvs); // cov. matrix back to initialization
+            }
+
+            // mean update
+            kalman_pos->xEst = kxy*(yTriang-yEstBuf)+kxx*(xTriang-xEstBuf)+xEstBuf+kxtheta*(thetaTriang-thetaEstBuf);
+            kalman_pos->yEst = kyy*(yTriang-yEstBuf)+yEstBuf+kyx*(xTriang-xEstBuf)+kytheta*(thetaTriang-thetaEstBuf);
+            kalman_pos->thetaEst = kthetay*(yTriang-yEstBuf)+kthetax*(xTriang-xEstBuf)+kthetatheta*(thetaTriang-thetaEstBuf)+thetaEstBuf;
+
+            // covariance update, with Joseph's form to stay in Sn++
+            // obtained via wxmaxima - formal calculation software
+            kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kxy,2)*pyy+2*kxtheta*kxy*pytheta+(2*kxx-2)*kxy*pxy+
+                    (1-2*kxx+pow(kxx,2))*pxx+(2*kxtheta*kxx-2*kxtheta)*pxtheta+pow(kxtheta,2)*pthetatheta;
+            kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kxy*kyy-kxy)*pyy+(-kxtheta+kxy*kytheta+kxtheta*kyy)*pytheta+
+                    (1-kxx+kxy*kyx+(kxx-1)*kyy)*pxy+(kxx-1)*kyx*pxx+((kxx-1)*kytheta+kxtheta*kyx)*pxtheta+kxtheta*kytheta*pthetatheta;
+            kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kxtheta*kthetatheta*RobotGeometry::OBS_VAR_THETA+kthetay*kxy*pyy+(kxtheta*kthetay+(kthetatheta-1)*kxy)*pytheta+
+                    (-kthetay+kthetay*kxx+kthetax*kxy)*pxy+(kthetax*kxx-kthetax)*pxx+(1-kthetatheta+kxtheta*kthetax+(kthetatheta-1)*kxx)*pxtheta+
+                    (kxtheta*kthetatheta-kxtheta)*pthetatheta;
+            kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-2*kyy+pow(kyy,2))*pyy+(2*kytheta*kyy-2*kytheta)*pytheta+
+                    (2*kyx*kyy-2*kyx)*pxy+pow(kyx,2)*pxx+2*kytheta*kyx*pxtheta+pow(kytheta,2)*pthetatheta;
+            kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kthetay*kyy-kthetay)*pyy+
+                    (1-kthetatheta+kthetay*kytheta+(kthetatheta-1)*kyy)*pytheta+(-kthetax+kthetay*kyx+kthetax*kyy)*pxy+kthetax*kyx*pxx+
+                    (kthetax*kytheta+(kthetatheta-1)*kyx)*pxtheta+(kthetatheta-1)*kytheta*pthetatheta;
+            kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kthetay,2)*pyy+(2*kthetatheta-2)*kthetay*pytheta+2*
+                    kthetax*kthetay*pxy+pow(kthetax,2)*pxx+(2*kthetatheta-2)*kthetax*pxtheta+(1-2*kthetatheta+pow(kthetatheta,2))*pthetatheta;
+
+            // flag back to false
+            kalman_pos->triang_flag = false;
+
         }
-        else
-            printf("WARNING : State cov. matrix not definite positive\n");
 
-        // mean update
-        kalman_pos->xEst = kxy*(yTriang-yEstBuf)+kxx*(xTriang-xEstBuf)+xEstBuf+kxtheta*(thetaTriang-thetaEstBuf);
-        kalman_pos->yEst = kyy*(yTriang-yEstBuf)+yEstBuf+kyx*(xTriang-xEstBuf)+kytheta*(thetaTriang-thetaEstBuf);
-        kalman_pos->thetaEst = kthetay*(yTriang-yEstBuf)+kthetax*(xTriang-xEstBuf)+kthetatheta*(thetaTriang-thetaEstBuf)+thetaEstBuf;
-
-        // covariance update, with Joseph's form to stay in Sn++
-        // obtained via wxmaxima - formal calculation software
-        kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kxy,2)*pyy+2*kxtheta*kxy*pytheta+(2*kxx-2)*kxy*pxy+
-                (1-2*kxx+pow(kxx,2))*pxx+(2*kxtheta*kxx-2*kxtheta)*pxtheta+pow(kxtheta,2)*pthetatheta;
-        kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kxy*kyy-kxy)*pyy+(-kxtheta+kxy*kytheta+kxtheta*kyy)*pytheta+
-                (1-kxx+kxy*kyx+(kxx-1)*kyy)*pxy+(kxx-1)*kyx*pxx+((kxx-1)*kytheta+kxtheta*kyx)*pxtheta+kxtheta*kytheta*pthetatheta;
-        kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kxtheta*kthetatheta*RobotGeometry::OBS_VAR_THETA+kthetay*kxy*pyy+(kxtheta*kthetay+(kthetatheta-1)*kxy)*pytheta+
-                (-kthetay+kthetay*kxx+kthetax*kxy)*pxy+(kthetax*kxx-kthetax)*pxx+(1-kthetatheta+kxtheta*kthetax+(kthetatheta-1)*kxx)*pxtheta+
-                (kxtheta*kthetatheta-kxtheta)*pthetatheta;
-        kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-2*kyy+pow(kyy,2))*pyy+(2*kytheta*kyy-2*kytheta)*pytheta+
-                (2*kyx*kyy-2*kyx)*pxy+pow(kyx,2)*pxx+2*kytheta*kyx*pxtheta+pow(kytheta,2)*pthetatheta;
-        kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kthetay*kyy-kthetay)*pyy+
-                (1-kthetatheta+kthetay*kytheta+(kthetatheta-1)*kyy)*pytheta+(-kthetax+kthetay*kyx+kthetax*kyy)*pxy+kthetax*kyx*pxx+
-                (kthetax*kytheta+(kthetatheta-1)*kyx)*pxtheta+(kthetatheta-1)*kytheta*pthetatheta;
-        kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kthetay,2)*pyy+(2*kthetatheta-2)*kthetay*pytheta+2*
-                kthetax*kthetay*pxy+pow(kthetax,2)*pxx+(2*kthetatheta-2)*kthetax*pxtheta+(1-2*kthetatheta+pow(kthetatheta,2))*pthetatheta;
-
-        // flag back to false
-        kalman_pos->triang_flag = false;
-    }
+    // taking triangulation values every 20 iterations - odometry can dilate a bit the state's error covariance matrix
+    kalman_pos->iter = (kalman_pos->iter+1)%20;
 
     // Updating robot position
     rob_pos->x = kalman_pos->xEst;

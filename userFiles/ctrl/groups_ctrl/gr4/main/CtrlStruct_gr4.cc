@@ -90,6 +90,7 @@ CtrlStruct* init_CtrlStruct(CtrlIn *inputs, CtrlOut *outputs)
     cvs->kalman->init = false;
     cvs->kalman->triang_flag = false;
     cvs->kalman->odo_meas.odoFlag = false;
+    cvs->kalman->iter = 0;
 
 	return cvs;
 }
