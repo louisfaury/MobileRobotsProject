@@ -21,7 +21,7 @@ MapHandler::MapHandler()
     Segment* topBorder    = new Segment( Point(1.0,1.5), Point(-1.0,1.5) );
 
     // box boundaries
-    Rectangle* bottomLeftBox  = new Rectangle( Point(-0.75,-0.84), 0.4+MAP_SAFETY, 0.02+MAP_SAFETY );
+    Rectangle* bottomLeftBox  = new Rectangle( Point(-0.75,-0.84), 0.5+MAP_SAFETY, 0.02+MAP_SAFETY );
     Rectangle* bottomRightBox = new Rectangle( Point(0.49,-1.25), 0.02+MAP_SAFETY, 0.5+MAP_SAFETY );
     Rectangle* topLeftBox     = new Rectangle( Point(-0.75,0.84), 0.5+MAP_SAFETY, 0.02+MAP_SAFETY );
     Rectangle* topRightBox    = new Rectangle( Point(0.49,1.25), 0.02+MAP_SAFETY, 0.5+MAP_SAFETY );

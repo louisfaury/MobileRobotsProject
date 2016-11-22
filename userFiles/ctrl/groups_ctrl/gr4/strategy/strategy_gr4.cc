@@ -18,15 +18,16 @@ Strategy* init_strategy()
     Strategy *strat;
 
     strat = (Strategy*) malloc(sizeof(Strategy));
-    printf("%d\n", (int)sizeof(Strategy));
+
+    // target allocations   : TODO hardcode !
     strat->targets[0] = (new Point(0.7, 0.6));
     strat->targets[1] = (new Point(0.1, 0));
     strat->targets[2] = (new Point(0.7, -0.6));
-    strat->targets[3] = (new Point(0.25, -0.125));
+    strat->targets[3] = (new Point(0.25, -1.25));
     strat->targets[4] = (new Point(-0.4, -0.6));
-    strat->targets[5] = (new Point(-0.8, 0));
+    strat->targets[5] = (new Point(-0.8, 0.));
     strat->targets[6] = (new Point(-0.4, 0.6));
-    strat->targets[7] = (new Point(0.25, 0.125));
+    strat->targets[7] = (new Point(0.25, 1.25));
 
 
     for(int i = 0; i< Strategy::TARGET_NUMBER;i++)
@@ -91,7 +92,8 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     target = strat->target;
 
-    if(pathReg->reached){
+    if(pathReg->reached)
+    {
         next_target(strat);
         reset(cvs);
         init=false;
@@ -110,6 +112,8 @@ void main_strategy(CtrlStruct *cvs)
             }
             if (found)
                 follow_path(cvs);
+            else
+                speed_regulation(cvs, 0., 0.); // TODO : not pretty, need to be fixed once and far all
 			break;
 
 		case GAME_STATE_B:

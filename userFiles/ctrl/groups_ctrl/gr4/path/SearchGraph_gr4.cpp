@@ -224,7 +224,6 @@ void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *pa
     while(id != sourceId)
     {
         SearchCell* cCell = m_cellMap[id]->getPreviousCell();
-        printf("path : %f, %f\n", cCell->x(), cCell->y());
         Link* link = cCell->getLink(id);
         if ( link != nullptr)
             path->addPath(link->line());
@@ -378,7 +377,6 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
          Cell* cCell = it->second;
          if ( loc.computeDistance(Point(cCell->x(),cCell->y())) < sqrt(2)*CELL_SIZE/2 + EPSILON )
          {
-             printf("wanted : %f, %f,, found : %f, %f\n", loc.x(), loc.y(), cCell->x(), cCell->y());
              id = it->first;
              found = true;
              break;

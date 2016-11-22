@@ -49,12 +49,14 @@ void free_path_regulation(PathRegulation* pr)
 
 void reset(CtrlStruct *cvs)
 {
+    // clearing path
     PathRegulation* path_reg = cvs->path_reg;
-    printf("Begin clear\n");
     path_reg->refPath->clear();
-    printf("end clear\n");
+    // re-init
     path_reg->s = 0.;
     path_reg->reached = false;
+    // speed reg to 0, being cautious
+    speed_regulation(cvs, 0., 0.);
 }
 
 NAMESPACE_CLOSE();

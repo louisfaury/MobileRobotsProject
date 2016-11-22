@@ -81,7 +81,8 @@ double LinePathList::length()
 
 void LinePathList::clear()
 {
-    std::vector<Path*>().swap(m_pathVec);
+    m_pathVec.clear();
+    //std::vector<Path*>().swap(m_pathVec);
 //    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
 //        delete(*it);
 }
@@ -103,6 +104,7 @@ void LinePathList::smooth(double theta)
     //First we begin by aligning the robot with the first path line
     curLine = (LinePath*)(*it1);
     deltaAngle = MODULOPI(curLine->angle()-theta);
+
     if ( fabs(deltaAngle)>EPSILON )
     {
         sign = deltaAngle/fabs(deltaAngle);
