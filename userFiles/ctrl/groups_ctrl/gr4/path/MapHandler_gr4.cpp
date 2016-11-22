@@ -21,16 +21,16 @@ MapHandler::MapHandler()
     Segment* topBorder    = new Segment( Point(1.0,1.5), Point(-1.0,1.5) );
 
     // box boundaries
-    Rectangle* bottomLeftBox  = new Rectangle( Point(-0.75,-0.84), 0.4, 0.02 );
-    Rectangle* bottomRightBox = new Rectangle( Point(0.49,-1.25), 0.02, 0.5 );
-    Rectangle* topLeftBox     = new Rectangle( Point(-0.75,0.84), 0.5, 0.02 );
-    Rectangle* topRightBox    = new Rectangle( Point(0.49,1.25), 0.02, 0.5 );
+    Rectangle* bottomLeftBox  = new Rectangle( Point(-0.75,-0.84), 0.4+MAP_SAFETY, 0.02+MAP_SAFETY );
+    Rectangle* bottomRightBox = new Rectangle( Point(0.49,-1.25), 0.02+MAP_SAFETY, 0.5+MAP_SAFETY );
+    Rectangle* topLeftBox     = new Rectangle( Point(-0.75,0.84), 0.5+MAP_SAFETY, 0.02+MAP_SAFETY );
+    Rectangle* topRightBox    = new Rectangle( Point(0.49,1.25), 0.02+MAP_SAFETY, 0.5+MAP_SAFETY );
 
     // center obstacle
-    Rectangle* bottomRect = new Rectangle( Point(0.,-0.35), 0.4, 0.1);
-    Rectangle* topRect    = new Rectangle( Point(0.,0.35), 0.4, 0.1 );
-    Rectangle* midVert    = new Rectangle( Point(-0.15,0.), 0.1, 0.6);
-    Rectangle* leftHoz    = new Rectangle( Point(-0.35,0.), 0.3, 0.2);
+    Rectangle* bottomRect = new Rectangle( Point(0.,-0.35), 0.4+MAP_SAFETY, 0.1+MAP_SAFETY);
+    Rectangle* topRect    = new Rectangle( Point(0.,0.35), 0.4+MAP_SAFETY, 0.1+MAP_SAFETY );
+    Rectangle* midVert    = new Rectangle( Point(-0.15,0.), 0.1+MAP_SAFETY, 0.6+MAP_SAFETY);
+    Rectangle* leftHoz    = new Rectangle( Point(-0.35,0.), 0.3+MAP_SAFETY, 0.2+MAP_SAFETY);
 
     // TODO : add safety constant to each width and length !
 

@@ -37,7 +37,7 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
     deltaAcc = std::min( deltaAcc, (2*WHEEL_MAX_SPEED-deltaSpeed)/dt);
     deltaAcc = std::max( deltaAcc, -deltaSpeed/dt);
 
-    printf("deltaAcc:%f, s : %f\n",deltaAcc, RAD2DEG(alpha));
+    //printf("deltaAcc:%f, s : %f\n",deltaAcc, RAD2DEG(alpha));
 
     // update
     alpha += (deltaSpeed*dt+deltaAcc*dt*dt)/(RobotGeometry::WHEEL_BASE);
@@ -53,6 +53,7 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
         alpha = m_length;
         end = true;
     }
+    return end;
 }
 
 CurvePath::CurvePath(double angle, int sign) : Path(angle), m_sign(sign)

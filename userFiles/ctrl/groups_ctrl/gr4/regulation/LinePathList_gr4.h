@@ -32,6 +32,7 @@ public:
 
 private:
     std::vector<Path*> m_pathVec;
+    bool m_change;
 };
 
 NAMESPACE_CLOSE();

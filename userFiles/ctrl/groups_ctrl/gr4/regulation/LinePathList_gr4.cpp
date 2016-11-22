@@ -13,7 +13,8 @@ NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
-    m_pathVec.reserve(40);
+    m_pathVec.reserve(100000);
+    m_change = false;
 }
 
 LinePathList::~LinePathList()
@@ -34,6 +35,11 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
     double locLength;
     double locS(0.);
     double resS(0.);
+//    if( m_change)
+//    {
+//        speed_regulation(cvs,0.,0.);
+//        m_change = false;
+//    }
 
     if ( s > length()-EPSILON )
     {
@@ -50,7 +56,7 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
             if ( s < locS + locLength )
             {
                 resS = s - locS;
-                (*it)->nextStep(resS, dt, cvs);
+                m_change = (*it)->nextStep(resS, dt, cvs);
                 break;
             }
             else
