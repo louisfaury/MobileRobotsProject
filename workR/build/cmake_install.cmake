@@ -1,56 +1,56 @@
-# Install script for directory: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR
+# Install script for directory: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR
 
 # Set the install prefix
-if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/Debug")
-endif()
-string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
+  SET(CMAKE_INSTALL_PREFIX "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/Debug")
+ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
+STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
 # Set the install configuration name.
-if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
-  if(BUILD_TYPE)
-    string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
+IF(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
+  IF(BUILD_TYPE)
+    STRING(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
-  else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
-  endif()
-  message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
-endif()
+  ELSE(BUILD_TYPE)
+    SET(CMAKE_INSTALL_CONFIG_NAME "Release")
+  ENDIF(BUILD_TYPE)
+  MESSAGE(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
+ENDIF(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
 
 # Set the component getting installed.
-if(NOT CMAKE_INSTALL_COMPONENT)
-  if(COMPONENT)
-    message(STATUS "Install component: \"${COMPONENT}\"")
-    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
-  else()
-    set(CMAKE_INSTALL_COMPONENT)
-  endif()
-endif()
+IF(NOT CMAKE_INSTALL_COMPONENT)
+  IF(COMPONENT)
+    MESSAGE(STATUS "Install component: \"${COMPONENT}\"")
+    SET(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
+  ELSE(COMPONENT)
+    SET(CMAKE_INSTALL_COMPONENT)
+  ENDIF(COMPONENT)
+ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
 # Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
+IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  SET(CMAKE_INSTALL_SO_NO_EXE "1")
+ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/cmake_aux/flags/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/cmake_aux/listing/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/cmake_aux/libraries/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/cmake_aux/make_opt/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/mbs_common/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/symbolicR/cmake_install.cmake")
-  include("/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/userfctR/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/cmake_aux/flags/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/cmake_aux/listing/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/cmake_aux/libraries/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/cmake_aux/make_opt/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/mbs_common/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/symbolicR/cmake_install.cmake")
+  INCLUDE("/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR/cmake_install.cmake")
 
-endif()
+ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
-if(CMAKE_INSTALL_COMPONENT)
-  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
-else()
-  set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
-endif()
+IF(CMAKE_INSTALL_COMPONENT)
+  SET(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+ELSE(CMAKE_INSTALL_COMPONENT)
+  SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
+ENDIF(CMAKE_INSTALL_COMPONENT)
 
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
-       "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/${CMAKE_INSTALL_MANIFEST}"
-     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+FILE(WRITE "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/${CMAKE_INSTALL_MANIFEST}" "")
+FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
+  FILE(APPEND "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+ENDFOREACH(file)

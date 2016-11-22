@@ -34,9 +34,9 @@ public:
     void            setEndSpeed(double endSpeed){ m_endSpeed = endSpeed; }
     virtual void    describe(){ printf("%f,%s,%f\n",m_length, m_id.c_str(), m_endSpeed); }
 
-    static constexpr double MAX_ACC   = 10;
-    static constexpr double MAX_DESAC = 10;
-    static constexpr double MAX_SPEED = 1;
+    static constexpr double MAX_ACC   = 2;
+    static constexpr double MAX_DESAC = 2;
+    static constexpr double MAX_SPEED = 0.5;
 
 protected:
     Point m_start;

@@ -49,7 +49,7 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
 
     //printf("%f\n",linearSpeed);
     // applying to speed regulation
-    speed_regulation(cvs, 1./(2*PI*RobotGeometry::WHEEL_RADIUS)*tSpeed, 1./(2*PI*RobotGeometry::WHEEL_RADIUS)*tSpeed);
+    speed_regulation(cvs, 1./(RobotGeometry::WHEEL_RADIUS)*tSpeed, 1./(RobotGeometry::WHEEL_RADIUS)*tSpeed);
 
     if ( s > m_length -EPSILON )
     {

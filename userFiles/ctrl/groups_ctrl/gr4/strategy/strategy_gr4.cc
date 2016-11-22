@@ -15,11 +15,11 @@ NAMESPACE_INIT(ctrlGr4);
  */
 Strategy* init_strategy()
 {
-	Strategy *strat;
+    Strategy *strat;
 
-	strat = (Strategy*) malloc(sizeof(Strategy));
-
-	return strat;
+    strat = (Strategy*) malloc(sizeof(Strategy));
+    strat->target = new Point();
+    return strat;
 }
 
 /*! \brief release the strategy structure (memory released)
@@ -28,6 +28,7 @@ Strategy* init_strategy()
  */
 void free_strategy(Strategy *strat)
 {
+    delete(strat->target);
 	free(strat);
 }
 
@@ -37,16 +38,18 @@ void free_strategy(Strategy *strat)
  */
 void main_strategy(CtrlStruct *cvs)
 {
-	// variables declaration
-	Strategy *strat;
-	CtrlIn *inputs;
+    // variables declaration
+    Strategy *strat;
+    CtrlIn *inputs;
+    Point *target;
     PathPlanning* pathPlanner = cvs->path;
-	// variables initialization
-	strat  = cvs->strat;
-	inputs = cvs->inputs;
+    // variables initialization
+    strat  = cvs->strat;
+    inputs = cvs->inputs;
+    target = strat->target;
 
     //TODO : refine
-    strat->target = Point(0.,0.);
+    target->setCoord(0.,0.);
 
 	switch (strat->main_state)
 	{

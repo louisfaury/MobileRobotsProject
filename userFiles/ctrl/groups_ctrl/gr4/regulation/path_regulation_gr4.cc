@@ -11,8 +11,7 @@ PathRegulation *init_path_regulation()
     path_regulation->refPath = new LinePathList();
     path_regulation->reached = false;
     path_regulation->s = 0.;
-
-    clock_gettime(CLOCK_MONOTONIC,&(path_regulation->start));
+    path_regulation->last_t = -1000;
 
     return path_regulation;
 }
@@ -26,18 +25,17 @@ void follow_path(CtrlStruct *cvs)
     PathRegulation* path_reg = cvs->path_reg;
     LinePathList* refPath = path_reg->refPath;
 
+    double t = cvs->inputs->t;
 
-
-    clock_gettime(CLOCK_MONOTONIC,&(path_reg->endr));
-    double dt = path_reg->endr.tv_sec - path_reg->start.tv_sec + (path_reg->endr.tv_nsec-path_reg->start.tv_nsec)/(1000.*1000*1000);
-    if (dt<0.01 & dt > 0.)
+    double dt = t-path_reg->last_t;
+    if (dt<0.1)
     {
         if ( !path_reg->reached )
         {
             path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);
         }
     }
-    clock_gettime(CLOCK_MONOTONIC,&(path_reg->start));
+    path_reg->last_t=t;
 
 }
 

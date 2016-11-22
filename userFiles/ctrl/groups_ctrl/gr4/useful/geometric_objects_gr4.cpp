@@ -23,6 +23,12 @@ Point::Point(double x, double y) : GeometricObject(), m_x(x), m_y(y)
     m_tag = "Pt";
 }
 
+void Point::setCoord(double x, double y)
+{
+    m_x=x;
+    m_y=x;
+}
+
 void Point::getDescription(char *descriptor)
 {
     memcpy(descriptor, this, sizeof(Point));

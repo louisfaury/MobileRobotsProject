@@ -16,7 +16,7 @@ NAMESPACE_INIT(ctrlGr4);
 typedef struct Strategy
 {
 	int main_state; ///< main state of the strategy
-    Point target;
+    Point* target;
 } Strategy;
 
 /// 'main_state' states (adapt with your own states)

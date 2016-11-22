@@ -42,7 +42,7 @@ bool pathPlanning(CtrlStruct *cvs)
     Strategy* strat = cvs->strat;
     PathRegulation* path_reg = cvs->path_reg;
 
-    Point endLoc(strat->target);
+    Point endLoc(strat->target->x(), strat->target->y());
     Point startLoc(cvs->rob_pos->x,cvs->rob_pos->y);
     int startId(0), endId(0);
     // find current cell given pos

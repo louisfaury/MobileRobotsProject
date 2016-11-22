@@ -17,6 +17,7 @@ struct PathRegulation
     LinePathList* refPath;
     bool reached;
     double s;
+    double last_t;
 
     struct timespec endr;
     struct timespec start;

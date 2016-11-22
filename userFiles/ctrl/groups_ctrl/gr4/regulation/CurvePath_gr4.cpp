@@ -23,7 +23,7 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
     double cLeftSpeed = cvs->sp_reg->l_sp_ref;
 
     double maxDeltaAcc = MAX_ANGULAR_ACC*RobotGeometry::WHEEL_BASE;
-    double deltaSpeed = m_sign * 2 * PI * RobotGeometry::WHEEL_RADIUS * (cRightSpeed - cLeftSpeed); //curent deltaSpeed of the robot
+    double deltaSpeed = m_sign * RobotGeometry::WHEEL_RADIUS * (cRightSpeed - cLeftSpeed); //curent deltaSpeed of the robot
 
     double deltaAcc;
 
@@ -42,8 +42,8 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
     // update
     alpha += (deltaSpeed*dt+deltaAcc*dt*dt)/(RobotGeometry::WHEEL_BASE);
 
-    double nLeftSpeed = cLeftSpeed - m_sign * 0.5 * deltaAcc *dt / (2*PI*RobotGeometry::WHEEL_RADIUS);
-    double nRightSpeed = cRightSpeed + m_sign* 0.5 *deltaAcc * dt / (2*PI*RobotGeometry::WHEEL_RADIUS);
+    double nLeftSpeed = cLeftSpeed - m_sign * 0.5 * deltaAcc *dt / (RobotGeometry::WHEEL_RADIUS);
+    double nRightSpeed = cRightSpeed + m_sign* 0.5 *deltaAcc * dt / (RobotGeometry::WHEEL_RADIUS);
 
     // applying to speed regulation
     speed_regulation(cvs, nRightSpeed, nLeftSpeed);

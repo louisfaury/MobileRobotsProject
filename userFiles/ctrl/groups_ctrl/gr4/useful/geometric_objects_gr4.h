@@ -37,6 +37,7 @@ public:
 
     double x(){ return m_x; }
     double y(){ return m_y; }
+    void setCoord(double, double);
     double computeDistance(Point p);
     virtual bool computeIntersection(GeometricObject *obj){ return false; }// general inherited function
     virtual void getDescription(char* descriptor);

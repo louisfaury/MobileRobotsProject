@@ -30,8 +30,8 @@ public:
     virtual void setEndSpeed(double){}
     virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
 
-    static constexpr double MAX_ANGULAR_ACC = 5*PI;
-    static constexpr double WHEEL_MAX_SPEED = 2*PI;
+    static constexpr double MAX_ANGULAR_ACC = 2*PI;
+    static constexpr double WHEEL_MAX_SPEED = PI/2;
 
 protected:
     int m_sign; // true if in trigonometric direction
