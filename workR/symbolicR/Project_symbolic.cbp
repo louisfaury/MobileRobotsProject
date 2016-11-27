@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="Project_symbolic" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\mbsysCopy\;CMake Files\..\mbsysCopy\mbs_common\;CMake Files\..\mbsysCopy\mbs_common\mbs_numerics\;CMake Files\..\mbsysCopy\mbs_common\mbs_struct\;CMake Files\..\mbsysCopy\mbs_common\mbs_utilities\;CMake Files\..\mbsysCopy\mbs_common\mbs_load_xml\;CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\;CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\sdl\;CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\sdl\conf\;CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\java\;CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\java\conf\;CMake Files\..\mbsysCopy\mbs_common\mbs_module\;CMake Files\..\mbsysCopy\cmake_aux\;CMake Files\..\mbsysCopy\cmake_aux\listing\;CMake Files\..\mbsysCopy\cmake_aux\flags\;CMake Files\..\mbsysCopy\cmake_aux\libraries\;CMake Files\..\mbsysCopy\cmake_aux\make_opt\;CMake Files\..\mbsysCopy\conf\;CMake Files\..\symbolicR\;CMake Files\..\userfctR\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Project_symbolic">
+         <Option output="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/libProject_symbolic.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DUNIX" />
+            <Add option="-DDIRDYNARED" />
+            <Add option="-DREAL_TIME" />
+            <Add option="-DSDL" />
+            <Add option="-DJAVA" />
+            <Add option="-DPROJECT_USERFCT_STATIC_DEFINE" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_add_on/mbs_lmgc" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_add_on/wheelRail" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_numerics" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/java" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_add_on/mbs_lmgc" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_add_on/wheelRail" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_numerics" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/java" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../symbolicR" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/config" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/ctrl_interface" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/ctrl_interface/specific" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr1" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr10" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr11" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr12" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr13" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr14" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr15" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr16" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr17" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr18" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr19" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr2" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr20" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/strategy" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/useful" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr5" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr6" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr7" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr8" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr9" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/no_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/player_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/resting_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/actuators" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/cpp_interface" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/elements" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/force_pos" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/geometry" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/gestion" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/lists" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/rolling" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/sensors" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/sensors/specific_sensor" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/useful" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/SDL2" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 Project_symbolic" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Project_symbolic/fast">
+         <Option output="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/libProject_symbolic.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DUNIX" />
+            <Add option="-DDIRDYNARED" />
+            <Add option="-DREAL_TIME" />
+            <Add option="-DSDL" />
+            <Add option="-DJAVA" />
+            <Add option="-DPROJECT_USERFCT_STATIC_DEFINE" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/../mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_add_on/mbs_lmgc" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_add_on/wheelRail" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_numerics" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/java" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/../mbsysCopy/mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_add_on/mbs_lmgc" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_add_on/wheelRail" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_load_xml" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_module" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_numerics" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/java" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/realtime" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl/auto_plot" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_struct" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities/auto_output" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../symbolicR" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/config" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/ctrl_interface" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/ctrl_interface/specific" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr1" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr10" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr11" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr12" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr13" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr14" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr15" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr16" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr17" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr18" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr19" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr2" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr20" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr3" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/config" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/localization" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/main" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/path" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/regulation" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/strategy" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr4/useful" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr5" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr6" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr7" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr8" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/groups_ctrl/gr9" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/no_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/player_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/ctrl/resting_ctrl" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/actuators" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/cpp_interface" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/elements" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/force_pos" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/geometry" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/gestion" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/lists" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/rolling" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/sensors" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/sensors/specific_sensor" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/useful" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
+            <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/SDL2" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 Project_symbolic/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_accelred_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_cons_hJ_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_cons_jdqd_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_invdyna_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_link3D_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_void_symbolicR/mbs_link_void.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_dirdyna_m454_project.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_dirdyna_m454_project.h">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_extforces_m454_project.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_extforces_m454_project.h">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_gensensor_m454_project.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_gensensor_m454_project.h">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_sensor_m454_project.c">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/symbolicR/mbs_sensor_m454_project.h">
+         <Option target="Project_symbolic"/>
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/LibRobotranCConfig.cmake.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/LibRobotranCConfig.cmake.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_numerics/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_numerics\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_numerics/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_numerics\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_numerics/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_numerics\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_struct/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_struct\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_struct/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_struct\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_struct/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_struct\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_utilities\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_utilities\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_utilities/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_utilities\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_load_xml/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_load_xml\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_load_xml/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_load_xml\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_load_xml/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_load_xml\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl/conf/cmake_sdl_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\sdl\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl/conf/cmake_sdl_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\sdl\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/sdl/conf/cmake_sdl_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\sdl\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/java/conf/cmake_java_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\java\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/java/conf/cmake_java_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\java\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_realtime/java/conf/cmake_java_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_realtime\java\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_module/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_module\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_module/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_module\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/mbs_common/mbs_module/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\mbs_common\mbs_module\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/listing/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\listing\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/listing/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\listing\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/listing/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\listing\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/flags/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\flags\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/flags/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\flags\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/flags/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\flags\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/libraries/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\libraries\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/libraries/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\libraries\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/libraries/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\libraries\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/cmake_aux/make_opt/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\cmake_aux\make_opt\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2_ttf.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJNI.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJ3D.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2_ttf.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJNI.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJ3D.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/cmake_config.h.in">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2_ttf.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJNI.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindJ3D.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindGSL.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../mbsysCopy/conf/FindSDL2.cmake">
+          <Option virtualFolder="CMake Files\..\mbsysCopy\conf\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../symbolicR/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\symbolicR\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../symbolicR/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\symbolicR\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\userfctR\" />
+      </Unit>
+      <Unit filename="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\..\userfctR\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
