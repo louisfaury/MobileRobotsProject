@@ -331,16 +331,13 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 
  bool SearchGraph::findCell(Point loc, int &id)
  {
-
-     int rowCellNumber    = 1 + ceil( MapHandler::MAP_LENGTH / CELL_SIZE );
      int columnCellNumber = 1 + ceil( MapHandler::MAP_WIDTH / CELL_SIZE );
-
      int correspondingI, correspondingJ;
 
-     correspondingI = (int)round((loc.x()+0.5*(MapHandler::MAP_LENGTH))/CELL_SIZE+EPSILON);
+     correspondingI = (int)round((loc.x()+0.5*(MapHandler::MAP_LENGTH+CELL_SIZE))/CELL_SIZE+EPSILON);
 
-     correspondingJ = (int)round((loc.y()+0.5*(MapHandler::MAP_WIDTH))/CELL_SIZE+EPSILON);
-      id = correspondingI*columnCellNumber + correspondingJ;
+     correspondingJ = (int)round((loc.y()+0.5*(MapHandler::MAP_WIDTH+CELL_SIZE))/CELL_SIZE+EPSILON);
+     id = correspondingI*columnCellNumber + correspondingJ;
 
      //TODO ; compute exact id
      /*bool found = false;
