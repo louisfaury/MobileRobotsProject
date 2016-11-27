@@ -216,16 +216,16 @@ void triangulation(CtrlStruct *cvs)
         RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, xRes, yRes ); //Robot Frame
 
         // some computation to enable x & y to jump at initialization
-        tau = (init) ? 10*dt : EPSILON;
+        tau = (init) ? dt : EPSILON;
         angPeakThreshold = (init) ? ConstraintConstant::ANG_UPDATE_THRESHOLD : UINT64_MAX;
         posPeakThreshold = (init) ? ConstraintConstant::POS_UPDATE_THRESHOLD : UINT64_MAX;
         pos_tri->x = first_order_filter(pos_tri->x, xRes, tau, dt, posPeakThreshold);
         pos_tri->y = first_order_filter(pos_tri->y, yRes, tau, dt, posPeakThreshold);
         pos_tri->theta = first_order_filter(pos_tri->theta, thetaRes, tau, dt, angPeakThreshold);
 
-        //set_plot(pos_tri->x, "TrianX");
-        //set_plot(pos_tri->y, "TrianY");
-        //set_plot(pos_tri->theta, "TrianTheta");
+        set_plot(pos_tri->x, "TrianX");
+        set_plot(pos_tri->y, "TrianY");
+        set_plot(pos_tri->theta, "TrianTheta");
 
         // kalman flag rise
         cvs->kalman->triang_flag = true;
