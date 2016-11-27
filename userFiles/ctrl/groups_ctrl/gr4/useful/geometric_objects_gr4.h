@@ -65,6 +65,22 @@ protected:
     Point m_p2;
 };
 
+class Circle : public GeometricObject
+{
+public:
+    Circle();
+    Circle(Point center, double radius);
+    Point center(){ return m_center; }
+    double radius(){ return m_radius; }
+    bool isInside(Point p);
+    virtual bool computeIntersection(GeometricObject *obj);
+    virtual void getDescription(char* descriptor);
+
+protected:
+    Point m_center;
+    double m_radius;
+};
+
 class Rectangle : public GeometricObject
 {
 public:
@@ -75,6 +91,7 @@ public:
     bool computeIntersection(Rectangle rect);
     bool computeIntersection(Segment seg);
     bool computeIntersection(Point p);
+    bool computeIntersection(Circle c);
     Point center(){ return m_center; }
     Segment* edges(){ return m_edges; }
     double length(){ return m_length; }

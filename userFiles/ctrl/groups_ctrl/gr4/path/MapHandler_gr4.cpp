@@ -11,7 +11,8 @@ NAMESPACE_INIT(ctrlGr4);
 
 MapHandler::MapHandler()
 {
-    m_geoObjectList.reserve(12); //number of fixed obstacles
+    m_fixedObstacleList.reserve(12); //number of fixed obstacles
+    m_opponentsList.reserve(2); //two obstacles
 
     // creating obstacles !
     // borders :
@@ -33,37 +34,66 @@ MapHandler::MapHandler()
     Rectangle* leftHoz    = new Rectangle( Point(-0.35,0.), 0.3+MAP_SAFETY, 0.2+MAP_SAFETY);
 
     // adding obstacles
-    m_geoObjectList.push_back(bottomBorder);
-    m_geoObjectList.push_back(leftBorder);
-    m_geoObjectList.push_back(rightBorder);
-    m_geoObjectList.push_back(topBorder);
+    m_fixedObstacleList.push_back(bottomBorder);
+    m_fixedObstacleList.push_back(leftBorder);
+    m_fixedObstacleList.push_back(rightBorder);
+    m_fixedObstacleList.push_back(topBorder);
 
-    m_geoObjectList.push_back(bottomLeftBox);
-    m_geoObjectList.push_back(bottomRightBox);
-    m_geoObjectList.push_back(topLeftBox);
-    m_geoObjectList.push_back(topRightBox);
+    m_fixedObstacleList.push_back(bottomLeftBox);
+    m_fixedObstacleList.push_back(bottomRightBox);
+    m_fixedObstacleList.push_back(topLeftBox);
+    m_fixedObstacleList.push_back(topRightBox);
 
-    m_geoObjectList.push_back(bottomRect);
-    m_geoObjectList.push_back(topRect);
-    m_geoObjectList.push_back(midVert);
-    m_geoObjectList.push_back(leftHoz);
+    m_fixedObstacleList.push_back(bottomRect);
+    m_fixedObstacleList.push_back(topRect);
+    m_fixedObstacleList.push_back(midVert);
+    m_fixedObstacleList.push_back(leftHoz);
+
+    //dynamic allocation (in constructor) for opponents
+    Circle* opp1 = new Circle;
+    Circle* opp2 = new Circle;
+    m_opponentsList.push_back(opp1);
+    m_opponentsList.push_back(opp2);
+
 }
 
 
 MapHandler::~MapHandler()
 {
-   for ( GeoObjListIt it = m_geoObjectList.begin(); it != m_geoObjectList.end(); it++)
+   for ( GeoObjListIt it = m_fixedObstacleList.begin(); it != m_fixedObstacleList.end(); it++)
        delete(*it);
+   for ( GeoObjListIt itO = m_opponentsList.begin(); itO != m_opponentsList.end(); itO++)
+       delete(*itO);
 }
 
 bool MapHandler::isOnObstacle(Cell *cell)
 {
     bool res = false;
-    int i = 0;
     Rectangle cellRect( Point(cell->x(),cell->y()), SearchGraph::CELL_SIZE, SearchGraph::CELL_SIZE);
-    for ( GeoObjListIt it = m_geoObjectList.begin(); it != m_geoObjectList.end(); it++)
+    for ( GeoObjListIt it = m_fixedObstacleList.begin(); it != m_fixedObstacleList.end(); it++)
     {
-        i++;
+        res = cellRect.computeIntersection(*it);
+        if ( res == true )
+            break; // once there is a collision no need to go further in the exploration
+    }
+    return res;
+}
+
+void MapHandler::updateOpponents(Point opp1, Point opp2)
+{
+    Circle opp1C = Circle(opp1, 0.5*RobotGeometry::WHEEL_BASE);
+    Circle opp2C = Circle(opp2, 0.5*RobotGeometry::WHEEL_BASE);
+
+    *m_opponentsList.at(1) = opp1C;
+    *m_opponentsList.at(2) = opp2C;
+}
+
+bool MapHandler::isOnOpponent(Cell *cell)
+{
+    bool res = false;
+    Rectangle cellRect( Point(cell->x(),cell->y()), SearchGraph::CELL_SIZE, SearchGraph::CELL_SIZE);
+    for ( GeoObjListIt it = m_opponentsList.begin(); it != m_opponentsList.end(); it++)
+    {
         res = cellRect.computeIntersection(*it);
         if ( res == true )
             break; // once there is a collision no need to go further in the exploration
