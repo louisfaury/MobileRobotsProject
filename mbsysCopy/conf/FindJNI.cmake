@@ -68,6 +68,7 @@ else (APPLE)
 set(TRIAL_PATHS_INC_JNI
   /usr/lib/jvm/java-8-openjdk-amd64/include
   /usr/lib/jvm/java-7-openjdk-amd64/include
+  /usr/lib/jvm/java-7-openjdk-i386/include
   /usr/lib/jvm/java-6-sun/include
   /usr/lib/jvm/java-openjdk/include
   /usr/lib/jvm/java-8-oracle/include
@@ -77,6 +78,7 @@ set(TRIAL_PATHS_INC_JNI
 set(TRIAL_PATHS_INC_JNI_MD
   /usr/lib/jvm/java-8-openjdk-amd64/include/linux
   /usr/lib/jvm/java-7-openjdk-amd64/include/linux
+  /usr/lib/jvm/java-7-openjdk-i386/include
   /usr/lib/jvm/java-6-sun/include/linux
   /usr/lib/jvm/java-openjdk/include/linux
   /usr/lib/jvm/java-8-oracle/include/linux
@@ -89,6 +91,7 @@ set(TRIAL_PATHS_LIB
   /usr/lib/jvm/java-6-sun/jre/lib/amd64/server
   /usr/lib/jvm/java-openjdk/jre/lib/amd64/server
   /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server
+  /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/server
 ) 
 
 find_path(JNI_INCLUDE_JNI jni.h ${TRIAL_PATHS_INC_JNI})

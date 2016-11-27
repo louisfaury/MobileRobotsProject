@@ -1,46 +1,46 @@
-# Install script for directory: /home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/userfctR
+# Install script for directory: /home/gregoire/Documents/MobileRobots/MobileRobotsProject/userfctR
 
 # Set the install prefix
-if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/Debug")
-endif()
-string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
+  SET(CMAKE_INSTALL_PREFIX "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/Debug")
+ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
+STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
 # Set the install configuration name.
-if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
-  if(BUILD_TYPE)
-    string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
+IF(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
+  IF(BUILD_TYPE)
+    STRING(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
-  else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
-  endif()
-  message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
-endif()
+  ELSE(BUILD_TYPE)
+    SET(CMAKE_INSTALL_CONFIG_NAME "Release")
+  ENDIF(BUILD_TYPE)
+  MESSAGE(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
+ENDIF(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
 
 # Set the component getting installed.
-if(NOT CMAKE_INSTALL_COMPONENT)
-  if(COMPONENT)
-    message(STATUS "Install component: \"${COMPONENT}\"")
-    set(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
-  else()
-    set(CMAKE_INSTALL_COMPONENT)
-  endif()
-endif()
+IF(NOT CMAKE_INSTALL_COMPONENT)
+  IF(COMPONENT)
+    MESSAGE(STATUS "Install component: \"${COMPONENT}\"")
+    SET(CMAKE_INSTALL_COMPONENT "${COMPONENT}")
+  ELSE(COMPONENT)
+    SET(CMAKE_INSTALL_COMPONENT)
+  ENDIF(COMPONENT)
+ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
 # Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
-endif()
+IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  SET(CMAKE_INSTALL_SO_NO_EXE "1")
+ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/Debug/libProject_userfct.a")
-  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+   "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/Debug/libProject_userfct.a")
+  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  endif()
-file(INSTALL DESTINATION "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/Debug" TYPE STATIC_LIBRARY FILES "/home/louis/Documents/Robotics/MICRO_MobileRobots/m454_project/workR/build/userfctR/libProject_userfct.a")
-endif()
+  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+FILE(INSTALL DESTINATION "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/Debug" TYPE STATIC_LIBRARY FILES "/home/gregoire/Documents/MobileRobots/MobileRobotsProject/workR/build/userfctR/libProject_userfct.a")
+ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

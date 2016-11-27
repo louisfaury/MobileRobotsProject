@@ -14,6 +14,15 @@
 #include "triangulation_gr4.h"
 #include "strategy_gr4.h"
 #include "kalman_gr4.h"
+#include "path_regulation_gr4.h"
+#include "unistd.h"
+
+//TODO : delete includes when search path tested
+#include "SearchGraph_gr4.h"
+#include "Cell_gr4.h"
+#include "Link_gr4.h"
+#include "SearchCell_gr4.h"
+
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -63,106 +72,77 @@ void controller_init(CtrlStruct *cvs)
  */
 void controller_loop(CtrlStruct *cvs)
 {
-	// variables declaration
-	double t;
-	CtrlIn *inputs;
-	CtrlOut *outputs;
+    // variables declaration
+    double t;
+    CtrlIn *inputs;
+    CtrlOut *outputs;
 
-	// variables initialization
-	inputs  = cvs->inputs;
-	outputs = cvs->outputs;
+    // variables initialization
+    inputs  = cvs->inputs;
+    outputs = cvs->outputs;
 
-	// time
-	t = inputs->t;
+    // time
+    t = inputs->t;
 
-	// update the robot odometry
-	update_odometry(cvs);
+    // update the robot odometry
+    update_odometry(cvs);
 
-	// triangulation
-	triangulation(cvs);
+    // triangulation
+    triangulation(cvs);
 
-	// opponents position
-	opponents_tower(cvs);
+    // opponents position
+    opponents_tower(cvs);
 
-	// tower control
+    // tower control
     outputs->tower_command = 15.;
 
     // kalman
     kalman(cvs);
 
-    /*
-     * Test loop for milestone A
-    static bool init = false;
-    static double t0;
-    if (t <= -13)
-    {
-        speed_regulation(cvs, PI, PI);
-    }
-    else if (t>-13 && t<=-11)
-    {
-        speed_regulation(cvs, PI*(1-0.8), PI*(1+0.8));
-    }
-    else if (t>-11 && t<-9)
-    {
-        speed_regulation(cvs, PI,PI);
-    }
-    else
-    {
-        if (!init)
-        {
-            t0 = t;
-            init = true;
-        }
-        if (PI*(1-(t-t0)/2)>0)
-            speed_regulation(cvs,PI*(1-(t-t0)/2),PI*(1-(t-t0)/2));
-        else
-            speed_regulation(cvs,0,0);
-    }
-    */
-
     switch (cvs->main_state)
-	{
-		// calibration
-		case CALIB_STATE:
-			calibration(cvs);
-			break;
+    {
+        // calibration
+        case CALIB_STATE:
+            calibration(cvs);
+            break;
 
-		// wait before match beginning
-		case WAIT_INIT_STATE:
-			speed_regulation(cvs, 0.0, 0.0);
+        // wait before match beginning
+        case WAIT_INIT_STATE:
+            speed_regulation(cvs, 0.0, 0.0);
 
-			if (t > 0.0)
-			{
-				cvs->main_state = RUN_STATE;
-				cvs->strat->main_state = GAME_STATE_A;
-			}
-			break;
+            if (t > 0.0)
+            {
+                cvs->main_state = RUN_STATE;
+                cvs->strat->main_state = GAME_STATE_A;
+            }
+            break;
 
-		// during game
-		case RUN_STATE:
-			main_strategy(cvs);
+        // during game
+        case RUN_STATE:
 
-			if (t > 89.0) // 1 second safety
-			{
-				cvs->main_state = STOP_END_STATE;
-			}
-			break;
+            main_strategy(cvs);
 
-		// stop at the end of the game
-		case STOP_END_STATE:
-			speed_regulation(cvs, 0.0, 0.0);
+            if (t > 89.0) // 1 second safety
+            {
+                cvs->main_state = STOP_END_STATE;
+            }
+            break;
 
-			outputs->flag_release = 1;
-			break;
+        // stop at the end of the game
+        case STOP_END_STATE:
+            speed_regulation(cvs, 0.0, 0.0);
 
-		case NB_MAIN_STATES:
-			printf("Error: state NB_MAIN_STATES should not be reached !\n");
-			exit(EXIT_FAILURE);
-			break;
+            outputs->flag_release = 1;
+            break;
+
+        case NB_MAIN_STATES:
+            printf("Error: state NB_MAIN_STATES should not be reached !\n");
+            exit(EXIT_FAILURE);
+            break;
 	
-		default:
-			printf("Error:unknown state : %d !\n", cvs->main_state);
-			exit(EXIT_FAILURE);
+        default:
+            printf("Error:unknown state : %d !\n", cvs->main_state);
+            exit(EXIT_FAILURE);
     }
 }
 

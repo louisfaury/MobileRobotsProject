@@ -8,14 +8,20 @@
 #define _STRATEGY_GR4_H_
 
 #include "CtrlStruct_gr4.h"
+#include "geometric_objects_gr4.h"
+#include "array"
 
 NAMESPACE_INIT(ctrlGr4);
 
 /// strategy main structure
 typedef struct Strategy
 {
-	int main_state; ///< main state of the strategy
-	
+    static constexpr int TARGET_NUMBER  = 8;
+    int main_state; ///< main state of the strategy
+    Point* currentTarget;
+    Point* targets[TARGET_NUMBER];
+    bool found[TARGET_NUMBER];
+
 } Strategy;
 
 /// 'main_state' states (adapt with your own states)
