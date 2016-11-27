@@ -10,7 +10,7 @@ NAMESPACE_INIT(ctrlGr4);
 #define DEG_TO_RAD (M_PI/180.0) ///< convertion from degrees to radians
 
 // calibration states
-enum {CALIB_START, CALIB_STATE_A, CALIB_STATE_B, CALIB_STATE_C, CALIB_ERROR_STATE, CALIB_FINISH, CALIB_STATE_D, CALIB_STATE_E};
+enum {CALIB_START, CALIB_STATE_A, CALIB_STATE_B, CALIB_STATE_C, CALIB_ERROR_STATE, CALIB_FINISH, CALIB_STATE_D, CALIB_STATE_E, CALIB_STATE_F};
 
 /*! \brief calibration of the robot to calibrate its position
  *
@@ -144,7 +144,7 @@ void calibration(CtrlStruct *cvs)
         // go to state Finish state after 5 seconds
         if ( r_activatedSwitch && l_activatedSwitch )
         {
-            calib->flag = CALIB_FINISH;
+            calib->flag = CALIB_STATE_F;
 
             calib->t_flag = t;
         }
@@ -155,12 +155,8 @@ void calibration(CtrlStruct *cvs)
         }
         break;
     }
-    case CALIB_ERROR_STATE :
-        //TODO
-        calib->flag = CALIB_FINISH;
-        break;
 
-    case CALIB_FINISH:
+    case CALIB_STATE_F:
 
         // keep on going backward for a little while (make sure that we are perfectly aligned)
                 speed_regulation(cvs, -PI/2, -PI/2);
@@ -189,13 +185,36 @@ void calibration(CtrlStruct *cvs)
                         exit(EXIT_FAILURE);
 
                     }
-
-
-
                 }
         //Just to make sure we stop and wait for the match to begin
         speed_regulation(cvs, 0.0, 0.0);
-        cvs->main_state = WAIT_INIT_STATE;
+        calib->t_flag = t;
+        calib->flag = CALIB_FINISH;
+        break;
+
+    //Calibration is finished, we go back to center of the initial square
+    case CALIB_FINISH:
+    {
+        double tEnd1 = 0.3*RobotCalibration::BOX_WIDTH/(PI*RobotGeometry::WHEEL_RADIUS);
+        double tEnd2 = tEnd1 + 0.25*RobotGeometry::WHEEL_BASE/(RobotGeometry::WHEEL_RADIUS);
+        if (t - calib->t_flag < tEnd1)
+        {
+            speed_regulation(cvs, PI, PI);
+        }
+        else if(t - calib->t_flag < tEnd2)
+        {
+            speed_regulation(cvs, PI, -PI);
+        }
+        else
+        {
+            cvs->main_state = WAIT_INIT_STATE;
+        }
+        break;
+    }
+
+    case CALIB_ERROR_STATE :
+        //TODO
+        calib->flag = CALIB_STATE_F;
         break;
 
     default:

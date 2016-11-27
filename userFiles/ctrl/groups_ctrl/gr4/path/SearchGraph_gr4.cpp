@@ -331,8 +331,19 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 
  bool SearchGraph::findCell(Point loc, int &id)
  {
+
+     int rowCellNumber    = 1 + ceil( MapHandler::MAP_LENGTH / CELL_SIZE );
+     int columnCellNumber = 1 + ceil( MapHandler::MAP_WIDTH / CELL_SIZE );
+
+     int correspondingI, correspondingJ;
+
+     correspondingI = (int)round((loc.x()+0.5*(MapHandler::MAP_LENGTH))/CELL_SIZE+EPSILON);
+
+     correspondingJ = (int)round((loc.y()+0.5*(MapHandler::MAP_WIDTH))/CELL_SIZE+EPSILON);
+      id = correspondingI*columnCellNumber + correspondingJ;
+
      //TODO ; compute exact id
-     bool found = false;
+     /*bool found = false;
      for (SCellIt it = m_cellMap.begin(); it != m_cellMap.end(); it++)
      {
          Cell* cCell = it->second;
@@ -344,7 +355,9 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
          }
      }
 
-     return found;
+     //printf("id2 : %d, id1 %d\n", id2, id);*/
+
+     return true;
  }
 
  NAMESPACE_CLOSE();
