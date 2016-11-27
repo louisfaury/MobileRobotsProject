@@ -5,6 +5,7 @@
 #include "init_pos_gr4.h"
 #include "opp_pos_gr4.h"
 #include "odometry_gr4.h"
+#include "config_file.h"
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -19,24 +20,21 @@ Strategy* init_strategy()
 
     strat = (Strategy*) malloc(sizeof(Strategy));
 
-    // target allocations   : TODO hardcode !
-    strat->targets[0] = (new Point(0.7, 0.6));
-    strat->targets[1] = (new Point(0.1, 0));
-    strat->targets[2] = (new Point(0.7, -0.6));
-    strat->targets[3] = (new Point(0.25, -1.25));
-    strat->targets[4] = (new Point(-0.4, -0.6));
-    strat->targets[5] = (new Point(-0.8, 0.));
-    strat->targets[6] = (new Point(-0.4, 0.6));
-    strat->targets[7] = (new Point(0.25, 1.25));
-
+    strat->targets[0] = (new Point(TARGET_A_X, TARGET_A_Y));
+    strat->targets[1] = (new Point(TARGET_B_X, TARGET_B_Y));
+    strat->targets[2] = (new Point(TARGET_C_X, TARGET_C_Y));
+    strat->targets[3] = (new Point(TARGET_D_X, TARGET_D_Y));
+    strat->targets[4] = (new Point(TARGET_E_X, TARGET_E_Y));
+    strat->targets[5] = (new Point(TARGET_F_X, TARGET_F_Y));
+    strat->targets[6] = (new Point(TARGET_G_X, TARGET_G_Y));
+    strat->targets[7] = (new Point(TARGET_H_X, TARGET_H_Y));
 
     for(int i = 0; i< Strategy::TARGET_NUMBER;i++)
     {
         strat->found[i]=false;
     }
 
-    //TODO: refine with strategy
-    strat->target = strat->targets[0];
+    strat->currentTarget = strat->targets[0];
     strat->found[0]= true;
 
     return strat;
@@ -48,7 +46,7 @@ Strategy* init_strategy()
  */
 void free_strategy(Strategy *strat)
 {
-    delete(strat->target);
+    delete(strat->currentTarget);
     for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
     {
         delete(strat->targets[i]);
@@ -56,14 +54,13 @@ void free_strategy(Strategy *strat)
 	free(strat);
 }
 
-//TODO : refine
 void next_target(Strategy *strat)
 {
     for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
     {
         if(!strat->found[i])
         {
-            strat->target = strat->targets[i];
+            strat->currentTarget = strat->targets[i];
             strat->found[i]=true;
             break;
         }
@@ -90,7 +87,7 @@ void main_strategy(CtrlStruct *cvs)
     // variables initialization
     strat  = cvs->strat;
     inputs = cvs->inputs;
-    target = strat->target;
+    target = strat->currentTarget;
 
     if(pathReg->reached)
     {
@@ -98,8 +95,6 @@ void main_strategy(CtrlStruct *cvs)
         reset(cvs);
         init=false;
     }
-
-
 
 	switch (strat->main_state)
 	{

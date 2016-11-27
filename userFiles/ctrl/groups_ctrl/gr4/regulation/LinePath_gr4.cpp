@@ -33,7 +33,7 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
     double tSpeed;
     double acc;
 
-    // speed profile, obtain to reach curve that arrive at objective with endSpeed at max desacc.
+    // speed profile, obtain to reach curve that arrive at objective with endSpeed at max desacc (obtained via derivative computations)
     acc = 1/(2*dt)*(-MAX_DESAC*dt -2*linearSpeed + sqrt( std::max(0.,MAX_DESAC*MAX_DESAC*dt*dt + 4*m_endSpeed*m_endSpeed + 8*MAX_DESAC*(m_length-s)
                                                                         -4*linearSpeed*MAX_DESAC*dt)) );
 
@@ -47,12 +47,11 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
     tSpeed = linearSpeed + acc*dt;
     s += linearSpeed*dt+0.5*acc*dt*dt;
 
-    //printf("%f\n",linearSpeed);
     // applying to speed regulation
     speed_regulation(cvs, tSpeed/(RobotGeometry::WHEEL_RADIUS), tSpeed/(RobotGeometry::WHEEL_RADIUS));
 
     if ( s > m_length -EPSILON )
-    {
+    {// we've reached the end of the path
         s = m_length;
         end = true;
     }

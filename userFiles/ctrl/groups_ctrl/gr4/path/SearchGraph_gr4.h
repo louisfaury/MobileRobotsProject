@@ -22,16 +22,22 @@ public:
     SearchGraph();
     ~SearchGraph();
 
-    static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
-
     /*!
      * @function computePath(int,int) : std::vector<int>
      * @brief computes A* computed path to reach target identified by targetId, cell identified by sourceId
      *        fills path vector with ids of cells constituing the path (including sourcecell and targetcell)
      * @return a boolean (true if a path has been found, false otherwise)
      */
-    virtual bool computePath(LinePathList* path, int sourceId, int targetId, int verbose=false); //A star algortihm to compute optimal path
+    virtual bool computePath(LinePathList* path, int sourceId, int targetId); //A star algortihm to compute optimal path
+    /*!
+     * @brief findCell : store id from closest cell to location
+     * @param loc : Point
+     * @param id : int&
+     * @return true if succeeded
+     */
     virtual bool findCell(Point loc, int& id);
+
+    static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
 
 protected:
     /*!
@@ -81,6 +87,3 @@ protected:
 NAMESPACE_CLOSE();
 
 #endif // SEARCHGRAPH_H
-
-
-// TODO : extend in a daughter class for dynamic graph handling

@@ -30,9 +30,9 @@ public:
      */
     bool isOnObstacle(Cell* cell);
 
-    static constexpr double MAP_LENGTH = 2.0;
-    static constexpr double MAP_WIDTH = 3.0;
-    static constexpr double MAP_SAFETY = 0.15;
+    static constexpr double MAP_LENGTH = 2.0;  //m
+    static constexpr double MAP_WIDTH  = 3.0;  //m
+    static constexpr double MAP_SAFETY = 0.15; //m
 
 private:
     GeoObjList m_geoObjectList;

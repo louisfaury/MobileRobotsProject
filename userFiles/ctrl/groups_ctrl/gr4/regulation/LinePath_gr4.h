@@ -30,10 +30,15 @@ public:
      * @brief compute the speed regulation rules for the robot on the next dt time step
      * @returns bool if path is completed
      */
-    virtual bool    nextStep(double& s, double dt, CtrlStruct* cvs);
-    void            setEndSpeed(double endSpeed){ m_endSpeed = endSpeed; }
-    virtual void    describe(){ printf("%f,%s,%f\n",m_length, m_id.c_str(), m_endSpeed); }
-    double          smoothFromEnd(double endSpeed);
+    virtual bool   nextStep(double& s, double dt, CtrlStruct* cvs);
+    /*!
+     * \brief smoothFromEnd : computes maximum start speed given speed and acceleration constraints
+     * \param endSpeed : given from following path
+     * \return double : startSpeed
+     */
+    virtual double smoothFromEnd(double endSpeed);
+    virtual void   setEndSpeed(double endSpeed){ m_endSpeed = endSpeed; }
+    virtual void   describe(){ printf("%f,%s,%f\n",m_length, m_id.c_str(), m_endSpeed); }
 
     static constexpr double MAX_ACC   = 2;
     static constexpr double MAX_DESAC = 2;

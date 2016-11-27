@@ -140,7 +140,6 @@ void SearchGraph::_graphInit()
 
 void SearchGraph::_describe()
 {
-
     FILE* adjFile;
     adjFile = fopen("adjfile.txt","w");
 
@@ -158,7 +157,6 @@ void SearchGraph::_describe()
         }
         printf("\n");
     }
-
 
     printf("\n");
 
@@ -195,7 +193,8 @@ bool SearchGraph::_computeBestDistance(SearchCell *sourceCell, SearchCell *reach
     double reachedY = reachedCell->y();
 
     int weight = (int)(sourceCell->getWeight() + std::sqrt((reachedX-sourceX)*(reachedX-sourceX)+(reachedY-sourceY)*(reachedY-sourceY))*100);
-    //Checking if it is the best path that as been found to reach the reachedCell so far
+
+    // checking if it is the best path that as been found to reach the reachedCell so far
     if(weight < reachedCell->getWeight())
     {
         reachedCell->setWeight(weight);
@@ -220,7 +219,6 @@ void SearchGraph::_computeHeuristicalScore(SearchCell *cell, SearchCell *targetC
 void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *path)
 {
     int id(targetId);
-    path->clear(); // to be cautious
     while(id != sourceId)
     {
         SearchCell* cCell = m_cellMap[id]->getPreviousCell();
@@ -233,22 +231,14 @@ void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *pa
     path->reverse();
 }
 
-bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, int verbose)
+bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 {
     bool success(true);
-
-    FILE *searchFile, *pathFile;
-    if(verbose)
-    {
-        searchFile = fopen("../OutputFiles/searchfile.txt","w");
-        pathFile = fopen("../OutputFiles/pathfile.txt","w");
-    }
 
     //initializing priority queue
     std::priority_queue<SearchCell*, std::vector<SearchCell*>, CompareSearchCells> priorityQueue;
 
     //Initializing local variables
-    //Cell *cell;
     int id, neighborId;
     SearchCell *sCell, *neighborSCell, *targetSCell;
     std::vector<Link*> neighborLinks;
@@ -261,18 +251,11 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
     //We identify the target cell
     targetSCell =m_cellMap[targetId];
 
-    printf("Looking for : %f, %f\n", targetSCell->x(), targetSCell->y());
-
     //A-star algorithm until we reach destination
     while(true)
     {
         //Retrieve current cell id
         id = sCell->getId(); // TODO : compute from exact position
-
-        if(verbose)
-        {
-            fprintf(searchFile, "%d\n", id);
-        }
 
 
         //We mark this cell as already visited so that we will never come back to it
@@ -289,10 +272,8 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
         neighborLinks = sCell->getLinks();
         for (LinkIt l_it = neighborLinks.begin(); l_it != neighborLinks.end(); l_it++)
         {
-
             //Neighboor identification (assuming that a cell is never linked to itself)
             neighborId = (*l_it)->goalId();
-
             neighborSCell = m_cellMap[neighborId];
             //If there is an obstacle or if it has already been visited we avoid it
             if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->notVisited())
@@ -311,7 +292,6 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
                     bestPath = 0;
                 }
             }
-
         }
         //Taking next Cell to be explored in priorityqueue
         if(!priorityQueue.empty())
@@ -340,30 +320,11 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId, in
             success = false;
             break;
         }
-
     }
 
-
-    //Target destination has been reached
-    //We now recompute the optimal path
-
-    //Attention : we want a result in IDs and not Cell* since the SearchCells will all be deleted
-    //right after this line of code
+    //Target destination has been reached, we now recompute the optimal path
     if (success)
         _retrieveBestPath(sourceId, targetId, path);
-
-
-    /*
-     if(verbose)
-    {
-        for (LinkIt i = path->begin(); i != path->end(); ++i)
-        {
-            fprintf(pathFile, "%d\n", (*i)->goalId());
-        }
-        fclose(pathFile);
-        fclose(searchFile);
-    }
-    */
 
     return success;
  }

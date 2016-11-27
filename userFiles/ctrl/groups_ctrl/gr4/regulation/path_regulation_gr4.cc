@@ -38,7 +38,6 @@ void follow_path(CtrlStruct *cvs)
             speed_regulation(cvs,0.,0.);
     }
     path_reg->last_t=t;
-
 }
 
 void free_path_regulation(PathRegulation* pr)

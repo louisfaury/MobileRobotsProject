@@ -196,7 +196,6 @@ void calibration(CtrlStruct *cvs)
         //Just to make sure we stop and wait for the match to begin
         speed_regulation(cvs, 0.0, 0.0);
         cvs->main_state = WAIT_INIT_STATE;
-        printf("waiting for init\n");
         break;
 
     default:

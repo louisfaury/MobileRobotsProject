@@ -71,5 +71,23 @@
 // NUMBER OF JOINTS ANIM
 #define NB_JOINTS_ANIM 48
 
+// TARGETS
+#define TARGET_A_X 0.7
+#define TARGET_A_Y 0.6
+#define TARGET_B_X 0.1
+#define TARGET_B_Y 0.
+#define TARGET_C_X 0.7
+#define TARGET_C_Y -0.6
+#define TARGET_D_X 0.25
+#define TARGET_D_Y -1.25
+#define TARGET_E_X -0.4
+#define TARGET_E_Y -0.6
+#define TARGET_F_X -0.8
+#define TARGET_F_Y 0.
+#define TARGET_G_X -0.4
+#define TARGET_G_Y 0.6
+#define TARGET_H_X 0.25
+#define TARGET_H_Y 1.25
+
 #endif
 

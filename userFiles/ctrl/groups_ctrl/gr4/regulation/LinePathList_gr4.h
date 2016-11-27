@@ -29,7 +29,7 @@ public:
     double  length();
     void    clear();
     void    reverse();
-    bool    isEmpty(){return m_pathVec.empty();};
+    bool    isEmpty(){return m_pathVec.empty();}
     void    smooth(double);
 
 private:

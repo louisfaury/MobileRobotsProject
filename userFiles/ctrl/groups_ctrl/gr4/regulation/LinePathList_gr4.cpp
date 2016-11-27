@@ -35,20 +35,15 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
     double locLength;
     double locS(0.);
     double resS(0.);
-//    if( m_change)
-//    {
-//        speed_regulation(cvs,0.,0.);
-//        m_change = false;
-//    }
 
     if ( s > length()-EPSILON )
-    {
+    {//we've reached the end of the path list
         end = true;
         speed_regulation(cvs,0.,0.);
     }
     else
     {
-        // finding the current pathLine
+        // finding the current path
         PathVectIt it = m_pathVec.begin();
         for (; it != m_pathVec.end(); it++)
         {
@@ -60,7 +55,7 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
                 break;
             }
             else
-                locS += locLength;
+                locS += locLength; //updating local s
         }
         s = locS + resS;
     }
@@ -82,9 +77,6 @@ double LinePathList::length()
 void LinePathList::clear()
 {
     m_pathVec.clear();
-    //std::vector<Path*>().swap(m_pathVec);
-//    for (PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
-//        delete(*it);
 }
 
 void LinePathList::reverse()
@@ -121,14 +113,11 @@ void LinePathList::smooth(double theta)
         nextLine = (LinePath*)(*it2);
 
         deltaAngle = MODULOPI(nextLine->angle() -curLine->angle());
-        //printf("%f, %f\n", deltaAngle, nextLine->angle() -curLine->angle());
         if ( fabs(deltaAngle)>EPSILON )
         {
             sign = deltaAngle/fabs(deltaAngle);
 
             CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
-                                                                                // TODO : create a pool of curvePath to avoid dynamic allocation
-
             m_pathVec.insert(it2,curvePath);
             it2++;
         }
@@ -149,8 +138,10 @@ void LinePathList::smooth(double theta)
         endSpeed = startSpeed;
     }
 
+    /*
     for ( PathVectIt it = m_pathVec.begin(); it != m_pathVec.end(); it++)
         (*it)->describe();
+    */
 }
 
 

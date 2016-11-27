@@ -11,7 +11,7 @@ NAMESPACE_INIT(ctrlGr4);
 
 MapHandler::MapHandler()
 {
-    m_geoObjectList.reserve(12); //number of fixed obstacles ..
+    m_geoObjectList.reserve(12); //number of fixed obstacles
 
     // creating obstacles !
     // borders :
@@ -31,8 +31,6 @@ MapHandler::MapHandler()
     Rectangle* topRect    = new Rectangle( Point(0.,0.35), 0.4+MAP_SAFETY, 0.1+MAP_SAFETY );
     Rectangle* midVert    = new Rectangle( Point(-0.15,0.), 0.1+MAP_SAFETY, 0.6+MAP_SAFETY);
     Rectangle* leftHoz    = new Rectangle( Point(-0.35,0.), 0.3+MAP_SAFETY, 0.2+MAP_SAFETY);
-
-    // TODO : add safety constant to each width and length !
 
     // adding obstacles
     m_geoObjectList.push_back(bottomBorder);

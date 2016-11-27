@@ -18,7 +18,7 @@ typedef struct Strategy
 {
     static constexpr int TARGET_NUMBER  = 8;
     int main_state; ///< main state of the strategy
-    Point* target;
+    Point* currentTarget;
     Point* targets[TARGET_NUMBER];
     bool found[TARGET_NUMBER];
 
