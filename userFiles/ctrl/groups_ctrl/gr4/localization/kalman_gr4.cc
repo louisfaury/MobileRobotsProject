@@ -116,26 +116,19 @@ void kalman(CtrlStruct *cvs)
 
                 // covariance update, with Joseph's form to stay in Sn++
                 // obtained via wxmaxima - formal calculation software
-                kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kxy,2)*pyy+2*kxtheta*kxy*pytheta+(2*kxx-2)*kxy*pxy+
-                        (1-2*kxx+pow(kxx,2))*pxx+(2*kxtheta*kxx-2*kxtheta)*pxtheta+pow(kxtheta,2)*pthetatheta;
-                kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kxy*kyy-kxy)*pyy+(-kxtheta+kxy*kytheta+kxtheta*kyy)*pytheta+
-                        (1-kxx+kxy*kyx+(kxx-1)*kyy)*pxy+(kxx-1)*kyx*pxx+((kxx-1)*kytheta+kxtheta*kyx)*pxtheta+kxtheta*kytheta*pthetatheta;
-                kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kxtheta*kthetatheta*RobotGeometry::OBS_VAR_THETA+kthetay*kxy*pyy+(kxtheta*kthetay+(kthetatheta-1)*kxy)*pytheta+
-                        (-kthetay+kthetay*kxx+kthetax*kxy)*pxy+(kthetax*kxx-kthetax)*pxx+(1-kthetatheta+kxtheta*kthetax+(kthetatheta-1)*kxx)*pxtheta+
-                        (kxtheta*kthetatheta-kxtheta)*pthetatheta;
-                kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-2*kyy+pow(kyy,2))*pyy+(2*kytheta*kyy-2*kytheta)*pytheta+
-                        (2*kyx*kyy-2*kyx)*pxy+pow(kyx,2)*pxx+2*kytheta*kyx*pxtheta+pow(kytheta,2)*pthetatheta;
-                kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(kthetay*kyy-kthetay)*pyy+
-                        (1-kthetatheta+kthetay*kytheta+(kthetatheta-1)*kyy)*pytheta+(-kthetax+kthetay*kyx+kthetax*kyy)*pxy+kthetax*kyx*pxx+
-                        (kthetax*kytheta+(kthetatheta-1)*kyx)*pxtheta+(kthetatheta-1)*kytheta*pthetatheta;
-                kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA+pow(kthetay,2)*pyy+(2*kthetatheta-2)*kthetay*pytheta+2*
-                        kthetax*kthetay*pxy+pow(kthetax,2)*pxx+(2*kthetatheta-2)*kthetax*pxtheta+(1-2*kthetatheta+pow(kthetatheta,2))*pthetatheta;
+                kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA-kxy*((1-kxx)*pxy-kxtheta*pytheta-kxy*pyy)-kxtheta*(-kxtheta*pthetatheta+(1-kxx)*pxtheta-kxy*pytheta)+(1-kxx)*(-kxtheta*pxtheta+(1-kxx)*pxx-kxy*pxy);
+                kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kxtheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)+(1-kxx)*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
+                kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kthetatheta*kxtheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kxtheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)+(1-kxx)*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kytheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)-kyx*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
+                kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kytheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kyx*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA-kthetay*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)+(1-kthetatheta)*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kthetax*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
             }
             else
             {
                 printf("WARNING : State cov. matrix not definite positive\n");
                 cvs->kalman->initEst(cvs); // cov. matrix back to initialization
             }
+
 
             // flag back to false
             kalman_pos->triang_flag = false;
@@ -149,7 +142,6 @@ void kalman(CtrlStruct *cvs)
     rob_pos->x = kalman_pos->xEst;
     rob_pos->y = kalman_pos->yEst;
     rob_pos->theta = kalman_pos->thetaEst;
-
 }
 
 KalmanStruct::KalmanStruct() : init(false), xEst(0), yEst(0), thetaEst(0), triang_flag(false)
