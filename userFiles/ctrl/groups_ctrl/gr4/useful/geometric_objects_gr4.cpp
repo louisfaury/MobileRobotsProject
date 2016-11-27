@@ -225,6 +225,18 @@ bool Rectangle::computeIntersection(Segment seg)
     return res;
 }
 
+bool Rectangle::computeIntersection(Circle c)
+{
+    bool res = false;
+
+    res |= isInside(c.center());
+    for (int i=0; i<4; i++)
+    {
+        res |= c.isInside(m_edges[i].p1());
+    }
+    return res;
+}
+
 bool Rectangle::computeIntersection(GeometricObject *obj)
 {
     bool res = false;
@@ -237,5 +249,30 @@ bool Rectangle::computeIntersection(GeometricObject *obj)
     return res;
 }
 
-NAMESPACE_CLOSE();
+Circle::Circle()
+{
+    m_tag = "Crc";
+}
 
+Circle::Circle(Point center, double radius) : m_center(center), m_radius(radius)
+{
+    m_tag = "Crc";
+}
+
+bool Circle::isInside(Point p)
+{
+    bool res = ( p.computeDistance(m_center)<m_radius );
+    return res;
+}
+
+bool Circle::computeIntersection(GeometricObject *obj)
+{
+    return true; //TODO
+}
+
+void Circle::getDescription(char *descriptor)
+{
+
+}
+
+NAMESPACE_CLOSE();

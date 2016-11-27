@@ -29,13 +29,17 @@ public:
      * @brief Returns true if the rectangle spawned by the cell is in collision with an obstacle
      */
     bool isOnObstacle(Cell* cell);
+    void updateOpponents(Point opp1, Point opp2);
+    bool isOnOpponent(Cell* cell);
 
     static constexpr double MAP_LENGTH = 2.0;  //m
     static constexpr double MAP_WIDTH  = 3.0;  //m
     static constexpr double MAP_SAFETY = 0.15; //m
 
 private:
-    GeoObjList m_geoObjectList;
+    GeoObjList m_fixedObstacleList;
+    GeoObjList m_opponentsList;
+
 };
 
 NAMESPACE_CLOSE();
