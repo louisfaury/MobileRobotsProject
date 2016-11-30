@@ -67,7 +67,7 @@ void kalman(CtrlStruct *cvs)
     if ( kalman_pos->iter ==0 )
         // the iter condition is to reduce the innovation frequency, which is too high (cov. matrix is already small - in terms of eigenvalues norms.)
 
-        if (kalman_pos->triang_flag = true && cvs->inputs->t > -5 )
+        if (kalman_pos->triang_flag = true && cvs->inputs->t > -10 )
         {// the t condition is so that we are sure triangulation readings are ok
             // buffers
             double pxx = kalman_pos->pEst.xx;
