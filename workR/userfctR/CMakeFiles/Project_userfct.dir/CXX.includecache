@@ -2253,6 +2253,8 @@ string
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.cc
 path_regulation_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.h
+path_planning_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_planning_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/useful_gr4.h
 speed_regulation_gr4.h
@@ -2299,6 +2301,8 @@ odometry_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/strategy/odometry_gr4.h
 config_file.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/strategy/config_file.h
+limits
+-
 math.h
 -
 

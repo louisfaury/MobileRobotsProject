@@ -18,15 +18,12 @@ struct PathRegulation
     bool reached;
     double s;
     double last_t;
-
-    struct timespec endr;
-    struct timespec start;
 };
 
 PathRegulation* init_path_regulation();
 void follow_path(CtrlStruct *cvs);
 void free_path_regulation(PathRegulation*);
-void reset(CtrlStruct* cvs);
+void reset_path_regulation(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 

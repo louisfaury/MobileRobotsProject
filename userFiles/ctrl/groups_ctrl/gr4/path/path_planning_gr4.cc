@@ -44,7 +44,6 @@ bool pathPlanning(CtrlStruct *cvs)
 
     Point endLoc(strat->currentTarget->x(), strat->currentTarget->y());
     Point startLoc(cvs->rob_pos->x,cvs->rob_pos->y);
-   //printf("%f, %f, %f, %f\n", endLoc.x(), endLoc.y(), cvs->rob_pos->x, cvs->rob_pos->y);
 
     int startId(0), endId(0);
     // find current cell given pos

@@ -213,10 +213,12 @@ void triangulation(CtrlStruct *cvs)
         thetaRes = (1./3)*( -alpha_1_predicted + atan2(y_beac_1-rob_pos->y,x_beac_1-rob_pos->x) )
                    + (1./3) * ( -alpha_2_predicted + atan2(y_beac_2-rob_pos->y,x_beac_2-rob_pos->x) )
                    + (1./3) * ( -alpha_3_predicted + atan2(y_beac_3-rob_pos->y,x_beac_3-rob_pos->x) );
-        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, xRes, yRes ); //Robot Frame
+      // RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_X, RobotGeometry::TOWER_THETA, xRes, yRes ); //Robot Frame
+        xRes -= RobotGeometry::TOWER_X*cos(thetaRes);
+        yRes -= RobotGeometry::TOWER_X*sin(thetaRes);
 
         // some computation to enable x & y to jump at initialization
-        tau = (init) ? dt : EPSILON;
+        tau = (init) ? 5*dt : EPSILON;
         angPeakThreshold = (init) ? ConstraintConstant::ANG_UPDATE_THRESHOLD : UINT64_MAX;
         posPeakThreshold = (init) ? ConstraintConstant::POS_UPDATE_THRESHOLD : UINT64_MAX;
         pos_tri->x = first_order_filter(pos_tri->x, xRes, tau, dt, posPeakThreshold);
@@ -225,7 +227,7 @@ void triangulation(CtrlStruct *cvs)
 
         set_plot(pos_tri->x, "TrianX");
         set_plot(pos_tri->y, "TrianY");
-        set_plot(pos_tri->theta, "TrianTheta");
+        //set_plot(pos_tri->theta, "TrianTheta");
 
         // kalman flag rise
         cvs->kalman->triang_flag = true;

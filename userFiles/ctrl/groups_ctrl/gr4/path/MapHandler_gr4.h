@@ -34,7 +34,7 @@ public:
 
     static constexpr double MAP_LENGTH = 2.0;  //m
     static constexpr double MAP_WIDTH  = 3.0;  //m
-    static constexpr double MAP_SAFETY = 0.15; //m
+    static constexpr double MAP_SAFETY = 0.2; //m
 
 private:
     GeoObjList m_fixedObstacleList;

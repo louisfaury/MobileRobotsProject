@@ -19,7 +19,7 @@
 
 // ROBOT INITIAL POSITIONS
 #define BLUE_T1 0.67
-#define BLUE_T2 1.15 //1.15
+#define BLUE_T2 1.15
 #define BLUE_R3 -90.0
 
 #define RED_T1 0.82
@@ -35,15 +35,15 @@
 #define WHITE_R3 90.0
 
 // ROBOTS INITIAL UNCERTAINTY
-#define T1_UNCERT 0//.02
-#define T2_UNCERT 0//.02
-#define R3_UNCERT 0 //10.0
+#define T1_UNCERT .02
+#define T2_UNCERT .02
+#define R3_UNCERT 10.0
 
 // MOTORS
 #define ACTUATOR_NOISE 0 //0.07
 
 #define WHEEL_FRICTION 0 //0.2
-#define TOWER_FRICTION 0.02
+#define TOWER_FRICTION 0//0.02
 
 // SENSORS NOISE
 #define WHEEL_NOISE 0.007

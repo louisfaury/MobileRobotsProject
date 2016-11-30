@@ -329,7 +329,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
         }
         else
         {
-            printf("Error : not able to reach target2\n");
+            printf("Error : not able to reach target\n");
             success = false;
             break;
         }
@@ -338,7 +338,6 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
     //Target destination has been reached, we now recompute the optimal path
     if (success)
         _retrieveBestPath(sourceId, targetId, path);
-
     return success;
  }
 
@@ -352,22 +351,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
      correspondingJ = (int)round((loc.y()+0.5*(MapHandler::MAP_WIDTH+CELL_SIZE))/CELL_SIZE+EPSILON);
      id = correspondingI*columnCellNumber + correspondingJ;
 
-     //TODO ; compute exact id
-     /*bool found = false;
-     for (SCellIt it = m_cellMap.begin(); it != m_cellMap.end(); it++)
-     {
-         Cell* cCell = it->second;
-         if ( loc.computeDistance(Point(cCell->x(),cCell->y())) < sqrt(2)*CELL_SIZE/2 + EPSILON )
-         {
-             id = it->first;
-             found = true;
-             break;
-         }
-     }
-
-     //printf("id2 : %d, id1 %d\n", id2, id);*/
-
-     return true;
+     return (id<m_cellCtr);
  }
 
  NAMESPACE_CLOSE();
