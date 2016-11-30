@@ -13,6 +13,33 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
+//! some forward declarations
+struct Target;
+struct Base;
+
+/// strategy main structure
+typedef struct Strategy
+{
+    static constexpr int TARGET_NUMBER  = 8;
+    static constexpr int BASE_NUMBER = 2;
+    int main_state; ///< main state of the strategy
+    Target* targets[TARGET_NUMBER];
+    Base* bases[BASE_NUMBER];
+    int currentTargetId; // TODO : find something better
+    Point* currentTarget;
+    double last_t;
+} Strategy;
+
+/// 'main_state' states
+enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE
+     };
+
+Strategy* init_strategy();
+void free_strategy(Strategy *strat);
+void main_strategy(CtrlStruct *cvs);
+void updateBestTarget(CtrlStruct* cvs);
+void findClosestBase(CtrlStruct* cvs);
+
 /*! Target structure */
 struct Target
 {
@@ -33,26 +60,6 @@ struct Base
     Point loc;
 };
 
-/// strategy main structure
-typedef struct Strategy
-{
-    static constexpr int TARGET_NUMBER  = 8;
-    static constexpr int BASE_NUMBER = 2;
-    int main_state; ///< main state of the strategy
-    Target* targets[TARGET_NUMBER];
-    int currentTargetId; // TODO : find something better
-    Point* currentTarget;
-    double last_t;
-} Strategy;
-
-/// 'main_state' states
-enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE
-     };
-
-Strategy* init_strategy();
-void free_strategy(Strategy *strat);
-void main_strategy(CtrlStruct *cvs);
-void updateBestTarget(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 

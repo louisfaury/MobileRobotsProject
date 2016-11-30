@@ -68,9 +68,14 @@ double first_order_filter(double last_val, double new_val, double tau, double de
     double res = last_val;
     if ( fabs(last_val-new_val)<threshold )
     {
-        double f = delta_t / tau;
-        double frac = 1.0 / (1.0 + f);
-        res = f * frac * new_val + frac * last_val;
+        if ( tau >= EPSILON)
+        {
+            double f = delta_t / tau;
+            double frac = 1.0 / (1.0 + f);
+            res = f * frac * new_val + frac * last_val;
+        }
+        else
+            res = new_val;
     }
     return res;
 }
