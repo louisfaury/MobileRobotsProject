@@ -1,4 +1,5 @@
 #include "path_regulation_gr4.h"
+#include "path_planning_gr4.h"
 #include "useful_gr4.h"
 #include "speed_regulation_gr4.h"
 #include "time.h"
@@ -54,6 +55,10 @@ void reset(CtrlStruct *cvs)
     // re-init
     path_reg->s = 0.;
     path_reg->reached = false;
+
+    //clearing map
+    PathPlanning* path_pl = cvs->path;
+    path_pl->searchGraph->clear();
     // speed reg to 0, being cautious
     speed_regulation(cvs, 0., 0.);
 }

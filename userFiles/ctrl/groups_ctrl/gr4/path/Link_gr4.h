@@ -17,6 +17,7 @@ public:
 
     LinePath* line(){ return &m_line; }
     int goalId(){ return m_goalNodeId; }
+    double angle(){return m_line.angle();}
 
 private:
     int m_goalNodeId;

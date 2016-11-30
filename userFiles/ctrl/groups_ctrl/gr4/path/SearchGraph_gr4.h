@@ -37,7 +37,10 @@ public:
      */
     virtual bool findCell(Point loc, int& id);
 
+    virtual void clear();
+
     static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
+    static constexpr int ANGLE_PENALTY = 10;
 
 protected:
     /*!
@@ -75,6 +78,9 @@ protected:
      * @brief add cell to graph
      */
     virtual void _addCell(SearchCell* cell);
+
+    virtual int _computeWeight(int pweight, double dx, double dy, double angle);
+
 
     MapHandler m_mapHandler;
     std::map<int,SearchCell*> m_cellMap; //dynamic graph, easier to handle this way than to store ids in Cells

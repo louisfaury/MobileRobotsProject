@@ -174,6 +174,14 @@ void SearchGraph::_describe()
     getchar();
 }
 
+void SearchGraph::clear()
+{
+    for(SCellIt it = m_cellMap.begin(); it != m_cellMap.end(); it++)
+    {
+        (it->second)->reset();
+    }
+}
+
 void SearchGraph::_addCell(SearchCell *cell)
 {
     //TODO : incorporate a free index vector so that index doesn't reach limit (for dynamic graph handling)
@@ -182,23 +190,32 @@ void SearchGraph::_addCell(SearchCell *cell)
     m_cellCtr++;
 }
 
+int SearchGraph::_computeWeight(int pweight, double dx, double dy, double angle)
+{
+    int penalty = 0;
+    if (angle>EPSILON)
+        penalty = SearchGraph::ANGLE_PENALTY;
+    return ((int)(pweight + std::sqrt(dx*dx+dy*dy)*100 + penalty));
+}
 
 bool SearchGraph::_computeBestDistance(SearchCell *sourceCell, SearchCell *reachedCell)
 {
     bool res = 0;
 
-    double sourceX = sourceCell->x();
-    double sourceY = sourceCell->y();
-    double reachedX = reachedCell->x();
-    double reachedY = reachedCell->y();
+    double dx = sourceCell->x()-reachedCell->x();
+    double dy = sourceCell->y()-reachedCell->y();
+    double angle = sourceCell->getLink(reachedCell->getId())->angle();
+    double dangle = fabs(angle-sourceCell->getPreviousAngle());
+    int pweight = sourceCell->getWeight();
 
-    int weight = (int)(sourceCell->getWeight() + std::sqrt((reachedX-sourceX)*(reachedX-sourceX)+(reachedY-sourceY)*(reachedY-sourceY))*100);
+    int weight = _computeWeight(pweight, dx, dy, dangle);
 
     // checking if it is the best path that as been found to reach the reachedCell so far
     if(weight < reachedCell->getWeight())
     {
         reachedCell->setWeight(weight);
         reachedCell->setPreviousCell(sourceCell);
+        reachedCell->setPreviousAngle(angle);
         res = 1;
     }
     return res;
@@ -227,7 +244,6 @@ void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *pa
             path->addPath(link->line());
         id = cCell->getId(); // TODO : From cell position retrieve id
     }
-
     path->reverse();
 }
 
@@ -248,6 +264,8 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
     //We begin by exploring the sourceCell and by putting its weight to 0
     sCell = m_cellMap[sourceId];
     sCell->setWeight(0);
+    //TODO : integrate robot position
+    sCell->setPreviousAngle(0);
     //We identify the target cell
     targetSCell =m_cellMap[targetId];
 
@@ -257,9 +275,8 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
         //Retrieve current cell id
         id = sCell->getId(); // TODO : compute from exact position
 
-
-        //We mark this cell as already visited so that we will never come back to it
-        sCell->setStatus(false);
+        //We mark this cell as already visited = closed so that we will never come back to it
+        sCell->setStatus(SearchCell::SearchStatus_t::closed_);
 
         //Testing if we have reached the destination
         if(id == targetId){
@@ -276,20 +293,16 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
             neighborId = (*l_it)->goalId();
             neighborSCell = m_cellMap[neighborId];
             //If there is an obstacle or if it has already been visited we avoid it
-            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->notVisited())
+            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->getStatus() != SearchCell::SearchStatus_t::closed_)
             {
-                //If is has not been seen before, we compute its heuristical score
-                if(neighborSCell->getHeuristicalScore()<0){
+                //We compute distance between cells and update neighborSCell weight if it is it's best distance found so far
+                _computeBestDistance(sCell, neighborSCell);
+
+                //If is has not been seen before, we compute its heuristical score and put it in the priroityqueue
+                if(neighborSCell->getStatus() == SearchCell::SearchStatus_t::new_){
                     _computeHeuristicalScore(neighborSCell, targetSCell);
-                }
-
-                bestPath = _computeBestDistance(sCell, neighborSCell);
-
-                //Adding neighbor in priorityqueue
-                if (bestPath)
-                {
                     priorityQueue.push(neighborSCell);
-                    bestPath = 0;
+                    neighborSCell->setStatus(SearchCell::SearchStatus_t::open_);
                 }
             }
         }
@@ -301,14 +314,14 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
             //Removing it from the priorityQueue
             priorityQueue.pop();
             //while the popped cells have already been visited coming from a shorter path, we ignore them
-            while(!sCell->notVisited() && !priorityQueue.empty())
+            while(sCell->getStatus()!= SearchCell::SearchStatus_t::open_ && !priorityQueue.empty())
             {
                 //Getting first priority element
                 sCell =  priorityQueue.top();
                 //Removing it from the priorityQueue
                 priorityQueue.pop();
             }
-            if(!sCell->notVisited()){
+            if(sCell->getStatus()!= SearchCell::SearchStatus_t::open_){
                 printf("Error : not able to reach target1\n");
                 success = false;
                 break;

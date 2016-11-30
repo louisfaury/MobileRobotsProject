@@ -39,10 +39,8 @@ namespace RobotGeometry
      */
     static void moveToRef(double xRef, double yRef, double thetaRef, double& x, double& y)
     {
-        double xTemp(x);
-        double yTemp(y);
-        x = xRef + xTemp*cos(thetaRef) - yTemp*sin(thetaRef);
-        y = yRef + xTemp*sin(thetaRef) + yTemp*cos(thetaRef);
+        xRef-= RobotGeometry::TOWER_X*cos(thetaRef);
+        yRef-= RobotGeometry::TOWER_X*sin(thetaRef);
     }
 }
 
