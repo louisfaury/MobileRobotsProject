@@ -19,7 +19,7 @@
 
 // ROBOT INITIAL POSITIONS
 #define BLUE_T1 0.67
-#define BLUE_T2 1.15 //1.15
+#define BLUE_T2 1.15
 #define BLUE_R3 -90.0
 
 #define RED_T1 0.82

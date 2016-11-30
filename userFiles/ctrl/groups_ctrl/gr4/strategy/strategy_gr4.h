@@ -13,23 +13,46 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
+/*! Target structure */
+struct Target
+{
+    Target(int i, double v, Point p);
+    void updateValue(Point robPos, Point oppPos);
+    bool free;
+    int id;
+    int value;
+    double distanceToClosest;
+    Point pos;
+};
+
+struct Base
+{
+    Base(int i, Point p);
+
+    int id;
+    Point loc;
+};
+
 /// strategy main structure
 typedef struct Strategy
 {
     static constexpr int TARGET_NUMBER  = 8;
+    static constexpr int BASE_NUMBER = 2;
     int main_state; ///< main state of the strategy
+    Target* targets[TARGET_NUMBER];
+    int currentTargetId; // TODO : find something better
     Point* currentTarget;
-    Point* targets[TARGET_NUMBER];
-    bool found[TARGET_NUMBER];
-
+    double last_t;
 } Strategy;
 
-/// 'main_state' states (adapt with your own states)
-enum {GAME_STATE_A, GAME_STATE_B, GAME_STATE_C, GAME_STATE_D, GAME_STATE_E};
+/// 'main_state' states
+enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE
+     };
 
 Strategy* init_strategy();
 void free_strategy(Strategy *strat);
 void main_strategy(CtrlStruct *cvs);
+void updateBestTarget(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 

@@ -46,7 +46,7 @@ void free_path_regulation(PathRegulation* pr)
     free(pr);
 }
 
-void reset(CtrlStruct *cvs)
+void reset_path_regulation(CtrlStruct *cvs)
 {
     // clearing path
     PathRegulation* path_reg = cvs->path_reg;

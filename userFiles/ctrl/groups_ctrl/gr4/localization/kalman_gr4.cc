@@ -135,8 +135,8 @@ void kalman(CtrlStruct *cvs)
 
         }
 
-    // taking triangulation values every 5 iterations - odometry can dilate a bit the state's error covariance matrix
-    kalman_pos->iter = (kalman_pos->iter+1)%5;
+    // taking triangulation values every 100 iterations - odometry can dilate a bit the state's error covariance matrix
+    kalman_pos->iter = (kalman_pos->iter+1)%2;
 
     // Updating robot position
     rob_pos->x = kalman_pos->xEst;

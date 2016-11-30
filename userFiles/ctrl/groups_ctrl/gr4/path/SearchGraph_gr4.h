@@ -76,6 +76,8 @@ protected:
      */
     virtual void _addCell(SearchCell* cell);
 
+    virtual void _resetGraph();
+
     MapHandler m_mapHandler;
     std::map<int,SearchCell*> m_cellMap; //dynamic graph, easier to handle this way than to store ids in Cells
     int m_cellCtr;

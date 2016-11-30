@@ -6,9 +6,39 @@
 #include "opp_pos_gr4.h"
 #include "odometry_gr4.h"
 #include "config_file.h"
+#include <limits>
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
+
+/*!
+ * \brief Target::Target : constructor for target struct
+ * \param id : target id
+ * \param v : value
+ * \param p : loc
+ */
+Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p)
+{
+}
+
+/*!
+ * \brief Target::updateValue : update the currrent (this) target value
+ * \param robPos : calling robot position
+ * \param oppPos : calling robot's opponents position
+ */
+void Target::updateValue(Point robPos, Point oppPos)
+{
+    value = (free) ? pos.computeDistance(robPos) : 100.; // TODO : pimp with neural net wouhou
+}
+
+/*!
+ * \brief Base::Base
+ * \param i : id
+ * \param p : loc
+ */
+Base::Base(int i, Point p) : id(i), loc(p)
+{
+}
 
 /*! \brief intitialize the strategy structure
  * 
@@ -20,22 +50,19 @@ Strategy* init_strategy()
 
     strat = (Strategy*) malloc(sizeof(Strategy));
 
-    strat->targets[0] = (new Point(TARGET_A_X, TARGET_A_Y));
-    strat->targets[1] = (new Point(TARGET_B_X, TARGET_B_Y));
-    strat->targets[2] = (new Point(TARGET_C_X, TARGET_C_Y));
-    strat->targets[3] = (new Point(TARGET_D_X, TARGET_D_Y));
-    strat->targets[4] = (new Point(TARGET_E_X, TARGET_E_Y));
-    strat->targets[5] = (new Point(TARGET_F_X, TARGET_F_Y));
-    strat->targets[6] = (new Point(TARGET_G_X, TARGET_G_Y));
-    strat->targets[7] = (new Point(TARGET_H_X, TARGET_H_Y));
+    strat->targets[0] = new Target(1, 1, Point(TARGET_A_X,TARGET_A_Y));
+    strat->targets[1] = new Target(2, 2, Point(TARGET_B_X, TARGET_B_Y));
+    strat->targets[2] = new Target(3, 1, Point(TARGET_C_X, TARGET_C_Y));
+    strat->targets[3] = new Target(4, 2, Point(TARGET_D_X, TARGET_D_Y));
+    strat->targets[4] = new Target(5, 1, Point(TARGET_E_X, TARGET_E_Y));
+    strat->targets[5] = new Target(6, 3, Point(TARGET_F_X, TARGET_F_Y));
+    strat->targets[6] = new Target(7, 1, Point(TARGET_G_X, TARGET_G_Y));
+    strat->targets[7] = new Target(8, 2, Point(TARGET_H_X, TARGET_H_Y));
 
-    for(int i = 0; i< Strategy::TARGET_NUMBER;i++)
-    {
-        strat->found[i]=false;
-    }
 
-    strat->currentTarget = strat->targets[0];
-    strat->found[0]= true;
+    strat->currentTarget =  new Point(0.,0.);
+
+    strat->last_t = 0.;
 
     return strat;
 }
@@ -54,20 +81,6 @@ void free_strategy(Strategy *strat)
 	free(strat);
 }
 
-void next_target(Strategy *strat)
-{
-    for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
-    {
-        if(!strat->found[i])
-        {
-            strat->currentTarget = strat->targets[i];
-            strat->found[i]=true;
-            break;
-        }
-    }
-}
-
-
 /*! \brief strategy during the game
  * 
  * \param[in,out] cvs controller main structure
@@ -77,60 +90,94 @@ void main_strategy(CtrlStruct *cvs)
     // variables declaration
     Strategy *strat;
     CtrlIn *inputs;
-    Point *target;
-    PathPlanning* pathPlanner = cvs->path;
     PathRegulation* pathReg = cvs->path_reg;
-
-    static bool init = false;
-    static bool found = false;
 
     // variables initialization
     strat  = cvs->strat;
     inputs = cvs->inputs;
-    target = strat->currentTarget;
+    double t = inputs->t;
 
-    if(pathReg->reached)
-    {
-        next_target(strat);
-        reset(cvs);
-        init=false;
-    }
+    printf("%d\n",inputs->nb_targets);
 
 	switch (strat->main_state)
 	{
-		case GAME_STATE_A:
-
-            if (!init)
-            {
-                found = pathPlanning(cvs);
-                init = true;
-            }
-            if (found)
+        case TARGET_HARVESTING_STATE:
+            if (!pathReg->reached)
                 follow_path(cvs);
             else
-                speed_regulation(cvs, 0., 0.); // TODO : not pretty, need to be fixed once and far all
+            {// path regulation has reached goal
+                reset_path_regulation(cvs);
+                strat->targets[strat->currentTargetId]->free = false;
+                strat->last_t = t;
+                strat->main_state = WAIT_STATE;
+            }
+            break;
+
+        case TARGET_PICKING_STATE:
+            updateBestTarget(cvs);
+            if ( pathPlanning(cvs) )
+                // path planning succeeded
+                strat->main_state = TARGET_HARVESTING_STATE;
+            // TODO : else case
 			break;
 
-		case GAME_STATE_B:
-			speed_regulation(cvs, 0.0, 0.0);
-			break;
+        case RETURN_TO_BASE_STATE:
+            if (!pathReg->reached)
+                    follow_path(cvs);
+            else
+            {// path regulation has reached goal
+                reset_path_regulation(cvs);
+                strat->last_t = t;
+                cvs->outputs->flag_release = true;
+                strat->main_state = WAIT_STATE;
+            }
+            break;
 
-		case GAME_STATE_C:
-			speed_regulation(cvs, 0.0, 0.0);
-			break;
+        case BASE_PICKING_STATE:
+            *strat->currentTarget = Point(0.75,1.250);
+            if ( pathPlanning(cvs) )
+            {
+                printf("return to base\n");
+                strat->main_state = RETURN_TO_BASE_STATE;
+            }
+            break;
 
-		case GAME_STATE_D:
-			speed_regulation(cvs, 0.0, 0.0);
-			break;
-
-		case GAME_STATE_E:
-			speed_regulation(cvs, 0.0, 0.0);
-			break;
-
+        case WAIT_STATE:
+            //waits for the target to be picked
+            speed_regulation(cvs,0.,0.);
+            if (t-strat->last_t>1.5)
+            {
+                if (inputs->nb_targets>=2)
+                    strat->main_state = BASE_PICKING_STATE;
+                else
+                    strat->main_state = TARGET_PICKING_STATE;
+            }
+            break;
 		default:
 			printf("Error: unknown strategy main state: %d !\n", strat->main_state);
 			exit(EXIT_FAILURE);
 	}
 }
 
+
+void updateBestTarget(CtrlStruct *cvs)
+{
+    Strategy* strat = cvs->strat;
+    double minValue(std::numeric_limits<double>::max()), currentValue(0.);
+    Target* currentTarget;
+    for (int i=0; i<strat->TARGET_NUMBER; i++)
+    {
+        currentTarget = strat->targets[i];
+        currentTarget->updateValue( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
+        currentValue = currentTarget->value;
+        if (currentValue<minValue)
+        {
+            minValue = currentValue;
+            *strat->currentTarget = currentTarget->pos;
+            strat->currentTargetId = i;
+        }
+    }
+}
+
 NAMESPACE_CLOSE();
+
