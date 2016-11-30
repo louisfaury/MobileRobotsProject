@@ -97,8 +97,6 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     double t = inputs->t;
 
-    printf("%d\n",inputs->nb_targets);
-
 	switch (strat->main_state)
 	{
         case TARGET_HARVESTING_STATE:
@@ -129,12 +127,12 @@ void main_strategy(CtrlStruct *cvs)
                 reset_path_regulation(cvs);
                 strat->last_t = t;
                 cvs->outputs->flag_release = true;
-                strat->main_state = WAIT_STATE;
+                strat->main_state = TARGET_PICKING_STATE;
             }
             break;
 
         case BASE_PICKING_STATE:
-            *strat->currentTarget = Point(0.75,1.250);
+            *strat->currentTarget = Point(-0.75,-1.250);
             if ( pathPlanning(cvs) )
             {
                 printf("return to base\n");
@@ -143,6 +141,7 @@ void main_strategy(CtrlStruct *cvs)
             break;
 
         case WAIT_STATE:
+        cvs->outputs->flag_release = false;
             //waits for the target to be picked
             speed_regulation(cvs,0.,0.);
             if (t-strat->last_t>1.5)
