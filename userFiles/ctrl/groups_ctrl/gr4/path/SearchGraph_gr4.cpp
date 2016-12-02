@@ -235,16 +235,19 @@ void SearchGraph::_computeHeuristicalScore(SearchCell *cell, SearchCell *targetC
 
 void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *path)
 {
-    int id(targetId);
-    while(id != sourceId)
+    SearchCell* cCell = m_cellMap[sourceId] ;
+    SearchCell* nCell;
+    int id = sourceId;
+    while(id != targetId)
     {
-        SearchCell* cCell = m_cellMap[id]->getPreviousCell();
+        nCell = cCell->getPreviousCell();
+        id = nCell->getId();
+        nCell = cCell->getPreviousCell();
         Link* link = cCell->getLink(id);
         if ( link != nullptr)
             path->addPath(link->line());
-        id = cCell->getId(); // TODO : From cell position retrieve id
+        cCell = nCell;
     }
-    path->reverse();
 }
 
 bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
@@ -256,18 +259,18 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 
     //Initializing local variables
     int id, neighborId;
-    SearchCell *sCell, *neighborSCell, *targetSCell;
+    SearchCell *sCell, *neighborSCell, *sourceSCell;
     std::vector<Link*> neighborLinks;
 
     bool bestPath = 0;
 
-    //We begin by exploring the sourceCell and by putting its weight to 0
-    sCell = m_cellMap[sourceId];
+    //We begin by exploring the targetCell and by putting its weight to 0
+    sCell = m_cellMap[targetId];
     sCell->setWeight(0);
     //TODO : integrate robot position
     sCell->setPreviousAngle(0);
     //We identify the target cell
-    targetSCell =m_cellMap[targetId];
+    sourceSCell =m_cellMap[sourceId];
 
     //A-star algorithm until we reach destination
     while(true)
@@ -279,7 +282,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
         sCell->setStatus(SearchCell::SearchStatus_t::closed_);
 
         //Testing if we have reached the destination
-        if(id == targetId){
+        if(id == sourceId){
             //If yes we just have to recompute the optimal path
             break;
         }
@@ -300,7 +303,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 
                 //If is has not been seen before, we compute its heuristical score and put it in the priroityqueue
                 if(neighborSCell->getStatus() == SearchCell::SearchStatus_t::new_){
-                    _computeHeuristicalScore(neighborSCell, targetSCell);
+                    _computeHeuristicalScore(neighborSCell, sourceSCell);
                     priorityQueue.push(neighborSCell);
                     neighborSCell->setStatus(SearchCell::SearchStatus_t::open_);
                 }
