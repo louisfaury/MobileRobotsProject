@@ -42,7 +42,7 @@ public:
 
     static constexpr double MAX_ACC   = 2;
     static constexpr double MAX_DESAC = 2;
-    static constexpr double MAX_SPEED = 2;
+    static constexpr double MAX_SPEED = 2.5;
 
 protected:
     Point m_start;

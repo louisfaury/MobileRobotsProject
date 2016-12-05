@@ -65,6 +65,7 @@ Strategy* init_strategy()
     strat->currentTarget =  new Point(0.,0.);
 
     strat->last_t = 0.;
+    strat->opp_ctr = 0;
 
     return strat;
 }
@@ -103,22 +104,35 @@ void main_strategy(CtrlStruct *cvs)
 	{
         case TARGET_HARVESTING_STATE:
             if (!pathReg->reached)
+            {
                 follow_path(cvs);
+                if ( !checkTargetStatus(cvs) )
+                {
+                    strat->main_state = TARGET_PICKING_STATE;
+                }
+                // TODO : check if an opponent spend some time near a target
+            }
             else
             {// path regulation has reached goal
                 reset_path_regulation(cvs);
-                strat->targets[strat->currentTargetId]->free = false;
                 strat->last_t = t;
                 strat->main_state = WAIT_STATE;
             }
             break;
 
         case TARGET_PICKING_STATE:
-            updateBestTarget(cvs);
-            if ( pathPlanning(cvs) )
-                // path planning succeeded
-                strat->main_state = TARGET_HARVESTING_STATE;
-            // TODO : else case
+            if ( updateBestTarget(cvs) )
+            {
+                if ( pathPlanning(cvs) )
+                {
+                    strat->main_state = TARGET_HARVESTING_STATE;
+                }
+            }
+            else
+            {// no more targets !
+                strat->main_state = RETURN_TO_BASE_STATE;
+            }
+
 			break;
 
         case RETURN_TO_BASE_STATE:
@@ -127,9 +141,14 @@ void main_strategy(CtrlStruct *cvs)
             else
             {// path regulation has reached goal
                 reset_path_regulation(cvs);
-                strat->last_t = t;
-                cvs->outputs->flag_release = true;
-                strat->main_state = TARGET_PICKING_STATE;
+
+                if ( reachCheck(cvs) )
+                {
+                    cvs->outputs->flag_release = true;
+                    strat->main_state = TARGET_PICKING_STATE;
+                }
+                else
+                    strat->main_state = BASE_PICKING_STATE;
             }
             break;
 
@@ -137,7 +156,6 @@ void main_strategy(CtrlStruct *cvs)
             findClosestBase(cvs);
             if ( pathPlanning(cvs) )
             {
-                printf("return to base\n");
                 strat->main_state = RETURN_TO_BASE_STATE;
             }
             break;
@@ -148,8 +166,14 @@ void main_strategy(CtrlStruct *cvs)
             speed_regulation(cvs,0.,0.);
             if (t-strat->last_t>1.5)
             {
-                if (inputs->nb_targets>=2)
-                    strat->main_state = BASE_PICKING_STATE;
+                if ( reachCheck(cvs) )
+                { //a new target was picked
+                    strat->targets[strat->currentTargetId]->free = false;
+                    if (inputs->nb_targets>=2)
+                        strat->main_state = BASE_PICKING_STATE;
+                    else
+                        strat->main_state = TARGET_PICKING_STATE;
+                }
                 else
                     strat->main_state = TARGET_PICKING_STATE;
             }
@@ -161,8 +185,10 @@ void main_strategy(CtrlStruct *cvs)
 }
 
 
-void updateBestTarget(CtrlStruct *cvs)
+bool updateBestTarget(CtrlStruct *cvs)
 {
+    bool res(true);
+
     Strategy* strat = cvs->strat;
     double minValue(std::numeric_limits<double>::max()), currentValue(0.);
     Target* currentTarget;
@@ -180,9 +206,9 @@ void updateBestTarget(CtrlStruct *cvs)
     }
 
     if ( minValue == std::numeric_limits<double>::max())
-    {//no more target unavailable
-        cvs->main_state = STOP_END_STATE;
-    }
+        res = false; // no more targe to be found
+
+    return res;
 }
 
 void findClosestBase(CtrlStruct* cvs)
@@ -198,6 +224,41 @@ void findClosestBase(CtrlStruct* cvs)
     *strat->currentTarget = (d1 < d2) ? strat->bases[0]->loc : strat->bases[1]->loc;
 }
 
+bool reachCheck(CtrlStruct *cvs)
+{//returns true if we are indeed close to reach point
+    Strategy* strat = cvs->strat;
+    Point robPos = Point(cvs->rob_pos->x,cvs->rob_pos->y);
+
+    double dist( strat->currentTarget->computeDistance(robPos) );
+
+    return ( dist < sqrt(2)*SearchGraph::CELL_SIZE );
+}
+
+bool checkTargetStatus(CtrlStruct* cvs)
+{
+    bool res = true;
+    Strategy* strat = cvs->strat;
+    Point oppPos = Point( cvs->opp_pos->x[0], cvs->opp_pos->y[1] );
+
+    Target* cTarget;
+    for (int i=0; i<Strategy::TARGET_NUMBER; i++)
+    {
+        cTarget = strat->targets[i];
+        if ( oppPos.computeDistance(cTarget->pos) < sqrt(2)*SearchGraph::CELL_SIZE )
+        {
+            strat->opp_ctr++;
+            if (strat->opp_ctr > 20)
+            {
+                cTarget->free = false;
+                strat->opp_ctr *= 0;
+                if (i==strat->currentTargetId)
+                    res = false;
+            }
+
+        }
+    }
+
+    return res;
+}
 
 NAMESPACE_CLOSE();
-

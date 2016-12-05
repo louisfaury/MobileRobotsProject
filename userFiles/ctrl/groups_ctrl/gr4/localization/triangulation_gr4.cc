@@ -219,17 +219,16 @@ void triangulation(CtrlStruct *cvs)
 
         // some computation to enable x & y to jump at initialization
         // no low pass filter (kalman does that for us)
-
         pos_tri->x = xRes;
         pos_tri->y = yRes;
         pos_tri->theta = thetaRes;
 
-        set_plot(pos_tri->x, "TrianX");
-        set_plot(pos_tri->y, "TrianY");
+        //set_plot(pos_tri->x, "TrianX");
+        //set_plot(pos_tri->y, "TrianY");
         //set_plot(pos_tri->theta, "TrianTheta");
 
         // kalman flag rise if there was no absurd peak (discrete way of dealing with it : TODO complete in Kalman with Mahalanobis distance)
-        if (norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 5*ConstraintConstant::POS_UPDATE_THRESHOLD)
+        if (norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < ConstraintConstant::POS_UPDATE_THRESHOLD)
             cvs->kalman->triang_flag = true;
 
         if (!init && norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 5*ConstraintConstant::POS_UPDATE_THRESHOLD)

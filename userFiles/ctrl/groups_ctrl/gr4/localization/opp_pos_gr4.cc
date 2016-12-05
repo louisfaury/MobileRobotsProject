@@ -87,16 +87,16 @@ void opponents_tower(CtrlStruct *cvs)
     if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
     {
         // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, UINT64_MAX);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, UINT64_MAX);
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 100*delta_t, delta_t, UINT64_MAX);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 100*delta_t, delta_t, UINT64_MAX);
     }
 
-    /*
+
     set_plot(opp_pos->x[0], "Rx1 ");
     set_plot(opp_pos->y[0], "Ry1 ");
-    set_plot(0.67, "Ix1");
-    set_plot(0., "Iy1");
-    */
+    //set_plot(0.67, "Ix1");
+    //set_plot(0., "Iy1");
+
 
     if (nb_opp == 2)
     {
@@ -105,8 +105,8 @@ void opponents_tower(CtrlStruct *cvs)
 
         if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
         {
-            opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 10*delta_t, delta_t, UINT64_MAX);
-            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 10*delta_t, delta_t, UINT64_MAX);
+            opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 100*delta_t, delta_t, UINT64_MAX);
+            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 100*delta_t, delta_t, UINT64_MAX);
         }
        /*
         set_plot(opp_pos->x[1], "Rx2 ");
@@ -145,10 +145,12 @@ int single_opp_tower(double last_rise, double last_fall, double rob_x, double ro
         double y = d * sin(theta);
 
         //Moving to the frame attached to the center of the robot
-        RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, x, y);
+        //RobotGeometry::moveToRef(RobotGeometry::TOWER_X, RobotGeometry::TOWER_Y, RobotGeometry::TOWER_THETA, x, y);
+        y += RobotGeometry::TOWER_X;
 
         //Moving to the main frame
         RobotGeometry::moveToRef(rob_x, rob_y, rob_theta, x, y);
+
 
         //Copying
         *new_x_opp = x;
