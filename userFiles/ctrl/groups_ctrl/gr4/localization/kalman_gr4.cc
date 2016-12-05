@@ -136,7 +136,7 @@ void kalman(CtrlStruct *cvs)
         }
 
     // change %1 to %x : allows less computation for innovation (less innovation) + matrix get wider for pursuing other possile hyp.
-    kalman_pos->iter = (kalman_pos->iter+1)%10;
+    kalman_pos->iter = (kalman_pos->iter+1)%1;
 
     // Updating robot position
     rob_pos->x = kalman_pos->xEst;
