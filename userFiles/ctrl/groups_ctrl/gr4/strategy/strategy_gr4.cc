@@ -59,6 +59,8 @@ Strategy* init_strategy()
     strat->targets[6] = new Target(7, 1, Point(TARGET_G_X, TARGET_G_Y));
     strat->targets[7] = new Target(8, 2, Point(TARGET_H_X, TARGET_H_Y));
 
+    strat->bases[0] = new Base(1, Point(BLUE_T1,BLUE_T2));
+    strat->bases[1] = new Base(2, Point(-BLUE_T1, -BLUE_T2));
 
     strat->currentTarget =  new Point(0.,0.);
 
@@ -74,10 +76,10 @@ Strategy* init_strategy()
 void free_strategy(Strategy *strat)
 {
     delete(strat->currentTarget);
-    for(int i = 0; i< Strategy::TARGET_NUMBER; i++)
-    {
+    for(int i = 0; i < Strategy::TARGET_NUMBER; i++)
         delete(strat->targets[i]);
-    }
+    for (int i = 0; i < Strategy::BASE_NUMBER; i++)
+        delete(strat->bases[i]);
 	free(strat);
 }
 
@@ -134,7 +136,7 @@ void main_strategy(CtrlStruct *cvs)
             break;
 
         case BASE_PICKING_STATE:
-            *strat->currentTarget = Point(-0.75,-1.250);
+            findClosestBase(cvs);
             if ( pathPlanning(cvs) )
             {
                 printf("return to base\n");
@@ -178,7 +180,26 @@ void updateBestTarget(CtrlStruct *cvs)
             strat->currentTargetId = i;
         }
     }
+
+    if ( minValue == std::numeric_limits<double>::max())
+    {//no more target unavailable
+        cvs->main_state = STOP_END_STATE;
+    }
 }
+
+void findClosestBase(CtrlStruct* cvs)
+{
+    Strategy* strat = cvs->strat;
+
+    double d1, d2;
+
+    Point currentPos(cvs->rob_pos->x,cvs->rob_pos->y);
+    d1 = currentPos.computeDistance((strat->bases[0])->loc);
+    d2 = currentPos.computeDistance(strat->bases[1]->loc);
+
+    *strat->currentTarget = (d1 < d2) ? strat->bases[0]->loc : strat->bases[1]->loc;
+}
+
 
 NAMESPACE_CLOSE();
 
