@@ -8,12 +8,12 @@
 NAMESPACE_INIT(ctrlGr4);
 
 /*! \brief follow a given path
- * 
+ *
  * \param[in,out] cvs controller main structure
  */
 void kalman(CtrlStruct *cvs)
 {
-	// variable declaration
+    // variable declaration
     RobotPosition *rob_pos;
     RobotPosition *triang_pos;
     KalmanStruct *kalman_pos;

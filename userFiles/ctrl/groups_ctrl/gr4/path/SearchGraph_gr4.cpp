@@ -189,6 +189,16 @@ void SearchGraph::_addCell(SearchCell *cell)
     cell->setId(m_cellCtr);
     m_cellCtr++;
 }
+bool SearchGraph::_isOnOpponent(Cell *cell)
+{
+    return m_mapHandler.isOnOpponent(cell);
+}
+
+bool SearchGraph::isOnOpponent(int id)
+{
+    return m_mapHandler.isOnOpponent(m_cellMap[id]);
+}
+
 
 int SearchGraph::_computeWeight(int pweight, double dx, double dy, double angle)
 {
@@ -295,8 +305,11 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
             //Neighboor identification (assuming that a cell is never linked to itself)
             neighborId = (*l_it)->goalId();
             neighborSCell = m_cellMap[neighborId];
+            if(_isOnOpponent(neighborSCell))
+                printf("Opponent : %d\n",neighborSCell->getId());
             //If there is an obstacle or if it has already been visited we avoid it
-            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->getStatus() != SearchCell::SearchStatus_t::closed_)
+            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->getStatus() != SearchCell::SearchStatus_t::closed_
+                    && !_isOnOpponent(neighborSCell))
             {
                 //We compute distance between cells and update neighborSCell weight if it is it's best distance found so far
                 _computeBestDistance(sCell, neighborSCell);

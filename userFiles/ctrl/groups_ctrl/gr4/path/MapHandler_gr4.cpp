@@ -50,8 +50,9 @@ MapHandler::MapHandler()
     m_fixedObstacleList.push_back(leftHoz);
 
     //dynamic allocation (in constructor) for opponents
-    Circle* opp1 = new Circle;
-    Circle* opp2 = new Circle;
+    //Initially set out of the map allows to be number of opponents agnostic in path checking
+    Circle* opp1 = new Circle(Point(-10, -10), 0);
+    Circle* opp2 = new Circle(Point(-10, -10), 0);
     m_opponentsList.push_back(opp1);
     m_opponentsList.push_back(opp2);
 
@@ -79,13 +80,15 @@ bool MapHandler::isOnObstacle(Cell *cell)
     return res;
 }
 
-void MapHandler::updateOpponents(Point opp1, Point opp2)
-{
-    Circle opp1C = Circle(opp1, 0.5*RobotGeometry::WHEEL_BASE);
-    Circle opp2C = Circle(opp2, 0.5*RobotGeometry::WHEEL_BASE);
 
-    *m_opponentsList.at(1) = opp1C;
-    *m_opponentsList.at(2) = opp2C;
+void MapHandler::updateOpponents(Point opp, int index)
+{
+    if(index<2 && index>=0){
+        Circle oppC = Circle(opp, RobotGeometry::WHEEL_BASE);
+        *((Circle*)(m_opponentsList.at(index))) = oppC;
+    }else{
+        printf("Error in opponents position update, unknown opponent index");
+    }
 }
 
 bool MapHandler::isOnOpponent(Cell *cell)

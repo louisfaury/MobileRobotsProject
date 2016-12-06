@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * @file LinePathlist.h
  * @author Louis Faury
  * @date 15/11
@@ -16,6 +16,7 @@
 NAMESPACE_INIT(ctrlGr4);
 
 using PathVectIt = std::vector<Path*>::iterator;
+using IntVectIt = std::vector<int>::iterator;
 using PathVectRit = std::vector<Path*>::reverse_iterator;
 
 class LinePathList
@@ -30,11 +31,14 @@ public:
     void    clear();
     void    reverse();
     bool    isEmpty(){return m_pathVec.empty();}
-    void    smooth(double);
+    void    smooth(double, int);
+    std::vector<int> getPathId();
+    int getCurrentPath (){return m_currentPath;}
 
 private:
     std::vector<Path*> m_pathVec;
     bool m_change;
+    int m_currentPath;
 };
 
 NAMESPACE_CLOSE();

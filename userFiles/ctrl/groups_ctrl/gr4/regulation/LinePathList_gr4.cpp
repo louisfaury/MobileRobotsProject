@@ -13,8 +13,9 @@ NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
-    m_pathVec.reserve(1000000);
+    m_pathVec.reserve(100);
     m_change = false;
+    m_currentPath=0;
 }
 
 LinePathList::~LinePathList()
@@ -35,6 +36,7 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
     double locLength;
     double locS(0.);
     double resS(0.);
+    int iter(0);
 
     if ( s > length()-EPSILON )
     {//we've reached the end of the path list
@@ -50,11 +52,13 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
             locLength = (*it)->length();
             if ( s < locS + locLength )
             {
+                m_currentPath = iter;
                 resS = s - locS;
                 m_change = (*it)->nextStep(resS, dt, cvs);
                 break;
             }
             else
+                iter++;
                 locS += locLength; //updating local s
         }
         s = locS + resS;
@@ -77,6 +81,7 @@ double LinePathList::length()
 void LinePathList::clear()
 {
     m_pathVec.clear();
+    m_currentPath=0;
 }
 
 void LinePathList::reverse()
@@ -84,8 +89,19 @@ void LinePathList::reverse()
     std::reverse(m_pathVec.begin(),m_pathVec.end());
 }
 
+std::vector<int> LinePathList::getPathId()
+{
+    std::vector<int> res;
+    PathVectIt it = m_pathVec.begin()+m_currentPath;
+    for(; it!=m_pathVec.end(); it++)
+    {
+        res.push_back((*it)->getEndId());
+    }
+    return res;
+}
 
-void LinePathList::smooth(double theta)
+
+void LinePathList::smooth(double theta, int id)
 {
     PathVectIt it1 = m_pathVec.begin();
     PathVectIt it2 = it1 + 1;
@@ -100,7 +116,7 @@ void LinePathList::smooth(double theta)
     if ( fabs(deltaAngle)>EPSILON )
     {
         sign = deltaAngle/fabs(deltaAngle);
-        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign);
+        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign, id);
         m_pathVec.insert(it1,curvePath);
         it1++;
         it2++;
@@ -117,7 +133,7 @@ void LinePathList::smooth(double theta)
         {
             sign = deltaAngle/fabs(deltaAngle);
 
-            CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
+            CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign, curLine->getEndId()); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
             m_pathVec.insert(it2,curvePath);
             it2++;
         }

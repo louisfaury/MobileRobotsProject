@@ -1,4 +1,4 @@
-/*! 
+/*!
  * \author Group 4
  * \file kalman_gr4.h
  * \brief localization sensors fusion with Kalman

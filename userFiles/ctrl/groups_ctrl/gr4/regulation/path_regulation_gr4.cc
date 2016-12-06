@@ -23,14 +23,15 @@ PathRegulation *init_path_regulation()
  */
 void follow_path(CtrlStruct *cvs)
 {
-    PathRegulation* path_reg = cvs->path_reg;
-    LinePathList* refPath = path_reg->refPath;
+    PathRegulation *path_reg = cvs->path_reg;
+    LinePathList *refPath = path_reg->refPath;
 
     double t = cvs->inputs->t;
 
     double dt = t-path_reg->last_t;
+
     if (dt<0.1 && dt > EPSILON)
-    {
+    {     
         if ( !path_reg->reached )
         {
             path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);

@@ -7,7 +7,7 @@ Link::Link()
 {
 }
 
-Link::Link(int id, double length, double angle, Point start) : m_goalNodeId(id), m_line(start,length,angle)
+Link::Link(int id, double length, double angle, Point start) : m_goalNodeId(id), m_line(start,length,angle,id)
 {
 }
 

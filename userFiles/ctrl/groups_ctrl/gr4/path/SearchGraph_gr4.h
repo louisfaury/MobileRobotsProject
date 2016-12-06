@@ -39,6 +39,9 @@ public:
 
     virtual void clear();
 
+    virtual void updateOpponents(Point opp, int index){ m_mapHandler.updateOpponents(opp, index);}
+    virtual bool isOnOpponent(int id);
+
     static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
     static constexpr int ANGLE_PENALTY = 10;
 
@@ -80,6 +83,9 @@ protected:
     virtual void _addCell(SearchCell* cell);
 
     virtual int _computeWeight(int pweight, double dx, double dy, double angle);
+
+    virtual bool _isOnOpponent(Cell* cell);
+
 
 
     MapHandler m_mapHandler;

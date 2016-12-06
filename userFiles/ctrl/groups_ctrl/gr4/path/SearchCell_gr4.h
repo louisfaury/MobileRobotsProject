@@ -1,6 +1,8 @@
 #ifndef SEARCHCELL_GR4_H
 #define SEARCHCELL_GR4_H
 
+
+#include "namespace_ctrl.h"
 #include "Cell_gr4.h"
 #include <utility>
 

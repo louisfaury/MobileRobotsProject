@@ -228,7 +228,6 @@ bool Rectangle::computeIntersection(Segment seg)
 bool Rectangle::computeIntersection(Circle c)
 {
     bool res = false;
-
     res |= isInside(c.center());
     for (int i=0; i<4; i++)
     {
@@ -246,6 +245,8 @@ bool Rectangle::computeIntersection(GeometricObject *obj)
         res = computeIntersection(*(Segment*)obj);
     else if ( obj->tag()=="Rct" )
         res = computeIntersection(*(Rectangle*)obj);
+    else if ( obj->tag()=="Crc" )
+        res = computeIntersection(*(Circle*)obj);
     return res;
 }
 
@@ -257,6 +258,7 @@ Circle::Circle()
 Circle::Circle(Point center, double radius) : m_center(center), m_radius(radius)
 {
     m_tag = "Crc";
+
 }
 
 bool Circle::isInside(Point p)

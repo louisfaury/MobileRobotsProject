@@ -7,62 +7,62 @@
 NAMESPACE_INIT(ctrlGr4);
 
 /*! \brief compute the opponents position using the tower
- * 
+ *
  * \param[in,out] cvs controller main structure
  */
 void opponents_tower(CtrlStruct *cvs)
 {
-	// variables declaration
-	int nb_opp;
-	int rise_index_1, rise_index_2, fall_index_1, fall_index_2;
+    // variables declaration
+    int nb_opp;
+    int rise_index_1, rise_index_2, fall_index_1, fall_index_2;
 
-	double delta_t;
-	double rise_1, rise_2, fall_1, fall_2;
+    double delta_t;
+    double rise_1, rise_2, fall_1, fall_2;
 
-	CtrlIn *inputs;
-	RobotPosition *rob_pos;
-	OpponentsPosition *opp_pos;
+    CtrlIn *inputs;
+    RobotPosition *rob_pos;
+    OpponentsPosition *opp_pos;
 
-	// variables initialization
-	inputs  = cvs->inputs;
-	rob_pos = cvs->rob_pos;
-	opp_pos = cvs->opp_pos;
+    // variables initialization
+    inputs  = cvs->inputs;
+    rob_pos = cvs->rob_pos;
+    opp_pos = cvs->opp_pos;
 
-	nb_opp = opp_pos->nb_opp;
+    nb_opp = opp_pos->nb_opp;
 
-	// no opponent
-	if (!nb_opp)
-	{
-		return;
-	}
+    // no opponent
+    if (!nb_opp)
+    {
+        return;
+    }
 
-	// safety
-	if (nb_opp < 0 || nb_opp > 2)
-	{
-		printf("Error: number of opponents cannot be %d!\n", nb_opp);
-		exit(EXIT_FAILURE);
-	}
+    // safety
+    if (nb_opp < 0 || nb_opp > 2)
+    {
+        printf("Error: number of opponents cannot be %d!\n", nb_opp);
+        exit(EXIT_FAILURE);
+    }
 
-	// low pass filter time increment ('delta_t' is the last argument of the 'first_order_filter' function)
-	delta_t = inputs->t - opp_pos->last_t;
-	opp_pos->last_t = inputs->t;
+    // low pass filter time increment ('delta_t' is the last argument of the 'first_order_filter' function)
+    delta_t = inputs->t - opp_pos->last_t;
+    opp_pos->last_t = inputs->t;
 
-	// indexes
-	rise_index_1 = inputs->rising_index;
-	fall_index_1 = inputs->falling_index;
+    // indexes
+    rise_index_1 = inputs->rising_index;
+    fall_index_1 = inputs->falling_index;
 
-	// rise and fall angles of the first opponent
-	rise_1 = inputs->last_rising[rise_index_1];
-	fall_1 = inputs->last_falling[fall_index_1];
+    // rise and fall angles of the first opponent
+    rise_1 = inputs->last_rising[rise_index_1];
+    fall_1 = inputs->last_falling[fall_index_1];
 
-	// rise and fall angles of the second opponent
-	if (nb_opp == 2)
-	{
-		rise_index_2 = (rise_index_1-1 < 0) ? NB_STORE_EDGE-1 : rise_index_1-1;
-		fall_index_2 = (fall_index_1-1 < 0) ? NB_STORE_EDGE-1 : fall_index_1-1;
+    // rise and fall angles of the second opponent
+    if (nb_opp == 2)
+    {
+        rise_index_2 = (rise_index_1-1 < 0) ? NB_STORE_EDGE-1 : rise_index_1-1;
+        fall_index_2 = (fall_index_1-1 < 0) ? NB_STORE_EDGE-1 : fall_index_1-1;
 
-		rise_2 = inputs->last_rising[rise_index_2];
-		fall_2 = inputs->last_falling[fall_index_2];
+        rise_2 = inputs->last_rising[rise_index_2];
+        fall_2 = inputs->last_falling[fall_index_2];
 
         if (fall_2>fall_1)
         { //dealing with index shifting
@@ -75,9 +75,9 @@ void opponents_tower(CtrlStruct *cvs)
             rise_1 = rise_2_m;
             fall_1 = fall_2_m;
         }
-	}
+    }
 
-	// ----- opponents position computation start ----- //
+    // ----- opponents position computation start ----- //
 
     // keeping old values in memory for low pass filter
     double oldX = opp_pos->x[0];
@@ -87,12 +87,12 @@ void opponents_tower(CtrlStruct *cvs)
     if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
     {
         // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, UINT64_MAX);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, UINT64_MAX);
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 20*delta_t, delta_t, UINT64_MAX);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 20*delta_t, delta_t, UINT64_MAX);
     }
 
-    /*
-    set_plot(opp_pos->x[0], "Rx1 ");
+
+    /*set_plot(opp_pos->x[0], "Rx1 ");
     set_plot(opp_pos->y[0], "Ry1 ");
     set_plot(0.67, "Ix1");
     set_plot(0., "Iy1");
@@ -116,13 +116,30 @@ void opponents_tower(CtrlStruct *cvs)
         */
     }
 
+    //Updating opponents on MapHandler if necessary regarding update frequency
+    if(fabs(inputs->t-opp_pos->last_map_t)>0.5)
+    {
+        opp_pos->last_map_t = inputs->t;
+        if(inputs->nb_opponents == 1)
+        {
+            Point opp = Point(cvs->opp_pos->x[0], cvs->opp_pos->y[0]);
+            updateOpponents(cvs, opp, 0);
+        }else if(inputs->nb_opponents == 2)
+        {
+            Point opp = Point(cvs->opp_pos->x[0], cvs->opp_pos->y[0]);
+            updateOpponents(cvs, opp, 0);
+            opp = Point(cvs->opp_pos->x[1], cvs->opp_pos->y[1]);
+            updateOpponents(cvs, opp, 1);
+        }
+    }
+
     check_opp_front(cvs);
 
-	// ----- opponents position computation end ----- //
+    // ----- opponents position computation end ----- //
 }
 
 /*! \brief compute a single opponent position
- * 
+ *
  * \param[in] last_rise last rise relative angle [rad]
  * \param[in] last_fall last fall relative angle [rad]
  * \param[in] rob_x robot x position [m]
@@ -161,14 +178,14 @@ int single_opp_tower(double last_rise, double last_fall, double rob_x, double ro
 }
 
 /*! \brief check if there is an opponent in front of the robot
- * 
+ *
  * \param[in] cvs controller main structure
  * \return 1 if opponent robot in front of the current robot
  */
 int check_opp_front(CtrlStruct *cvs)
 {
-	// variables declaration
-	int i, nb_opp;
+    // variables declaration
+    int i, nb_opp;
     int res = 0;
 
     double distToOppSquare(0); // no sqrt for reducing computation time
@@ -176,20 +193,20 @@ int check_opp_front(CtrlStruct *cvs)
     bool inFront(false);
     bool tooClose(false);
 
-	OpponentsPosition *opp_pos;
-	RobotPosition *rob_pos;
+    OpponentsPosition *opp_pos;
+    RobotPosition *rob_pos;
 
-	// variables initialization
-	rob_pos = cvs->rob_pos;
-	opp_pos = cvs->opp_pos;
-	nb_opp = opp_pos->nb_opp;
+    // variables initialization
+    rob_pos = cvs->rob_pos;
+    opp_pos = cvs->opp_pos;
+    nb_opp = opp_pos->nb_opp;
 
-	// safety
-	if (nb_opp < 0 || nb_opp > 2)
-	{
-		printf("Error: number of opponents cannot be %d!\n", nb_opp);
-		exit(EXIT_FAILURE);
-	}
+    // safety
+    if (nb_opp < 0 || nb_opp > 2)
+    {
+        printf("Error: number of opponents cannot be %d!\n", nb_opp);
+        exit(EXIT_FAILURE);
+    }
 
     if (nb_opp > 0)
     {

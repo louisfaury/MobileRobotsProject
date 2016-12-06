@@ -73,6 +73,8 @@ public:
     Point center(){ return m_center; }
     double radius(){ return m_radius; }
     bool isInside(Point p);
+    void setCenter(Point center){m_center = center;}
+    void setRadius(double radius){m_radius = radius;}
     virtual bool computeIntersection(GeometricObject *obj);
     virtual void getDescription(char* descriptor);
 

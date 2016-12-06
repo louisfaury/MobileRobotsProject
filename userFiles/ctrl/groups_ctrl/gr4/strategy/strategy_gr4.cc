@@ -97,10 +97,12 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     double t = inputs->t;
 
+
 	switch (strat->main_state)
 	{
         case TARGET_HARVESTING_STATE:
             if (!pathReg->reached)
+
                 follow_path(cvs);
             else
             {// path regulation has reached goal

@@ -64,6 +64,7 @@ CtrlStruct* init_CtrlStruct(CtrlIn *inputs, CtrlOut *outputs)
 	}
 
 	cvs->opp_pos->last_t = 0.0;
+    cvs->opp_pos->last_map_t = 0.0;
 	cvs->opp_pos->nb_opp = inputs->nb_opponents;
 
 	// speed regulation
