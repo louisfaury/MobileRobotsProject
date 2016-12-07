@@ -67,7 +67,7 @@ void kalman(CtrlStruct *cvs)
     if ( kalman_pos->iter ==0 )
         // the iter condition is to reduce the innovation frequency, which is too high (cov. matrix is already small - in terms of eigenvalues norms.)
 
-        if (kalman_pos->triang_flag == true && cvs->inputs->t > -10 )
+        if (kalman_pos->triang_flag == true && cvs->inputs->t > -14 )
         {// the t condition is so that we are sure triangulation readings are ok
             // buffers
             double pxx = kalman_pos->pEst.xx;
@@ -94,34 +94,49 @@ void kalman(CtrlStruct *cvs)
             double kthetay(0);
             double kthetatheta(0);
 
+            // innovation
+            double nux = xTriang - xEstBuf;
+            double nuy = yTriang - yEstBuf;
+            double nutheta = thetaTriang - thetaEstBuf;
+
+            // Mahalanobis distance criterion
+            double eta;
+
             // computing Kalman gain
             if (det>0)
-            { // innovation matrix is invertible and really likely to be definite positive
-                // obtained via wxmaxima - formal calculation software.
+            {
+                eta = (1./det)*( nutheta*(nuy*(pxtheta*pxy-pytheta*(pxx+RobotGeometry::OBS_VAR_X))+nux*(pxy*pytheta-pxtheta*(pyy+RobotGeometry::OBS_VAR_Y))+nutheta*((pxx+RobotGeometry::OBS_VAR_X)*(pyy+RobotGeometry::OBS_VAR_Y)-pxy*pxy))+
+                        nux*(nuy*(pxtheta*pytheta-pxy*(pthetatheta+RobotGeometry::OBS_VAR_THETA))+nutheta*(pxy*pytheta-pxtheta*(pyy+RobotGeometry::OBS_VAR_Y))+nux*
+                        ((pthetatheta+RobotGeometry::OBS_VAR_THETA)*(pyy+RobotGeometry::OBS_VAR_Y)-pytheta*pytheta))+nuy*(nux*(pxtheta*pytheta-pxy*(pthetatheta+RobotGeometry::OBS_VAR_THETA))+nutheta*
+                        (pxtheta*pxy-pytheta*(pxx+RobotGeometry::OBS_VAR_X))+nuy*((pthetatheta+RobotGeometry::OBS_VAR_THETA)*(pxx+RobotGeometry::OBS_VAR_X)-pxtheta*pxtheta)) );
 
-                kxx         = (1./det)*(-pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pxx*RobotGeometry::OBS_VAR_THETA+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
-                kxy         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_X );
-                kxtheta     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_X+pxtheta*RobotGeometry::OBS_VAR_X*RobotGeometry::OBS_VAR_Y );
-                kyx         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_Y );
-                kyy         = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pyy*RobotGeometry::OBS_VAR_THETA+pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X );
-                kytheta     = (1./det)*( (-pxtheta*pxy+pxx*pytheta+pytheta*RobotGeometry::OBS_VAR_X)*RobotGeometry::OBS_VAR_Y );
-                kthetax     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_THETA+pxtheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_Y );
-                kthetay     = (1./det)*( (pxx*pytheta-pxtheta*pxy)*RobotGeometry::OBS_VAR_THETA+pytheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_X );
-                kthetatheta = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X+(pthetatheta*RobotGeometry::OBS_VAR_X+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
+                if ( eta<RobotGeometry::CHI2_3D_01 )
+                {// observation is likely enough (chi2 constraint)
+                    // obtained via wxmaxima - formal calculation software.
+                    kxx         = (1./det)*(-pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pxx*RobotGeometry::OBS_VAR_THETA+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
+                    kxy         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_X );
+                    kxtheta     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_X+pxtheta*RobotGeometry::OBS_VAR_X*RobotGeometry::OBS_VAR_Y );
+                    kyx         = (1./det)*( (pthetatheta*pxy-pxtheta*pytheta+pxy*RobotGeometry::OBS_VAR_THETA)*RobotGeometry::OBS_VAR_Y );
+                    kyy         = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pxx*pyy-pxy*pxy)*RobotGeometry::OBS_VAR_THETA+(pyy*RobotGeometry::OBS_VAR_THETA+pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X );
+                    kytheta     = (1./det)*( (-pxtheta*pxy+pxx*pytheta+pytheta*RobotGeometry::OBS_VAR_X)*RobotGeometry::OBS_VAR_Y );
+                    kthetax     = (1./det)*( (pxtheta*pyy-pxy*pytheta)*RobotGeometry::OBS_VAR_THETA+pxtheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_Y );
+                    kthetay     = (1./det)*( (pxx*pytheta-pxtheta*pxy)*RobotGeometry::OBS_VAR_THETA+pytheta*RobotGeometry::OBS_VAR_THETA*RobotGeometry::OBS_VAR_X );
+                    kthetatheta = (1./det)*( -pthetatheta*pxy*pxy+2*pxtheta*pxy*pytheta-pxx*pytheta*pytheta+(pthetatheta*pxx-pxtheta*pxtheta)*pyy+(pthetatheta*pyy-pytheta*pytheta)*RobotGeometry::OBS_VAR_X+(pthetatheta*RobotGeometry::OBS_VAR_X+pthetatheta*pxx-pxtheta*pxtheta)*RobotGeometry::OBS_VAR_Y );
 
-                // mean update
-                kalman_pos->xEst = kxy*(yTriang-yEstBuf)+kxx*(xTriang-xEstBuf)+xEstBuf+kxtheta*(thetaTriang-thetaEstBuf);
-                kalman_pos->yEst = kyy*(yTriang-yEstBuf)+yEstBuf+kyx*(xTriang-xEstBuf)+kytheta*(thetaTriang-thetaEstBuf);
-                kalman_pos->thetaEst = kthetay*(yTriang-yEstBuf)+kthetax*(xTriang-xEstBuf)+kthetatheta*(thetaTriang-thetaEstBuf)+thetaEstBuf;
+                    // mean update
+                    kalman_pos->xEst = kxy*(yTriang-yEstBuf)+kxx*(xTriang-xEstBuf)+xEstBuf+kxtheta*(thetaTriang-thetaEstBuf);
+                    kalman_pos->yEst = kyy*(yTriang-yEstBuf)+yEstBuf+kyx*(xTriang-xEstBuf)+kytheta*(thetaTriang-thetaEstBuf);
+                    kalman_pos->thetaEst = kthetay*(yTriang-yEstBuf)+kthetax*(xTriang-xEstBuf)+kthetatheta*(thetaTriang-thetaEstBuf)+thetaEstBuf;
 
-                // covariance update, with Joseph's form to stay in Sn++
-                // obtained via wxmaxima - formal calculation software
-                kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA-kxy*((1-kxx)*pxy-kxtheta*pytheta-kxy*pyy)-kxtheta*(-kxtheta*pthetatheta+(1-kxx)*pxtheta-kxy*pytheta)+(1-kxx)*(-kxtheta*pxtheta+(1-kxx)*pxx-kxy*pxy);
-                kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kxtheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)+(1-kxx)*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
-                kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kthetatheta*kxtheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kxtheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)+(1-kxx)*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
-                kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kytheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)-kyx*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
-                kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kytheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kyx*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
-                kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA-kthetay*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)+(1-kthetatheta)*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kthetax*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                    // covariance update, with Joseph's form to stay in Sn++
+                    // obtained via wxmaxima - formal calculation software
+                    kalman_pos->pEst.xx = pow(kxy,2)*RobotGeometry::OBS_VAR_Y+pow(kxx,2)*RobotGeometry::OBS_VAR_X+pow(kxtheta,2)*RobotGeometry::OBS_VAR_THETA-kxy*((1-kxx)*pxy-kxtheta*pytheta-kxy*pyy)-kxtheta*(-kxtheta*pthetatheta+(1-kxx)*pxtheta-kxy*pytheta)+(1-kxx)*(-kxtheta*pxtheta+(1-kxx)*pxx-kxy*pxy);
+                    kalman_pos->pEst.xy = kxy*kyy*RobotGeometry::OBS_VAR_Y+kxx*kyx*RobotGeometry::OBS_VAR_X+kxtheta*kytheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kxtheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)+(1-kxx)*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
+                    kalman_pos->pEst.xtheta = kthetay*kxy*RobotGeometry::OBS_VAR_Y+kthetax*kxx*RobotGeometry::OBS_VAR_X+kthetatheta*kxtheta*RobotGeometry::OBS_VAR_THETA-kxy*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kxtheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)+(1-kxx)*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                    kalman_pos->pEst.yy = pow(kyy,2)*RobotGeometry::OBS_VAR_Y+pow(kyx,2)*RobotGeometry::OBS_VAR_X+pow(kytheta,2)*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kyx*pxy-kytheta*pytheta+(1-kyy)*pyy)-kytheta*(-kytheta*pthetatheta-kyx*pxtheta+(1-kyy)*pytheta)-kyx*(-kytheta*pxtheta-kyx*pxx+(1-kyy)*pxy);
+                    kalman_pos->pEst.ytheta = kthetay*kyy*RobotGeometry::OBS_VAR_Y+kthetax*kyx*RobotGeometry::OBS_VAR_X+kthetatheta*kytheta*RobotGeometry::OBS_VAR_THETA+(1-kyy)*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)-kytheta*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kyx*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                    kalman_pos->pEst.thetatheta = pow(kthetay,2)*RobotGeometry::OBS_VAR_Y+pow(kthetax,2)*RobotGeometry::OBS_VAR_X+pow(kthetatheta,2)*RobotGeometry::OBS_VAR_THETA-kthetay*(-kthetax*pxy+(1-kthetatheta)*pytheta-kthetay*pyy)+(1-kthetatheta)*((1-kthetatheta)*pthetatheta-kthetax*pxtheta-kthetay*pytheta)-kthetax*((1-kthetatheta)*pxtheta-kthetax*pxx-kthetay*pxy);
+                }
             }
             else
             {
