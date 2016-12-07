@@ -104,7 +104,6 @@ bool oppOnPath(PathPlanning *path, LinePathList *refPath)
     {
         if(path->searchGraph->isOnOpponent(*it))
         {
-            printf("%d\n", *it);
             res = true;
             break;
         }

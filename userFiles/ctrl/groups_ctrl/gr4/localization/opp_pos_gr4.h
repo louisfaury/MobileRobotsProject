@@ -24,7 +24,7 @@ typedef struct OpponentsPosition
 
 	int nb_opp; ///< number of opponents
 
-    static constexpr double  MAP_UPDATE_FREQUENCY = 0.5;
+    static constexpr double  MAP_UPDATE_FREQUENCY = 0.1;
 
 } OpponentsPosition;
 

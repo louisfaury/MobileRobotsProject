@@ -50,6 +50,8 @@ void free_path_regulation(PathRegulation* pr)
 
 void reset_path_regulation(CtrlStruct *cvs)
 {
+    // speed reg to 0, being cautious
+    speed_regulation(cvs, 0., 0.);
     // clearing path
     PathRegulation* path_reg = cvs->path_reg;
     path_reg->refPath->clear();
@@ -60,8 +62,7 @@ void reset_path_regulation(CtrlStruct *cvs)
     //clearing map
     PathPlanning* path_pl = cvs->path;
     path_pl->searchGraph->clear();
-    // speed reg to 0, being cautious
-    speed_regulation(cvs, 0., 0.);
+
 }
 
 NAMESPACE_CLOSE();

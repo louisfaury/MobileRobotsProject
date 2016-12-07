@@ -18,7 +18,7 @@ struct PathPlanning
 {
     SearchGraph* searchGraph;
 
-    static constexpr double MIN_DISTANCE_TO_OPPONENT = 0.5;
+    static constexpr double MIN_DISTANCE_TO_OPPONENT = 0.6;
 };
 
 PathPlanning* init_path_planning();
