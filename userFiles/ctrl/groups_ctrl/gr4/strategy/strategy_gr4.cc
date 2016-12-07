@@ -110,7 +110,6 @@ void main_strategy(CtrlStruct *cvs)
                 {
                     strat->main_state = TARGET_PICKING_STATE;
                 }
-                // TODO : check if an opponent spend some time near a target
             }
             else
             {// path regulation has reached goal
@@ -238,16 +237,16 @@ bool checkTargetStatus(CtrlStruct* cvs)
 {
     bool res = true;
     Strategy* strat = cvs->strat;
-    Point oppPos = Point( cvs->opp_pos->x[0], cvs->opp_pos->y[1] );
+    Point oppPos = Point( cvs->opp_pos->x[0], cvs->opp_pos->y[0] );
 
     Target* cTarget;
     for (int i=0; i<Strategy::TARGET_NUMBER; i++)
     {
         cTarget = strat->targets[i];
-        if ( oppPos.computeDistance(cTarget->pos) < sqrt(2)*SearchGraph::CELL_SIZE )
+        if ( oppPos.computeDistance(cTarget->pos) < 0.5*sqrt(2)*SearchGraph::CELL_SIZE )
         {
             strat->opp_ctr++;
-            if (strat->opp_ctr > 20)
+            if (strat->opp_ctr > 10)
             {
                 cTarget->free = false;
                 strat->opp_ctr *= 0;

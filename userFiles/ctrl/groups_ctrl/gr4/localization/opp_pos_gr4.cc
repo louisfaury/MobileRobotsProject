@@ -87,13 +87,13 @@ void opponents_tower(CtrlStruct *cvs)
     if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
     {
         // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 100*delta_t, delta_t, UINT64_MAX);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 100*delta_t, delta_t, UINT64_MAX);
+        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 10*delta_t, delta_t, UINT64_MAX);
+        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 10*delta_t, delta_t, UINT64_MAX);
     }
 
 
-    set_plot(opp_pos->x[0], "Rx1 ");
-    set_plot(opp_pos->y[0], "Ry1 ");
+    //set_plot(opp_pos->x[0], "Rx1 ");
+    //set_plot(opp_pos->y[0], "Ry1 ");
     //set_plot(0.67, "Ix1");
     //set_plot(0., "Iy1");
 
