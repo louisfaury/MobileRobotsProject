@@ -467,6 +467,8 @@ namespace_ctrl.h
 ../userFiles/ctrl/groups_ctrl/gr4/localization/namespace_ctrl.h
 CtrlStruct_gr4.h
 ../userFiles/ctrl/groups_ctrl/gr4/localization/CtrlStruct_gr4.h
+path_planning_gr4.h
+../userFiles/ctrl/groups_ctrl/gr4/localization/path_planning_gr4.h
 
 ../userFiles/ctrl/groups_ctrl/gr4/localization/triangulation_gr4.h
 namespace_ctrl.h
@@ -531,6 +533,8 @@ vector
 -
 
 ../userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h
+namespace_ctrl.h
+../userFiles/ctrl/groups_ctrl/gr4/path/namespace_ctrl.h
 Cell_gr4.h
 ../userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
 utility
@@ -1957,6 +1961,8 @@ namespace_ctrl.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/namespace_ctrl.h
 CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/CtrlStruct_gr4.h
+path_planning_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/path_planning_gr4.h
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/triangulation_gr4.cc
 triangulation_gr4.h
@@ -2115,6 +2121,8 @@ limits
 -
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchCell_gr4.h
+namespace_ctrl.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/namespace_ctrl.h
 Cell_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/Cell_gr4.h
 utility
@@ -2155,8 +2163,6 @@ path_planning_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/path_planning_gr4.h
 init_pos_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/init_pos_gr4.h
-opp_pos_gr4.h
-/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/opp_pos_gr4.h
 useful_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/useful_gr4.h
 strategy_gr4.h

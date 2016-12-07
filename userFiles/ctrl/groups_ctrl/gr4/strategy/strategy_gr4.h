@@ -28,6 +28,7 @@ typedef struct Strategy
     int currentTargetId; // TODO : find something better
     Point* currentTarget;
     double last_t;
+    int opp_ctr;
 } Strategy;
 
 /// 'main_state' states
@@ -37,8 +38,10 @@ enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_
 Strategy* init_strategy();
 void free_strategy(Strategy *strat);
 void main_strategy(CtrlStruct *cvs);
-void updateBestTarget(CtrlStruct* cvs);
+bool updateBestTarget(CtrlStruct* cvs);
 void findClosestBase(CtrlStruct* cvs);
+bool reachCheck(CtrlStruct* cvs);
+bool checkTargetStatus(CtrlStruct* cvs);
 
 /*! Target structure */
 struct Target

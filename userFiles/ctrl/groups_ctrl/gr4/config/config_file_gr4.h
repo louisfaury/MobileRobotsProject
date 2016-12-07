@@ -21,12 +21,12 @@ namespace RobotGeometry
     static constexpr double TOWER_Y        = 0.;        //m
     static constexpr double TOWER_THETA    = 0.;        //rad
     static constexpr double BACK_TO_CENTER = 0.06;      //m
-    static constexpr double ENC_RES        = 0.00001;   //encoder resolution, rad
+    static constexpr double ENC_RES        = 0.0001;   //encoder resolution, rad
     static constexpr double KS             = 0.07;      //6% linear slip
     static constexpr double KTHETA         = 0.05;      //5% angular slip
     static constexpr double OBS_VAR_X      = 0.0001;    // (1cm)² cov. for direct input triangulation
     static constexpr double OBS_VAR_Y      = 0.0001;    // (1cm)² cov. for direct input triangulation
-    static constexpr double OBS_VAR_THETA  = DEG2RAD(2)*DEG2RAD(2); // (1°)²  cov for direct input triangulation
+    static constexpr double OBS_VAR_THETA  = DEG2RAD(1)*DEG2RAD(1); // (1°)²  cov for direct input triangulation
 
     /*
      * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)
@@ -39,7 +39,6 @@ namespace RobotGeometry
      */
     static void moveToRef(double xRef, double yRef, double thetaRef, double& x, double& y)
     {
-
         double xTmp(x), yTmp(y);
         x = xRef + cos(thetaRef)*xTmp - sin(thetaRef)*yTmp;
         y = yRef + cos(thetaRef)*yTmp + sin(thetaRef)*xTmp;
