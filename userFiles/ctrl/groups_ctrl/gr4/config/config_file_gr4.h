@@ -23,10 +23,10 @@ namespace RobotGeometry
     static constexpr double BACK_TO_CENTER = 0.06;      //m
     static constexpr double ENC_RES        = 0.0001;   //encoder resolution, rad
     static constexpr double KS             = 0.07;      //6% linear slip
-    static constexpr double KTHETA         = 0.05;      //5% angular slip
-    static constexpr double OBS_VAR_X      = 0.00001;    // (1cm)² cov. for direct input triangulation
-    static constexpr double OBS_VAR_Y      = 0.00001;    // (1cm)² cov. for direct input triangulation
-    static constexpr double OBS_VAR_THETA  = DEG2RAD(1)*DEG2RAD(1); // (1°)²  cov for direct input triangulation
+    static constexpr double KTHETA         = 0.08;      //5% angular slip
+    static constexpr double OBS_VAR_X      = 0.00005;    // (1cm)² cov. for direct input triangulation
+    static constexpr double OBS_VAR_Y      = 0.00005;    // (1cm)² cov. for direct input triangulation
+    static constexpr double OBS_VAR_THETA  = DEG2RAD(0.5)*DEG2RAD(0.5); // (1°)²  cov for direct input triangulation
     static constexpr double CHI2_3D_01     = 6.251;     // P(chi2_3D >= 6.251) = 0.10 : decision threshold for Kalman (very low but needed for convergence !) -> removes only unlikely obs.
     /*
      * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)

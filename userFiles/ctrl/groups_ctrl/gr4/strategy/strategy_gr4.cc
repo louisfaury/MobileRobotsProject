@@ -26,9 +26,9 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p)
  * \param robPos : calling robot position
  * \param oppPos : calling robot's opponents position
  */
-void Target::updateValue(Point robPos, Point oppPos)
+void Target::updateScore(Point robPos, Point oppPos)
 {
-    value = (free) ? pos.computeDistance(robPos) : 100.; // TODO : pimp with neural net wouhou
+    score = (free) ? pos.computeDistance(robPos) : std::numeric_limits<double>::max(); // TODO : pimp with neural net wouhou
 }
 
 /*!
@@ -66,6 +66,7 @@ Strategy* init_strategy()
 
     strat->last_t = 0.;
     strat->opp_ctr = 0;
+    strat->triggerEndGame = false;
 
     return strat;
 }
@@ -130,7 +131,8 @@ void main_strategy(CtrlStruct *cvs)
             }
             else
             {// no more targets !
-                strat->main_state = RETURN_TO_BASE_STATE;
+                strat->triggerEndGame = true;
+                strat->main_state = BASE_PICKING_STATE;
             }
 
 			break;
@@ -141,11 +143,13 @@ void main_strategy(CtrlStruct *cvs)
             else
             {// path regulation has reached goal
                 reset_path_regulation(cvs);
-
                 if ( reachCheck(cvs) )
                 {
                     cvs->outputs->flag_release = true;
-                    strat->main_state = TARGET_PICKING_STATE;
+                    if ( strat->triggerEndGame)
+                        cvs->main_state = STOP_END_STATE;
+                    else
+                        strat->main_state = TARGET_PICKING_STATE;
                 }
                 else
                     strat->main_state = BASE_PICKING_STATE;
@@ -190,22 +194,22 @@ bool updateBestTarget(CtrlStruct *cvs)
     bool res(true);
 
     Strategy* strat = cvs->strat;
-    double minValue(std::numeric_limits<double>::max()), currentValue(0.);
+    double score(std::numeric_limits<double>::max()), currentScore(0.);
     Target* currentTarget;
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
-        currentTarget->updateValue( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
-        currentValue = currentTarget->value;
-        if (currentValue<minValue)
+        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
+        currentScore = currentTarget->score;
+        if (currentScore<score)
         {
-            minValue = currentValue;
+            score = currentScore;
             *strat->currentTarget = currentTarget->pos;
             strat->currentTargetId = i;
         }
     }
 
-    if ( minValue == std::numeric_limits<double>::max())
+    if ( score == std::numeric_limits<double>::max())
         res = false; // no more targe to be found
 
     return res;
