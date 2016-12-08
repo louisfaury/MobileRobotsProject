@@ -80,4 +80,9 @@ double first_order_filter(double last_val, double new_val, double tau, double de
     return res;
 }
 
+double sigmoid(double x)
+{
+    return 1./(1+exp(-x));
+}
+
 NAMESPACE_CLOSE();

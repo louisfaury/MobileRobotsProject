@@ -1,4 +1,4 @@
-/*! 
+ /*!
  * \author Group 4
  * \file strategy_gr4.h
  * \brief strategy during the game
@@ -52,6 +52,7 @@ struct Target
     bool free;
     int id;
     int value;
+    int closestTargetId;
     double score;
     double distanceToClosest;
     Point pos;

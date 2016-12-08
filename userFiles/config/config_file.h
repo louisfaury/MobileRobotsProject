@@ -15,7 +15,7 @@
 #define BLUE_CTRL    "Gr4Ctrl"
 #define RED_CTRL     "NoCtrl"
 #define YELLLOW_CTRL "NoCtrl"
-#define WHITE_CTRL   "NoCtrl"
+#define WHITE_CTRL   "KeyboardCtrl"
 
 // ROBOT INITIAL POSITIONS
 #define BLUE_T1 0.67
@@ -26,8 +26,8 @@
 #define RED_T2 1.4
 #define RED_R3 -90.0
 
-#define YELLOW_T1 0.7//0.67
-#define YELLOW_T2 -0.6//-1.15
+#define YELLOW_T1 0.67
+#define YELLOW_T2 -1.15
 #define YELLOW_R3 90.0
 
 #define WHITE_T1 0.82

@@ -28,7 +28,25 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p)
  */
 void Target::updateScore(Point robPos, Point oppPos)
 {
-    score = (free) ? pos.computeDistance(robPos) : std::numeric_limits<double>::max(); // TODO : pimp with neural net wouhou
+    // trained neural net ?
+
+    double x1 = pos.computeDistance(oppPos);// distToOpp
+    double x2 = pos.computeDistance(robPos);// distToRob
+    double x3 = 0.;//dist to closest target
+    double x4 = value;
+    double bias = 0.5;
+
+    double omega11 = 1;
+    double omega21 = -1;
+    double omega12 = -4;
+    double omega22 = -3;
+    double omega32 = 5;
+    double omega42 = 3;
+
+    double z1 = sigmoid(omega11*x1 + omega21*x2);
+
+    score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3 + omega42*x4 ) : -std::numeric_limits<double>::max();
+    //score = (free) ? pos.computeDistance(robPos) : std::numeric_limits<double>::max(); // TODO : pimp with neural net wouhou
 }
 
 /*!
@@ -50,14 +68,14 @@ Strategy* init_strategy()
 
     strat = (Strategy*) malloc(sizeof(Strategy));
 
-    strat->targets[0] = new Target(1, 1, Point(TARGET_A_X,TARGET_A_Y));
-    strat->targets[1] = new Target(2, 2, Point(TARGET_B_X, TARGET_B_Y));
-    strat->targets[2] = new Target(3, 1, Point(TARGET_C_X, TARGET_C_Y));
-    strat->targets[3] = new Target(4, 2, Point(TARGET_D_X, TARGET_D_Y));
-    strat->targets[4] = new Target(5, 1, Point(TARGET_E_X, TARGET_E_Y));
-    strat->targets[5] = new Target(6, 3, Point(TARGET_F_X, TARGET_F_Y));
-    strat->targets[6] = new Target(7, 1, Point(TARGET_G_X, TARGET_G_Y));
-    strat->targets[7] = new Target(8, 2, Point(TARGET_H_X, TARGET_H_Y));
+    strat->targets[0] = new Target(0, 1, Point(TARGET_A_X,TARGET_A_Y));
+    strat->targets[1] = new Target(1, 2, Point(TARGET_B_X, TARGET_B_Y));
+    strat->targets[2] = new Target(2, 1, Point(TARGET_C_X, TARGET_C_Y));
+    strat->targets[3] = new Target(3, 2, Point(TARGET_D_X, TARGET_D_Y));
+    strat->targets[4] = new Target(4, 1, Point(TARGET_E_X, TARGET_E_Y));
+    strat->targets[5] = new Target(5, 3, Point(TARGET_F_X, TARGET_F_Y));
+    strat->targets[6] = new Target(6, 1, Point(TARGET_G_X, TARGET_G_Y));
+    strat->targets[7] = new Target(7, 2, Point(TARGET_H_X, TARGET_H_Y));
 
     strat->bases[0] = new Base(1, Point(BLUE_T1,BLUE_T2));
     strat->bases[1] = new Base(2, Point(-BLUE_T1, -BLUE_T2));
@@ -194,22 +212,25 @@ bool updateBestTarget(CtrlStruct *cvs)
     bool res(true);
 
     Strategy* strat = cvs->strat;
-    double score(std::numeric_limits<double>::max()), currentScore(0.);
+    double score(-std::numeric_limits<double>::max()), currentScore(0.);
     Target* currentTarget;
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
         currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
         currentScore = currentTarget->score;
-        if (currentScore<score)
+       // printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
+
+        if (currentScore>score)
         {
             score = currentScore;
             *strat->currentTarget = currentTarget->pos;
             strat->currentTargetId = i;
         }
     }
+    printf("\n");
 
-    if ( score == std::numeric_limits<double>::max())
+    if ( score == -std::numeric_limits<double>::max())
         res = false; // no more targe to be found
 
     return res;
