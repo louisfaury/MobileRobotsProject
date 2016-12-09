@@ -26,9 +26,9 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p), 
  * \param robPos : calling robot position
  * \param oppPos : calling robot's opponents position
  */
-void Target::updateValue(Point robPos, Point oppPos)
+void Target::updateScore(Point robPos, Point oppPos)
 {
-    value = (free) ? pos.computeDistance(robPos) : 100.; // TODO : pimp with neural net wouhou
+    score = (free) ? pos.computeDistance(robPos) : std::numeric_limits<double>::max(); // TODO : pimp with neural net wouhou
 }
 
 /*!
@@ -66,6 +66,7 @@ Strategy* init_strategy()
 
     strat->last_t = 0.;
     strat->opp_ctr = 0;
+    strat->triggerEndGame = false;
 
     return strat;
 }
@@ -135,7 +136,8 @@ void main_strategy(CtrlStruct *cvs)
             }
             else
             {// no more targets !
-                strat->main_state = RETURN_TO_BASE_STATE;
+                strat->triggerEndGame = true;
+                strat->main_state = BASE_PICKING_STATE;
             }
         }
         else
@@ -145,6 +147,26 @@ void main_strategy(CtrlStruct *cvs)
         }
 
         break;
+
+    case RETURN_TO_BASE_STATE:
+        if (!pathReg->reached)
+            follow_path(cvs);
+        else
+        {// path regulation has reached goal
+            reset_path_regulation(cvs);
+            if ( reachCheck(cvs) )
+            {
+                cvs->outputs->flag_release = true;
+                if ( strat->triggerEndGame)
+                    cvs->main_state = STOP_END_STATE;
+                else
+                    strat->main_state = TARGET_PICKING_STATE;
+            }
+            else
+                strat->main_state = BASE_PICKING_STATE;
+        }
+        break;
+
 
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
@@ -161,23 +183,6 @@ void main_strategy(CtrlStruct *cvs)
         speed_regulation(cvs, 0., 0.);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
             strat->main_state = BASE_PICKING_STATE;
-        break;
-
-    case RETURN_TO_BASE_STATE:
-        if (!pathReg->reached)
-            follow_path(cvs);
-        else
-        {// path regulation has reached goal
-            reset_path_regulation(cvs);
-
-            if ( reachCheck(cvs) )
-            {
-                cvs->outputs->flag_release = true;
-                strat->main_state = TARGET_PICKING_STATE;
-            }
-            else
-                strat->main_state = BASE_PICKING_STATE;
-        }
         break;
 
     case BASE_PICKING_STATE:
@@ -245,27 +250,24 @@ void reset_reachable_states(Strategy *strat)
 bool updateBestTarget(CtrlStruct *cvs)
 {
     bool res(true);
+    double score(std::numeric_limits<double>::max()), currentScore(0.);
     Target* currentTarget;
-    PathPlanning* path = cvs->path;
     Strategy *strat = cvs->strat;
-    double minValue(std::numeric_limits<double>::max()), currentValue(0.);
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
-        currentTarget->updateValue( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
-        currentValue = currentTarget->value;
-        if (currentValue<minValue && currentTarget->reachable)
+        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
+        currentScore = currentTarget->score;
+        if (currentScore<score && currentTarget->reachable)
         {
-            minValue = currentValue;
+            score = currentScore;
             *strat->currentTarget = currentTarget->pos;
             strat->currentTargetId = i;
         }
     }
-    if (minValue == std::numeric_limits<double>::max())
-    {
-        res = false; // no more targe to be found7
+    if ( score == std::numeric_limits<double>::max())
+        res = false; // no more targe to be found
 
-    }
     return res;
 }
 

@@ -3,6 +3,7 @@
 #include "odometry_gr4.h"
 #include "useful_gr4.h"
 #include "init_pos_gr4.h"
+#include "kalman_gr4.h"
 #include <math.h>
 
 NAMESPACE_INIT(ctrlGr4);
@@ -27,12 +28,14 @@ void calibration(CtrlStruct *cvs)
     CtrlIn *inputs;
     RobotCalibration *calib;
     RobotPosition *rob_pos;
+    KalmanStruct *kalman_pos;
 
     // variables initialization
     inputs = cvs->inputs;
     calib  = cvs->calib;
 
     rob_pos = cvs->rob_pos;
+    kalman_pos = cvs->kalman;
 
     t = inputs->t;
     team_id = cvs->team_id;
@@ -86,13 +89,13 @@ void calibration(CtrlStruct *cvs)
             {
             case TEAM_A:
                 //Telling odometry that we are sure that y = 1.5 and theta = -90
-                rob_pos->y=1.5-RobotGeometry::BACK_TO_CENTER;
-                rob_pos->theta=-PI/2;
+                kalman_pos->yEst=1.5-RobotGeometry::BACK_TO_CENTER;
+                kalman_pos->thetaEst=-PI/2;
                 break;
             case TEAM_B:
                 //Telling odometry that we are sure that y = -1.5 and theta = 90
-                rob_pos->y=-1.5+RobotGeometry::BACK_TO_CENTER;
-                rob_pos->theta=PI/2;
+                kalman_pos->yEst=-1.5+RobotGeometry::BACK_TO_CENTER;
+                kalman_pos->thetaEst=PI/2;
                 break;
             default:
                 printf("Error: unknown team, calibration impossible : %d !\n", calib->flag);
@@ -171,14 +174,14 @@ void calibration(CtrlStruct *cvs)
                     {
                     case TEAM_A:
                         //Telling odometry that we are sure that x = 1.+0.06 and theta = 180
-                        rob_pos->x = 1. - RobotGeometry::BACK_TO_CENTER;
-                        rob_pos->theta = -PI;
+                        kalman_pos->xEst = 1. - RobotGeometry::BACK_TO_CENTER;
+                        kalman_pos->thetaEst = -PI;
                         break;
                     case TEAM_B:
                         //Telling odometry that we are sure that x = 0.5+0.06 and theta = 0
                         //The robot is back against the interior wall
-                        rob_pos->x=0.5+RobotGeometry::BACK_TO_CENTER;
-                        rob_pos->theta=0;
+                        kalman_pos->xEst=0.5+RobotGeometry::BACK_TO_CENTER;
+                        kalman_pos->thetaEst=0;
                         break;
                     default:
                         printf("Error: unknown team, calibration impossible : %d !\n", calib->flag);

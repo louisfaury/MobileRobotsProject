@@ -694,6 +694,7 @@ userfctR/CMakeFiles/Project_userfct.dir/home/louis/Documents/Robotics/MobileRobo
  /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/calibration_gr4.cc
  /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/calibration_gr4.h
  /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/init_pos_gr4.h
+ /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/kalman_gr4.h
  /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/localization/odometry_gr4.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h

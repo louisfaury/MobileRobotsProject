@@ -30,6 +30,7 @@ typedef struct Strategy
     Point* currentTarget;
     double last_t, wait_t;
     int opp_ctr;
+    bool triggerEndGame;
 } Strategy;
 
 /// 'main_state' states
@@ -50,10 +51,11 @@ bool check_reachable_targets(Strategy* strat);
 struct Target
 {
     Target(int i, double v, Point p);
-    void updateValue(Point robPos, Point oppPos);
+    void updateScore(Point robPos, Point oppPos);
     bool free;
     int id;
     int value;
+    double score;
     double distanceToClosest;
     Point pos;
     bool reachable;
