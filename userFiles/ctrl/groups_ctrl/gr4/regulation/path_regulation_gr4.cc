@@ -3,6 +3,8 @@
 #include "useful_gr4.h"
 #include "speed_regulation_gr4.h"
 #include "time.h"
+#include "strategy_gr4.h"
+#include "init_pos_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -25,21 +27,57 @@ void follow_path(CtrlStruct *cvs)
 {
     PathRegulation *path_reg = cvs->path_reg;
     LinePathList *refPath = path_reg->refPath;
-
-    double t = cvs->inputs->t;
-
-    double dt = t-path_reg->last_t;
-
-    if (dt<0.1 && dt > EPSILON)
-    {     
-        if ( !path_reg->reached )
+    Strategy *strat = cvs->strat;
+    if(!refPath->isEmpty()){
+        if(check_on_path(cvs))
         {
-            path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);
+            double t = cvs->inputs->t;
+
+            double dt = t-path_reg->last_t;
+
+            if (dt<0.1 && dt > EPSILON)
+            {
+                if ( !path_reg->reached )
+                {
+                    path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);
+                }
+                else
+                    speed_regulation(cvs,0.,0.);
+            }
+            path_reg->last_t=t;
         }
         else
-            speed_regulation(cvs,0.,0.);
+        {
+            printf("out of way\n");
+            reset_path_regulation(cvs);
+            if(!pathPlanning(cvs))
+            {
+                reset_path_regulation(cvs);
+                if(strat->main_state != RETURN_TO_BASE_STATE)
+                {
+                   strat->main_state = BASE_PICKING_STATE;
+                }
+                else{
+                    strat->main_state = TARGET_PICKING_STATE;
+                }
+            }
+        }
     }
-    path_reg->last_t=t;
+}
+
+bool check_on_path(CtrlStruct* cvs)
+{
+    bool res(false);
+    RobotPosition *rob_pos = cvs->rob_pos;
+    LinePathList *path_ref = cvs->path_reg->refPath;
+    Point pos = Point(rob_pos->x, rob_pos->y);
+    Segment seg = path_ref->getCurrentSegment(cvs);
+
+    if(seg.computeDistance(pos)<0.5*sqrt(2)*SearchGraph::CELL_SIZE)
+    {
+        res = true;
+    }
+    return res;
 }
 
 void free_path_regulation(PathRegulation* pr)

@@ -24,6 +24,7 @@ PathRegulation* init_path_regulation();
 void follow_path(CtrlStruct *cvs);
 void free_path_regulation(PathRegulation*);
 void reset_path_regulation(CtrlStruct* cvs);
+bool check_on_path(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();
 

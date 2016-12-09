@@ -13,7 +13,7 @@ class Link
 {
 public:
     Link();
-    Link(int id, double length, double angle, Point start);
+    Link(int startId, int endId, double length, double angle, Point start);
 
     LinePath* line(){ return &m_line; }
     int goalId(){ return m_goalNodeId; }

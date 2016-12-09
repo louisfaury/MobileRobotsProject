@@ -22,17 +22,18 @@ typedef struct Strategy
 {
     static constexpr int TARGET_NUMBER  = 8;
     static constexpr int BASE_NUMBER = 2;
+    static constexpr double STUCK_TIME = 1.;
     int main_state; ///< main state of the strategy
     Target* targets[TARGET_NUMBER];
     Base* bases[BASE_NUMBER];
     int currentTargetId; // TODO : find something better
     Point* currentTarget;
-    double last_t;
+    double last_t, wait_t;
     int opp_ctr;
 } Strategy;
 
 /// 'main_state' states
-enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE
+enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE, STUCK_STATE_TARGET, STUCK_STATE_BASE
      };
 
 Strategy* init_strategy();
@@ -42,6 +43,8 @@ bool updateBestTarget(CtrlStruct* cvs);
 void findClosestBase(CtrlStruct* cvs);
 bool reachCheck(CtrlStruct* cvs);
 bool checkTargetStatus(CtrlStruct* cvs);
+void reset_reachable_states(Strategy *strat);
+bool check_reachable_targets(Strategy* strat);
 
 /*! Target structure */
 struct Target
@@ -53,6 +56,7 @@ struct Target
     int value;
     double distanceToClosest;
     Point pos;
+    bool reachable;
 };
 
 struct Base

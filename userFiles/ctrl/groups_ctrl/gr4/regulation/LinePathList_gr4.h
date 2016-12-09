@@ -33,9 +33,10 @@ public:
     bool    isEmpty(){return m_pathVec.empty();}
     void    smooth(double, int);
     std::vector<int> getPathId();
-    int getCurrentPath (){return m_currentPath;}
+    Segment getCurrentSegment(CtrlStruct *cvs);
 
 private:
+    Path* getCurrentPath();
     std::vector<Path*> m_pathVec;
     bool m_change;
     int m_currentPath;

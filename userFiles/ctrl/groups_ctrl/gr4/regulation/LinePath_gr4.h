@@ -20,7 +20,7 @@ class LinePath : public Path
 {
 public:
     LinePath();
-    LinePath(Point start, double length, double angle, int endId);
+    LinePath(Point start, double length, double angle, int startId, int endId);
 
     Point   start(){ return m_start; }
     double  angle(){ return m_angle; }
@@ -42,7 +42,7 @@ public:
 
     static constexpr double MAX_ACC   = 2;
     static constexpr double MAX_DESAC = 2;
-    static constexpr double MAX_SPEED = 2.5;
+    static constexpr double MAX_SPEED = 1.5;
 
 protected:
     Point m_start;

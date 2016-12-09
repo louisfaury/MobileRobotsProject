@@ -39,11 +39,12 @@ public:
 
     virtual void clear();
 
-    virtual void updateOpponents(Point opp, int index){ m_mapHandler.updateOpponents(opp, index);}
+    virtual void updateOpponents(Point rob, Point opp, int index){ m_mapHandler.updateOpponents(rob, opp, index);}
     virtual bool isOnOpponent(int id);
+    virtual Segment toSegment(int id1, int id2);
 
     static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
-    static constexpr int ANGLE_PENALTY = 10;
+    static constexpr int ANGLE_PENALTY = 25;
 
 protected:
     /*!

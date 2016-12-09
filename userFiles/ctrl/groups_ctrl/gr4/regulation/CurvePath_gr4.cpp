@@ -54,7 +54,7 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
     return end;
 }
 
-CurvePath::CurvePath(double angle, int sign, int endId) : Path(angle, endId), m_sign(sign)
+CurvePath::CurvePath(double angle, int sign, int startId, int endId) : Path(angle, startId, endId), m_sign(sign)
 {
     m_id = "Curve";
 }

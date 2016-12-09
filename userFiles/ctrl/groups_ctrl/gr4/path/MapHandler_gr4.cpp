@@ -6,6 +6,7 @@
 
 #include "MapHandler_gr4.h"
 #include "SearchGraph_gr4.h"
+#include "useful_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -81,10 +82,10 @@ bool MapHandler::isOnObstacle(Cell *cell)
 }
 
 
-void MapHandler::updateOpponents(Point opp, int index)
+void MapHandler::updateOpponents(Point rob, Point opp, int index)
 {
     if(index<2 && index>=0){
-        Circle oppC = Circle(opp, RobotGeometry::WHEEL_BASE);
+        Circle oppC = Circle(opp, MIN(0.9*RobotGeometry::WHEEL_BASE, 0.7*rob.computeDistance(opp)));
         *((Circle*)(m_opponentsList.at(index))) = oppC;
     }else{
         printf("Error in opponents position update, unknown opponent index");

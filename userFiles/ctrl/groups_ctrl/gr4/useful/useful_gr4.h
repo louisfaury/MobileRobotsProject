@@ -20,6 +20,7 @@ NAMESPACE_INIT(ctrlGr4);
 #define DEG2RAD(X) (PI*X/180)
 
 #define MODULOPI(X) (X>PI) ? fmod(X,2*PI)-2*PI : ( (X<-PI) ? fmod(X,2*PI)+2*PI : fmod(X,2*PI) )
+#define MIN(X, Y) (X>Y) ? Y : X
 
 #define EPSILON  0.00000001  //dealing with float imprecision
 

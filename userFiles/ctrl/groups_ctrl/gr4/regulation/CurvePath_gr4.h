@@ -19,7 +19,7 @@ class CurvePath : public Path
 {
 public:
     CurvePath();
-    CurvePath(double angle, int sign, int endId);
+    CurvePath(double angle, int sign, int startId, int endId);
 
     /*!
      * @function nextStep(double,double,CtrlStruct) : bool

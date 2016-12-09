@@ -59,6 +59,7 @@ public:
     bool computeIntersection(Segment s);
     virtual bool computeIntersection(GeometricObject* obj); // general inherited function
     virtual void getDescription(char* descriptor);
+    double computeDistance(Point p);
 
 protected:
     Point m_p1;
