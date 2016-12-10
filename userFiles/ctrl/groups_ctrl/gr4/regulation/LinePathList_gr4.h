@@ -38,7 +38,6 @@ public:
 private:
     Path* getCurrentPath();
     std::vector<Path*> m_pathVec;
-    bool m_change;
     int m_currentPath;
 };
 
