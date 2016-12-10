@@ -16,7 +16,6 @@ NAMESPACE_INIT(ctrlGr4);
 LinePathList::LinePathList()
 {
     m_pathVec.reserve(100);
-    m_change = false;
     m_currentPath=0;
 }
 
@@ -56,7 +55,6 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
             {
                 m_currentPath = iter;
                 resS = s - locS;
-                m_change = (*it)->nextStep(resS, dt, cvs);
                 break;
             }
             else
