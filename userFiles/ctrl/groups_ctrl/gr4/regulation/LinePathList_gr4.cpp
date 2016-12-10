@@ -55,6 +55,7 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
             {
                 m_currentPath = iter;
                 resS = s - locS;
+                (*it)->nextStep(resS, dt, cvs);
                 break;
             }
             else

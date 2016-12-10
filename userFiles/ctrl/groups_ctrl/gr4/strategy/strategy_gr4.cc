@@ -126,6 +126,7 @@ void main_strategy(CtrlStruct *cvs)
     case TARGET_HARVESTING_STATE:
         if (!pathReg->reached)
         {
+
             follow_path(cvs);
             if ( !checkTargetStatus(cvs) )
             {
@@ -146,7 +147,8 @@ void main_strategy(CtrlStruct *cvs)
             {
                 if(pathPlanning(cvs)){
                     strat->main_state = TARGET_HARVESTING_STATE;
-                }else
+                }
+                else
                 {
                     reset_path_regulation(cvs);
                     strat->targets[strat->currentTargetId]->reachable = false;
@@ -171,6 +173,7 @@ void main_strategy(CtrlStruct *cvs)
             follow_path(cvs);
         else
         {// path regulation has reached goal
+
             reset_path_regulation(cvs);
             if ( reachCheck(cvs) )
             {
@@ -276,7 +279,7 @@ bool updateBestTarget(CtrlStruct *cvs)
         currentTarget = strat->targets[i];
         currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
         currentScore = currentTarget->score;
-       // printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
+        //printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 
         if (currentScore>score && currentTarget->reachable)
         {
