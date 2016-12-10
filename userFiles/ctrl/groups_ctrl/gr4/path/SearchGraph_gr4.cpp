@@ -61,7 +61,7 @@ void SearchGraph::_graphInit()
                 Point cLoc(cCell->x(),cCell->y());
                 double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                 double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                Link* link = new Link(cellId-columnCellNumber, length, angle, cLoc);
+                Link* link = new Link(cellId, cellId-columnCellNumber, length, angle, cLoc);
                 cCell->addLink(link);
 
                 if ( j>0 )
@@ -70,7 +70,7 @@ void SearchGraph::_graphInit()
                     Point cLoc(cCell->x(),cCell->y());
                     double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                     double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                    Link* link1 = new Link(cellId-columnCellNumber-1,  length, angle, cLoc);
+                    Link* link1 = new Link(cellId, cellId-columnCellNumber-1,  length, angle, cLoc);
                     cCell->addLink(link1);
                 }
 
@@ -80,7 +80,7 @@ void SearchGraph::_graphInit()
                     Point cLoc(cCell->x(),cCell->y());
                     double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                     double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                    Link* link2 = new Link(cellId-columnCellNumber+1,  length, angle, cLoc);
+                    Link* link2 = new Link(cellId, cellId-columnCellNumber+1,  length, angle, cLoc);
                     cCell->addLink(link2);
                 }
             }
@@ -91,7 +91,7 @@ void SearchGraph::_graphInit()
                 Point cLoc(cCell->x(),cCell->y());
                 double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                 double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                Link* link = new Link(cellId+columnCellNumber,  length, angle, cLoc);
+                Link* link = new Link(cellId, cellId+columnCellNumber,  length, angle, cLoc);
                 cCell->addLink(link);
 
                 if ( j>0 )
@@ -100,7 +100,7 @@ void SearchGraph::_graphInit()
                     Point cLoc(cCell->x(),cCell->y());
                     double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                     double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                    Link* link1 = new Link(cellId+columnCellNumber-1,  length, angle, cLoc);
+                    Link* link1 = new Link(cellId, cellId+columnCellNumber-1,  length, angle, cLoc);
                     cCell->addLink(link1);
                 }
                 if ( j<columnCellNumber-1 )
@@ -109,7 +109,7 @@ void SearchGraph::_graphInit()
                     Point cLoc(cCell->x(),cCell->y());
                     double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                     double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                    Link* link1 = new Link(cellId+columnCellNumber+1, length, angle, cLoc);
+                    Link* link1 = new Link(cellId, cellId+columnCellNumber+1, length, angle, cLoc);
                     cCell->addLink(link1);
                 }
 
@@ -121,7 +121,7 @@ void SearchGraph::_graphInit()
                 Point cLoc(cCell->x(),cCell->y());
                 double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                 double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                Link* link = new Link(cellId-1,  length, angle, cLoc);
+                Link* link = new Link(cellId, cellId-1,  length, angle, cLoc);
                 cCell->addLink(link);
             }
 
@@ -131,11 +131,20 @@ void SearchGraph::_graphInit()
                 Point cLoc(cCell->x(),cCell->y());
                 double length(cLoc.computeDistance(Point(nCell->x(),nCell->y())) );
                 double angle( atan2(nCell->y() - cCell->y(), nCell->x() - cCell->x()) );
-                Link* link = new Link(cellId+1,  length, angle, cLoc);
+                Link* link = new Link(cellId, cellId+1,  length, angle, cLoc);
                 cCell->addLink(link);
             }
         }
     }
+}
+
+Segment SearchGraph::toSegment(int id1, int id2)
+{
+    Cell *cell1, *cell2;
+    cell1 = m_cellMap[id1];
+    cell2 = m_cellMap[id2];
+
+    return Segment(Point(cell1->x(), cell1->y()), Point(cell2->x(), cell2->y()));
 }
 
 void SearchGraph::_describe()

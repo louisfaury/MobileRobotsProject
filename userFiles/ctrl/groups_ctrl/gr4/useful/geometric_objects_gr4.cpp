@@ -7,6 +7,7 @@
 #include "geometric_objects_gr4.h"
 #include "algorithm"
 
+
 NAMESPACE_INIT(ctrlGr4);
 
 GeometricObject::GeometricObject() : m_tag("GeoObj")
@@ -114,6 +115,23 @@ bool Segment::computeIntersection(GeometricObject* obj)
     else if ( obj->tag()=="Sgt" )
         res = computeIntersection(*(Segment*)obj);
     return res;
+}
+
+double Segment::computeDistance(Point p)
+{
+    double distance(0.);
+    double a = (m_p1.y()-m_p2.y());
+    double b = (m_p2.x()-m_p1.x());
+    double c = m_p2.y()*m_p1.x()-m_p1.y()*m_p2.x();
+
+    if(a!=0 ||b!=0)
+    {
+        distance = fabs(a*p.x()+b*p.y()+c)/sqrt(a*a+b*b);
+    }else
+    {
+        distance = sqrt((m_p1.x()-p.x())*(m_p1.x()-p.x())+(m_p1.y()-p.y())*(m_p1.y()-p.y()));
+    }
+    return distance;
 }
 
 Rectangle::Rectangle(Point center, double length, double width) : GeometricObject(), m_center(center), m_length(length), m_width(width)

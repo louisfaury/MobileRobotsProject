@@ -74,12 +74,13 @@ void updateOpponents(CtrlStruct* cvs, Point opp, int index)
     RobotPosition *rob_pos = cvs->rob_pos;
     PathRegulation *path_reg = cvs->path_reg;
     PathPlanning *path = cvs->path;
-
+    Strategy *strat = cvs->strat;
+    Point pos = Point(rob_pos->x, rob_pos->y);
     double distance;
 
-    distance = sqrt((rob_pos->x-opp.x())*(rob_pos->x-opp.x())+(rob_pos->y-opp.y())*(rob_pos->y-opp.y()));
+    distance = pos.computeDistance(opp);
     //Updating opponents on Map
-    path->searchGraph->updateOpponents(opp, index);
+    path->searchGraph->updateOpponents(pos, opp, index);
     //We now check if opponent is on our path and close enough to consider it as important
     if(distance < PathPlanning::MIN_DISTANCE_TO_OPPONENT)
     {
@@ -87,10 +88,14 @@ void updateOpponents(CtrlStruct* cvs, Point opp, int index)
         {
             printf("Opponent on the way :(\n");
             reset_path_regulation(cvs);
-
-            //TODO : what if not found (particularly if opponent is on target)
-            pathPlanning(cvs);
-        };
+            if(strat->main_state == RETURN_TO_BASE_STATE)
+            {
+               strat->main_state = BASE_PICKING_STATE;
+            }
+            else{
+                strat->main_state = TARGET_PICKING_STATE;
+            }
+        }
     }
 
 }

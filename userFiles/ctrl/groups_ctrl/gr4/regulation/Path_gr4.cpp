@@ -12,7 +12,7 @@ Path::Path()
 {
 }
 
-Path::Path(double length, int endId) : m_length(length), m_endId(endId)
+Path::Path(double length, int startId, int endId) : m_length(length), m_startId(startId), m_endId(endId)
 {
 }
 

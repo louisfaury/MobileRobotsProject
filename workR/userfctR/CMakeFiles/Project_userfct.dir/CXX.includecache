@@ -2103,6 +2103,8 @@ MapHandler_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h
 SearchGraph_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/SearchGraph_gr4.h
+useful_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/useful_gr4.h
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/path/MapHandler_gr4.h
 namespace_ctrl.h
@@ -2211,6 +2213,10 @@ algorithm
 -
 speed_regulation_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
+SearchGraph_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/SearchGraph_gr4.h
+path_planning_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_planning_gr4.h
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/LinePathList_gr4.h
 namespace_ctrl.h
@@ -2269,6 +2275,10 @@ speed_regulation_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/speed_regulation_gr4.h
 time.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/time.h
+strategy_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/strategy_gr4.h
+init_pos_gr4.h
+/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/init_pos_gr4.h
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/regulation/path_regulation_gr4.h
 CtrlStruct_gr4.h

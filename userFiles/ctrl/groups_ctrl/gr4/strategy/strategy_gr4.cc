@@ -17,7 +17,7 @@ NAMESPACE_INIT(ctrlGr4);
  * \param v : value
  * \param p : loc
  */
-Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p)
+Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p), reachable(true)
 {
 }
 
@@ -59,7 +59,7 @@ Base::Base(int i, Point p) : id(i), loc(p)
 }
 
 /*! \brief intitialize the strategy structure
- * 
+ *
  * \return strategy structure initialized
  */
 Strategy* init_strategy()
@@ -90,7 +90,7 @@ Strategy* init_strategy()
 }
 
 /*! \brief release the strategy structure (memory released)
- * 
+ *
  * \param[out] strat strategy structure to release
  */
 void free_strategy(Strategy *strat)
@@ -100,11 +100,11 @@ void free_strategy(Strategy *strat)
         delete(strat->targets[i]);
     for (int i = 0; i < Strategy::BASE_NUMBER; i++)
         delete(strat->bases[i]);
-	free(strat);
+    free(strat);
 }
 
 /*! \brief strategy during the game
- * 
+ *
  * \param[in,out] cvs controller main structure
  */
 void main_strategy(CtrlStruct *cvs)
@@ -119,32 +119,37 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     double t = inputs->t;
 
+    int res;
 
-	switch (strat->main_state)
-	{
-        case TARGET_HARVESTING_STATE:
-            if (!pathReg->reached)
+    switch (strat->main_state)
+    {
+    case TARGET_HARVESTING_STATE:
+        if (!pathReg->reached)
+        {
+            follow_path(cvs);
+            if ( !checkTargetStatus(cvs) )
             {
-                follow_path(cvs);
-                if ( !checkTargetStatus(cvs) )
-                {
-                    strat->main_state = TARGET_PICKING_STATE;
-                }
+                strat->main_state = TARGET_PICKING_STATE;
             }
-            else
-            {// path regulation has reached goal
-                reset_path_regulation(cvs);
-                strat->last_t = t;
-                strat->main_state = WAIT_STATE;
-            }
-            break;
+        }
+        else
+        {// path regulation has reached goal
+            reset_path_regulation(cvs);
+            strat->last_t = t;
+            strat->main_state = WAIT_STATE;
+        }
+        break;
 
-        case TARGET_PICKING_STATE:
-            if ( updateBestTarget(cvs) )
+    case TARGET_PICKING_STATE:
+        if(check_reachable_targets(strat)){
+            if (updateBestTarget(cvs))
             {
-                if ( pathPlanning(cvs) )
-                {
+                if(pathPlanning(cvs)){
                     strat->main_state = TARGET_HARVESTING_STATE;
+                }else
+                {
+                    reset_path_regulation(cvs);
+                    strat->targets[strat->currentTargetId]->reachable = false;
                 }
             }
             else
@@ -152,65 +157,117 @@ void main_strategy(CtrlStruct *cvs)
                 strat->triggerEndGame = true;
                 strat->main_state = BASE_PICKING_STATE;
             }
+        }
+        else
+        {
+            strat->wait_t = t;
+            strat->main_state = STUCK_STATE_TARGET;
+        }
 
-			break;
+        break;
 
-        case RETURN_TO_BASE_STATE:
-            if (!pathReg->reached)
-                    follow_path(cvs);
-            else
-            {// path regulation has reached goal
-                reset_path_regulation(cvs);
-                if ( reachCheck(cvs) )
-                {
-                    cvs->outputs->flag_release = true;
-                    if ( strat->triggerEndGame)
-                        cvs->main_state = STOP_END_STATE;
-                    else
-                        strat->main_state = TARGET_PICKING_STATE;
-                }
-                else
-                    strat->main_state = BASE_PICKING_STATE;
-            }
-            break;
-
-        case BASE_PICKING_STATE:
-            findClosestBase(cvs);
-            if ( pathPlanning(cvs) )
+    case RETURN_TO_BASE_STATE:
+        if (!pathReg->reached)
+            follow_path(cvs);
+        else
+        {// path regulation has reached goal
+            reset_path_regulation(cvs);
+            if ( reachCheck(cvs) )
             {
-                strat->main_state = RETURN_TO_BASE_STATE;
-            }
-            break;
-
-        case WAIT_STATE:
-        cvs->outputs->flag_release = false;
-            //waits for the target to be picked
-            speed_regulation(cvs,0.,0.);
-            if (t-strat->last_t>1.5)
-            {
-                if ( reachCheck(cvs) )
-                { //a new target was picked
-                    strat->targets[strat->currentTargetId]->free = false;
-                    if (inputs->nb_targets>=2)
-                        strat->main_state = BASE_PICKING_STATE;
-                    else
-                        strat->main_state = TARGET_PICKING_STATE;
-                }
+                cvs->outputs->flag_release = true;
+                if ( strat->triggerEndGame)
+                    cvs->main_state = STOP_END_STATE;
                 else
                     strat->main_state = TARGET_PICKING_STATE;
             }
-            break;
-		default:
-			printf("Error: unknown strategy main state: %d !\n", strat->main_state);
-			exit(EXIT_FAILURE);
-	}
+            else
+                strat->main_state = BASE_PICKING_STATE;
+        }
+        break;
+
+
+    case STUCK_STATE_TARGET:
+        // speed reg to 0, being cautious
+        speed_regulation(cvs, 0., 0.);
+        if ( t-strat->wait_t >Strategy::STUCK_TIME )
+        {
+            reset_reachable_states(strat);
+            strat->main_state = TARGET_PICKING_STATE;
+        }
+        break;
+
+    case STUCK_STATE_BASE:
+        // speed reg to 0, being cautious
+        speed_regulation(cvs, 0., 0.);
+        if ( t-strat->wait_t >Strategy::STUCK_TIME )
+            strat->main_state = BASE_PICKING_STATE;
+        break;
+
+    case BASE_PICKING_STATE:
+        findClosestBase(cvs);
+        if ( pathPlanning(cvs) )
+        {
+            strat->main_state = RETURN_TO_BASE_STATE;
+        }else{
+            strat->wait_t = t;
+            strat->main_state = STUCK_STATE_BASE;
+        }
+        break;
+
+    case WAIT_STATE:
+        cvs->outputs->flag_release = false;
+        //waits for the target to be picked
+        speed_regulation(cvs,0.,0.);
+        if (t-strat->last_t>1.5)
+        {
+            if ( reachCheck(cvs) )
+            { //a new target was picked
+                strat->targets[strat->currentTargetId]->free = false;
+                if (inputs->nb_targets>=2)
+                    strat->main_state = BASE_PICKING_STATE;
+                else
+                    strat->main_state = TARGET_PICKING_STATE;
+            }
+            else
+                strat->main_state = TARGET_PICKING_STATE;
+        }
+        break;
+    default:
+        printf("Error: unknown strategy main state: %d !\n", strat->main_state);
+        exit(EXIT_FAILURE);
+    }
 }
 
+
+bool check_reachable_targets(Strategy* strat)
+{
+    bool res(false);
+    Target* currentTarget;
+    for (int i=0; i<strat->TARGET_NUMBER; i++)
+    {
+        currentTarget = strat->targets[i];
+        if(currentTarget->reachable)
+        {
+            res = true;
+            break;
+        }
+    }
+    return res;
+}
+
+void reset_reachable_states(Strategy *strat)
+{
+    Target* currentTarget;
+    for (int i=0; i<strat->TARGET_NUMBER; i++)
+    {
+        currentTarget = strat->targets[i];
+        currentTarget->reachable = true;
+    }
+}
 
 bool updateBestTarget(CtrlStruct *cvs)
 {
     bool res(true);
-
     Strategy* strat = cvs->strat;
     double score(-std::numeric_limits<double>::max()), currentScore(0.);
     Target* currentTarget;
@@ -221,7 +278,7 @@ bool updateBestTarget(CtrlStruct *cvs)
         currentScore = currentTarget->score;
        // printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 
-        if (currentScore>score)
+        if (currentScore>score && currentTarget->reachable)
         {
             score = currentScore;
             *strat->currentTarget = currentTarget->pos;

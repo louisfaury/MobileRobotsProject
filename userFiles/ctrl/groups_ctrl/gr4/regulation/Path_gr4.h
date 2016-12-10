@@ -17,7 +17,7 @@ class Path
 {
 public:
     Path();
-    Path(double length, int endId);
+    Path(double length, int startId, int endId);
 
     virtual double  length(){ return m_length; }
     virtual bool    nextStep(double&, double, CtrlStruct*) = 0;
@@ -25,11 +25,13 @@ public:
     virtual void    setEndSpeed(double endSpeed) = 0;
     virtual double  smoothFromEnd(double endSpeed) = 0;
     virtual int     getEndId(){return m_endId;}
+    virtual int     getStartId(){return m_startId;}
 
 protected:
     double m_length;
     std::string m_id;
     int m_endId;
+    int m_startId;
 };
 
 NAMESPACE_CLOSE();

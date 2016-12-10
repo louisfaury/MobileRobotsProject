@@ -20,7 +20,7 @@ class LinePath : public Path
 {
 public:
     LinePath();
-    LinePath(Point start, double length, double angle, int endId);
+    LinePath(Point start, double length, double angle, int startId, int endId);
 
     Point   start(){ return m_start; }
     double  angle(){ return m_angle; }

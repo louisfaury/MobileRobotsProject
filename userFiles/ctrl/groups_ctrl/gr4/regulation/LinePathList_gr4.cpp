@@ -8,13 +8,14 @@
 #include "CurvePath_gr4.h"
 #include <algorithm>
 #include "speed_regulation_gr4.h"
+#include "SearchGraph_gr4.h"
+#include "path_planning_gr4.h"
 
 NAMESPACE_INIT(ctrlGr4);
 
 LinePathList::LinePathList()
 {
     m_pathVec.reserve(100);
-    m_change = false;
     m_currentPath=0;
 }
 
@@ -54,7 +55,6 @@ bool LinePathList::nextStep(double& s, double dt, CtrlStruct *cvs)
             {
                 m_currentPath = iter;
                 resS = s - locS;
-                m_change = (*it)->nextStep(resS, dt, cvs);
                 break;
             }
             else
@@ -100,6 +100,17 @@ std::vector<int> LinePathList::getPathId()
     return res;
 }
 
+Path* LinePathList::getCurrentPath(){
+    return m_pathVec.at(m_currentPath);
+}
+
+Segment LinePathList::getCurrentSegment(CtrlStruct *cvs)
+{
+    Path* currentPath = getCurrentPath();
+    SearchGraph* search_graph = cvs->path->searchGraph;
+    return search_graph->toSegment(currentPath->getStartId(), currentPath->getEndId());
+}
+
 
 void LinePathList::smooth(double theta, int id)
 {
@@ -116,7 +127,7 @@ void LinePathList::smooth(double theta, int id)
     if ( fabs(deltaAngle)>EPSILON )
     {
         sign = deltaAngle/fabs(deltaAngle);
-        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign, id);
+        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign,id, id);
         m_pathVec.insert(it1,curvePath);
         it1++;
         it2++;
@@ -133,7 +144,7 @@ void LinePathList::smooth(double theta, int id)
         {
             sign = deltaAngle/fabs(deltaAngle);
 
-            CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign, curLine->getEndId()); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
+            CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign,  curLine->getEndId(), curLine->getEndId()); // WARNING : dynamic allocation, object will be destroyed when deleting the vector
             m_pathVec.insert(it2,curvePath);
             it2++;
         }

@@ -16,7 +16,7 @@ LinePath::LinePath()
 }
 
 
-LinePath::LinePath(Point start, double length, double angle, int endId) : Path(length, endId), m_start(start), m_angle(angle), m_endSpeed(0.)
+LinePath::LinePath(Point start, double length, double angle,int startId, int endId) : Path(length,startId, endId), m_start(start), m_angle(angle), m_endSpeed(0.)
 {
     m_id = "Line";
 }
