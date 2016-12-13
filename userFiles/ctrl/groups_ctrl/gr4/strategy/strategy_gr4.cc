@@ -212,13 +212,14 @@ void main_strategy(CtrlStruct *cvs)
         break;
 
     case BASE_PICKING_STATE:
-<<<<<<< HEAD
         *strat->currentTarget = strat->base->loc;
         reset_path_regulation(cvs);
         if ( pathPlanning(cvs) )
         {
             strat->main_state = RETURN_TO_BASE_STATE;
-        }else{
+        }
+        else
+        {
             reset_path_regulation(cvs);
             strat->wait_t = t;
             strat->main_state = STUCK_STATE_BASE;
