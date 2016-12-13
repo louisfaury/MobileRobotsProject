@@ -33,6 +33,7 @@ void opponents_tower(CtrlStruct *cvs)
 
     nb_opp = opp_pos->nb_opp;
 
+
     // no opponent
     if (!nb_opp)
     {
@@ -84,22 +85,32 @@ void opponents_tower(CtrlStruct *cvs)
     // keeping old values in memory for low pass filter
     double oldX = opp_pos->x[0];
     double oldY = opp_pos->y[0];
+    double oldVX = opp_pos->vx[0];
+    double oldVY = opp_pos->vy[0];
+
 
     //only if we know we are not turning (since bad performance when turining)
     if(fabs(l_wheel_speed-r_wheel_speed) < OpponentsPosition::MAX_WHEELS_DIFFERENCE){
         // performing opponent tower detection and positioning
         if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
         {
-            // low-pass filter for opponent position
 
+            // low-pass filter for opponent position
             opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 100*delta_t, delta_t, UINT64_MAX);
             opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 100*delta_t, delta_t, UINT64_MAX);
+
+            opp_pos->vx[0] = (opp_pos->x[0] - oldX)/delta_t;
+            opp_pos->vy[0] = (opp_pos->y[0] - oldY)/delta_t;
+
+            opp_pos->vx[0] = first_order_filter(oldVX, *opp_pos->vx, 2000*delta_t, delta_t, UINT64_MAX);
+            opp_pos->vy[0] = first_order_filter(oldVY, *opp_pos->vy, 2000*delta_t, delta_t, UINT64_MAX);
+
 
         }
     }
 
-    set_plot(opp_pos->x[0], "Rx1 ");
-    set_plot(opp_pos->y[0], "Ry1 ");
+    set_plot(opp_pos->vx[0], "Rx1 ");
+    set_plot(opp_pos->vy[0], "Ry1 ");
     //set_plot(0.67, "Ix1");
     //set_plot(0., "Iy1");
 
@@ -112,6 +123,8 @@ void opponents_tower(CtrlStruct *cvs)
             {
                 opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 100*delta_t, delta_t, UINT64_MAX);
                 opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 100*delta_t, delta_t, UINT64_MAX);
+                opp_pos->vx[1] = (opp_pos->x[1] - oldX)/delta_t;
+                opp_pos->vy[1] = (opp_pos->y[1] - oldY)/delta_t;
             }
         }
        /*
@@ -123,19 +136,23 @@ void opponents_tower(CtrlStruct *cvs)
     }
 
     //Updating opponents on MapHandler if necessary regarding update frequency
+
     if(fabs(inputs->t-opp_pos->last_map_t)>0.5)
     {
         opp_pos->last_map_t = inputs->t;
         if(inputs->nb_opponents == 1)
         {
             Point opp = Point(cvs->opp_pos->x[0], cvs->opp_pos->y[0]);
-            updateOpponents(cvs, opp, 0);
+            Point speed = Point(cvs->opp_pos->vx[0], cvs->opp_pos->vy[0]);
+            updateOpponents(cvs, opp,  speed,  0);
         }else if(inputs->nb_opponents == 2)
         {
             Point opp = Point(cvs->opp_pos->x[0], cvs->opp_pos->y[0]);
-            updateOpponents(cvs, opp, 0);
+            Point speed = Point(cvs->opp_pos->vx[0], cvs->opp_pos->vy[0]);
+            updateOpponents(cvs, opp,  speed,  0);
             opp = Point(cvs->opp_pos->x[1], cvs->opp_pos->y[1]);
-            updateOpponents(cvs, opp, 1);
+            speed = Point(cvs->opp_pos->vx[1], cvs->opp_pos->vy[1]);
+            updateOpponents(cvs, opp, speed, 1);
         }
     }
 

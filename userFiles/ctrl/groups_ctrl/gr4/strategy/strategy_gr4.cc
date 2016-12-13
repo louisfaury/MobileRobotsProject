@@ -207,7 +207,6 @@ void main_strategy(CtrlStruct *cvs)
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
         {
-            printf("going to base picking\n");
             strat->main_state = BASE_PICKING_STATE;
             reset_reachable_states(strat);
         }

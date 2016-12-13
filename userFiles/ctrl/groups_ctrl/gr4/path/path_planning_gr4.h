@@ -24,7 +24,7 @@ struct PathPlanning
 PathPlanning* init_path_planning();
 void free_path_planning(PathPlanning *path);
 bool pathPlanning(CtrlStruct* cvs);
-void updateOpponents(CtrlStruct* cvs, Point opp, int id);
+void updateOpponents(CtrlStruct* cvs, Point opp, Point speed, int id);
 bool oppOnPath(PathPlanning *path, LinePathList *refPath);
 void smoothPath(CtrlStruct* cvs);
 

@@ -61,6 +61,8 @@ CtrlStruct* init_CtrlStruct(CtrlIn *inputs, CtrlOut *outputs)
 	{
 		cvs->opp_pos->x[i] = 0.0;
 		cvs->opp_pos->y[i] = 0.0;
+        cvs->opp_pos->vx[i] = 0.0;
+        cvs->opp_pos->vy[i] = 0.0;
 	}
 
 	cvs->opp_pos->last_t = 0.0;

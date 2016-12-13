@@ -52,8 +52,8 @@ MapHandler::MapHandler()
 
     //dynamic allocation (in constructor) for opponents
     //Initially set out of the map allows to be number of opponents agnostic in path checking
-    Circle* opp1 = new Circle(Point(-10, -10), 0);
-    Circle* opp2 = new Circle(Point(-10, -10), 0);
+    Rectangle* opp1 = new Rectangle(Point(-10, -10), 0, 0);
+    Rectangle* opp2 = new Rectangle(Point(-10, -10), 0, 0);
     m_opponentsList.push_back(opp1);
     m_opponentsList.push_back(opp2);
 
@@ -82,11 +82,24 @@ bool MapHandler::isOnObstacle(Cell *cell)
 }
 
 
-void MapHandler::updateOpponents(Point rob, Point opp, int index)
+void MapHandler::updateOpponents(Point rob, Point opp, Point speed, int index)
 {
+    double centerX, centerY;
+    double speednorm(sqrt(speed.x()*speed.x()+speed.y()*speed.y()));
+    Point center;
+    double distance(rob.computeDistance(opp));
+    centerX = opp.x() + speed.x()*0.25;
+    centerY = opp.y() + speed.y()*0.25;
+    center = Point(centerX, centerY);
     if(index<2 && index>=0){
-        Circle oppC = Circle(opp, MIN(1.5*RobotGeometry::WHEEL_BASE, 0.8*rob.computeDistance(opp)));
-        *((Circle*)(m_opponentsList.at(index))) = oppC;
+        if (distance>RobotGeometry::WHEEL_BASE)
+        {
+           Rectangle  oppC = Rectangle(center, 1*RobotGeometry::WHEEL_BASE + speednorm*0.5 , 1.5*RobotGeometry::WHEEL_BASE, atan2(speed.x(), speed.y()));
+           *((Rectangle*)(m_opponentsList.at(index))) = oppC;
+        }else{
+           Rectangle  oppC = Rectangle(opp, 0.7*distance, 0.7*distance);
+           *((Rectangle*)(m_opponentsList.at(index))) = oppC;
+        }
     }else{
         printf("Error in opponents position update, unknown opponent index");
     }

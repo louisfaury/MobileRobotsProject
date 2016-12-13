@@ -41,6 +41,7 @@ public:
     double computeDistance(Point p);
     virtual bool computeIntersection(GeometricObject *obj){ return false; }// general inherited function
     virtual void getDescription(char* descriptor);
+    void rotate(Point center, double theta);
 
 protected:
     double m_x;
@@ -88,6 +89,7 @@ class Rectangle : public GeometricObject
 {
 public:
     Rectangle(Point center, double length, double width);
+    Rectangle(Point center, double length, double width, double m_theta);
 
     bool isInside(Point p);
     bool isInside(Segment s);
@@ -107,6 +109,7 @@ protected:
     Point m_center;
     double m_length;
     double m_width;
+    double m_theta;
 };
 
 NAMESPACE_CLOSE();

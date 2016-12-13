@@ -18,6 +18,8 @@ typedef struct OpponentsPosition
 {
 	double x[2]; ///< x position of opponents [m]
 	double y[2]; ///< y position of opponents [m]
+    double vx[2]; ///< x speed of opponents [m]
+    double vy[2]; ///< y speed of opponents [m]
 
 	double last_t; ///< last time the filters were updated [s]
     double last_map_t; ///< last time MapHandler was updates [s]

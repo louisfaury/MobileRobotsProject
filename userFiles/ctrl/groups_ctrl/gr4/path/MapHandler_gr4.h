@@ -29,7 +29,7 @@ public:
      * @brief Returns true if the rectangle spawned by the cell is in collision with an obstacle
      */
     bool isOnObstacle(Cell* cell);
-    void updateOpponents(Point rob, Point opp, int index);
+    void updateOpponents(Point rob, Point opp, Point speed, int index);
     bool isOnOpponent(Cell* cell);
 
     static constexpr double MAP_LENGTH = 2.0;  //m

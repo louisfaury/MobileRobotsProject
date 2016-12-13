@@ -69,7 +69,7 @@ void smoothPath(CtrlStruct *cvs)
     refPath->smooth(robPos->theta, robotPosId);
 }
 
-void updateOpponents(CtrlStruct* cvs, Point opp, int index)
+void updateOpponents(CtrlStruct* cvs, Point opp,  Point speed, int index)
 {
     RobotPosition *rob_pos = cvs->rob_pos;
     PathRegulation *path_reg = cvs->path_reg;
@@ -80,7 +80,7 @@ void updateOpponents(CtrlStruct* cvs, Point opp, int index)
 
     distance = pos.computeDistance(opp);
     //Updating opponents on Map
-    path->searchGraph->updateOpponents(pos, opp, index);
+    path->searchGraph->updateOpponents(pos, opp, speed,  index);
     //We now check if opponent is on our path and close enough to consider it as important
     if(distance < PathPlanning::MIN_DISTANCE_TO_OPPONENT)
     {

@@ -30,6 +30,12 @@ void Point::setCoord(double x, double y)
     m_y=y;
 }
 
+void Point::rotate(Point center, double theta)
+{
+    m_x = cos(theta)*(m_x-center.x()) - sin(theta)*(m_y-center.y()) + center.x();
+    m_y = cos(theta)*(m_y-center.y()) + sin(theta)*(m_x-center.x()) + center.y();
+}
+
 void Point::getDescription(char *descriptor)
 {
     memcpy(descriptor, this, sizeof(Point));
@@ -134,7 +140,7 @@ double Segment::computeDistance(Point p)
     return distance;
 }
 
-Rectangle::Rectangle(Point center, double length, double width) : GeometricObject(), m_center(center), m_length(length), m_width(width)
+Rectangle::Rectangle(Point center, double length, double width) : GeometricObject(), m_center(center), m_length(length), m_width(width), m_theta(0)
 {
     m_tag = "Rct";
 
@@ -166,6 +172,42 @@ Rectangle::Rectangle(Point center, double length, double width) : GeometricObjec
     }
 }
 
+
+Rectangle::Rectangle(Point center, double length, double width, double theta) : GeometricObject(), m_center(center), m_length(length), m_width(width), m_theta(theta)
+{
+    m_tag = "Rct";
+
+    Point x1, x2;
+    for (int i=0; i<4; i++)
+    {
+        switch(i)
+        {
+        case 0 :
+            x1 = Point(center.x() - length/2, center.y() - width/2);
+            x2 = Point(center.x() + length/2, center.y() - width/2);
+            break;
+        case 1 :
+            x1 = Point(center.x() + length/2, center.y() - width/2);
+            x2 = Point(center.x() + length/2, center.y() + width/2);
+            break;
+        case 2 :
+            x1 = Point(center.x() + length/2, center.y() + width/2);
+            x2 = Point(center.x() - length/2, center.y() + width/2);
+            break;
+        case 3 :
+            x1 = Point(center.x() - length/2, center.y() + width/2);
+            x2 = Point(center.x() - length/2, center.y() - width/2);
+            break;
+        default :
+            break;
+        }
+        x1.rotate(center, theta);
+        x2.rotate(center, theta);
+        m_edges[i] = Segment(x1,x2);
+    }
+}
+
+
 void Rectangle::getDescription(char *descriptor)
 {
     memcpy(descriptor, this, sizeof(Rectangle));
@@ -176,7 +218,8 @@ bool Rectangle::isInside(Point p)
 {
     bool res = false;
 
-    if ( ( std::fabs( m_center.x() - p.x()) < m_length/2 + EPSILON ) && ( std::fabs( m_center.y() - p.y()) < m_width/2 + EPSILON ) )
+    if ( ( std::fabs( cos(m_theta)*(m_center.x() - p.x()) - sin(m_theta)*(m_center.y() - p.y())) < m_length/2 + EPSILON )
+         && ( std::fabs(sin(m_theta)*(m_center.x() - p.x()) + cos(m_theta)*(m_center.y() - p.y())) < m_width/2 + EPSILON ) )
         res = true;
 
     return res;

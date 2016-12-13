@@ -39,7 +39,7 @@ public:
 
     virtual void clear();
 
-    virtual void updateOpponents(Point rob, Point opp, int index){ m_mapHandler.updateOpponents(rob, opp, index);}
+    virtual void updateOpponents(Point rob, Point opp, Point speed, int index){ m_mapHandler.updateOpponents(rob, opp, speed, index);}
     virtual bool isOnOpponent(int id);
     virtual Segment toSegment(int id1, int id2);
 
