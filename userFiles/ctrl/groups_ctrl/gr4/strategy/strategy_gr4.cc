@@ -188,7 +188,6 @@ void main_strategy(CtrlStruct *cvs)
 
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
-        printf("target stuck\n");
         speed_regulation(cvs, 0., 0.);
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
