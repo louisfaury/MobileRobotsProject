@@ -31,7 +31,6 @@ public:
     int getId(){return m_id;}
     SearchCell* getPreviousCell(){return m_previousCell;}
     int getHeuristicalScore(){return m_heuristicalScore;}
-    int getScore(){return m_heuristicalScore + m_weight;}
     double getPreviousAngle(){ return m_previousAngle;}
     void setStatus(SearchStatus_t status);
     void setId(int id);
@@ -39,6 +38,16 @@ public:
     void setPreviousCell(SearchCell *previousCell);
     void setHeuristicalScore(int);
     void setPreviousAngle(double angle);
+
+    /**
+     * @brief getScore : computes cell score (heuristical score + weight)
+     * @return : score
+     */
+    int getScore(){return m_heuristicalScore + m_weight;}
+
+    /**
+     * @brief reset : set weight, heuristical score, previous cell, status to default values
+     */
     void reset();
 
 private:
@@ -56,6 +65,13 @@ private:
 //Designed for searchPath Weightqueue
 struct CompareSearchCells
 {
+
+    /**
+     * @brief operator () : comparator definition for A_star algorithm priority queue
+     * @param c1 : pointer to first cell
+     * @param c2 : pointer to second cell
+     * @return : true if first cell score is bigger, false otherwise
+     */
     bool operator()(SearchCell* c1, SearchCell* c2)
     {
         return c1->getScore() > c2->getScore();

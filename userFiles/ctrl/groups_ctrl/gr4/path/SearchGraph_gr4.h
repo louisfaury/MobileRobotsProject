@@ -37,10 +37,32 @@ public:
      */
     virtual bool findCell(Point loc, int& id);
 
+    /**
+     * @brief clear : resets weights, heuristical scores and status of all cells of m_cellMap
+     */
     virtual void clear();
 
+    /**
+     * @brief updateOpponents : modifies opponents position on MapHandler m_mapHandler
+     * @param rob current robot position
+     * @param opp current opponent position
+     * @param index opponent id (0 or 1)
+     */
     virtual void updateOpponents(Point rob, Point opp, int index){ m_mapHandler.updateOpponents(rob, opp, index);}
+
+    /**
+     * @brief isOnOpponent : check if one opponent is present on examined cell
+     * @param id : examined cell id
+     * @return true if opponent is present, 0 otherwise
+     */
     virtual bool isOnOpponent(int id);
+
+    /**
+     * @brief toSegment : returns segment between cells corresponding to id1 and id2
+     * @param id1 : first cell id
+     * @param id2 : second cell id
+     * @return Segment object
+     */
     virtual Segment toSegment(int id1, int id2);
 
     static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
@@ -83,10 +105,28 @@ protected:
      */
     virtual void _addCell(SearchCell* cell);
 
+    /**
+     * @brief _computeWeight computes weight of explored cell during A_star, takes distance travelled from source cell into account and penalizes angle changes
+     * @param pweight previous cell weight
+     * @param dx distance on x axis
+     * @param dy distance on y axis
+     * @param angle angle change, difference of angle between path leading to previous cell and path leading to examined cell
+     * @return computed weight
+     */
     virtual int _computeWeight(int pweight, double dx, double dy, double angle);
 
+    /**
+     * @brief _isOnOpponent : Check if one of the opponents is currently on the cell
+     * @param cell : examined cell
+     * @return true if opponent is on cell
+     */
     virtual bool _isOnOpponent(Cell* cell);
 
+    /**
+     * @brief _getNearestFreeNeighborId : Finds a free neighbor
+     * @param id : examined cell id
+     * @return : neighbor id or original id if no neighbor is free
+     */
     virtual int _getNearestFreeNeighborId(int id);
 
 
