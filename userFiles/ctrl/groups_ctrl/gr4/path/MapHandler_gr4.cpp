@@ -85,7 +85,7 @@ bool MapHandler::isOnObstacle(Cell *cell)
 void MapHandler::updateOpponents(Point rob, Point opp, int index)
 {
     if(index<2 && index>=0){
-        Circle oppC = Circle(opp, MIN(0.9*RobotGeometry::WHEEL_BASE, 0.7*rob.computeDistance(opp)));
+        Circle oppC = Circle(opp, MIN(1.7*RobotGeometry::WHEEL_BASE, 0.7*rob.computeDistance(opp)));
         *((Circle*)(m_opponentsList.at(index))) = oppC;
     }else{
         printf("Error in opponents position update, unknown opponent index");

@@ -86,7 +86,6 @@ void updateOpponents(CtrlStruct* cvs, Point opp, int index)
     {
         if(oppOnPath(path, path_reg->refPath))
         {
-            printf("Opponent on the way :(\n");
             reset_path_regulation(cvs);
             if(strat->main_state == RETURN_TO_BASE_STATE)
             {

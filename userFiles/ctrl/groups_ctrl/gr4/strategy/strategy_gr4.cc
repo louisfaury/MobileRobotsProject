@@ -140,9 +140,11 @@ void main_strategy(CtrlStruct *cvs)
         break;
 
     case TARGET_PICKING_STATE:
-        if(check_reachable_targets(strat)){
-            if (updateBestTarget(cvs))
-            {
+        reset_path_regulation(cvs);
+        if(check_free_targets(strat))
+        {
+            if(check_reachable_targets(strat)){
+                updateBestTarget(cvs);
                 if(pathPlanning(cvs)){
                     strat->main_state = TARGET_HARVESTING_STATE;
                 }
@@ -150,18 +152,15 @@ void main_strategy(CtrlStruct *cvs)
                 {
                     reset_path_regulation(cvs);
                     strat->targets[strat->currentTargetId]->reachable = false;
-                }
+                 }
             }
             else
-            {// no more targets !
-                strat->triggerEndGame = true;
-                strat->main_state = BASE_PICKING_STATE;
+            {
+                strat->wait_t = t;
+                strat->main_state = STUCK_STATE_TARGET;
             }
-        }
-        else
-        {
-            strat->wait_t = t;
-            strat->main_state = STUCK_STATE_TARGET;
+        }else{
+            strat->main_state = BASE_PICKING_STATE;
         }
 
         break;
@@ -189,7 +188,9 @@ void main_strategy(CtrlStruct *cvs)
 
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
+        printf("target stuck\n");
         speed_regulation(cvs, 0., 0.);
+        reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
         {
             reset_reachable_states(strat);
@@ -199,17 +200,26 @@ void main_strategy(CtrlStruct *cvs)
 
     case STUCK_STATE_BASE:
         // speed reg to 0, being cautious
+        printf("base stuck\n");
         speed_regulation(cvs, 0., 0.);
+        reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
+        {
+            printf("going to base picking\n");
             strat->main_state = BASE_PICKING_STATE;
+            reset_reachable_states(strat);
+        }
         break;
 
     case BASE_PICKING_STATE:
+<<<<<<< HEAD
         *strat->currentTarget = strat->base->loc;
+        reset_path_regulation(cvs);
         if ( pathPlanning(cvs) )
         {
             strat->main_state = RETURN_TO_BASE_STATE;
         }else{
+            reset_path_regulation(cvs);
             strat->wait_t = t;
             strat->main_state = STUCK_STATE_BASE;
         }
@@ -230,7 +240,11 @@ void main_strategy(CtrlStruct *cvs)
                     strat->main_state = TARGET_PICKING_STATE;
             }
             else
+            {
+                //We make sure to go elsewhere to make sure we do not get stuck here
+                strat->targets[strat->currentTargetId]->reachable = false;
                 strat->main_state = TARGET_PICKING_STATE;
+            }
         }
         break;
     default:
@@ -247,7 +261,7 @@ bool check_reachable_targets(Strategy* strat)
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
-        if(currentTarget->reachable)
+        if(currentTarget->reachable && currentTarget->free)
         {
             res = true;
             break;
@@ -266,9 +280,26 @@ void reset_reachable_states(Strategy *strat)
     }
 }
 
+bool check_free_targets(Strategy* strat)
+{
+    bool res(false);
+    Target* currentTarget;
+    for (int i=0; i<strat->TARGET_NUMBER; i++)
+    {
+        currentTarget = strat->targets[i];
+        if(currentTarget->free)
+        {
+            res = true;
+            break;
+        }
+    }
+    return res;
+
+}
+
 bool updateBestTarget(CtrlStruct *cvs)
 {
-    bool res(true);
+    bool res(false);
     Strategy* strat = cvs->strat;
     double score(-std::numeric_limits<double>::max()), currentScore(0.);
     Target* currentTarget;
@@ -279,17 +310,18 @@ bool updateBestTarget(CtrlStruct *cvs)
         currentScore = currentTarget->score;
         //printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 
-        if (currentScore>score && currentTarget->reachable)
+        if (currentScore>score)
         {
-            score = currentScore;
-            *strat->currentTarget = currentTarget->pos;
-            strat->currentTargetId = i;
+            //There is at least one free target, even if not reachable
+            res = true;
+            if(currentTarget->reachable)
+            {
+                score = currentScore;
+                *strat->currentTarget = currentTarget->pos;
+                strat->currentTargetId = i;
+            }
         }
     }
-    printf("\n");
-
-    if ( score == -std::numeric_limits<double>::max())
-        res = false; // no more targe to be found
 
     return res;
 }
