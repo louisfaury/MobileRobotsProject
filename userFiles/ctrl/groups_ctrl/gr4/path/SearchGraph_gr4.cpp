@@ -269,6 +269,27 @@ void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *pa
     }
 }
 
+int SearchGraph::_getNearestFreeNeighborId(int id){
+
+    int res(id), neighborId;
+    SearchCell *sCell = m_cellMap[id];
+    SearchCell *neighborSCell;
+    std::vector<Link*> neighborLinks;
+
+    neighborLinks = sCell->getLinks();
+    for (LinkIt l_it = neighborLinks.begin(); l_it != neighborLinks.end(); l_it++)
+    {
+        //Neighboor identification (assuming that a cell is never linked to itself)
+        neighborId = (*l_it)->goalId();
+        neighborSCell = m_cellMap[neighborId];
+        //If there is an obstacle or if it has already been visited we avoid it
+        if( neighborSCell->status() == Cell::OccupancyStatus_t::free && !_isOnOpponent(neighborSCell)){
+            res = neighborId;
+        }
+    }
+    return res;
+}
+
 bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
 {
     bool success(true);
@@ -282,6 +303,11 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
     std::vector<Link*> neighborLinks;
 
     bool bestPath = 0;
+
+    //First we avoid the case where positionning is bad and the robot thinks he is on a wall
+    if(m_cellMap[sourceId]->status() != Cell::OccupancyStatus_t::free ){
+        sourceId = _getNearestFreeNeighborId(sourceId);
+    }
 
     //We begin by exploring the targetCell and by putting its weight to 0
     sCell = m_cellMap[targetId];

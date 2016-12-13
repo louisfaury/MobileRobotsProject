@@ -18,6 +18,7 @@ void opponents_tower(CtrlStruct *cvs)
 
     double delta_t;
     double rise_1, rise_2, fall_1, fall_2;
+    double l_wheel_speed, r_wheel_speed;
 
     CtrlIn *inputs;
     RobotPosition *rob_pos;
@@ -27,6 +28,8 @@ void opponents_tower(CtrlStruct *cvs)
     inputs  = cvs->inputs;
     rob_pos = cvs->rob_pos;
     opp_pos = cvs->opp_pos;
+    l_wheel_speed = inputs->l_wheel_speed;
+    r_wheel_speed = inputs->r_wheel_speed;
 
     nb_opp = opp_pos->nb_opp;
 
@@ -54,7 +57,6 @@ void opponents_tower(CtrlStruct *cvs)
     // rise and fall angles of the first opponent
     rise_1 = inputs->last_rising[rise_index_1];
     fall_1 = inputs->last_falling[fall_index_1];
-
     // rise and fall angles of the second opponent
     if (nb_opp == 2)
     {
@@ -83,16 +85,21 @@ void opponents_tower(CtrlStruct *cvs)
     double oldX = opp_pos->x[0];
     double oldY = opp_pos->y[0];
 
-    // performing opponent tower detection and positioning
-    if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
-    {
-        // low-pass filter for opponent position
-        opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 20*delta_t, delta_t, UINT64_MAX);
-        opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 20*delta_t, delta_t, UINT64_MAX);
+    //only if we know we are not turning (since bad performance when turining)
+    if(fabs(l_wheel_speed-r_wheel_speed) < OpponentsPosition::MAX_WHEELS_DIFFERENCE){
+        // performing opponent tower detection and positioning
+        if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
+        {
+            // low-pass filter for opponent position
+
+            opp_pos->x[0] = first_order_filter(oldX, *opp_pos->x, 100*delta_t, delta_t, UINT64_MAX);
+            opp_pos->y[0] = first_order_filter(oldY, *opp_pos->y, 100*delta_t, delta_t, UINT64_MAX);
+
+        }
     }
 
-    //set_plot(opp_pos->x[0], "Rx1 ");
-    //set_plot(opp_pos->y[0], "Ry1 ");
+    set_plot(opp_pos->x[0], "Rx1 ");
+    set_plot(opp_pos->y[0], "Ry1 ");
     //set_plot(0.67, "Ix1");
     //set_plot(0., "Iy1");
 
@@ -100,11 +107,12 @@ void opponents_tower(CtrlStruct *cvs)
     {
         oldX = opp_pos->x[1];
         oldY = opp_pos->y[1];
-
-        if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
-        {
-            opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 100*delta_t, delta_t, UINT64_MAX);
-            opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 100*delta_t, delta_t, UINT64_MAX);
+        if(fabs(l_wheel_speed-r_wheel_speed) < OpponentsPosition::MAX_WHEELS_DIFFERENCE){
+            if ( single_opp_tower(rise_2, fall_2, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[1]), &(opp_pos->y[1])) )
+            {
+                opp_pos->x[1] = first_order_filter(oldX, opp_pos->x[1], 100*delta_t, delta_t, UINT64_MAX);
+                opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 100*delta_t, delta_t, UINT64_MAX);
+            }
         }
        /*
         set_plot(opp_pos->x[1], "Rx2 ");

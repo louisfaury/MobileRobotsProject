@@ -142,6 +142,7 @@ void main_strategy(CtrlStruct *cvs)
         break;
 
     case TARGET_PICKING_STATE:
+        reset_path_regulation(cvs);
         if(check_reachable_targets(strat)){
             if (updateBestTarget(cvs))
             {
@@ -192,6 +193,7 @@ void main_strategy(CtrlStruct *cvs)
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
         speed_regulation(cvs, 0., 0.);
+        reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
         {
             reset_reachable_states(strat);
@@ -202,16 +204,23 @@ void main_strategy(CtrlStruct *cvs)
     case STUCK_STATE_BASE:
         // speed reg to 0, being cautious
         speed_regulation(cvs, 0., 0.);
+        reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
+        {
+            printf("going to base picking\n");
             strat->main_state = BASE_PICKING_STATE;
+            reset_reachable_states(strat);
+        }
         break;
 
     case BASE_PICKING_STATE:
+        reset_path_regulation(cvs);
         findClosestBase(cvs);
         if ( pathPlanning(cvs) )
         {
             strat->main_state = RETURN_TO_BASE_STATE;
         }else{
+            reset_path_regulation(cvs);
             strat->wait_t = t;
             strat->main_state = STUCK_STATE_BASE;
         }
@@ -232,7 +241,11 @@ void main_strategy(CtrlStruct *cvs)
                     strat->main_state = TARGET_PICKING_STATE;
             }
             else
+            {
+                //We make sure to go elsewhere to make sure we do not get stuck here
+                strat->targets[strat->currentTargetId]->reachable = false;
                 strat->main_state = TARGET_PICKING_STATE;
+            }
         }
         break;
     default:
@@ -288,9 +301,7 @@ bool updateBestTarget(CtrlStruct *cvs)
             strat->currentTargetId = i;
         }
     }
-    printf("\n");
-
-    if ( score == -std::numeric_limits<double>::max())
+    if ( score == -std::numeric_limits<double>::max() && check_reachable_targets(strat))
         res = false; // no more targe to be found
 
     return res;

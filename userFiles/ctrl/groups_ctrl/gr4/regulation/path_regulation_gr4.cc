@@ -48,12 +48,11 @@ void follow_path(CtrlStruct *cvs)
         }
         else
         {
-            printf("out of way\n");
             reset_path_regulation(cvs);
             if(!pathPlanning(cvs))
             {
                 reset_path_regulation(cvs);
-                if(strat->main_state != RETURN_TO_BASE_STATE)
+                if(strat->main_state == RETURN_TO_BASE_STATE)
                 {
                    strat->main_state = BASE_PICKING_STATE;
                 }
@@ -61,6 +60,7 @@ void follow_path(CtrlStruct *cvs)
                     strat->main_state = TARGET_PICKING_STATE;
                 }
             }
+
         }
     }
 }

@@ -87,6 +87,8 @@ protected:
 
     virtual bool _isOnOpponent(Cell* cell);
 
+    virtual int _getNearestFreeNeighborId(int id);
+
 
 
     MapHandler m_mapHandler;

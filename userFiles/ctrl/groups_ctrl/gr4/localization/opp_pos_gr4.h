@@ -25,6 +25,7 @@ typedef struct OpponentsPosition
 	int nb_opp; ///< number of opponents
 
     static constexpr double  MAP_UPDATE_FREQUENCY = 0.3;
+    static constexpr double  MAX_WHEELS_DIFFERENCE = PI/10;
 
 } OpponentsPosition;
 
