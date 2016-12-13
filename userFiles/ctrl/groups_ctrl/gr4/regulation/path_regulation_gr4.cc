@@ -73,7 +73,7 @@ bool check_on_path(CtrlStruct* cvs)
     Point pos = Point(rob_pos->x, rob_pos->y);
     Segment seg = path_ref->getCurrentSegment(cvs);
 
-    if(seg.computeDistance(pos)<0.5*sqrt(2)*SearchGraph::CELL_SIZE)
+    if(seg.computeDistance(pos)<0.7*sqrt(2)*SearchGraph::CELL_SIZE)
     {
         res = true;
     }

@@ -46,6 +46,7 @@ bool reachCheck(CtrlStruct* cvs);
 bool checkTargetStatus(CtrlStruct* cvs);
 void reset_reachable_states(Strategy *strat);
 bool check_reachable_targets(Strategy* strat);
+bool check_free_targets(Strategy* strat);
 
 /*! Target structure */
 struct Target
