@@ -54,7 +54,7 @@ void Target::updateScore(Point robPos, Point oppPos)
  * \param i : id
  * \param p : loc
  */
-Base::Base(int i, Point p) : id(i), loc(p)
+Base::Base(Point p) : loc(p)
 {
 }
 
@@ -77,10 +77,9 @@ Strategy* init_strategy()
     strat->targets[6] = new Target(6, 1, Point(TARGET_G_X, TARGET_G_Y));
     strat->targets[7] = new Target(7, 2, Point(TARGET_H_X, TARGET_H_Y));
 
-    strat->bases[0] = new Base(1, Point(BLUE_T1,BLUE_T2));
-    strat->bases[1] = new Base(2, Point(-BLUE_T1, -BLUE_T2));
+    strat->base = new Base(Point(0.0,0.0));
 
-    strat->currentTarget =  new Point(0.,0.);
+    strat->currentTarget =  new Point(0.0,0.0);
 
     strat->last_t = 0.;
     strat->opp_ctr = 0;
@@ -98,8 +97,7 @@ void free_strategy(Strategy *strat)
     delete(strat->currentTarget);
     for(int i = 0; i < Strategy::TARGET_NUMBER; i++)
         delete(strat->targets[i]);
-    for (int i = 0; i < Strategy::BASE_NUMBER; i++)
-        delete(strat->bases[i]);
+    delete(strat->base);
     free(strat);
 }
 
@@ -119,7 +117,7 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     double t = inputs->t;
 
-    int res;
+    strat->base->loc = ( cvs->team_id == TEAM_A ) ? Point(-BLUE_T1,-BLUE_T2) : Point(-YELLOW_T1,-YELLOW_T2);
 
     switch (strat->main_state)
     {
@@ -207,7 +205,7 @@ void main_strategy(CtrlStruct *cvs)
         break;
 
     case BASE_PICKING_STATE:
-        findClosestBase(cvs);
+        *strat->currentTarget = strat->base->loc;
         if ( pathPlanning(cvs) )
         {
             strat->main_state = RETURN_TO_BASE_STATE;
@@ -294,19 +292,6 @@ bool updateBestTarget(CtrlStruct *cvs)
         res = false; // no more targe to be found
 
     return res;
-}
-
-void findClosestBase(CtrlStruct* cvs)
-{
-    Strategy* strat = cvs->strat;
-
-    double d1, d2;
-
-    Point currentPos(cvs->rob_pos->x,cvs->rob_pos->y);
-    d1 = currentPos.computeDistance((strat->bases[0])->loc);
-    d2 = currentPos.computeDistance(strat->bases[1]->loc);
-
-    *strat->currentTarget = (d1 < d2) ? strat->bases[0]->loc : strat->bases[1]->loc;
 }
 
 bool reachCheck(CtrlStruct *cvs)

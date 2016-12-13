@@ -21,11 +21,10 @@ struct Base;
 typedef struct Strategy
 {
     static constexpr int TARGET_NUMBER  = 8;
-    static constexpr int BASE_NUMBER = 2;
     static constexpr double STUCK_TIME = 1.;
     int main_state; ///< main state of the strategy
     Target* targets[TARGET_NUMBER];
-    Base* bases[BASE_NUMBER];
+    Base* base;
     int currentTargetId; // TODO : find something better
     Point* currentTarget;
     double last_t, wait_t;
@@ -64,9 +63,7 @@ struct Target
 
 struct Base
 {
-    Base(int i, Point p);
-
-    int id;
+    Base(Point p);
     Point loc;
 };
 
