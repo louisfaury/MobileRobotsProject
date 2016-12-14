@@ -26,7 +26,7 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p), 
  * \param robPos : calling robot position
  * \param oppPos : calling robot's opponents position
  */
-void Target::updateScore(Point robPos, Point oppPos, int teamId, int targetNo)
+void Target::updateScore(Point robPos, Point oppPos, int targetNo)
 {
     // trained neural net ?
 
@@ -37,21 +37,16 @@ void Target::updateScore(Point robPos, Point oppPos, int teamId, int targetNo)
     double x5 = targetNo;
     double bias = 0.5;
 
-    double omega11 = 1;
-    double omega21 = -1;
-    double omega12 = -4;
-    double omega22 = -3;
-    double omega32 = 5;
-    double omega42 = 3;
+    double omega11 = -0.9710;
+    double omega21 = -0.3218;
+    double omega12 = -3.1130;
+    double omega22 = -3.1061;
+    double omega32 = 1.6109;
+    double omega42 = 5.2300;
 
     double z1 = sigmoid(omega11*x1 + omega21*x2);
 
-    if (teamId == TEAM_A)
-        score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
-    else
-        score = (free) ? value : -std::numeric_limits<double>::max();
-        //score = (free) ? pos.computeDistance(robPos) : -std::numeric_limits<double>::max();
-        //score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
+    score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
 }
 
 /*!
@@ -319,7 +314,7 @@ bool updateBestTarget(CtrlStruct *cvs)
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
-        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]), cvs->team_id, cvs->inputs->nb_targets);
+        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]), cvs->inputs->nb_targets);
         currentScore = currentTarget->score;
         //printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 
