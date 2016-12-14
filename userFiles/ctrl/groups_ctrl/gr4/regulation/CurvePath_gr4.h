@@ -27,15 +27,20 @@ public:
      * @returns bool if path is completed
      */
     virtual bool nextStep(double& alpha, double dt, CtrlStruct* cvs);
-    virtual void setEndSpeed(double){}
-    virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
+
+    /*! setters !*/
+    virtual void setEndSpeed(double){} //useless here, needed only for inheritance (father is virtual pure)
     virtual double smoothFromEnd(double /*endSpeed*/){ return 0; }
 
+    /*! verbose functions for tests !*/
+    virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
+
+    /*! kinematics constraints !*/
     static constexpr double MAX_ANGULAR_ACC = 2*PI;
     static constexpr double WHEEL_MAX_SPEED = PI/4;
 
 protected:
-    int m_sign; // true if in trigonometric direction
+    int m_sign; // +1 if in trigonometric direction, -1 otherwise
 };
 
 NAMESPACE_CLOSE();

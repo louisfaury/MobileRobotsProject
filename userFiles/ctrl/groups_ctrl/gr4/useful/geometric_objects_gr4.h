@@ -2,6 +2,8 @@
  * @file geometrics_object_gr4.h
  * @author Louis Faury
  * @date 14/11
+ * @brief The GeometricObject class represent a general geometric figure. It is inherited in many daughter classes to represent shapes.
+ *        It implements several features, the most useful one being intersection computation (used in the MapHandler class to detect obstacles on cell)
  */
 
 #ifndef GEOMETRIC_OBJECTS_GR4_H

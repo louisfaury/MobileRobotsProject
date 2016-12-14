@@ -23,7 +23,16 @@ struct PathRegulation
 PathRegulation* init_path_regulation();
 void follow_path(CtrlStruct *cvs);
 void free_path_regulation(PathRegulation*);
+/*!
+ * \brief reset_path_regulation : reset attributes to be able to re-start path regulation
+ * \param cvs : ptr to main ctrl structure
+ */
 void reset_path_regulation(CtrlStruct* cvs);
+/*!
+ * \brief check_on_path : checks if we have not drifted from the path
+ * \param cvs
+ * \return true if we are close enough from the target path
+ */
 bool check_on_path(CtrlStruct* cvs);
 
 NAMESPACE_CLOSE();

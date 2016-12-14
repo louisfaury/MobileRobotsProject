@@ -2,6 +2,7 @@
  * @file Path_gr4.h
  * @author Louis Faury
  * @date 17/11
+ * @brief Virtual pure class representing a path, see daughters classes for further descriptions
  */
 
 #ifndef PATH_GR4_H

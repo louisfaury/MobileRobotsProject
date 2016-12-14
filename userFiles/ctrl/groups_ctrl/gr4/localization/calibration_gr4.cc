@@ -33,10 +33,8 @@ void calibration(CtrlStruct *cvs)
     // variables initialization
     inputs = cvs->inputs;
     calib  = cvs->calib;
-
     rob_pos = cvs->rob_pos;
     kalman_pos = cvs->kalman;
-
     t = inputs->t;
     team_id = cvs->team_id;
 
@@ -216,7 +214,6 @@ void calibration(CtrlStruct *cvs)
     }
 
     case CALIB_ERROR_STATE :
-        //TODO
         calib->flag = CALIB_STATE_F;
         break;
 

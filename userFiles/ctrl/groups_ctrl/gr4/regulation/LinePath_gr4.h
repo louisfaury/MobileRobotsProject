@@ -22,6 +22,7 @@ public:
     LinePath();
     LinePath(Point start, double length, double angle, int startId, int endId);
 
+    /*! getters !*/
     Point   start(){ return m_start; }
     double  angle(){ return m_angle; }
     double  endSpeed(){ return m_endSpeed; }
@@ -37,17 +38,20 @@ public:
      * \return double : startSpeed
      */
     virtual double smoothFromEnd(double endSpeed);
+    /*! setters !*/
     virtual void   setEndSpeed(double endSpeed){ m_endSpeed = endSpeed; }
+    /*! verbose function for test purposes !*/
     virtual void   describe(){ printf("%f,%s,%f\n",m_length, m_id.c_str(), m_endSpeed); }
 
+    /*! kinematics constraints !*/
     static constexpr double MAX_ACC   = 2;
     static constexpr double MAX_DESAC = 2;
     static constexpr double MAX_SPEED = 1;
 
 protected:
-    Point m_start;
-    double m_angle;
-    double m_endSpeed;
+    Point m_start; /// start point for the line
+    double m_angle; /// angle wrt to (0,Ox)
+    double m_endSpeed; /// endSpeed
 
 };
 
