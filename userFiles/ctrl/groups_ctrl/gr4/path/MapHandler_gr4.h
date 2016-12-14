@@ -48,7 +48,7 @@ public:
 
     static const double MAP_LENGTH = 2.0; //m
     static const double MAP_WIDTH  = 3.0; //m
-    static const double MAP_SAFETY = 0.2; //m
+    static const double MAP_SAFETY = 0.22; //m
 
 private:
     GeoObjList m_fixedObstacleList; //List of map walls represented as rectangles

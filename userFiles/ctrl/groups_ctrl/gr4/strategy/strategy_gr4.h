@@ -21,6 +21,7 @@ typedef struct Strategy
 {
     static const int TARGET_NUMBER  = 8;
     static const double STUCK_TIME = 1.;
+    static const double BACKWARD_TIME = 1;
 
     int main_state; ///< main state of the strategy
     Target* targets[TARGET_NUMBER]; ///< list of targets (hardcoded)
@@ -33,7 +34,7 @@ typedef struct Strategy
 } Strategy;
 
 /// 'main_state' states
-enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE, STUCK_STATE_TARGET, STUCK_STATE_BASE
+enum {TARGET_HARVESTING_STATE, TARGET_PICKING_STATE, RETURN_TO_BASE_STATE, BASE_PICKING_STATE, WAIT_STATE, STUCK_STATE_TARGET, STUCK_STATE_BASE, TARGET_WALL_STATE, BASE_WALL_STATE
      };
 
 /**

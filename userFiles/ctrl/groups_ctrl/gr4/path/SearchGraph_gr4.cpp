@@ -371,14 +371,12 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
                 priorityQueue.pop();
             }
             if(sCell->getStatus()!= SearchCell::open_){
-                printf("Error : not able to reach target1\n");
                 success = false;
                 break;
             }
         }
         else
         {
-            printf("Error : not able to reach target\n");
             success = false;
             break;
         }

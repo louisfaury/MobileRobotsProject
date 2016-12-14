@@ -18,6 +18,9 @@ struct PathRegulation
     bool reached;
     double s;
     double last_t;
+    double lost_t;///<last time the robot lost its trajectory
+
+    static const double MIN_LOST_TIME = 2.;
 };
 
 PathRegulation* init_path_regulation();

@@ -238,6 +238,31 @@ void main_strategy(CtrlStruct *cvs)
         }
         break;
 
+    //currently against a wall, we go backwards a bit
+    case BASE_WALL_STATE:
+        speed_regulation(cvs, -2*PI, -PI);
+        reset_path_regulation(cvs);
+        if ( t-strat->wait_t >Strategy::BACKWARD_TIME )
+        {
+            speed_regulation(cvs, 0., 0.);
+            strat->main_state = BASE_PICKING_STATE;
+            reset_reachable_states(strat);
+        }
+        break;
+
+
+    //currently against a wall, we go backwards a bit
+    case TARGET_WALL_STATE:
+        speed_regulation(cvs, -2*PI, -PI);
+        reset_path_regulation(cvs);
+        if ( t-strat->wait_t >Strategy::BACKWARD_TIME )
+        {
+            speed_regulation(cvs, 0., 0.);
+            strat->main_state = TARGET_PICKING_STATE;
+            reset_reachable_states(strat);
+        }
+        break;
+
      //is the base reachable ?
     case BASE_PICKING_STATE:
         *strat->currentTarget = strat->base->loc;

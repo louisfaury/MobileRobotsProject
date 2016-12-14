@@ -14,7 +14,8 @@ PathRegulation *init_path_regulation()
     path_regulation->refPath = new LinePathList();
     path_regulation->reached = false;
     path_regulation->s = 0.;
-    path_regulation->last_t = -1000;
+    path_regulation->last_t = -1000.;
+    path_regulation->lost_t = -1000.;
 
     return path_regulation;
 }
@@ -28,11 +29,11 @@ void follow_path(CtrlStruct *cvs)
     PathRegulation *path_reg = cvs->path_reg;
     LinePathList *refPath = path_reg->refPath;
     Strategy *strat = cvs->strat;
+    double t = cvs->inputs->t;
+
     if(!refPath->isEmpty()){
         if(check_on_path(cvs))
         {// we're close to the target path
-            double t = cvs->inputs->t;
-
             double dt = t-path_reg->last_t;
 
             if (dt<0.1 && dt > EPSILON)
@@ -49,18 +50,30 @@ void follow_path(CtrlStruct *cvs)
         else
         {// we have drifted from the target path
             reset_path_regulation(cvs);
-            printf("Out of way\n");
-            if(!pathPlanning(cvs))
-            {
-                reset_path_regulation(cvs); // reset the path reg and return in strategy to decision making competences
+            //If we were recently out of way, we might be against a wall
+            if(fabs(t-path_reg->lost_t)<PathRegulation::MIN_LOST_TIME){
+                strat->wait_t = t;
                 if(strat->main_state == RETURN_TO_BASE_STATE)
                 {
-                   strat->main_state = BASE_PICKING_STATE;
+                    strat->main_state = BASE_WALL_STATE;
                 }
                 else{
-                    strat->main_state = TARGET_PICKING_STATE;
+                    strat->main_state = TARGET_WALL_STATE;
+                }
+            }else{
+                if(!pathPlanning(cvs))
+                {
+                    reset_path_regulation(cvs); // reset the path reg and return in strategy to decision making competences
+                    if(strat->main_state == RETURN_TO_BASE_STATE)
+                    {
+                        strat->main_state = BASE_PICKING_STATE;
+                    }
+                    else{
+                        strat->main_state = TARGET_PICKING_STATE;
+                    }
                 }
             }
+            path_reg->lost_t = t;
 
         }
     }
@@ -101,6 +114,7 @@ void reset_path_regulation(CtrlStruct *cvs)
     //clearing map
     PathPlanning* path_pl = cvs->path;
     path_pl->searchGraph->clear();
+
 
 }
 
