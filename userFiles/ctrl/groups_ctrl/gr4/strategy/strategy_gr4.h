@@ -51,7 +51,7 @@ bool check_free_targets(Strategy* strat);
 struct Target
 {
     Target(int i, double v, Point p);
-    void updateScore(Point robPos, Point oppPos);
+    void updateScore(Point robPos, Point oppPos, int teamId, int targetNo);
     bool free;
     int id;
     int value;

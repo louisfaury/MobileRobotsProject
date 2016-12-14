@@ -26,14 +26,15 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p), 
  * \param robPos : calling robot position
  * \param oppPos : calling robot's opponents position
  */
-void Target::updateScore(Point robPos, Point oppPos)
+void Target::updateScore(Point robPos, Point oppPos, int teamId, int targetNo)
 {
     // trained neural net ?
 
     double x1 = pos.computeDistance(oppPos);// distToOpp
     double x2 = pos.computeDistance(robPos);// distToRob
-    double x3 = 0.;//dist to closest target
+    double x3 = distanceToClosest;//dist to closest target
     double x4 = value;
+    double x5 = targetNo;
     double bias = 0.5;
 
     double omega11 = 1;
@@ -45,8 +46,12 @@ void Target::updateScore(Point robPos, Point oppPos)
 
     double z1 = sigmoid(omega11*x1 + omega21*x2);
 
-    score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3 + omega42*x4 ) : -std::numeric_limits<double>::max();
-    //score = (free) ? pos.computeDistance(robPos) : std::numeric_limits<double>::max(); // TODO : pimp with neural net wouhou
+    if (teamId == TEAM_A)
+        score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
+    else
+        score = (free) ? value : -std::numeric_limits<double>::max();
+        //score = (free) ? pos.computeDistance(robPos) : -std::numeric_limits<double>::max();
+        //score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
 }
 
 /*!
@@ -76,6 +81,15 @@ Strategy* init_strategy()
     strat->targets[5] = new Target(5, 3, Point(TARGET_F_X, TARGET_F_Y));
     strat->targets[6] = new Target(6, 1, Point(TARGET_G_X, TARGET_G_Y));
     strat->targets[7] = new Target(7, 2, Point(TARGET_H_X, TARGET_H_Y));
+
+    strat->targets[0]->distanceToClosest = (strat->targets[0]->pos).computeDistance(strat->targets[7]->pos);
+    strat->targets[1]->distanceToClosest = (strat->targets[1]->pos).computeDistance(strat->targets[0]->pos);
+    strat->targets[2]->distanceToClosest = (strat->targets[2]->pos).computeDistance(strat->targets[3]->pos);
+    strat->targets[3]->distanceToClosest = (strat->targets[3]->pos).computeDistance(strat->targets[2]->pos);
+    strat->targets[4]->distanceToClosest = (strat->targets[4]->pos).computeDistance(strat->targets[5]->pos);
+    strat->targets[5]->distanceToClosest = (strat->targets[5]->pos).computeDistance(strat->targets[4]->pos);
+    strat->targets[6]->distanceToClosest = (strat->targets[6]->pos).computeDistance(strat->targets[5]->pos);
+    strat->targets[7]->distanceToClosest = (strat->targets[7]->pos).computeDistance(strat->targets[0]->pos);
 
     strat->base = new Base(Point(0.0,0.0));
 
@@ -305,7 +319,7 @@ bool updateBestTarget(CtrlStruct *cvs)
     for (int i=0; i<strat->TARGET_NUMBER; i++)
     {
         currentTarget = strat->targets[i];
-        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]) );
+        currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]), cvs->team_id, cvs->inputs->nb_targets);
         currentScore = currentTarget->score;
         //printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 

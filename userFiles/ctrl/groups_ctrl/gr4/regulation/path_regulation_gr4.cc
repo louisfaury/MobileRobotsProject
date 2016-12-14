@@ -49,6 +49,7 @@ void follow_path(CtrlStruct *cvs)
         else
         {
             reset_path_regulation(cvs);
+            printf("Out of way\n");
             if(!pathPlanning(cvs))
             {
                 reset_path_regulation(cvs);
