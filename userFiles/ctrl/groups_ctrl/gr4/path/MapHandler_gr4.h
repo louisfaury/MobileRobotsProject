@@ -29,7 +29,21 @@ public:
      * @brief Returns true if the rectangle spawned by the cell is in collision with an obstacle
      */
     bool isOnObstacle(Cell* cell);
+
+    /**
+     * @brief updateOpponents Updates opponents position in m_opponentsList, takes into account distance between robot and opponent to adjust opponent representation size on map,
+     * Opponents are represented as circles
+     * @param rob Current robot position
+     * @param opp Current opponent position
+     * @param index Opponent index (0 or 1)
+     */
     void updateOpponents(Point rob, Point opp, int index);
+
+    /**
+     * @brief isOnOpponent Checks if an opponent is present on examined cell
+     * @param cell Examined cell
+     * @return true if an opponent is on the cell, false otherwise
+     */
     bool isOnOpponent(Cell* cell);
 
     static constexpr double MAP_LENGTH = 2.0;  //m
