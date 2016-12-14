@@ -16,7 +16,7 @@ NAMESPACE_INIT(ctrlGr4);
 /// path-planning main structure
 struct PathPlanning
 {
-    SearchGraph* searchGraph;
+    SearchGraph* searchGraph; //searchGraph attribute that stores the list of cells and computes A* path planning
 
     static constexpr double MIN_DISTANCE_TO_OPPONENT = 0.6;
 };

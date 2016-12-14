@@ -131,9 +131,9 @@ protected:
 
 
 
-    MapHandler m_mapHandler;
+    MapHandler m_mapHandler; //contains the all cells
     std::map<int,SearchCell*> m_cellMap; //dynamic graph, easier to handle this way than to store ids in Cells
-    int m_cellCtr;
+    int m_cellCtr; //counter used for map decomposition at initialisation
 
 
 

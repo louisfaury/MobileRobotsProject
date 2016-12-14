@@ -46,13 +46,13 @@ public:
      */
     bool isOnOpponent(Cell* cell);
 
-    static constexpr double MAP_LENGTH = 2.0;  //m
-    static constexpr double MAP_WIDTH  = 3.0;  //m
+    static constexpr double MAP_LENGTH = 2.0; //m
+    static constexpr double MAP_WIDTH  = 3.0; //m
     static constexpr double MAP_SAFETY = 0.2; //m
 
 private:
-    GeoObjList m_fixedObstacleList;
-    GeoObjList m_opponentsList;
+    GeoObjList m_fixedObstacleList; //List of map walls represented as rectangles
+    GeoObjList m_opponentsList; //List of opponents of the map (updated regularly by opp_pos module)
 
 };
 

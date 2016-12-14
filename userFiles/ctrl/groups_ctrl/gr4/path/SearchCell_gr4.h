@@ -26,6 +26,7 @@ public:
     SearchCell(Cell *cell, int id);
 
     // setters and getters
+
     int getWeight(){ return m_weight; }
     SearchStatus_t getStatus(){ return m_status; }
     int getId(){return m_id;}
@@ -54,7 +55,7 @@ private:
 
     int m_id; //Id in searchMap
     int m_weight;//Weight of this cell in the graph search
-    double m_previousAngle;
+    double m_previousAngle; //angle of the path that links m_previousCell to the current object
     SearchStatus_t m_status;//Has this cell already been visited during search (1 = OPEN, 0 = CLOSED)
     int m_heuristicalScore;//Cell heuristical score for a star algorithm
     SearchCell* m_previousCell;//Pointer to the SearchCell that this cells is reached from giving it its minimum weight

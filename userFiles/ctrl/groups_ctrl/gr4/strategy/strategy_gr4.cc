@@ -28,13 +28,12 @@ Target::Target(int i, double v, Point p) : free(true), id(i), value(v), pos(p), 
  */
 void Target::updateScore(Point robPos, Point oppPos, int targetNo)
 {
-    // trained neural net ?
-
+    // trained neural net
     double x1 = pos.computeDistance(oppPos);// distToOpp
     double x2 = pos.computeDistance(robPos);// distToRob
     double x3 = distanceToClosest;//dist to closest target
-    double x4 = value;
-    double x5 = targetNo;
+    double x4 = value; //target value
+    double x5 = targetNo; //number of targets  carried by the robot
     double bias = 0.5;
 
     double omega11 = -0.9710;
@@ -46,6 +45,8 @@ void Target::updateScore(Point robPos, Point oppPos, int targetNo)
 
     double z1 = sigmoid(omega11*x1 + omega21*x2);
 
+
+    //neural net structure
     score = (free) ? ( omega12*(z1-bias) + omega22*x2 + omega32*x3*(1-x5) + omega42*x4 ) : -std::numeric_limits<double>::max();
 }
 
@@ -128,15 +129,21 @@ void main_strategy(CtrlStruct *cvs)
 
     strat->base->loc = ( cvs->team_id == TEAM_A ) ? Point(-BLUE_T1,-BLUE_T2) : Point(-YELLOW_T1,-YELLOW_T2);
 
+
+    //FSM
     switch (strat->main_state)
     {
+
+    //Going to the selected target
     case TARGET_HARVESTING_STATE:
+        //Has it been reached ?
         if (!pathReg->reached)
         {
-
+            //path control loop
             follow_path(cvs);
             if ( !checkTargetStatus(cvs) )
             {
+                //If target is not free anymore we pick another target
                 strat->main_state = TARGET_PICKING_STATE;
             }
         }
@@ -148,32 +155,42 @@ void main_strategy(CtrlStruct *cvs)
         }
         break;
 
+    //choosing best target
     case TARGET_PICKING_STATE:
         reset_path_regulation(cvs);
+        //check if their is an available target
         if(check_free_targets(strat))
         {
+            //check if a target is reachable by the robot (a* can find a path)
             if(check_reachable_targets(strat)){
                 updateBestTarget(cvs);
                 if(pathPlanning(cvs)){
+                    //path computed by a* algorithm
+                    //going to harvesting mode
                     strat->main_state = TARGET_HARVESTING_STATE;
                 }
                 else
                 {
+                    //if not reachable by a*, we set its reachable attribute to false
                     reset_path_regulation(cvs);
                     strat->targets[strat->currentTargetId]->reachable = false;
                  }
             }
             else
             {
+                //No reachable target, robot is stuck, we wait a bit
                 strat->wait_t = t;
                 strat->main_state = STUCK_STATE_TARGET;
             }
         }else{
+            //No more target, end of the game, return to base
+            strat->triggerEndGame = true;
             strat->main_state = BASE_PICKING_STATE;
         }
 
         break;
 
+    //going to base
     case RETURN_TO_BASE_STATE:
         if (!pathReg->reached)
             follow_path(cvs);
@@ -195,20 +212,23 @@ void main_strategy(CtrlStruct *cvs)
         break;
 
 
+    //currently blocked, we wait
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
         speed_regulation(cvs, 0., 0.);
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
         {
+            //we have waited lon enough, all targets are set to reachable
+            //going back to picking mode
             reset_reachable_states(strat);
             strat->main_state = TARGET_PICKING_STATE;
         }
         break;
 
+    //currently blocked, we wait a bit
     case STUCK_STATE_BASE:
         // speed reg to 0, being cautious
-        printf("base stuck\n");
         speed_regulation(cvs, 0., 0.);
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
@@ -218,6 +238,7 @@ void main_strategy(CtrlStruct *cvs)
         }
         break;
 
+     //is the base reachable ?
     case BASE_PICKING_STATE:
         *strat->currentTarget = strat->base->loc;
         reset_path_regulation(cvs);
@@ -233,6 +254,7 @@ void main_strategy(CtrlStruct *cvs)
         }
         break;
 
+    //we are on a target, we wait 1.5s to pick it
     case WAIT_STATE:
         cvs->outputs->flag_release = false;
         //waits for the target to be picked
@@ -260,6 +282,7 @@ void main_strategy(CtrlStruct *cvs)
         exit(EXIT_FAILURE);
     }
 }
+
 
 
 bool check_reachable_targets(Strategy* strat)
@@ -316,7 +339,6 @@ bool updateBestTarget(CtrlStruct *cvs)
         currentTarget = strat->targets[i];
         currentTarget->updateScore( Point(cvs->rob_pos->x,cvs->rob_pos->y), Point(cvs->opp_pos->x[1],cvs->opp_pos->y[1]), cvs->inputs->nb_targets);
         currentScore = currentTarget->score;
-        //printf("(%f,%f)\t (%d,%f)\n", currentTarget->pos.x(), currentTarget->pos.y(),currentTarget->value, currentTarget->score);
 
         if (currentScore>score)
         {
