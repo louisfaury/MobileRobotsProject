@@ -54,7 +54,7 @@ void Target::updateScore(Point robPos, Point oppPos)
  * \param i : id
  * \param p : loc
  */
-Base::Base(int i, Point p) : id(i), loc(p)
+Base::Base(Point p) : loc(p)
 {
 }
 
@@ -77,10 +77,9 @@ Strategy* init_strategy()
     strat->targets[6] = new Target(6, 1, Point(TARGET_G_X, TARGET_G_Y));
     strat->targets[7] = new Target(7, 2, Point(TARGET_H_X, TARGET_H_Y));
 
-    strat->bases[0] = new Base(1, Point(BLUE_T1,BLUE_T2));
-    strat->bases[1] = new Base(2, Point(-BLUE_T1, -BLUE_T2));
+    strat->base = new Base(Point(0.0,0.0));
 
-    strat->currentTarget =  new Point(0.,0.);
+    strat->currentTarget =  new Point(0.0,0.0);
 
     strat->last_t = 0.;
     strat->opp_ctr = 0;
@@ -98,8 +97,7 @@ void free_strategy(Strategy *strat)
     delete(strat->currentTarget);
     for(int i = 0; i < Strategy::TARGET_NUMBER; i++)
         delete(strat->targets[i]);
-    for (int i = 0; i < Strategy::BASE_NUMBER; i++)
-        delete(strat->bases[i]);
+    delete(strat->base);
     free(strat);
 }
 
@@ -119,7 +117,7 @@ void main_strategy(CtrlStruct *cvs)
     inputs = cvs->inputs;
     double t = inputs->t;
 
-    int res;
+    strat->base->loc = ( cvs->team_id == TEAM_A ) ? Point(-BLUE_T1,-BLUE_T2) : Point(-YELLOW_T1,-YELLOW_T2);
 
     switch (strat->main_state)
     {
@@ -190,7 +188,6 @@ void main_strategy(CtrlStruct *cvs)
 
     case STUCK_STATE_TARGET:
         // speed reg to 0, being cautious
-        printf("target stuck\n");
         speed_regulation(cvs, 0., 0.);
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
@@ -207,19 +204,20 @@ void main_strategy(CtrlStruct *cvs)
         reset_path_regulation(cvs);
         if ( t-strat->wait_t >Strategy::STUCK_TIME )
         {
-            printf("going to base picking\n");
             strat->main_state = BASE_PICKING_STATE;
             reset_reachable_states(strat);
         }
         break;
 
     case BASE_PICKING_STATE:
+        *strat->currentTarget = strat->base->loc;
         reset_path_regulation(cvs);
-        findClosestBase(cvs);
         if ( pathPlanning(cvs) )
         {
             strat->main_state = RETURN_TO_BASE_STATE;
-        }else{
+        }
+        else
+        {
             reset_path_regulation(cvs);
             strat->wait_t = t;
             strat->main_state = STUCK_STATE_BASE;
@@ -325,19 +323,6 @@ bool updateBestTarget(CtrlStruct *cvs)
     }
 
     return res;
-}
-
-void findClosestBase(CtrlStruct* cvs)
-{
-    Strategy* strat = cvs->strat;
-
-    double d1, d2;
-
-    Point currentPos(cvs->rob_pos->x,cvs->rob_pos->y);
-    d1 = currentPos.computeDistance((strat->bases[0])->loc);
-    d2 = currentPos.computeDistance(strat->bases[1]->loc);
-
-    *strat->currentTarget = (d1 < d2) ? strat->bases[0]->loc : strat->bases[1]->loc;
 }
 
 bool reachCheck(CtrlStruct *cvs)
