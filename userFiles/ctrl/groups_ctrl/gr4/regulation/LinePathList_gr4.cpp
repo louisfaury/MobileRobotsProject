@@ -85,10 +85,6 @@ void LinePathList::clear()
     m_currentPath=0;
 }
 
-void LinePathList::reverse()
-{
-    std::reverse(m_pathVec.begin(),m_pathVec.end());
-}
 
 std::vector<int> LinePathList::getPathId()
 {
@@ -101,13 +97,9 @@ std::vector<int> LinePathList::getPathId()
     return res;
 }
 
-Path* LinePathList::getCurrentPath(){
-    return m_pathVec.at(m_currentPath);
-}
-
 Segment LinePathList::getCurrentSegment(CtrlStruct *cvs)
 {
-    Path* currentPath = getCurrentPath();
+    Path* currentPath = m_pathVec.at(m_currentPath);
     SearchGraph* search_graph = cvs->path->searchGraph;
     return search_graph->toSegment(currentPath->getStartId(), currentPath->getEndId());
 }
@@ -128,7 +120,7 @@ void LinePathList::smooth(double theta, int id)
     if ( fabs(deltaAngle)>EPSILON )
     {
         sign = deltaAngle/fabs(deltaAngle);
-        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign,id, id);
+        CurvePath* curvePath = new CurvePath(fabs(deltaAngle), sign, id, id);
         m_pathVec.insert(it1,curvePath);
         it1++;
         it2++;
@@ -157,7 +149,7 @@ void LinePathList::smooth(double theta, int id)
     }
 
 
-    // speed smoothing
+    // speed smoothing from the end !
     double endSpeed = 0.;
     for (PathVectRit rit = m_pathVec.rbegin(); rit != m_pathVec.rend(); rit++)
     {

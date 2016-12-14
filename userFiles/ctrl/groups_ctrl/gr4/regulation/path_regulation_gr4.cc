@@ -30,7 +30,7 @@ void follow_path(CtrlStruct *cvs)
     Strategy *strat = cvs->strat;
     if(!refPath->isEmpty()){
         if(check_on_path(cvs))
-        {
+        {// we're close to the target path
             double t = cvs->inputs->t;
 
             double dt = t-path_reg->last_t;
@@ -39,20 +39,20 @@ void follow_path(CtrlStruct *cvs)
             {
                 if ( !path_reg->reached )
                 {
-                    path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs);
+                    path_reg->reached = refPath->nextStep(path_reg->s, dt, cvs); // calls for next step on the path list
                 }
                 else
-                    speed_regulation(cvs,0.,0.);
+                    speed_regulation(cvs,0.,0.); // we reached final destination, sets speed to 0
             }
             path_reg->last_t=t;
         }
         else
-        {
+        {// we have drifted from the target path
             reset_path_regulation(cvs);
             printf("Out of way\n");
             if(!pathPlanning(cvs))
             {
-                reset_path_regulation(cvs);
+                reset_path_regulation(cvs); // reset the path reg and return in strategy to decision making competences
                 if(strat->main_state == RETURN_TO_BASE_STATE)
                 {
                    strat->main_state = BASE_PICKING_STATE;

@@ -27,7 +27,7 @@ bool CurvePath::nextStep(double& alpha, double dt, CtrlStruct *cvs)
 
     double deltaAcc;
 
-    // speed profile, obtain to reach curve that arrive at objective with 0 angular speed at max angular desacc.
+    // speed profile, obtain to reach curve that arrive at objective with 0 angular speed at max angular desacc. ( v(t+dt) = vref(s(t+dt)) )
     deltaAcc = 1/(2*dt)*(-maxDeltaAcc*dt -2*deltaSpeed + sqrt( std::max(0.,maxDeltaAcc*maxDeltaAcc*dt*dt + 8*maxDeltaAcc*RobotGeometry::WHEEL_BASE*(m_length-alpha)
                                                                         -4*deltaSpeed*maxDeltaAcc*dt)) );
 

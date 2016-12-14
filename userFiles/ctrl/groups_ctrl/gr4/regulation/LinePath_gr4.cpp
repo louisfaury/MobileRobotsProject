@@ -62,7 +62,7 @@ bool LinePath::nextStep(double &s, double dt, CtrlStruct *cvs)
 double LinePath::smoothFromEnd(double endSpeed)
 {
     double startSpeed;
-    startSpeed = sqrt( endSpeed*endSpeed + 2*MAX_DESAC*m_length);
+    startSpeed = sqrt( endSpeed*endSpeed + 2*MAX_DESAC*m_length); // maximum reachable start speed to reach endSpeed with full decceleration
     startSpeed = std::min( MAX_SPEED,startSpeed);
     return startSpeed;
 }

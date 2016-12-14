@@ -29,8 +29,16 @@ double norm_dist(double dx, double dy);
 double limit_range(double x, double min, double max);
 double limit_angle(double x);
 double first_order_filter(double last_val, double new_val, double tau, double delta_t, double threshold);
+/*!
+ * \brief sigmoid function for neural net
+ * \param x : double value
+ * \return 1 / ( 1 +exp(-x) )
+ */
 double sigmoid(double x);
 
+/*!
+ * \brief The covMatrix3D struct represents a 3d covariance matrix (symetric hence only n*(n+1)/2 = 6 coeffs)
+ */
 struct covMatrix3D
 {
     double xx = {0};

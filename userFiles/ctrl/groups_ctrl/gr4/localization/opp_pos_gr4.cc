@@ -85,7 +85,7 @@ void opponents_tower(CtrlStruct *cvs)
     double oldX = opp_pos->x[0];
     double oldY = opp_pos->y[0];
 
-    //only if we know we are not turning (since bad performance when turining)
+    //only if we know we are not turning (since bad performance when turning)
     if(fabs(l_wheel_speed-r_wheel_speed) < OpponentsPosition::MAX_WHEELS_DIFFERENCE){
         // performing opponent tower detection and positioning
         if ( single_opp_tower(rise_1, fall_1, rob_pos->x, rob_pos->y, rob_pos->theta, &(opp_pos->x[0]), &(opp_pos->y[0])) )
@@ -98,8 +98,9 @@ void opponents_tower(CtrlStruct *cvs)
         }
     }
 
-    set_plot(opp_pos->x[0], "Rx1 ");
-    set_plot(opp_pos->y[0], "Ry1 ");
+    // useful plots
+    //set_plot(opp_pos->x[0], "Rx1 ");
+    //set_plot(opp_pos->y[0], "Ry1 ");
     //set_plot(0.67, "Ix1");
     //set_plot(0., "Iy1");
 
@@ -114,6 +115,7 @@ void opponents_tower(CtrlStruct *cvs)
                 opp_pos->y[1] = first_order_filter(oldY, opp_pos->y[1], 100*delta_t, delta_t, UINT64_MAX);
             }
         }
+
        /*
         set_plot(opp_pos->x[1], "Rx2 ");
         set_plot(opp_pos->y[1], "Ry2 ");
@@ -122,7 +124,7 @@ void opponents_tower(CtrlStruct *cvs)
         */
     }
 
-    //Updating opponents on MapHandler if necessary regarding update frequency
+    //Updating opponents on MapHandler if necessary regarding update frequency (2Hz)
     if(fabs(inputs->t-opp_pos->last_map_t)>0.5)
     {
         opp_pos->last_map_t = inputs->t;
