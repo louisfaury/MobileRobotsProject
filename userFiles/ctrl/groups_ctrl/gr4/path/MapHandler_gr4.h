@@ -18,8 +18,8 @@ NAMESPACE_INIT(ctrlGr4);
 class MapHandler
 {
 public:
-    using GeoObjList   = std::vector<GeometricObject*>;
-    using GeoObjListIt = GeoObjList::iterator;
+    typedef std::vector<GeometricObject*> GeoObjList;
+    typedef GeoObjList::iterator GeoObjListIt;
 
     MapHandler();
     ~MapHandler();
@@ -46,9 +46,9 @@ public:
      */
     bool isOnOpponent(Cell* cell);
 
-    static constexpr double MAP_LENGTH = 2.0; //m
-    static constexpr double MAP_WIDTH  = 3.0; //m
-    static constexpr double MAP_SAFETY = 0.2; //m
+    static const double MAP_LENGTH = 2.0; //m
+    static const double MAP_WIDTH  = 3.0; //m
+    static const double MAP_SAFETY = 0.2; //m
 
 private:
     GeoObjList m_fixedObstacleList; //List of map walls represented as rectangles

@@ -615,8 +615,6 @@ CtrlStruct_gr4.h
 ../userFiles/ctrl/groups_ctrl/gr4/strategy/CtrlStruct_gr4.h
 geometric_objects_gr4.h
 ../userFiles/ctrl/groups_ctrl/gr4/strategy/geometric_objects_gr4.h
-array
-../userFiles/ctrl/groups_ctrl/gr4/strategy/array
 
 ../userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.h
 namespace_ctrl.h
@@ -2329,8 +2327,6 @@ CtrlStruct_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/strategy/CtrlStruct_gr4.h
 geometric_objects_gr4.h
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/strategy/geometric_objects_gr4.h
-array
-/home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/strategy/array
 
 /home/louis/Documents/Robotics/MobileRobotsProject/userFiles/ctrl/groups_ctrl/gr4/useful/geometric_objects_gr4.cpp
 geometric_objects_gr4.h

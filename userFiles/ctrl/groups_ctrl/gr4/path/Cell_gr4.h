@@ -8,19 +8,19 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
-using LinkList = std::vector<Link*>;
-using LinkListIt = LinkList::iterator;
+typedef std::vector<Link*> LinkList;
+typedef LinkList::iterator LinkListIt;
 
 class Cell
 {
 public:
-    enum class OccupancyStatus_t
+    enum OccupancyStatus_t
     {
         free = 0,
         occupied
     };
 
-    using LinkIt = std::vector<Link*>::iterator;
+    typedef std::vector<Link*>::iterator LinkIt;
 
     Cell();
     ~Cell();
@@ -31,8 +31,8 @@ public:
     virtual double              y(){ return m_y; }
     virtual double              size(){ return m_size; }
     virtual OccupancyStatus_t   status(){ return m_status; }
-    virtual void                setFree(){ m_status = OccupancyStatus_t::free; }
-    virtual void                setOccupied(){ m_status = OccupancyStatus_t::occupied; }
+    virtual void                setFree(){ m_status = free; }
+    virtual void                setOccupied(){ m_status = occupied; }
     virtual std::vector<Link*>  getLinks(){return m_linkVector;}
     virtual Link*               getLink(int endNodeId);
 

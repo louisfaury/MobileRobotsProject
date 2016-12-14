@@ -98,7 +98,7 @@ void opponents_tower(CtrlStruct *cvs)
         }
     }
 
-    // useful plots
+    // useful   ts
     //set_plot(opp_pos->x[0], "Rx1 ");
     //set_plot(opp_pos->y[0], "Ry1 ");
     //set_plot(0.67, "Ix1");
@@ -125,7 +125,7 @@ void opponents_tower(CtrlStruct *cvs)
     }
 
     //Updating opponents on MapHandler if necessary regarding update frequency (2Hz)
-    if(fabs(inputs->t-opp_pos->last_map_t)>0.5)
+    if(fabs(inputs->t-opp_pos->last_map_t)>OpponentsPosition::MAP_UPDATE_FREQUENCY)
     {
         opp_pos->last_map_t = inputs->t;
         if(inputs->nb_opponents == 1)

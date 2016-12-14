@@ -19,7 +19,7 @@ typedef struct RobotCalibration
 
 	int flag; ///< flag for calibration
 
-    static constexpr double BOX_WIDTH = 0.5;
+    static const double BOX_WIDTH = 0.5;
 
 } RobotCalibration;
 

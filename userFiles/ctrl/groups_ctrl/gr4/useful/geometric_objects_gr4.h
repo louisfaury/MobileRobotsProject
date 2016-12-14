@@ -26,7 +26,7 @@ public:
                                             // for milestone presentation
     virtual std::string tag(){ return m_tag; }
 
-    static constexpr int DESCRIPTOR_SIZE = 1024; // descriptor size
+    static const int DESCRIPTOR_SIZE = 1024; // descriptor size
 protected:
     std::string m_tag;
 };

@@ -41,12 +41,12 @@ double sigmoid(double x);
  */
 struct covMatrix3D
 {
-    double xx = {0};
-    double xy = {0};
-    double xtheta = {0};
-    double yy = {0};
-    double ytheta = {0};
-    double thetatheta = {0};
+    double xx;
+    double xy;
+    double xtheta;
+    double yy;
+    double ytheta;
+    double thetatheta;
 };
 
 NAMESPACE_CLOSE();

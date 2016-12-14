@@ -62,7 +62,7 @@ bool Segment::computeIntersection(Point p)
     double length = m_p1.computeDistance(m_p2);
 
     // test if in line
-    bool inLine = ( std::fabs( (m_p2.y() - m_p1.y())*(p.x()-m_p1.x()) - (m_p2.x()-m_p1.x())*(p.y()-m_p1.y()) ) < EPSILON );
+    bool inLine = ( fabs( (m_p2.y() - m_p1.y())*(p.x()-m_p1.x()) - (m_p2.x()-m_p1.x())*(p.y()-m_p1.y()) ) < EPSILON );
     if (inLine)
     {//check distances
         if ( m_p1.computeDistance(p)<length)
@@ -86,7 +86,7 @@ bool Segment::computeIntersection(Segment s)
     double dYs( s.p2().y()-s.p1().y());
 
     double pall = dXs*dY - dX*dYs;
-    bool parallel = ( std::fabs( pall ) < EPSILON ); //segments are parallels
+    bool parallel = ( fabs( pall ) < EPSILON ); //segments are parallels
     if (parallel)
     {
         res = ( computeIntersection(s.p1()) || computeIntersection(s.p2() ));
@@ -176,7 +176,7 @@ bool Rectangle::isInside(Point p)
 {
     bool res = false;
 
-    if ( ( std::fabs( m_center.x() - p.x()) < m_length/2 + EPSILON ) && ( std::fabs( m_center.y() - p.y()) < m_width/2 + EPSILON ) )
+    if ( ( fabs( m_center.x() - p.x()) < m_length/2 + EPSILON ) && ( fabs( m_center.y() - p.y()) < m_width/2 + EPSILON ) )
         res = true;
 
     return res;

@@ -24,11 +24,11 @@ typedef struct SpeedRegulation
 
 	double last_t; ///< last time the speed regulation was updated
 
-    static constexpr double PI_PROP_GAIN = 24;
-    static constexpr double PI_INT_CHAR_TIME = 0.2;
-    static constexpr double PI_MAX_INT_ERR = 2;
-    static constexpr double PI_MIN_INT_ERR = -2;
-    static constexpr double PI_OUTPUT_EXTREMUM = 6*PI; //limiting speed to 6PI rad/s
+    static const double PI_PROP_GAIN = 24;
+    static const double PI_INT_CHAR_TIME = 0.2;
+    static const double PI_MAX_INT_ERR = 2;
+    static const double PI_MIN_INT_ERR = -2;
+    static const double PI_OUTPUT_EXTREMUM = 6*PI; //limiting speed to 6PI rad/s
 
 } SpeedRegulation;
 

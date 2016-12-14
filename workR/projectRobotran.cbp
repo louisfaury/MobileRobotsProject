@@ -57,16 +57,6 @@
             <DistClean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 clean" />
          </MakeCommands>
       </Target>
-      <Target title="install/strip">
-         <Option working_dir="/home/louis/Documents/Robotics/MobileRobotsProject/workR" />
-         <Option type="4" />
-         <MakeCommands>
-            <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 install/strip" />
-            <CompileFile command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
-            <Clean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 clean" />
-            <DistClean command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 clean" />
-         </MakeCommands>
-      </Target>
       <Target title="exe_projectRobotran">
          <Option output="/home/louis/Documents/Robotics/MobileRobotsProject/workR/exe_projectRobotran" prefix_auto="0" extension_auto="0" />
          <Option working_dir="/home/louis/Documents/Robotics/MobileRobotsProject/workR" />
@@ -147,15 +137,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/useful" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 exe_projectRobotran" />
@@ -244,15 +226,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userFiles/simu/useful" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/Makefile&quot;  VERBOSE=1 exe_projectRobotran/fast" />
@@ -417,14 +391,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_module" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_numerics/Makefile&quot;  VERBOSE=1 MBsysC_numerics" />
@@ -449,14 +415,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_module" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_numerics/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_numerics/Makefile&quot;  VERBOSE=1 MBsysC_numerics/fast" />
@@ -481,14 +439,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_numerics" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_struct/Makefile&quot;  VERBOSE=1 MBsysC_struct" />
@@ -513,14 +463,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_numerics" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_struct/Makefile&quot;  VERBOSE=1 MBsysC_struct/fast" />
@@ -545,14 +487,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/./auto_output" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_utilities/Makefile&quot;  VERBOSE=1 MBsysC_utilities" />
@@ -577,14 +511,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_utilities/./auto_output" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_utilities/Makefile&quot;  VERBOSE=1 MBsysC_utilities/fast" />
@@ -610,15 +536,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/libxml2" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_load_xml/Makefile&quot;  VERBOSE=1 MBsysC_loadXML" />
@@ -644,15 +562,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_load_xml/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/libxml2" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_load_xml/Makefile&quot;  VERBOSE=1 MBsysC_loadXML/fast" />
@@ -684,17 +594,9 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_realtime/./sdl/auto_plot" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include/linux" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/Makefile&quot;  VERBOSE=1 MBsysC_realtime" />
@@ -726,17 +628,9 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_realtime/./sdl/auto_plot" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include/linux" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/Makefile&quot;  VERBOSE=1 MBsysC_realtime/fast" />
@@ -771,15 +665,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_utilities" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_utilities/auto_output" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/libxml2" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_module/Makefile&quot;  VERBOSE=1 MBsysC_module" />
@@ -814,15 +700,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_struct" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_utilities" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_module/../mbs_utilities/auto_output" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/libxml2" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_module/Makefile&quot;  VERBOSE=1 MBsysC_module/fast" />
@@ -926,15 +804,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 Project_symbolic" />
@@ -1038,15 +908,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/symbolicR/Makefile&quot;  VERBOSE=1 Project_symbolic/fast" />
@@ -1194,15 +1056,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/userfctR" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/userfctR/Makefile&quot;  VERBOSE=1 Project_userfct" />
@@ -1350,15 +1204,7 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/../userfctR" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/conf" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/userfctR" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/userfctR/Makefile&quot;  VERBOSE=1 Project_userfct/fast" />

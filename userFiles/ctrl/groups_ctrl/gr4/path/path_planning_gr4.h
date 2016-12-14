@@ -18,7 +18,7 @@ struct PathPlanning
 {
     SearchGraph* searchGraph; //searchGraph attribute that stores the list of cells and computes A* path planning
 
-    static constexpr double MIN_DISTANCE_TO_OPPONENT = 0.6;
+    static const double MIN_DISTANCE_TO_OPPONENT = 0.6;
 };
 
 PathPlanning* init_path_planning();

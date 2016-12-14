@@ -9,7 +9,6 @@
 
 #include "CtrlStruct_gr4.h"
 #include "geometric_objects_gr4.h"
-#include "array"
 
 NAMESPACE_INIT(ctrlGr4);
 
@@ -20,8 +19,8 @@ struct Base;
 /// strategy main structure
 typedef struct Strategy
 {
-    static constexpr int TARGET_NUMBER  = 8;
-    static constexpr double STUCK_TIME = 1.;
+    static const int TARGET_NUMBER  = 8;
+    static const double STUCK_TIME = 1.;
 
     int main_state; ///< main state of the strategy
     Target* targets[TARGET_NUMBER]; ///< list of targets (hardcoded)

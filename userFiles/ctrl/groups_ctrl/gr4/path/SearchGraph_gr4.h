@@ -11,9 +11,9 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
-using CellIt = std::map<int, Cell*>::iterator;
-using SCellIt = std::map<int, SearchCell*>::iterator;
-using LinkIt = std::vector<Link*>::iterator;
+typedef std::map<int, Cell*>::iterator CellIt;
+typedef std::map<int, SearchCell*>::iterator SCellIt;
+typedef std::vector<Link*>::iterator LinkIt;
 
 class SearchGraph
 {
@@ -65,8 +65,8 @@ public:
      */
     virtual Segment toSegment(int id1, int id2);
 
-    static constexpr double CELL_SIZE = 0.05; // cell size for map discretisation
-    static constexpr int ANGLE_PENALTY = 25;
+    static const double CELL_SIZE = 0.05; // cell size for map discretisation
+    static const int ANGLE_PENALTY = 25;
 
 protected:
     /*!

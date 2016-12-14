@@ -36,8 +36,8 @@ public:
     virtual void describe(){ printf("%f,%s,%d\n",m_length, m_id.c_str(), m_sign); }
 
     /*! kinematics constraints !*/
-    static constexpr double MAX_ANGULAR_ACC = 2*PI;
-    static constexpr double WHEEL_MAX_SPEED = PI/4;
+    static const double MAX_ANGULAR_ACC = 4*PI;
+    static const double WHEEL_MAX_SPEED = PI;
 
 protected:
     int m_sign; // +1 if in trigonometric direction, -1 otherwise

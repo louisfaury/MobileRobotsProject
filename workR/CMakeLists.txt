@@ -17,7 +17,7 @@ project (projectRobotran)
 
 # project configuration
 set( CMAKE_C_FLAGS_RELEASE   "-O3" )
-set( CMAKE_CXX_FLAGS_RELEASE "-O3 -std=c++11" )
+set( CMAKE_CXX_FLAGS_RELEASE "-O3" )
 
 # Variable for storing the path to Robotran common files (should be adapted depending on the location of those source)
 set(TRIAL_PATHS_MBSYSC

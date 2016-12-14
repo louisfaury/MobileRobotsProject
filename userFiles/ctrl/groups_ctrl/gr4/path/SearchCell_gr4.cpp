@@ -4,7 +4,7 @@
 
 NAMESPACE_INIT(ctrlGr4);
 
-SearchCell::SearchCell() : Cell(), m_weight(std::numeric_limits<int>::max()), m_status(SearchStatus_t::new_), m_id(-1), m_heuristicalScore(-1), m_previousAngle(0)
+SearchCell::SearchCell() : Cell(), m_weight(std::numeric_limits<int>::max()), m_status(new_), m_id(-1), m_heuristicalScore(-1), m_previousAngle(0)
 {
 }
 
@@ -12,19 +12,19 @@ SearchCell::~SearchCell()
 {
 }
 
-SearchCell::SearchCell(double x, double y, double size) : Cell(x, y, size), m_weight(std::numeric_limits<int>::max()),m_status(SearchStatus_t::new_), m_id(-1), m_heuristicalScore(-1), m_previousAngle(0)
+SearchCell::SearchCell(double x, double y, double size) : Cell(x, y, size), m_weight(std::numeric_limits<int>::max()),m_status(new_), m_id(-1), m_heuristicalScore(-1), m_previousAngle(0)
 {
 }
 
 
-SearchCell::SearchCell(Cell *cell, int id) : Cell(*cell), m_weight(std::numeric_limits<int>::max()),m_status(SearchStatus_t::new_), m_id(id), m_heuristicalScore(-1), m_previousAngle(0)
+SearchCell::SearchCell(Cell *cell, int id) : Cell(*cell), m_weight(std::numeric_limits<int>::max()),m_status(new_), m_id(id), m_heuristicalScore(-1), m_previousAngle(0)
 {
 }
 
 void SearchCell::reset()
 {
     m_weight = std::numeric_limits<int>::max();
-    m_status = SearchStatus_t::new_;
+    m_status = new_;
     m_heuristicalScore = -1;
     m_previousAngle= 0;
 }

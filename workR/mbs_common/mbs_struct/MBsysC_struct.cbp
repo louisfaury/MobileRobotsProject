@@ -33,14 +33,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_numerics" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_struct/Makefile&quot;  VERBOSE=1 MBsysC_struct" />
@@ -65,14 +57,6 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/." />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_numerics" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_struct/../mbs_utilities" />
-            <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_struct/Makefile&quot;  VERBOSE=1 MBsysC_struct/fast" />

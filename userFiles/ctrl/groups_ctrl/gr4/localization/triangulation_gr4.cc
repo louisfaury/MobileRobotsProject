@@ -223,9 +223,10 @@ void triangulation(CtrlStruct *cvs)
         pos_tri->y = yRes;
         pos_tri->theta = thetaRes;
 
-        /*set_plot(pos_tri->x, "TrianX");
-        set_plot(pos_tri->y, "TrianY");*/
+        //set_plot(pos_tri->x, "TrianX");
+        //set_plot(pos_tri->y, "TrianY");
         //set_plot(pos_tri->theta, "TrianTheta");
+
         // kalman flag rise if there was no absurd peak (discrete way of dealing with it : TODO complete in Kalman with Mahalanobis distance)
         if (norm_dist(pos_tri->x - rob_pos->x, pos_tri->y - rob_pos->y) < 0.4*ConstraintConstant::POS_UPDATE_THRESHOLD)
         {

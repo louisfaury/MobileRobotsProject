@@ -214,7 +214,7 @@ int SearchGraph::_computeWeight(int pweight, double dx, double dy, double angle)
     int penalty = 0;
     if (angle>EPSILON)
         penalty = SearchGraph::ANGLE_PENALTY;
-    return ((int)(pweight + std::sqrt(dx*dx+dy*dy)*100 + penalty));
+    return ((int)(pweight + sqrt(dx*dx+dy*dy)*100 + penalty));
 }
 
 bool SearchGraph::_computeBestDistance(SearchCell *sourceCell, SearchCell *reachedCell)
@@ -247,7 +247,7 @@ void SearchGraph::_computeHeuristicalScore(SearchCell *cell, SearchCell *targetC
     double targetX = targetCell->x();
     double targetY = targetCell->y();
 
-    int score = (int)(std::sqrt((X-targetX)*(X-targetX)+(Y-targetY)*(Y-targetY))*100);
+    int score = (int)(sqrt((X-targetX)*(X-targetX)+(Y-targetY)*(Y-targetY))*100);
     cell->setHeuristicalScore(score);
 
 }
@@ -263,7 +263,7 @@ void SearchGraph::_retrieveBestPath(int sourceId, int targetId, LinePathList *pa
         id = nCell->getId();
         nCell = cCell->getPreviousCell();
         Link* link = cCell->getLink(id);
-        if ( link != nullptr)
+        if ( link != NULL)
             path->addPath(link->line());
         cCell = nCell;
     }
@@ -283,7 +283,7 @@ int SearchGraph::_getNearestFreeNeighborId(int id){
         neighborId = (*l_it)->goalId();
         neighborSCell = m_cellMap[neighborId];
         //If there is an obstacle or if it has already been visited we avoid it
-        if( neighborSCell->status() == Cell::OccupancyStatus_t::free && !_isOnOpponent(neighborSCell)){
+        if( neighborSCell->status() == Cell::free && !_isOnOpponent(neighborSCell)){
             res = neighborId;
         }
     }
@@ -305,7 +305,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
     bool bestPath = 0;
 
     //First we avoid the case where positionning is bad and the robot thinks he is on a wall
-    if(m_cellMap[sourceId]->status() != Cell::OccupancyStatus_t::free ){
+    if(m_cellMap[sourceId]->status() != Cell::free ){
         sourceId = _getNearestFreeNeighborId(sourceId);
     }
 
@@ -324,7 +324,7 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
         id = sCell->getId(); // TODO : compute from exact position
 
         //We mark this cell as already visited = closed so that we will never come back to it
-        sCell->setStatus(SearchCell::SearchStatus_t::closed_);
+        sCell->setStatus(SearchCell::closed_);
 
         //Testing if we have reached the destination
         if(id == sourceId){
@@ -341,17 +341,17 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
             neighborId = (*l_it)->goalId();
             neighborSCell = m_cellMap[neighborId];
             //If there is an obstacle or if it has already been visited we avoid it
-            if( neighborSCell->status() == Cell::OccupancyStatus_t::free  && neighborSCell->getStatus() != SearchCell::SearchStatus_t::closed_
+            if( neighborSCell->status() == Cell::free  && neighborSCell->getStatus() != SearchCell::closed_
                     && !_isOnOpponent(neighborSCell))
             {
                 //We compute distance between cells and update neighborSCell weight if it is it's best distance found so far
                 _computeBestDistance(sCell, neighborSCell);
 
                 //If is has not been seen before, we compute its heuristical score and put it in the priroityqueue
-                if(neighborSCell->getStatus() == SearchCell::SearchStatus_t::new_){
+                if(neighborSCell->getStatus() == SearchCell::new_){
                     _computeHeuristicalScore(neighborSCell, sourceSCell);
                     priorityQueue.push(neighborSCell);
-                    neighborSCell->setStatus(SearchCell::SearchStatus_t::open_);
+                    neighborSCell->setStatus(SearchCell::open_);
                 }
             }
         }
@@ -363,14 +363,14 @@ bool SearchGraph::computePath(LinePathList *path, int sourceId, int targetId)
             //Removing it from the priorityQueue
             priorityQueue.pop();
             //while the popped cells have already been visited coming from a shorter path, we ignore them
-            while(sCell->getStatus()!= SearchCell::SearchStatus_t::open_ && !priorityQueue.empty())
+            while(sCell->getStatus()!= SearchCell::open_ && !priorityQueue.empty())
             {
                 //Getting first priority element
                 sCell =  priorityQueue.top();
                 //Removing it from the priorityQueue
                 priorityQueue.pop();
             }
-            if(sCell->getStatus()!= SearchCell::SearchStatus_t::open_){
+            if(sCell->getStatus()!= SearchCell::open_){
                 printf("Error : not able to reach target1\n");
                 success = false;
                 break;

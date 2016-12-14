@@ -14,20 +14,20 @@ NAMESPACE_INIT(ctrlGr4);
 //geometry
 namespace RobotGeometry
 {
-    static constexpr double WHEEL_BASE     = 0.225;     //m
-    static constexpr double WHEEL_RADIUS   = 0.03;      //m
-    static constexpr double BEACON_RADIUS  = 0.04;      //m
-    static constexpr double TOWER_X        = 0.083;     //m
-    static constexpr double TOWER_Y        = 0.;        //m
-    static constexpr double TOWER_THETA    = 0.;        //rad
-    static constexpr double BACK_TO_CENTER = 0.06;      //m
-    static constexpr double ENC_RES        = 0.0001;   //encoder resolution, rad
-    static constexpr double KS             = 0.07;      //6% linear slip
-    static constexpr double KTHETA         = 0.08;      //5% angular slip
-    static constexpr double OBS_VAR_X      = 0.00005;    // (1cm)² cov. for direct input triangulation
-    static constexpr double OBS_VAR_Y      = 0.00005;    // (1cm)² cov. for direct input triangulation
-    static constexpr double OBS_VAR_THETA  = DEG2RAD(0.5)*DEG2RAD(0.5); // (1°)²  cov for direct input triangulation
-    static constexpr double CHI2_3D_01     = 6.251;     // P(chi2_3D >= 6.251) = 0.10 : decision threshold for Kalman (very low but needed for convergence !) -> removes only unlikely obs.
+    static const double WHEEL_BASE     = 0.225;     //m
+    static const double WHEEL_RADIUS   = 0.03;      //m
+    static const double BEACON_RADIUS  = 0.04;      //m
+    static const double TOWER_X        = 0.083;     //m
+    static const double TOWER_Y        = 0.;        //m
+    static const double TOWER_THETA    = 0.;        //rad
+    static const double BACK_TO_CENTER = 0.06;      //m
+    static const double ENC_RES        = 0.0001;    //encoder resolution, rad
+    static const double KS             = 0.07;      //7% linear slip
+    static const double KTHETA         = 0.08;      //8% angular slip
+    static const double OBS_VAR_X      = 0.00002;   // cov. for direct input triangulation
+    static const double OBS_VAR_Y      = 0.00002;   // cov. for direct input triangulation
+    static const double OBS_VAR_THETA  = DEG2RAD(0.2)*DEG2RAD(0.2); // (0.2°)²  cov for direct input triangulation
+    static const double CHI2_3D_01     = 9.348;     // P(chi2_3D >= 9.348) = 0.025 : decision threshold for Kalman (very low but needed for convergence !) -> removes only unlikely obs.
     /*
      * \brief moveToRef : Moves the point p(x,y) expressed in pRef frame to the frame (pRef,theraRef) where pRef = (xRef, yRef)
      * \param xRef
@@ -47,10 +47,10 @@ namespace RobotGeometry
 
 namespace ConstraintConstant
 {
-    static constexpr double MIN_OPP_DIST    = 0.4;
-    static constexpr double ANG_FRONT_WIDTH = DEG2RAD(20);
-    static constexpr double POS_UPDATE_THRESHOLD = 0.5; //no jumps > 50cm
-    static constexpr double ANG_UPDATE_THRESHOLD = DEG2RAD(20); //no jums >20deg
+    static const double MIN_OPP_DIST    = 0.4;
+    static const double ANG_FRONT_WIDTH = DEG2RAD(20);
+    static const double POS_UPDATE_THRESHOLD = 0.5; //no jumps > 50cm
+    static const double ANG_UPDATE_THRESHOLD = DEG2RAD(20); //no jums >20deg
 }
 NAMESPACE_CLOSE();
 

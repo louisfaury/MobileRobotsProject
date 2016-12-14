@@ -40,17 +40,9 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_realtime/./sdl/auto_plot" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include/linux" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/Makefile&quot;  VERBOSE=1 MBsysC_realtime" />
@@ -82,17 +74,9 @@
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/mbsysCopy/mbs_common/mbs_realtime/./sdl/auto_plot" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime" />
             <Add directory="/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/conf" />
-            <Add directory="/usr/include" />
             <Add directory="/usr/include/SDL2" />
-            <Add directory="/usr/include/c++/5" />
-            <Add directory="/usr/include/c++/5/backward" />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include" />
             <Add directory="/usr/lib/jvm/java-8-openjdk-amd64/include/linux" />
-            <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
             <Build command="/usr/bin/make -f &quot;/home/louis/Documents/Robotics/MobileRobotsProject/workR/mbs_common/mbs_realtime/Makefile&quot;  VERBOSE=1 MBsysC_realtime/fast" />

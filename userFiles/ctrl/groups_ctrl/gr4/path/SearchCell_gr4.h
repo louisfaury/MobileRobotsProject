@@ -13,7 +13,7 @@ class SearchCell : public Cell
 
 public:
 
-    enum class SearchStatus_t
+    enum SearchStatus_t
     {
         new_,
         open_,
