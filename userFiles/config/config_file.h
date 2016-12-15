@@ -9,7 +9,7 @@
 #ifndef _CONFIG_FILE_H_
 #define _CONFIG_FILE_H_
 
-#define HARDCODED_CONFIG ///< uncomment this field to use the hardcoded values instead of the ones of 'config_file.txt'
+//#define HARDCODED_CONFIG ///< uncomment this field to use the hardcoded values instead of the ones of 'config_file.txt'
 
 // ROBOT CONTROLLERS
 #define BLUE_CTRL    "Gr4Ctrl"
